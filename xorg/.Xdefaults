@@ -1,0 +1,41 @@
+    *color0: #111111 
+    *color1: #803232
+    *color2: #3d762f 
+    *color3: #aa9943
+    *color4: #27528e
+    *color5: #706c9a
+    *color6: #5da5a5
+    *color7: #d0d0d0 
+    *color8: #111111 
+    *color9: #c43232 
+    *color10: #5ab23a 
+    *color11: #efef60 
+    *color12: #4388e1 
+    *color13: #a07de7 
+    *color14: #98e1e1 
+    *color15: #ffffff 
+    
+    xterm*faceSize: 11
+    xterm*boldFont: fixed
+    xterm*font: fixed
+
+    xterm*foreground: rgb:ff/ff/ff
+    xterm*background: rgb:11/11/11
+    xterm*color0: rgb:11/11/11 
+    xterm*color1: rgb:80/32/32
+    xterm*color2: rgb:3d/76/2f 
+    xterm*color3: rgb:aa/99/43
+    xterm*color4: rgb:27/52/8e
+    xterm*color5: rgb:70/6c/9a
+    xterm*color6: rgb:5d/a5/a5
+    xterm*color7: rgb:d0/d0/d0 
+    xterm*color8: rgb:11/11/11 
+    xterm*color9: rgb:c43/23/2 
+    xterm*color10: rgb:5a/b2/3a 
+    xterm*color11: rgb:ef/ef/60 
+    xterm*color12: rgb:43/88/e1 
+    xterm*color13: rgb:a0/7d/e7 
+    xterm*color14: rgb:98/e1/e1 
+    xterm*color15: rgb:ff/ff/ff 
+
+    xterm*boldMode: false
