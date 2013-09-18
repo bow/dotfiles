@@ -1,0 +1,47 @@
+[user]
+    name = bow
+    email = bow@bow.web.id
+[core]
+    autocrlf = input
+    safecrlf = warn
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[diff]
+    renames = copies
+    mnemonicprefix = true
+[color]
+    ui = auto
+[alias]
+    # list all alias
+    lsalias = "!git config -l | grep alias | cut -c 7-"
+
+    # basic shortcuts
+    co = checkout
+    ci = commit 
+    cp = cherry-pick
+    st = status
+    br = branch
+    mg = merge
+    sh = stash
+
+    # various commit displays
+    ls = log --graph --pretty=format:'%C(yellow)%h%Creset |%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    dl = "!git ll -1"
+    fl = log -u
+
+    # handy aliases
+    punch = push -f
+
+    # assume / unassume changed
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    # show assumed files
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    # unassume / assume all
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+
+    # old aliases
+    hist = log --pretty=format:\"%C(yellow)%h %Cblue%ad %Creset| %s%d %C(cyan)[%an]%Creset\" --graph --date=short
+    #last = diff-tree --pretty=format:\"%C(blue)%ad %C(yellow)%s %C(cyan)[%an]%Creset\" --date=short --name-status -B -M -C -r
