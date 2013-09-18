@@ -1,0 +1,46 @@
+[ui]
+username = bow <bow@bow.web.id>
+editor = vim
+ignore = ~/.hgignore_global
+ssh = ssh -C
+
+[alias]
+show = log -pr
+hist = log --template '\033[00;33m{node|short} \033[00;34m{date|shortdate}\033[00;37m | {desc|strip|firstline} \033[00;36m[{author|user}]\033[m\n'
+__mystatus = status
+st = !hg __mystatus $($HG root) $HG_ARGS
+
+[extensions]
+hgext.convert =
+hgext.graphlog = 
+hgext.purge =
+hgext.record =
+color =
+fetch =
+histedit =
+pager =
+progress =
+rebase =
+shelve = ~/.hgext/hgshelve.py
+
+[pager]
+pager = LESS='FSRX' less
+ignore = version, help, update, serve, record
+attend = hist, show
+
+[color]
+status.modified = yellow
+status.added = green
+status.removed = red
+status.deleted = magenta
+status.unknown = cyan
+status.ignored = cyan
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = yellow
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
