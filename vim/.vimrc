@@ -15,6 +15,7 @@ set showcmd                     "show entered command
 au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mkn setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
+au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
 autocmd FileType rst setlocal tw=80
