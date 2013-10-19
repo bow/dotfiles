@@ -16,6 +16,7 @@ au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mkn setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
 au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
+au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=1000
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
 autocmd FileType rst setlocal tw=80
