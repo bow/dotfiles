@@ -305,3 +305,9 @@ vimrplugin_term_cmd	r-plugin.txt	/*vimrplugin_term_cmd*
 vimrplugin_tmux	r-plugin.txt	/*vimrplugin_tmux*
 vimrplugin_underscore	r-plugin.txt	/*vimrplugin_underscore*
 vimrplugin_vimpager	r-plugin.txt	/*vimrplugin_vimpager*
+xml-plugin-callbacks	xml-plugin.txt	/*xml-plugin-callbacks*
+xml-plugin-filetypes	xml-plugin.txt	/*xml-plugin-filetypes*
+xml-plugin-html	xml-plugin.txt	/*xml-plugin-html*
+xml-plugin-mappings	xml-plugin.txt	/*xml-plugin-mappings*
+xml-plugin-settings	xml-plugin.txt	/*xml-plugin-settings*
+xml-plugin.txt	xml-plugin.txt	/*xml-plugin.txt*

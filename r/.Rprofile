@@ -48,3 +48,5 @@ peek <- function(obj) {
 bioc <- function() {
     source("http://bioconductor.org/biocLite.R")
 }
+
+message(R.version.string)

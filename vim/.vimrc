@@ -12,11 +12,14 @@ set relativenumber              "show line number
 set showcmd                     "show entered command
 
 "FILETYPE-SPECIFIC
+au BufRead,BufNewFile *.hs setlocal filetype=haskell
+au BufRead,BufNewFile *.rl setlocal filetype=ragel
 au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mkn setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
 au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
 au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=1000
+au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
 autocmd FileType rst setlocal tw=80
@@ -24,6 +27,7 @@ autocmd FileType markdown  setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
 autocmd FileType mako setlocal shiftwidth=2 tabstop=2
@@ -85,6 +89,14 @@ let Tlist_Process_File_Always = 1           "even without taglist window, create
 let Tlist_WinWidth = 40                      "adjust window size
 let Tlist_Show_One_File = 1                 "show tags of only one file
 "let Tlist_Display_Prototype = 1             "display full prototype instead of just function name
+
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll|class|jar|tar.gz|tgz|swp|swo|pyc|pyo)$',
+            \ }
 
 set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
 highlight SpellBad term=reverse ctermbg=5
