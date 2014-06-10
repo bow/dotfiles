@@ -65,8 +65,7 @@ set foldlevel=1
 
 "REMAPS
 nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F4> :TlistToggle<CR>
-nnoremap <F5> :TlistShowPrototype<CR>
+nnoremap <F4> :TagbarToggle<CR>
 
 "PLUGINS
 call pathogen#infect()
@@ -79,18 +78,6 @@ let g:NERDTreeWinSize = 35                          "adjust window size
 let NERDTreeMapPreview = 'n'                        "remap preview key
 let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']      "file types to ignore
 
-"TAGLIST
-" TagList options
-let Tlist_Close_On_Select = 1               "close taglist window once we selected something
-let Tlist_Exit_OnlyWindow = 1               "if taglist window is the only window left, exit vim
-let Tlist_Show_Menu = 1                     "show Tags menu in gvim
-let Tlist_GainFocus_On_ToggleOpen = 1       "automatically switch to taglist window
-let Tlist_Highlight_Tag_On_BufEnter = 1     "highlight current tag in taglist window
-let Tlist_Process_File_Always = 1           "even without taglist window, create tags file, required for displaying tag in statusline
-let Tlist_WinWidth = 40                      "adjust window size
-let Tlist_Show_One_File = 1                 "show tags of only one file
-"let Tlist_Display_Prototype = 1             "display full prototype instead of just function name
-
 "CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -99,7 +86,26 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll|class|jar|tar.gz|tgz|swp|swo|pyc|pyo)$',
             \ }
 
-set statusline=[%n]\ %<%f\ %([%1*%M%*%R%Y]%)\ \ \ [%{Tlist_Get_Tagname_By_Line()}]\ %=%-19(\LINE\ [%l/%L]\ COL\ [%02c%03V]%)\ %P
+"Tagbar
+let g:tagbar_ctags_bin = '/home/warindrarto/local/bin/ctags'
+let g:tagbar_width = 60
+let g:tagbar_show_linenumbers = 1
+let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+\ }
+
 highlight SpellBad term=reverse ctermbg=5
 highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
