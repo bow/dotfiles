@@ -12,6 +12,7 @@ set relativenumber              "show line number
 set showcmd                     "show entered command
 
 "FILETYPE-SPECIFIC
+au BufRead,BufNewFile *.hs setlocal filetype=scala tw=100
 au BufRead,BufNewFile *.hs setlocal filetype=haskell
 au BufRead,BufNewFile *.rl setlocal filetype=ragel
 au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
