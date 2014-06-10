@@ -87,7 +87,6 @@ let g:ctrlp_custom_ignore = {
             \ }
 
 "Tagbar
-let g:tagbar_ctags_bin = '/home/warindrarto/local/bin/ctags'
 let g:tagbar_width = 60
 let g:tagbar_show_linenumbers = 1
 let g:tagbar_type_scala = {
