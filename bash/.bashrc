@@ -6,6 +6,10 @@
 # check if bash is running interactively
 [ -z "$PS1" ] && return
 
+# load own copy of .git-prompt.sh if it exists
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
+fi
 
 ## HISTORY ##
 
