@@ -236,7 +236,6 @@ function get_git_stat {
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWDIRTYSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
-  export GIT_PS1_SHOWUPSTREAM="auto"
   color='\033[01;33m'
   nick=$(__git_ps1 "(%s) ")
   [[ -n "$nick" ]] && printf "${1:-${color}%s\033[m}" "$nick"
