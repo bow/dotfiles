@@ -49,9 +49,12 @@ fi
 
 # set prompt
 #export PS1="\u@\h \[\033[01;34m\]\W\[\033[m\] \$ "
-PS1='$(if [ "$USER" == "$(whoami)" ]; 
-     then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ "; 
-     else echo "\u@\h $(get_vcs_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
+#export PS1='$(if [ "$USER" == "$(whoami)" ]; 
+#            then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ "; 
+#            else echo "\u@\h $(get_vcs_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
+export PS1='$(if [ "$USER" == "$(whoami)" ]; 
+            then echo "\u@\h $(get_git_stat)\[\033[01;34m\]\W\[\033[m\] \$ "; 
+            else echo "\u@\h $(get_git_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -225,6 +228,19 @@ function get_vcs_stat {
     done
     dir="$(dirname "$dir")"
   done
+}
+
+# controls git prompt and its color
+# like get_vcs_stat, but works for git only and uses __git_ps1
+function get_git_stat {
+  export GIT_PS1_SHOWSTASHSTATE=true
+  export GIT_PS1_SHOWDIRTYSTATE=true
+  export GIT_PS1_SHOWUNTRACKEDFILES=true
+  export GIT_PS1_SHOWUPSTREAM="auto"
+  color='\033[01;33m'
+  nick=$(__git_ps1 "(%s) ")
+  [[ -n "$nick" ]] && printf "${1:-${color}%s\033[m}" "$nick"
+  return 0
 }
 
 # nice log for SVN
