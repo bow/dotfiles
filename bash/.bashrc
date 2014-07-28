@@ -11,6 +11,11 @@ if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 fi
 
+# load own copy of .git-completion.bash if it exists
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
+
 ## HISTORY ##
 
 # don't put duplicate lines in the history
