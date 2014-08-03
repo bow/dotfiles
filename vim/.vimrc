@@ -44,8 +44,11 @@ autocmd FileType xhtml, xml so ~/.vim/ftplugin/html_autoclosetag.vim
 set autoindent                  "turns on autoindent
 set expandtab                   "use spaces instead of actual tabs
 set shiftwidth=4                "indenting is 4 spaces
+set shiftround                  "use multiples of shiftwidth
 set cindent                     "turns on cindent
 set tabstop=4                   "tabs are replaced by 4 spaces
+set list                        "show unprintable characters
+set listchars=tab:>.,trail:.,extends:#,nbsp:.   "highlight whitespaces
 
 "SEARCH
 set hlsearch                    "highlight search results
@@ -54,6 +57,7 @@ set ignorecase                  "case insensitive searches
 set smartcase                   "case sensitive if caps are used
 
 "BEHAVIOUR
+set hidden                      "use buffer for unwritten changes
 set backspace=indent,eol,start  "make backspace work like in other text editors
 set encoding=utf-8              "character encoding
 set tw=1000                     "max line length before moving to newline
