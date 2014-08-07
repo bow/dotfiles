@@ -4,7 +4,7 @@
 
 type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
 
-for prog in `ls .`;
+for prog in `find * -maxdepth 0 -type d | tail -n +2`;
 do
-    stow $prog -d `pwd` -t ~
+    stow -d `pwd` -t ~ $prog
 done
