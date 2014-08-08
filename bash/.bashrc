@@ -1,7 +1,5 @@
-# .bashrc               
-#
+# .bashrc
 # (c) 2013 Wibowo Arindrarto  <bow@bow.web.id>
-
 
 # check if bash is running interactively
 [ -z "$PS1" ] && return
@@ -49,6 +47,8 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P7d0d0d0" #lightgrey
     echo -en "\e]PFffffff" #white
 #   clear #for background artifacting
+else
+    export TERM=xterm-256color
 fi
 
 # set .dircolors
@@ -57,12 +57,11 @@ if [ -e /bin/dircolors ]; then
 fi
 
 # set prompt
-#export PS1="\u@\h \[\033[01;34m\]\W\[\033[m\] \$ "
-#export PS1='$(if [ "$USER" == "$(whoami)" ]; 
-#            then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ "; 
+#export PS1='$(if [ "$USER" == "$(whoami)" ];
+#            then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ ";
 #            else echo "\u@\h $(get_vcs_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
-export PS1='$(if [ "$USER" == "$(whoami)" ]; 
-            then echo "\u@\h $(get_git_stat)\[\033[01;34m\]\W\[\033[m\] \$ "; 
+export PS1='$(if [ "$USER" == "$(whoami)" ];
+            then echo "\u@\h $(get_git_stat)\[\033[01;34m\]\W\[\033[m\] \$ ";
             else echo "\u@\h $(get_git_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
 
 # check the window size after each command and, if necessary,
@@ -88,7 +87,7 @@ alias mkdir='mkdir -p'                  # create parents by default
 alias cp='cp -i'                        # interactive by default
 alias mv='mv -i'                        # ditto
 alias rm='rm -i'                        # ditto
-alias reload='source ~/.bashrc'         # reload .bashrc    
+alias reload='source ~/.bashrc'         # reload .bashrc
 alias grest='history | grep'
 alias chmox='chmod +x'
 alias ..='cd ..'
