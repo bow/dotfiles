@@ -1,9 +1,18 @@
+"Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+let vimrplugin_screenplugin = 0
+
 "GO
 set rtp+=$GOROOT/misc/vim
 
 "DISPLAY
-"color ir_black                  "color scheme
-set background=light
+set noshowmode                  "hide default vim status
+set laststatus=2                "always show statusline
+set t_Co=256                    "set color to 256 colors
+colorscheme badwolf             "color scheme
+let g:airline_theme='badwolf'   "vim-airline color scheme
 syntax on                       "turns on color syntax in various programming languages
 filetype indent on              "enable autoindenting for specific filetypes
 filetype plugin on              "enable filetype specific plugins
@@ -72,12 +81,6 @@ set foldlevel=1
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :TagbarToggle<CR>
 
-"PLUGINS
-call pathogen#infect()
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()          
-let vimrplugin_screenplugin = 0
-
 "NERDTREE
 let g:NERDTreeWinSize = 35                          "adjust window size
 let NERDTreeMapPreview = 'n'                        "remap preview key
@@ -124,5 +127,5 @@ endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+au FocusLost * :set number
+au FocusGained * :set relativenumber
