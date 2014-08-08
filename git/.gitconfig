@@ -1,7 +1,7 @@
 [user]
     name = bow
     email = bow@bow.web.id
-	signingkey = 7A10C00C
+    signingkey = 7A10C00C
 [core]
     autocrlf = input
     safecrlf = warn
@@ -26,6 +26,7 @@
     sh = stash
 
     # various commit displays
+    hist = log --pretty=format:\"%C(yellow)%h %Cblue%ad %Creset| %s%d %C(cyan)[%an]%Creset\" --graph --date=short
     ls = log --graph --pretty=format:'%C(yellow)%h%Creset |%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     dl = "!git ll -1"
@@ -33,6 +34,9 @@
 
     # handy aliases
     punch = push -f
+    ec = config --global -e
+    up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    amend = commit -a --amend
 
     # assume / unassume changed
     assume = update-index --assume-unchanged
@@ -42,7 +46,3 @@
     # unassume / assume all
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
     assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-
-    # old aliases
-    hist = log --pretty=format:\"%C(yellow)%h %Cblue%ad %Creset| %s%d %C(cyan)[%an]%Creset\" --graph --date=short
-    #last = diff-tree --pretty=format:\"%C(blue)%ad %C(yellow)%s %C(cyan)[%an]%Creset\" --date=short --name-status -B -M -C -r
