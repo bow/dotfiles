@@ -11,7 +11,7 @@ set rtp+=$GOROOT/misc/vim
 set noshowmode                  "hide default vim status
 set laststatus=2                "always show statusline
 set t_Co=256                    "set color to 256 colors
-colorscheme badwolf             "color scheme
+colorscheme badwolf             "colorscheme
 let g:airline_theme='badwolf'   "vim-airline color scheme
 syntax on                       "turns on color syntax in various programming languages
 filetype indent on              "enable autoindenting for specific filetypes
@@ -19,6 +19,13 @@ filetype plugin on              "enable filetype specific plugins
 filetype on                     "detect file extension
 set relativenumber              "show line number
 set showcmd                     "show entered command
+" airline display settings
+if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
+let g:airline_symbols.branch="⎇ "
+let g:airline_powerline_fonts=1
+set guifont=Inconsolata\ for\ Powerline
 
 "FILETYPE-SPECIFIC
 au BufRead,BufNewFile *.hs setlocal filetype=scala tw=100
