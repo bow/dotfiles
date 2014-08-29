@@ -55,6 +55,7 @@ autocmd FileType cfg setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType scala setlocal shiftwidth=2 tabstop=2
 autocmd FileType xhtml, xml so ~/.vim/ftplugin/html_autoclosetag.vim
+let g:vimrplugin_underscore = 0
 
 "SPACES & INDENTS
 set autoindent                  "turns on autoindent
