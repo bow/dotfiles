@@ -19,6 +19,10 @@ filetype plugin on              "enable filetype specific plugins
 filetype on                     "detect file extension
 set relativenumber              "show line number
 set showcmd                     "show entered command
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 " airline display settings
 if !exists('g:airline_symbols')
       let g:airline_symbols = {}
@@ -28,7 +32,13 @@ let g:airline_powerline_fonts=1
 set guifont=Inconsolata\ for\ Powerline
 
 "FILETYPE-SPECIFIC
-au BufRead,BufNewFile *.hs setlocal filetype=scala tw=100
+au BufRead,BufNewFile *.sam setlocal filetype=sam tw=10000 noexpandtab
+au BufRead,BufNewFile *.bed setlocal filetype=bed tw=10000 noexpandtab
+au BufRead,BufNewFile *.gtf setlocal filetype=gtf tw=10000 noexpandtab
+au BufRead,BufNewFile *.gff setlocal filetype=gff tw=10000 noexpandtab
+au BufRead,BufNewFile *.refFlat setlocal filetype=refFlat tw=10000 noexpandtab
+au BufRead,BufNewFile *.scala setlocal filetype=scala tw=120
+au BufRead,BufNewFile *.sc setlocal filetype=scala tw=120
 au BufRead,BufNewFile *.hs setlocal filetype=haskell
 au BufRead,BufNewFile *.rl setlocal filetype=ragel
 au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
@@ -37,6 +47,7 @@ au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
 au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
 au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=1000
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.rst setlocal tw=120
 au BufNewFile,BufRead Snakefile set syntax=python
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
@@ -44,7 +55,7 @@ autocmd FileType rst setlocal tw=80
 autocmd FileType markdown  setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
+autocmd FileType htmljinja setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType php setlocal shiftwidth=2 tabstop=2
@@ -54,8 +65,9 @@ autocmd FileType c setlocal shiftwidth=2 tabstop=2
 autocmd FileType cfg setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
 autocmd FileType scala setlocal shiftwidth=2 tabstop=2
-autocmd FileType xhtml, xml so ~/.vim/ftplugin/html_autoclosetag.vim
+autocmd FileType xhtml, xml, htmljinja so ~/.vim/ftplugin/html_autoclosetag.vim
 let g:vimrplugin_underscore = 0
+let mapleader = ','
 
 "SPACES & INDENTS
 set autoindent                  "turns on autoindent
