@@ -1,0 +1,10 @@
+vimplugin_base16	https://github.com/chriskempson/base16-vim.git
+vimplugin_ctrlp.vim	https://github.com/kien/ctrlp.vim.git
+vimplugin_fugitive	https://github.com/tpope/vim-fugitive.git
+vimplugin_haskell	https://github.com/raichoo/haskell-vim.git
+vimplugin_jinja	git://github.com/mitsuhiko/vim-jinja.git
+vimplugin_rainbow_parentheses	https://github.com/kien/rainbow_parentheses.vim.git
+vimplugin_sbt	https://github.com/derekwyatt/vim-sbt.git
+vimplugin_tagbar	https://github.com/majutsushi/tagbar.git
+vimplugin_toml	git@github.com:cespare/vim-toml.git
+vimplugin_vim-surround	https://github.com/tpope/vim-surround.git
