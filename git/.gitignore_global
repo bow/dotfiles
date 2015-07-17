@@ -24,6 +24,7 @@ test.py
 
 # Scala #
 target/
+test.sc
 
 # IntelliJ #
 *.iml
