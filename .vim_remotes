@@ -9,3 +9,4 @@ vimplugin_tagbar	https://github.com/majutsushi/tagbar.git
 vimplugin_toml	git@github.com:cespare/vim-toml.git
 vimplugin_vim-surround	https://github.com/tpope/vim-surround.git
 vimplugin_aftercolors	git@github.com:calvinchengx/vim-aftercolors.git
+vimplugin_colorschemes	https://github.com/flazz/vim-colorschemes.git
