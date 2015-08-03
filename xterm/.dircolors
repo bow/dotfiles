@@ -26,6 +26,32 @@ BLK 40;33;01
 CHR 40;33;01
 ORPHAN 40;31;01
 EXEC 01;32
+OTHER_WRITABLE 30;42
+
+# dev
+.c 00;33
+.css 00;33
+.html 00;33
+.java 00;33
+.js 00;33
+.php 00;33
+.pl 00;33
+.py 00;33
+.rs 00;33
+.sh 00;33
+.scala 00;33
+.sh 00;33
+.sql 00;33
+
+# config & others
+.cfg 00;36
+.ini 00;36
+.json 00;36
+.md 00;36
+.rst 00;36
+.toml 00;36
+.xml 00;36
+.yaml 00;36
 
 # images
 .bmp 01;35
@@ -49,22 +75,10 @@ EXEC 01;32
 .wma 01;32
 
 # video
-.avi 01;34
-.flv 01;34
-.mkv 01;34
-.mov 01;34
-.mpg 01;34
-.mpeg 01;34
-.wmv 01;34
-
-# dev
-.c 01;33
-.css 01;33
-.html 01;33
-.js 01;33
-.php 01;33
-.pl 01;33
-.py 01;33
-.pyc 01;33
-.sh 01;33
-.sql 01;33
+.avi 01;32
+.flv 01;32
+.mkv 01;32
+.mov 01;32
+.mpg 01;32
+.mpeg 01;32
+.wmv 01;32
