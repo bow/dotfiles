@@ -13,6 +13,7 @@ example.fa
 *.egg-info
 .coverage
 .tox
+.cache
 htmlcov/
 yeah.py
 test.py
