@@ -49,6 +49,7 @@ au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.rst setlocal tw=120
 au BufNewFile,BufRead Snakefile set syntax=python
+autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
 autocmd FileType rst setlocal tw=80
