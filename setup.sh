@@ -11,5 +11,6 @@ type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
 
 for prog in `find * -maxdepth 0 -type d | tail -n +2`;
 do
-    stow -d `pwd` -t ~ ${prog}
+    echo "Setting up ${prog} ..."
+    stow -d `pwd` -t ~ ${prog} || echo "Error when trying to set up ${prog}."
 done
