@@ -61,8 +61,8 @@ fi
 #            then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ ";
 #            else echo "\u@\h $(get_vcs_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
 export PS1='$(if [ "$USER" == "$(whoami)" ];
-            then echo "\u@\h $(get_git_stat)\[\033[01;34m\]\W\[\033[m\] \$ ";
-            else echo "\u@\h $(get_git_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
+            then echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;34m\]\W\[\e[m\] \$ ";
+            else echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;31m\]\W\[\e[m\] \$ "; fi)'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -245,9 +245,10 @@ function get_git_stat {
   export GIT_PS1_SHOWDIRTYSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="verbose"
-  color='\[\033[01;33m\]'
+  #color='\[\e[1;33m\]'
   nick=$(__git_ps1 "(%s) ")
-  [[ -n "$nick" ]] && printf "${1:-${color}%s\[\033[m\]}" "$nick"
+  #[[ -n "$nick" ]] && printf "${1:-${color}%s\[\e[m\]}" "$nick"
+  [[ -n "$nick" ]] && echo "$nick"
   return 0
 }
 
