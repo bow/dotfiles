@@ -267,7 +267,7 @@ progressbar_look = "=|"
 #
 user_interface = "classic" (classic/alternative)
 #
-media_library_left_column = "A" (possible values: a,y,g,c,p, legend above)
+#media_library_left_column = "A" (possible values: a,y,g,c,p, legend above)
 #
 #default_find_mode = "wrapped" (wrapped/normal)
 #
@@ -400,9 +400,9 @@ ignore_leading_the = "yes"
 ## ncmpcpp's browser screen.
 ##
 #
-allow_physical_files_deletion = "yes"
+#allow_physical_files_deletion = "yes"
 #
-allow_physical_directories_deletion = "yes"
+#allow_physical_directories_deletion = "yes"
 #
 #external_editor = ""
 #
