@@ -37,6 +37,7 @@ OTHER_WRITABLE 30;42
 .php 00;33
 .pl 00;33
 .py 00;33
+.R 00;33
 .rs 00;33
 .sh 00;33
 .scala 00;33
