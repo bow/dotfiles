@@ -96,6 +96,7 @@ alias ....='cd ../../..'
 alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
 alias R='/usr/bin/R --quiet'
+alias xclip='xclip -selection c'        # copy to X clipboard
 
 
 ## FUNCTIONS ##
@@ -261,3 +262,8 @@ function svnll() {
 if [ -f ~/.bash_private ]; then
     source ~/.bash_private
 fi
+
+# rename current guake tab
+function rtab() {
+    guake -r "$1"
+}
