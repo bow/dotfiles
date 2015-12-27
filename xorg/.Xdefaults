@@ -14,7 +14,7 @@
     *color13: #a07de7 
     *color14: #98e1e1 
     *color15: #ffffff 
-    
+
     xterm*faceSize: 11
     xterm*boldFont: fixed
     xterm*font: fixed
