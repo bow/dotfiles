@@ -46,6 +46,8 @@ au BufRead,BufNewFile *.mkn setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
 au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
 au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=1000
+au BufRead,BufNewFile *.js setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=80
+au BufRead,BufNewFile *.jsx setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=80
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.rst setlocal tw=120
 au BufNewFile,BufRead Snakefile set syntax=python
