@@ -6,11 +6,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-
 type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
 
-for prog in `find * -maxdepth 0 -type d | tail -n +2`;
+for prog in `find * -maxdepth 0 -type d | grep -v virtualenvwrapper | grep -v xfce`;
 do
     echo "Setting up ${prog} ..."
-    stow -d `pwd` -t ~ ${prog} || echo "Error when trying to set up ${prog}."
+    stow -t ~ ${prog} || echo "Error when trying to set up ${prog}."
 done
