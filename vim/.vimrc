@@ -94,6 +94,10 @@ set hidden                      "use buffer for unwritten changes
 set backspace=indent,eol,start  "make backspace work like in other text editors
 set encoding=utf-8              "character encoding
 set tw=1000                     "max line length before moving to newline
+set pastetoggle=<F5>            "key for toggling paste mode
+nmap <silent> ,/ :nohlsearch<CR>
+cmap w!! w !sudo tee % >/dev/null
+nnoremap ; :
 
 "FOLDING
 set foldmethod=indent           "fold based on indent
