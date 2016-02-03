@@ -1,8 +1,6 @@
 xsetroot -cursor_name left_ptr
 
-xmodmap -e "remove Lock = Caps_Lock"
-xmodmap -e "keysym Caps_Lock = Escape"
-xmodmap -e "add Caps_Lock = Escape"
+setxkbmap -option "caps:swapescape"
 
 xset +ft /usr/share/fonts/local
 xset fp rehash
