@@ -32,6 +32,7 @@ let g:airline_powerline_fonts=1
 set guifont=Inconsolata\ for\ Powerline
 
 "FILETYPE-SPECIFIC
+au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.sam setlocal filetype=sam tw=10000 noexpandtab
 au BufRead,BufNewFile *.bed setlocal filetype=bed tw=10000 noexpandtab
 au BufRead,BufNewFile *.gtf setlocal filetype=gtf tw=10000 noexpandtab
