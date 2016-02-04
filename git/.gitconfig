@@ -7,6 +7,8 @@
     safecrlf = warn
     editor = vim
     excludesfile = ~/.gitignore_global
+[push]
+    default = simple
 [diff]
     renames = copies
     mnemonicprefix = true
@@ -40,6 +42,7 @@
     punch = push -f
     ec = config --global -e
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    sr = fetch --all --prune
     amend = commit -a --amend
 
     # assume / unassume changed
