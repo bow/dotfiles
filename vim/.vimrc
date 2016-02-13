@@ -31,6 +31,8 @@ let g:airline_symbols.branch="⎇ "
 let g:airline_powerline_fonts=1
 set guifont=Inconsolata\ for\ Powerline
 
+let g:signify_vcs_list = [ 'git' ]
+
 "FILETYPE-SPECIFIC
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.sam setlocal filetype=sam tw=10000 noexpandtab
