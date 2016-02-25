@@ -44,6 +44,7 @@ set guifont=Inconsolata\ for\ Powerline
 let g:signify_vcs_list = [ 'git' ]
 
 "FILETYPE-SPECIFIC
+au BufRead,BufNewFile *.tsv setlocal tw=10000 noexpandtab
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.sam setlocal filetype=sam tw=10000 noexpandtab
 au BufRead,BufNewFile *.bed setlocal filetype=bed tw=10000 noexpandtab
