@@ -179,6 +179,11 @@ function unpack() {
     esac
 }
 
+# check weather from wego
+function wtr() {
+    curl http://wttr.in/$1
+}
+
 # get active branch; for use in PS1
 function git_br {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/$(git_br_dirty)\1|/"
