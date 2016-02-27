@@ -16,6 +16,7 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_ignore_files = ['.*\.sbt$']
 
 "DISPLAY
 set noshowmode                  "hide default vim status
