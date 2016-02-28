@@ -180,8 +180,8 @@ function unpack() {
 }
 
 # check weather from wego
-function wtr() {
-    curl http://wttr.in/$1
+function wttr() {
+    curl http://wttr.in/${1:-}
 }
 
 # get active branch; for use in PS1
