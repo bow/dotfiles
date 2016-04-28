@@ -65,3 +65,5 @@ dist
 testclasses
 .command_tmp
 *.bak
+
+_old

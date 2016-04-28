@@ -63,6 +63,9 @@ fi
 export PS1='$(if [ "$USER" == "$(whoami)" ];
             then echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;34m\]\W\[\e[m\] \$ ";
             else echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;31m\]\W\[\e[m\] \$ "; fi)'
+#export PS1='$(if [ "$USER" == "$(whoami)" ];
+#            then echo "\u@\h \[\e[1;34m\]\W\[\e[m\] \$ ";
+#            else echo "\u@\h \[\e[1;34m\]\W\[\e[m\] \$ "; fi)'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
