@@ -42,8 +42,10 @@
     discard = checkout --
     uncommit = reset --mixed HEAD~
     syncr = fetch --all --prune
-    brstats = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(objectname:short)%(color:reset) %(color:blue)%(committerdate:short)%(color:reset) • %(color:red)(%(refname:short))%(color:reset) %(contents:subject) %(color:cyan)[%(authorname)]%(color:reset)'
+    brstat = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(objectname:short)%(color:reset) %(color:blue)%(committerdate:short)%(color:reset) • %(color:red)(%(refname:short))%(color:reset) %(contents:subject) %(color:cyan)[%(authorname)]%(color:reset)'
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+    linediff = "!f() { git diff --numstat --pretty $1 | awk '{ print $1+$2\"\t\"$0 }' | sort -nrk1,1; }; f"
+    clinediff = "!f() { git diff --numstat --pretty $1 | awk '{ if (!($1 ~ /0/ || $2 ~ /0/ || ($1+$2) ~ /0/)) print $1+$2\"\t\"$0 }' | sort -nrk1,1; }; f"
 
     # assume / unassume changed
     assume = update-index --assume-unchanged
