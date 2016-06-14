@@ -50,6 +50,10 @@ let g:signify_vcs_list = [ 'git' ]
 augroup filetype 
  au! BufNewFile,BufRead circos*conf,ideogram*conf,ticks*conf  set ft=circos ai tw=80 shiftwidth=2 tabstop=2 formatoptions=tcroqn2 comments=n:> 
 augroup END 
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.rules set syntax=snakemake
+au BufNewFile,BufRead *.snakefile set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
 au BufRead,BufNewFile *.tsv setlocal tw=10000 noexpandtab
 au BufRead,BufNewFile *.tex setlocal shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
