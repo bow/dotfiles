@@ -51,6 +51,7 @@ augroup filetype
  au! BufNewFile,BufRead circos*conf,ideogram*conf,ticks*conf  set ft=circos ai tw=80 shiftwidth=2 tabstop=2 formatoptions=tcroqn2 comments=n:> 
 augroup END 
 au BufRead,BufNewFile *.tsv setlocal tw=10000 noexpandtab
+au BufRead,BufNewFile *.tex setlocal shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.sam setlocal filetype=sam tw=10000 noexpandtab
 au BufRead,BufNewFile *.bed setlocal filetype=bed tw=10000 noexpandtab
