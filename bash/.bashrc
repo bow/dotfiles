@@ -118,7 +118,7 @@ function calc() { echo "$*" | bc; }
 
 # passwordless ssh login
 function pwdless() {
-    cat ~/.ssh/id_dsa.pub | ssh $1 'cat >> .ssh/authorized_keys'
+    cat ~/.ssh/id_rsa.pub | ssh $1 'mkdir .ssh && cat >> .ssh/authorized_keys'
 }
 
 # mount iso images
