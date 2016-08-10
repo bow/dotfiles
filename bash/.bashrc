@@ -98,7 +98,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
-alias R='/usr/bin/R --quiet'
 alias xclip='xclip -selection c'        # copy to X clipboard
 
 
