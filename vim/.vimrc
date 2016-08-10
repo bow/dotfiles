@@ -50,10 +50,13 @@ let g:signify_vcs_list = [ 'git' ]
 augroup filetype 
  au! BufNewFile,BufRead circos*conf,ideogram*conf,ticks*conf  set ft=circos ai tw=80 shiftwidth=2 tabstop=2 formatoptions=tcroqn2 comments=n:> 
 augroup END 
+au BufNewFile,BufRead *.lgr set syntax=ledger
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
 au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
+au BufNewFile,BufRead *.skw set syntax=snakemake
+au BufNewFile,BufRead *.skr set syntax=snakemake
 au BufRead,BufNewFile *.tsv setlocal tw=10000 noexpandtab
 au BufRead,BufNewFile *.tex setlocal shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
@@ -70,7 +73,7 @@ au BufRead,BufNewFile *.mkc setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mkn setlocal filetype=make tw=200
 au BufRead,BufNewFile *.mki setlocal filetype=make tw=200
 au BufRead,BufNewFile *.jdl setlocal filetype=jdl tw=200
-au BufRead,BufNewFile *.json setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=1000
+au BufRead,BufNewFile *.json setlocal tabstop=2 shiftwidth=2 tw=1000
 au BufRead,BufNewFile *.js setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=80
 au BufRead,BufNewFile *.jsx setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=80
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
@@ -109,7 +112,7 @@ set list                        "show unprintable characters
 set listchars=tab:>.,trail:.,extends:#,nbsp:.   "highlight whitespaces
 
 "SEARCH
-set hlsearch                    "highlight search results
+set nohlsearch                  "don't highlight search results
 set incsearch                   "show match as search proceeds
 set ignorecase                  "case insensitive searches
 set smartcase                   "case sensitive if caps are used
@@ -120,7 +123,7 @@ set backspace=indent,eol,start  "make backspace work like in other text editors
 set encoding=utf-8              "character encoding
 set tw=1000                     "max line length before moving to newline
 set pastetoggle=<F5>            "key for toggling paste mode
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> ,/ :hlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 
