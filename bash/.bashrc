@@ -76,6 +76,7 @@ export EDITOR="vim"
 
 ## ALIASES ##
 
+alias ccat='pygmentize -g -O style=colorful,linenos=1'
 alias ls='ls -F --color=auto'           # colorize
 alias less='less -SN'                   # no wraps and include line numbers
 alias grep='grep --color=auto'          # colorize
