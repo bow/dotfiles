@@ -35,6 +35,7 @@
     makepatch = log -u
 
     # handy aliases
+    adp = add -p
     ec = config --global -e
     punch = push -f
     amend = commit --amend
