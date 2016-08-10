@@ -7,7 +7,7 @@
 #
 #mpd_port = "6600"
 #
-mpd_music_dir = "/media/Waterloo/Music"
+mpd_music_dir = "/home/bow/music"
 #
 #mpd_connection_timeout = "5"
 #
@@ -58,6 +58,13 @@ mpd_music_dir = "/media/Waterloo/Music"
 ##
 #
 #visualizer_type = "wave" (spectrum/wave)
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "25"
+visualizer_in_stereo = "yes"
+#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
+visualizer_look = "∙▋"
 #
 ##### system encoding #####
 ##
@@ -282,6 +289,7 @@ header_visibility = "no"
 #statusbar_visibility = "yes"
 #
 titles_visibility = "no"
+# allow_for_physical_item_deletion = "yes"
 #
 #header_text_scrolling = "yes"
 #
