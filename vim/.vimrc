@@ -43,6 +43,12 @@ if !exists('g:airline_symbols')
 let g:airline_symbols.branch="⎇ "
 let g:airline_powerline_fonts=1
 set guifont=Inconsolata\ for\ Powerline
+" custom airline function to add total line number
+function! AirlineInit()
+    let spc = g:airline_symbols.space
+    let g:airline_section_z = airline#section#create(['%3p%%'.spc, 'linenr', '/%L', ':%3c '])
+endfunction
+autocmd VimEnter * call AirlineInit()
 
 let g:signify_vcs_list = [ 'git' ]
 
