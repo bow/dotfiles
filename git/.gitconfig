@@ -12,6 +12,7 @@
 [diff]
     renames = copies
     mnemonicprefix = true
+    compactionHeuristic = true
 [color]
     ui = auto
 [alias]
@@ -37,6 +38,8 @@
     # handy aliases
     adp = add -p
     ec = config --global -e
+    difc = diff --cached
+    diffc = diff --cached
     punch = push -f
     amend = commit --amend
     unstage = reset -q HEAD --
