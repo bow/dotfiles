@@ -2,3 +2,6 @@ default_context:
     full_name: "Wibowo Arindrarto"
     email: "bow@bow.web.id"
     github_username: "bow"
+    use_travis: true
+    use_codecov: true
+    license: "BSD 3-Clause"
