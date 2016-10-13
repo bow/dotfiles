@@ -85,6 +85,7 @@ au BufRead,BufNewFile *.jsx setlocal filetype=javascript tabstop=2 shiftwidth=2 
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.rst setlocal tw=120
 au BufRead,BufNewFile *.cwl set syntax=yaml
+au BufRead,BufNewFile *.pyx set syntax=cython filetype=cython tw=80
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
 autocmd FileType py setlocal tw=80
