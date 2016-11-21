@@ -32,6 +32,7 @@ filetype plugin on              "enable filetype specific plugins
 filetype on                     "detect file extension
 set relativenumber              "show line number
 set showcmd                     "show entered command
+set colorcolumn=+1
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -51,6 +52,8 @@ endfunction
 autocmd VimEnter * call AirlineInit()
 
 let g:signify_vcs_list = [ 'git' ]
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 "FILETYPE-SPECIFIC
 augroup filetype 
@@ -134,6 +137,12 @@ nmap <silent> ,/ :hlsearch<CR>
 cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 
+"NAVIGATION
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "FOLDING
 set foldmethod=indent           "fold based on indent
 set foldnestmax=10              "deepest fold is 10 levels
@@ -180,6 +189,7 @@ highlight SpellBad term=reverse ctermbg=5
 highlight MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 "FUNCTIONS
+set number
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
