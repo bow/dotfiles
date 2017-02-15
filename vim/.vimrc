@@ -202,3 +202,6 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 au FocusLost * :set number
 au FocusGained * :set relativenumber
+
+highlight NonText guibg=NONE ctermbg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
