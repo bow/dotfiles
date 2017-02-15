@@ -41,7 +41,7 @@
     difc = diff --cached
     diffc = diff --cached
     punch = push -f
-    amend = commit --amend
+    amend = commit --no-edit --amend
     unstage = reset -q HEAD --
     discard = checkout --
     uncommit = reset --mixed HEAD~
