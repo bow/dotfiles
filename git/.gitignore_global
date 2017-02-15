@@ -14,6 +14,7 @@ example.fa
 .coverage
 .tox
 .cache
+.eggs
 htmlcov/
 yeah.py
 test.py
