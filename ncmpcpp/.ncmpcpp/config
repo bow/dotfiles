@@ -272,7 +272,7 @@ progressbar_look = "=|"
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
-user_interface = "classic" (classic/alternative)
+user_interface = "alternative" (classic/alternative)
 #
 #media_library_left_column = "A" (possible values: a,y,g,c,p, legend above)
 #
@@ -355,7 +355,7 @@ titles_visibility = "no"
 #
 #clock_display_seconds = "no"
 #
-display_volume_level = "no"
+display_volume_level = "yes"
 #
 display_bitrate = "yes"
 #
