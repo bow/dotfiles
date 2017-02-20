@@ -1,3 +1,9 @@
 [submodule "vim/.vim/bundle/colorschemes"]
-	path = vim/.vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
+    path = vim/.vim/bundle/colorschemes
+    url = https://github.com/flazz/vim-colorschemes.git
+[submodule "pyenv/pyenv"]
+    path = pyenv/pyenv
+    url = https://github.com/yyuu/pyenv.git
+[submodule "pyenv/pyenv-virtualenv"]
+    path = pyenv/pyenv-virtualenv
+    url = https://github.com/yyuu/pyenv-virtualenv.git
