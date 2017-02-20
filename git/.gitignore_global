@@ -16,8 +16,8 @@ example.fa
 .cache
 .eggs
 htmlcov/
-yeah.py
-test.py
+# pyenv #
+.python-version
 
 # R #
 *.RData
