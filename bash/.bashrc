@@ -271,6 +271,12 @@ if [ -f ~/.bash_private ]; then
     source ~/.bash_private
 fi
 
+# pyenv config
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # rename current guake tab
 function rtab() {
     guake -r "$1"
