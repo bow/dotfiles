@@ -38,6 +38,7 @@
     # handy aliases
     adp = add -p
     ec = config --global -e
+    stn = status -uno
     difc = diff --cached
     diffc = diff --cached
     punch = push -f
