@@ -154,7 +154,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :TagbarToggle<CR>
 
 "NERDTREE
-let g:NERDTreeWinSize = 35                          "adjust window size
+let g:NERDTreeWinSize = 31                          "adjust window size
 let NERDTreeMapPreview = 'n'                        "remap preview key
 let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']      "file types to ignore
 
