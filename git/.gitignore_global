@@ -12,6 +12,7 @@ example.fa
 *.pyo
 *.egg-info
 .coverage
+.coverage.*
 .tox
 .cache
 .eggs
