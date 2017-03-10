@@ -62,12 +62,13 @@ green='\033[32m'
 red='\033[31m'
 yellow='\033[33m'
 blue='\033[34m'
-purple='\033[35m'
+purplebg='\033[45m'
 cyan='\033[36m'
 function set_prompt {
+    venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name=" \[${purplebg}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
     PS1="\n${nocol}┌─[\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`\A"
-    PS1+="\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] "
-    PS1+="\[${cyan}\]$(get_git_stat)\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
+    PS1+="\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\]${venv_name} "
+    PS1+="\[${cyan}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
 }
 PROMPT_COMMAND=set_prompt
 
