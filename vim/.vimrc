@@ -128,6 +128,8 @@ set ignorecase                  "case insensitive searches
 set smartcase                   "case sensitive if caps are used
 
 "BEHAVIOUR
+set splitbelow
+set splitright
 set hidden                      "use buffer for unwritten changes
 set backspace=indent,eol,start  "make backspace work like in other text editors
 set encoding=utf-8              "character encoding
