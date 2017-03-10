@@ -57,15 +57,17 @@ if [ -e /bin/dircolors ]; then
 fi
 
 # set prompt
-#export PS1='$(if [ "$USER" == "$(whoami)" ];
-#            then echo "\u@\h $(get_vcs_stat)\[\033[01;34m\]\W\[\033[m\] \$ ";
-#            else echo "\u@\h $(get_vcs_stat)\[\033[01;31m\]\W\[\033[m\] \$ "; fi)'
-export PS1='$(if [ "$USER" == "$(whoami)" ];
-            then echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;34m\]\W\[\e[m\] \$ ";
-            else echo "\u@\h \[\e[1;33m\]$(get_git_stat)\[\e[1;31m\]\W\[\e[m\] \$ "; fi)'
-#export PS1='$(if [ "$USER" == "$(whoami)" ];
-#            then echo "\u@\h \[\e[1;34m\]\W\[\e[m\] \$ ";
-#            else echo "\u@\h \[\e[1;34m\]\W\[\e[m\] \$ "; fi)'
+nocol='\033[0m'
+green='\033[32m';
+red='\033[31m';
+yellow='\033[33m';
+blue='\033[34m';
+purple='\033[35m';
+cyan='\033[36m';
+function set_prompt {
+    PS1="\n${nocol}┌─[\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`\t\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] \[${cyan}\]$(get_git_stat)\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
+}
+PROMPT_COMMAND=set_prompt
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -272,6 +274,7 @@ if [ -f ~/.bash_private ]; then
 fi
 
 # pyenv config
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 eval "$(pyenv init -)"
