@@ -45,14 +45,14 @@ OTHER_WRITABLE 30;42
 .sql 00;33
 
 # config & others
-.cfg 00;36
-.ini 00;36
-.json 00;36
-.md 00;36
-.rst 00;36
-.toml 00;36
-.xml 00;36
-.yaml 00;36
+.cfg 00
+.ini 00
+.json 00
+.md 00
+.rst 00
+.toml 00
+.xml 00
+.yaml 00
 
 # images
 .bmp 01;35

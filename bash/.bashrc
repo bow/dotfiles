@@ -58,14 +58,16 @@ fi
 
 # set prompt
 nocol='\033[0m'
-green='\033[32m';
-red='\033[31m';
-yellow='\033[33m';
-blue='\033[34m';
-purple='\033[35m';
-cyan='\033[36m';
+green='\033[32m'
+red='\033[31m'
+yellow='\033[33m'
+blue='\033[34m'
+purple='\033[35m'
+cyan='\033[36m'
 function set_prompt {
-    PS1="\n${nocol}┌─[\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`\t\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] \[${cyan}\]$(get_git_stat)\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
+    PS1="\n${nocol}┌─[\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`\A"
+    PS1+="\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] "
+    PS1+="\[${cyan}\]$(get_git_stat)\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
 }
 PROMPT_COMMAND=set_prompt
 
