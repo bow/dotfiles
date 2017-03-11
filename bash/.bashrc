@@ -1,5 +1,5 @@
 # .bashrc
-# (c) 2013 Wibowo Arindrarto  <bow@bow.web.id>
+# Wibowo Arindrarto  <bow@bow.web.id>
 
 # check if bash is running interactively
 [ -z "$PS1" ] && return
@@ -14,21 +14,17 @@ if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 fi
 
-## HISTORY ##
-
-# don't put duplicate lines in the history
+# prevent cluttering history with dup lines
 HISTCONTROL=ignoredups:ignorespace
 
-# append to the history file, don't overwrite it
+# append to the history file instead of overwriting it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=100000
 HISTFILESIZE=200000
 
-
-## DISPLAY ##
-
+# color & ui
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0111111" #black
     echo -en "\e]P8111111" #darkgrey
@@ -48,7 +44,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PFffffff" #white
 #   clear #for background artifacting
 else
-    export TERM=xterm-256color
+    export TERM=xterm-termite
 fi
 
 # set .dircolors
@@ -62,25 +58,26 @@ green='\033[32m'
 red='\033[31m'
 yellow='\033[33m'
 blue='\033[34m'
-purplebg='\033[45m'
+purplebg='\033[1;35m'
 cyan='\033[36m'
+
 function set_prompt {
-    venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name=" \[${purplebg}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
-    PS1="\n${nocol}┌─[\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`\A"
-    PS1+="\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\]${venv_name} "
-    PS1+="\[${cyan}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]]\n└─╼ "
+    venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name="\[${purplebg}\](⚶ $(basename $PYENV_VIRTUAL_ENV)) \[${nocol}\]"
+    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${green}"; else echo "${red}"; fi\`↮"
+    PS1+="\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}"
+    PS1+="\[${cyan}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
+
 PROMPT_COMMAND=set_prompt
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# set default text editor
 export EDITOR="vim"
 
-
-## ALIASES ##
-
+# aliases
 alias ccat='pygmentize -g -O style=colorful,linenos=1'
 alias ls='ls -F --color=auto'           # colorize
 alias less='less -SN'                   # no wraps and include line numbers
@@ -105,9 +102,6 @@ alias ....='cd ../../..'
 alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
 alias xclip='xclip -selection c'        # copy to X clipboard
-
-
-## FUNCTIONS ##
 
 # create dir and cd into it
 function mkcd() { mkdir -p "$1" && cd "$1"; }
@@ -189,86 +183,18 @@ function unpack() {
 
 # check weather from wego
 function wttr() {
-    curl http://wttr.in/${1:-}
-}
-
-# get active branch; for use in PS1
-function git_br {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/$(git_br_dirty)\1|/"
-}
-
-# return asterisk if git branch has uncommitted changes
-function git_br_dirty {
-    [[ $(git status 2> /dev/null | tail -n1) != 'nothing to commit, working directory clean' ]] && echo "*"
-}
-
-# get mercurial branch
-function hg_br {
-    hg branch 2> /dev/null | sed -e "s/\(.*\)/$(hg_br_dirty)\1|/"
-}
-
-# return asterisk if hg directory has changes
-function hg_br_dirty {
-    [[ $(hg status 2> /dev/null | wc -l) != 0 ]] && echo "*"
-}
-
-# get svn revision no.
-function svn_rev() {
-    svn info 2> /dev/null | awk '/^Revision:/{print $2}' | sed -e "s/\(.*\)/$(svn_st_dirty)\1|/"
-}
-
-# return asterisk if svn directory has changes
-function svn_st_dirty {
-    [[ $(svn status --ignore-externals 2> /dev/null | sed '/^X/d' | wc -l) != 0 ]] && echo "*"
-}
-
-# check which vcs system is present in the current / nearest parent
-function get_vcs_stat {
-  local dir="$PWD"
-  local vcs
-  local nick
-  while [[ "$dir" != "/" ]]; do
-    for vcs in git hg svn; do
-      if [[ -d "$dir/.$vcs" ]] && hash "$vcs" &>/dev/null; then
-        case "$vcs" in
-          git)
-              nick=$(git_br)
-              color='\033[01;33m'
-              ;;
-          hg)
-              nick=$(hg_br)
-              color='\033[01;32m'
-              ;;
-          svn)
-              nick=$(svn_rev)
-              color='\033[01;31m'
-              ;;
-        esac
-        [[ -n "$nick" ]] && printf "${1:-${color}%s\033[m}" "$nick"
-        return 0
-      fi
-    done
-    dir="$(dirname "$dir")"
-  done
+    curl http://wttr.in/${1:-Leiden}
 }
 
 # controls git prompt and its color
-# like get_vcs_stat, but works for git only and uses __git_ps1
 function get_git_stat {
   export GIT_PS1_SHOWSTASHSTATE=true
   export GIT_PS1_SHOWDIRTYSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="verbose"
-  #color='\[\e[1;33m\]'
-  nick=$(__git_ps1 "(%s) ")
-  #[[ -n "$nick" ]] && printf "${1:-${color}%s\[\e[m\]}" "$nick"
+  nick=$(__git_ps1 "(⎇  %s) ")
   [[ -n "$nick" ]] && echo "$nick"
   return 0
-}
-
-# nice log for SVN
-function svnll() {
-    svn log "$@"|( read; while true; do read h||break; read; m=""; while read l; do echo "$l" | grep -q '^[-]\+$'&&break; [ -z "$m" ] && m=$l; done; echo "$h % $m" | sed 's#\(.*\) | \(.*\) | \([-0-9 :]\{16\}\).* % \(.*\)#\1 \3 | \4 [\2]#'; done)
 }
 
 # load private settings if it exists
@@ -282,8 +208,3 @@ export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# rename current guake tab
-function rtab() {
-    guake -r "$1"
-}

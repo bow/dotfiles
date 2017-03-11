@@ -68,4 +68,13 @@ testclasses
 .command_tmp
 *.bak
 
+scratch/
 _old
+.dev-env
+db.py
+dev.db
+payload_sg2.json
+sg.py
+Tests/Hmmer/*.out
+test.py
+.notes
