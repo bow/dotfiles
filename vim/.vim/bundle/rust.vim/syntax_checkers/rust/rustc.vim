@@ -14,7 +14,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! SyntaxCheckers_rust_rustc_GetLocList() dict
-    let makeprg = self.makeprgBuild({})
+    let makeprg = self.makeprgBuild({ 'args': '-Zparse-only' })
 
     " Old errorformat (before nightly 2016/08/10)
     let errorformat  =
