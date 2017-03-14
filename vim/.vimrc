@@ -24,8 +24,8 @@ let g:syntastic_ignore_files = ['.*\.sbt$']
 set noshowmode                  "hide default vim status
 set laststatus=2                "always show statusline
 set t_Co=256                    "set color to 256 colors
-colorscheme jellybeans             "colorscheme
-let g:airline_theme='wombat'   "vim-airline color scheme
+colorscheme jellybeans          "colorscheme
+let g:airline_theme='term'      "vim-airline color scheme
 syntax on                       "turns on color syntax in various programming languages
 filetype indent on              "enable autoindenting for specific filetypes
 filetype plugin on              "enable filetype specific plugins
