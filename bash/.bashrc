@@ -54,16 +54,17 @@ fi
 
 # set prompt
 nocol='\033[0m'
-green='\033[32m'
 red='\033[31m'
+green='\033[32m'
 yellow='\033[33m'
 blue='\033[34m'
 purple='\033[35m'
 cyan='\033[36m'
+grey='\033[37m'
 
 function set_prompt {
     venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name="\[${green}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
-    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${blue}"; else echo "${red}"; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}\[${purple}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${blue}"; else echo "${red}"; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
 PROMPT_COMMAND=set_prompt
@@ -99,7 +100,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
-alias xclip='xclip -selection c'        # copy to X clipboard
+alias xclip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
 
 # create dir and cd into it
 function mkcd() { mkdir -p "$1" && cd "$1"; }
