@@ -87,7 +87,7 @@ au BufRead,BufNewFile *.js setlocal filetype=javascript tabstop=2 shiftwidth=2 t
 au BufRead,BufNewFile *.jsx setlocal filetype=javascript tabstop=2 shiftwidth=2 tw=80
 au BufRead,BufNewFile *.rb setlocal filetype=ruby tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.rst setlocal tw=120
-au BufRead,BufNewFile *.cwl set syntax=yaml
+au BufRead,BufNewFile *.cwl set syntax=yaml filetype=yaml
 au BufRead,BufNewFile *.pyx set syntax=cython filetype=cython tw=80
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
@@ -105,7 +105,7 @@ autocmd FileType R setlocal shiftwidth=2 tabstop=2
 autocmd FileType c setlocal shiftwidth=2 tabstop=2
 autocmd FileType cfg setlocal shiftwidth=2 tabstop=2
 autocmd FileType xml setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 indentkeys-=<:>
 autocmd FileType scala setlocal shiftwidth=2 tabstop=2
 autocmd FileType xhtml, xml, htmljinja so ~/.vim/ftplugin/html_autoclosetag.vim
 let g:vimrplugin_underscore = 0
