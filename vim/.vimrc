@@ -18,11 +18,12 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_scala_checkers = []
 let g:syntastic_java_checkers = []
-let g:syntastic_ignore_files = ['.*\.sbt$']
+let g:syntastic_ignore_files = ['.*\.sbt$', '*\.lalrpop$']
 
 "DISPLAY
 set noshowmode                  "hide default vim status
 set laststatus=2                "always show statusline
+set scrolloff=1                 "always show one line below cursor
 set t_Co=256                    "set color to 256 colors
 colorscheme jellybeans          "colorscheme
 let g:airline_theme='term'      "vim-airline color scheme
@@ -66,6 +67,7 @@ au BufNewFile,BufRead *.snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 au BufNewFile,BufRead *.skw set syntax=snakemake
 au BufNewFile,BufRead *.skr set syntax=snakemake
+au BufNewFile,BufRead *.lalrpop set syntax=rust
 au BufRead,BufNewFile *.tsv setlocal tw=10000 noexpandtab
 au BufRead,BufNewFile *.tex setlocal shiftwidth=2 tabstop=2
 au BufRead,BufNewFile *.wdl setlocal tw=120 shiftwidth=2 tabstop=2
