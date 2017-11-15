@@ -58,9 +58,9 @@ let g:signify_vcs_list = [ 'git' ]
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 "FILETYPE-SPECIFIC
-augroup filetype 
- au! BufNewFile,BufRead circos*conf,ideogram*conf,ticks*conf  set ft=circos ai tw=80 shiftwidth=2 tabstop=2 formatoptions=tcroqn2 comments=n:> 
-augroup END 
+augroup filetype
+ au! BufNewFile,BufRead circos*conf,ideogram*conf,ticks*conf  set ft=circos ai tw=80 shiftwidth=2 tabstop=2 formatoptions=tcroqn2 comments=n:>
+augroup END
 au BufNewFile,BufRead *.lgr set syntax=ledger
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.rules set syntax=snakemake
@@ -93,8 +93,9 @@ au BufRead,BufNewFile *.rst setlocal tw=120
 au BufRead,BufNewFile *.cwl set syntax=yaml filetype=yaml
 au BufRead,BufNewFile *.pyx set syntax=cython filetype=cython tw=80
 autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd FileType go setlocal noexpandtab tabstop=4 tw=150
+autocmd FileType go setlocal noexpandtab tabstop=4 tw=150 nolist
 autocmd FileType py setlocal tw=80
+autocmd FileType python setlocal tw=80
 autocmd FileType rst setlocal tw=80
 autocmd FileType markdown  setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
