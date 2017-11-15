@@ -70,7 +70,10 @@ testclasses
 .command_tmp
 *.bak
 scratch/
-dev.db
-.env-dev
+bak/
 sandbox/
 test.py
+
+test.db
+dev.db
+.env-dev
