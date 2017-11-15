@@ -3,7 +3,7 @@
     url = https://github.com/flazz/vim-colorschemes.git
 [submodule "pyenv/pyenv"]
     path = pyenv/pyenv
-    url = https://github.com/yyuu/pyenv.git
+    url = https://github.com/pyenv/pyenv.git
 [submodule "pyenv/pyenv-virtualenv"]
     path = pyenv/pyenv-virtualenv
-    url = https://github.com/yyuu/pyenv-virtualenv.git
+    url = https://github.com/pyenv/pyenv-virtualenv.git
