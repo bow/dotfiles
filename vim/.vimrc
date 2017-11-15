@@ -27,6 +27,7 @@ set scrolloff=1                 "always show one line below cursor
 set t_Co=256                    "set color to 256 colors
 colorscheme jellybeans          "colorscheme
 let g:airline_theme='term'      "vim-airline color scheme
+let g:airline#extensions#tabline#enabled = 1
 syntax on                       "turns on color syntax in various programming languages
 filetype indent on              "enable autoindenting for specific filetypes
 filetype plugin on              "enable filetype specific plugins
