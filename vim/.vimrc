@@ -20,6 +20,22 @@ let g:syntastic_scala_checkers = []
 let g:syntastic_java_checkers = []
 let g:syntastic_ignore_files = ['.*\.sbt$', '*\.lalrpop$']
 
+let g:syntastic_rust_rustc_exe = 'cargo check'
+let g:syntastic_rust_rustc_fname = ''
+let g:syntastic_rust_rustc_args = '--'
+let g:syntastic_rust_checkers = ['rustc']
+
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+let g:syntastic_cpp_include_dirs = ["/home/bow/local/lib"]
+
+let g:syntastic_html_tidy_ignore_errors = [
+    \ '<html> attribute "lang" lacks value',
+    \ '<a> attribute "href" lacks value',
+    \ '<a> proprietary attribute "alt"',
+    \ 'trimming empty <span>',
+    \ 'trimming empty <i>'
+    \ ]
+
 "DISPLAY
 set noshowmode                  "hide default vim status
 set laststatus=2                "always show statusline
