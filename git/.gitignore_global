@@ -19,6 +19,9 @@ htmlcov/
 # pyenv #
 .python-version
 
+# JavaScript #
+node_modules
+
 # R #
 *.RData
 *.RHistory
@@ -69,3 +72,5 @@ testclasses
 scratch/
 dev.db
 .env-dev
+sandbox/
+test.py
