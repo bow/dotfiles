@@ -72,6 +72,14 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
+set wildmenu
+
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
 let g:signify_vcs_list = [ 'git' ]
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
