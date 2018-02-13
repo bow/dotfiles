@@ -38,11 +38,12 @@
     # handy aliases
     adp = add -p
     ec = config --global -e
+    cia = "!git commit --amend"
+    ciam = "!git commit --no-edit --amend"
     stn = status -uno
     difc = diff --cached
     diffc = diff --cached
     punch = push -f
-    amend = commit --no-edit --amend
     unstage = reset -q HEAD --
     discard = checkout --
     uncommit = reset --mixed HEAD~
