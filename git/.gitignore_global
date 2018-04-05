@@ -63,7 +63,7 @@ Thumbs.db
 *.swo
 
 # Others #
-.env
+.envrc
 contracts
 dist
 testclasses
