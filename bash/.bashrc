@@ -183,7 +183,7 @@ function unpack() {
 
 # check weather from wego
 function wttr() {
-    curl http://wttr.in/${1:-Leiden}
+    curl http://wttr.in/${1:-Copenhagen}
 }
 
 # controls git prompt and its color
