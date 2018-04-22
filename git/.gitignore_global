@@ -16,6 +16,7 @@
 .cache
 .eggs
 htmlcov/
+test.py
 # pyenv #
 .python-version
 
@@ -27,8 +28,11 @@ node_modules
 *.RHistory
 *.Rout
 
+# Rust #
+target
+
 # Scala #
-target/
+target
 test.sc
 
 # IntelliJ #
@@ -49,8 +53,8 @@ test.sc
 
 # Logs and databases #
 *.log
-#*.sql
 *.sqlite
+test.db
 
 # OS generated files #
 .DS_Store?
@@ -62,18 +66,6 @@ Thumbs.db
 *.swp
 *.swo
 
-# Others #
+# Dev files #
 .envrc
-contracts
-dist
-testclasses
-.command_tmp
-*.bak
-scratch/
-bak/
-sandbox/
-test.py
-
-test.db
-dev.db
-.env-dev
+sandbox
