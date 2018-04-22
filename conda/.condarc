@@ -1,3 +1,5 @@
+always_yes: True
+add_pip_as_python_dependency: True
 channels:
   - bioconda
   - r
