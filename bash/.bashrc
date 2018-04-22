@@ -206,8 +206,12 @@ fi
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 # direnv config
-eval "$(direnv hook bash)"
+if command -v direnv 1>/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+fi
