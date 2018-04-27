@@ -323,9 +323,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 
 " Setup NERDTree.
-let g:NERDTreeWinSize = 31                          "adjust window size
-let NERDTreeMapPreview = 'n'                        "remap preview key
-let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']      "file types to ignore
+let g:NERDTreeWinSize = 31
+let NERDTreeMapPreview = 'n'
+let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']
 
 
 " Setup CtrlP.
