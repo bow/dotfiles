@@ -63,8 +63,8 @@ cyan='\033[36m'
 grey='\033[37m'
 
 function set_prompt {
-    venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name="\[${green}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
-    dm_name="" && [[ -n $DOCKER_MACHINE_NAME ]] && dm_name="\[${purple}\] $DOCKER_MACHINE_NAME \[${nocol}\]"
+    venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name="\[${green}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
+    dm_name="" && [[ -n $DOCKER_MACHINE_NAME ]] && dm_name="\[${purple}\] $DOCKER_MACHINE_NAME \[${nocol}\]"
     PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${blue}"; else echo "${red}"; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${dm_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
