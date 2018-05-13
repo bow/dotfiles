@@ -61,3 +61,5 @@
     # unassume / assume all
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
     assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+[gist]
+	home = /home/bow/devel/gists
