@@ -202,6 +202,12 @@ if [ -f ~/.bash_private ]; then
     source ~/.bash_private
 fi
 
+# basher config
+export PATH="${HOME}/.basher/bin:${PATH}"
+if command -v basher 1>/dev/null 2>&1; then
+    eval "$(basher init -)"
+fi
+
 # pyenv config
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
