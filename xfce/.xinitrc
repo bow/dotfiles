@@ -1,6 +1,6 @@
 xsetroot -cursor_name left_ptr
 
-setxkbmap -option "caps:swapescape"
+setxkbmap -option "caps:escape" -option "compose:ralt"
 
 xset +ft /usr/share/fonts/local
 xset fp rehash
