@@ -213,6 +213,8 @@ augroup FTS
     au BufNewFile,BufRead Pipfile.lock setlocal ft=json
     au BufNewFile,BufRead *.rl setlocal ft=ragel
     au BufNewFile,BufRead Vagrantfile setlocal ft=ruby
+
+    au BufNewFile,BufRead roles/*/*.yml,playbooks/*.yml set ft=yaml.ansible
 augroup END
 
 
