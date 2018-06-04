@@ -15,6 +15,7 @@
 .tox
 .cache
 .eggs
+.pytest_cache
 htmlcov/
 test.py
 # pyenv #
