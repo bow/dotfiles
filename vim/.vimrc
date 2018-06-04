@@ -207,6 +207,7 @@ augroup FTS
     au BufNewFile,BufRead *.jdl setlocal ft=jdl
     au BufNewFile,BufRead *.hs setlocal ft=haskell
     au BufNewFile,BufRead *.lgr setlocal ft=ledger
+    au BufNewFile,BufRead *.mdj setlocal ft=json
     au BufNewFile,BufRead *.lalrpop setlocal ft=rust
     au BufNewFile,BufRead Pipfile setlocal ft=toml
     au BufNewFile,BufRead Pipfile.lock setlocal ft=json
