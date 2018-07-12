@@ -312,6 +312,9 @@ if executable('rls')
 endif
 
 
+" Set default SQL file types to PostgreSQL
+let g:sql_type_default = 'pgsql'
+
 " Disable vim-r-plugin integration with screen.vim
 let vimrplugin_screenplugin = 0
 
