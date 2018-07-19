@@ -235,8 +235,11 @@ function! AirlineInit()
 endfunction
 au VimEnter * call AirlineInit()
 
-" Highlight workds not recognized by spellcheker.
-hi SpellBad term=reverse ctermbg=5
+" Highlight words not recognized by spellcheker.
+hi SpellBad term=reverse cterm=NONE
+
+" Highlighting scheme for search results.
+hi Search cterm=NONE ctermbg=darkgreen ctermfg=black
 
 " Highlight matching parentheses.
 hi MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
