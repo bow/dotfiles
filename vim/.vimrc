@@ -83,6 +83,9 @@ set laststatus=2
 " Always show one line below cursor
 set scrolloff=1
 
+" Shorten command timeout length (default: 1000).
+set timeoutlen=500
+
 " Highlight column after 'textwidth' / 'tw'.
 set colorcolumn=+1
 
