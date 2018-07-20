@@ -227,8 +227,9 @@ let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch="⎇ "
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.branch = "⎇ "
+let g:airline_symbols.notexists = "*"
 set guifont=Inconsolata\ for\ Powerline
 
 " Custom airline function to add total line number
