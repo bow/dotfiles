@@ -254,6 +254,11 @@ hi NonText guibg=NONE ctermbg=NONE
 " Disable background highlighting on normal text.
 hi Normal guibg=NONE ctermbg=NONE
 
+" Update Ale colors.
+hi ALEWarning ctermbg=172 ctermfg=black
+hi ALEWarningSign ctermbg=172 ctermfg=black
+hi ALEError ctermbg=88 ctermfg=white
+hi ALEErrorSign ctermbg=88 ctermfg=white
 
 " Show current line number.
 set number
@@ -278,7 +283,22 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'go']
 
 
+" Setup Ale
+let g:ale_sign_error = '✕'
+let g:ale_sign_warning = '≫'
+let g:ale_sign_column_always = 1
+let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 0
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '%linter%: %s [%code%]'
+
+let g:airline#extensions#ale#enabled = 1
+
+
 " Setup Syntastic.
+let g:syntastic_mode_map = {'mode': 'passive'}
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
