@@ -107,6 +107,9 @@ colorscheme jellybeans
 " Set auto indentation.
 set autoindent
 
+" Set smart indentation.
+set smartindent
+
 " Replace tabs with spaces.
 set expandtab
 
