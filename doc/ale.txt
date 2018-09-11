@@ -26,9 +26,11 @@ CONTENTS                                                         *ale-contents*
       gawk................................|ale-awk-gawk|
     c.....................................|ale-c-options|
       clang...............................|ale-c-clang|
+      clangd..............................|ale-c-clangd|
       clang-format........................|ale-c-clangformat|
       clangtidy...........................|ale-c-clangtidy|
       cppcheck............................|ale-c-cppcheck|
+      cquery..............................|ale-c-cquery|
       flawfinder..........................|ale-c-flawfinder|
       gcc.................................|ale-c-gcc|
     chef..................................|ale-chef-options|
@@ -76,6 +78,7 @@ CONTENTS                                                         *ale-contents*
     fish..................................|ale-fish-options|
     fortran...............................|ale-fortran-options|
       gcc.................................|ale-fortran-gcc|
+      language_server.....................|ale-fortran-language-server|
     fountain..............................|ale-fountain-options|
     fusionscript..........................|ale-fuse-options|
       fusion-lint.........................|ale-fuse-fusionlint|
@@ -93,14 +96,20 @@ CONTENTS                                                         *ale-contents*
       eslint..............................|ale-graphql-eslint|
       gqlint..............................|ale-graphql-gqlint|
       prettier............................|ale-graphql-prettier|
+    hack..................................|ale-hack-options|
+      hack................................|ale-hack-hack|
+      hackfmt.............................|ale-hack-hackfmt|
+      hhast...............................|ale-hack-hhast|
     handlebars............................|ale-handlebars-options|
       ember-template-lint.................|ale-handlebars-embertemplatelint|
     haskell...............................|ale-haskell-options|
       brittany............................|ale-haskell-brittany|
       ghc.................................|ale-haskell-ghc|
+      cabal-ghc...........................|ale-haskell-cabal-ghc|
       hdevtools...........................|ale-haskell-hdevtools|
       hfmt................................|ale-haskell-hfmt|
       stack-build.........................|ale-haskell-stack-build|
+      hie.................................|ale-haskell-hie|
     html..................................|ale-html-options|
       htmlhint............................|ale-html-htmlhint|
       tidy................................|ale-html-tidy|
@@ -167,8 +176,6 @@ CONTENTS                                                         *ale-contents*
       perlcritic..........................|ale-perl-perlcritic|
       perltidy............................|ale-perl-perltidy|
     php...................................|ale-php-options|
-      hack................................|ale-php-hack|
-      hackfmt.............................|ale-php-hackfmt|
       langserver..........................|ale-php-langserver|
       phan................................|ale-php-phan|
       phpcbf..............................|ale-php-phpcbf|
@@ -203,6 +210,7 @@ CONTENTS                                                         *ale-contents*
       pylint..............................|ale-python-pylint|
       pyls................................|ale-python-pyls|
       pyre................................|ale-python-pyre|
+      vulture.............................|ale-python-vulture|
       yapf................................|ale-python-yapf|
     qml...................................|ale-qml-options|
       qmlfmt..............................|ale-qml-qmlfmt|
@@ -284,6 +292,8 @@ CONTENTS                                                         *ale-contents*
     yaml..................................|ale-yaml-options|
       swaglint............................|ale-yaml-swaglint|
       yamllint............................|ale-yaml-yamllint|
+    yang..................................|ale-yang-options|
+      yang-lsp............................|ale-yang-lsp|
   8. Commands/Keybinds....................|ale-commands|
   9. API..................................|ale-api|
   10. Special Thanks......................|ale-special-thanks|
@@ -333,7 +343,7 @@ Notes:
 * Awk: `gawk`
 * Bash: `language-server`, `shell` (-n flag), `shellcheck`, `shfmt`
 * Bourne Shell: `shell` (-n flag), `shellcheck`, `shfmt`
-* C: `cppcheck`, `cpplint`!!, `clang`, `clangtidy`!!, `clang-format`, `flawfinder`, `gcc`
+* C: `cppcheck`, `cpplint`!!, `clang`, `clangd`, `clangtidy`!!, `clang-format`, `cquery`, `flawfinder`, `gcc`
 * C++ (filetype cpp): `clang`, `clangcheck`!!, `clangtidy`!!, `clang-format`, `cppcheck`, `cpplint`!!, `cquery`, `flawfinder`, `gcc`
 * CUDA: `nvcc`!!
 * C#: `mcs`, `mcsc`!!
@@ -355,16 +365,17 @@ Notes:
 * Erb: `erb`, `erubi`, `erubis`
 * Erlang: `erlc`, `SyntaxErl`
 * Fish: `fish` (-n flag)
-* Fortran: `gcc`
+* Fortran: `gcc`, `language_server`
 * Fountain: `proselint`
 * FusionScript: `fusion-lint`
 * Git Commit Messages: `gitlint`
 * GLSL: glslang, `glslls`
 * Go: `gofmt`, `goimports`, `go vet`!!, `golint`, `gotype`!!, `gometalinter`!!, `go build`!!, `gosimple`!!, `staticcheck`!!
 * GraphQL: `eslint`, `gqlint`, `prettier`
+* Hack: `hack`, `hackfmt`, `hhast`
 * Haml: `haml-lint`
 * Handlebars: `ember-template-lint`
-* Haskell: `brittany`, `ghc`, `stack-ghc`, `stack-build`!!, `ghc-mod`, `stack-ghc-mod`, `hlint`, `hdevtools`, `hfmt`
+* Haskell: `brittany`, `ghc`, `cabal-ghc`, `stack-ghc`, `stack-build`!!, `ghc-mod`, `stack-ghc-mod`, `hlint`, `hdevtools`, `hfmt`, `hie`
 * HTML: `alex`!!, `HTMLHint`, `proselint`, `tidy`, `write-good`
 * Idris: `idris`
 * Java: `checkstyle`, `javac`, `google-java-format`, `PMD`
@@ -388,14 +399,14 @@ Notes:
 * Objective-C++: `clang`
 * OCaml: `merlin` (see |ale-ocaml-merlin|), `ols`
 * Perl: `perl -c`, `perl-critic`, `perltidy`
-* PHP: `hack`, `hackfmt`, `langserver`, `phan`, `php -l`, `phpcs`, `phpmd`, `phpstan`, `phpcbf`, `php-cs-fixer`
+* PHP: `langserver`, `phan`, `php -l`, `phpcs`, `phpmd`, `phpstan`, `phpcbf`, `php-cs-fixer`
 * PO: `alex`!!, `msgfmt`, `proselint`, `write-good`
 * Pod: `alex`!!, `proselint`, `write-good`
 * Pony: `ponyc`
 * proto: `protoc-gen-lint`
 * Pug: `pug-lint`
 * Puppet: `languageserver`, `puppet`, `puppet-lint`
-* Python: `autopep8`, `black`, `flake8`, `isort`, `mypy`, `prospector`, `pycodestyle`, `pyls`, `pyre`, `pylint`!!, `yapf`
+* Python: `autopep8`, `black`, `flake8`, `isort`, `mypy`, `prospector`, `pycodestyle`, `pyls`, `pyre`, `pylint`!!, `vulture`!!, `yapf`
 * QML: `qmlfmt`, `qmllint`
 * R: `lintr`
 * ReasonML: `merlin`, `ols`, `refmt`
@@ -426,6 +437,7 @@ Notes:
 * XHTML: `alex`!!, `proselint`, `write-good`
 * XML: `xmllint`
 * YAML: `swaglint`, `yamllint`
+* YANG: `yang-lsp`
 
 ===============================================================================
 3. Linting                                                           *ale-lint*
@@ -641,10 +653,10 @@ servers. LSP linters can be used in combination with any other linter, and
 will automatically connect to LSP servers when needed. ALE also supports
 `tsserver` for TypeScript, which uses a different but very similar protocol.
 
-ALE supports the following LSP/tsserver features.
+ALE supports the following LSP/tsserver features:
 
 1. Diagnostics/linting - Enabled via selecting linters as usual.
-2. Completion (Only for tsserver)
+2. Completion
 3. Go to definition
 
 
@@ -652,7 +664,7 @@ ALE supports the following LSP/tsserver features.
 5.1 Completion                                                 *ale-completion*
 
 ALE offers limited support for automatic completion of code while you type.
-Completion is only supported while a least one LSP linter is enabled. ALE
+Completion is only supported while at least one LSP linter is enabled. ALE
 will only suggest symbols provided by the LSP servers.
 
 Suggestions will be made while you type after completion is enabled.
@@ -664,6 +676,16 @@ items can be controlled with |g:ale_completion_max_suggestions|.
 If you don't like some of the suggestions you see, you can filter them out
 with |g:ale_completion_excluded_words| or |b:ale_completion_excluded_words|.
 
+                                                *ale-completion-completopt-bug*
+
+ALE implements completion as you type by temporarily adjusting |completeopt|
+before opening the omnicomplete menu with <C-x><C-o>. In some versions of Vim,
+the value set for the option will not be respected. If you experience issues
+with Vim automatically inserting text while you type, set the following option
+in vimrc, and your issues should go away. >
+
+  set completeopt=menu,menuone,preview,noselect,noinsert
+<
 
 -------------------------------------------------------------------------------
 5.2 Go To Definition                                     *ale-go-to-definition*
@@ -1196,6 +1218,7 @@ g:ale_linters                                                   *g:ale_linters*
   {
   \   'csh': ['shell'],
   \   'go': ['gofmt', 'golint', 'go vet'],
+  \   'hack': ['hack'],
   \   'help': [],
   \   'perl': ['perlcritic'],
   \   'python': ['flake8', 'mypy', 'pylint'],
@@ -1413,8 +1436,7 @@ g:ale_set_balloons                                         *g:ale_set_balloons*
                                                            *b:ale_set_balloons*
 
   Type: |Number|
-  Default: `(has('balloon_eval') && has('gui_running'))`
-           `|| (has('balloon_eval_term') && !has('gui_running'))`
+  Default: `has('balloon_eval') && has('gui_running')`
 
   When this option is set to `1`, balloon messages will be displayed for
   problems or hover information if available.
@@ -1423,6 +1445,12 @@ g:ale_set_balloons                                         *g:ale_set_balloons*
   there are no problems to show, and one of the linters is an LSP linter
   supporting "Hover" information, per |ale-hover|, then brief information
   about the symbol under the cursor will be displayed in a balloon.
+
+  Balloons can be enabled for terminal versions of Vim that support balloons,
+  but some versions of Vim will produce strange mouse behavior when balloons
+  are enabled. To configure balloons for your terminal, you should first
+  configure your |ttymouse| setting, and then consider setting
+  `g:ale_set_balloons` to `1` before ALE is loaded.
 
   `b:ale_set_balloons` can be set to `0` to disable balloons for a buffer.
   Balloons cannot be enabled for a specific buffer when not initially enabled
@@ -2307,6 +2335,13 @@ ale#linter#Define(filetype, linter)                       *ale#linter#Define()*
                            wrong.
                          `type` - Defaults to `'E'`.
                          `nr` - Defaults to `-1`.
+
+                           Numeric error code. If `nr` is not `-1`, `code`
+                           likely should contain the string representation of
+                           the same value.
+                         `code` - No default; may be unset.
+
+                           Human-readable |String| error code.
 
   `executable`             A |String| naming the executable itself which
                          will be run. This value will be used to check if the
