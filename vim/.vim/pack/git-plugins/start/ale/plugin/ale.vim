@@ -14,7 +14,7 @@ let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
 " A flag for detecting if the required features are set.
 if has('nvim')
-    let s:has_features = has('timers')
+    let s:has_features = has('timers') && has('nvim-0.2.0')
 else
     " Check if Job and Channel functions are available, instead of the
     " features. This works better on old MacVim versions.
@@ -24,7 +24,7 @@ endif
 if !s:has_features
     " Only output a warning if editing some special files.
     if index(['', 'gitcommit'], &filetype) == -1
-        execute 'echoerr ''ALE requires NeoVim >= 0.1.5 or Vim 8 with +timers +job +channel'''
+        execute 'echoerr ''ALE requires NeoVim >= 0.2.0 or Vim 8 with +timers +job +channel'''
         execute 'echoerr ''Please update your editor appropriately.'''
     endif
 
@@ -110,10 +110,7 @@ let g:ale_set_highlights = get(g:, 'ale_set_highlights', has('syntax'))
 let g:ale_echo_cursor = get(g:, 'ale_echo_cursor', 1)
 
 " This flag can be set to 0 to disable balloon support.
-let g:ale_set_balloons = get(g:, 'ale_set_balloons',
-\   (has('balloon_eval') && has('gui_running'))
-\   || (has('balloon_eval_term') && !has('gui_running'))
-\)
+let g:ale_set_balloons = get(g:, 'ale_set_balloons', has('balloon_eval') && has('gui_running'))
 
 " This flag can be set to 0 to disable warnings for trailing whitespace
 let g:ale_warn_about_trailing_whitespace = get(g:, 'ale_warn_about_trailing_whitespace', 1)

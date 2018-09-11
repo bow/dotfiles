@@ -79,7 +79,7 @@ function! ale#util#GetLineCount(buffer) abort
 endfunction
 
 function! ale#util#GetFunction(string_or_ref) abort
-    if type(a:string_or_ref) == type('')
+    if type(a:string_or_ref) is v:t_string
         return function(a:string_or_ref)
     endif
 
@@ -88,12 +88,12 @@ endfunction
 
 function! ale#util#Open(filename, line, column, options) abort
     if get(a:options, 'open_in_tab', 0)
-        call ale#util#Execute('tabedit ' . fnameescape(a:filename))
-    else
+        call ale#util#Execute('tabedit +' . a:line . ' ' . fnameescape(a:filename))
+    elseif bufnr(a:filename) isnot bufnr('')
         " Open another file only if we need to.
-        if bufnr(a:filename) isnot bufnr('')
-            call ale#util#Execute('edit ' . fnameescape(a:filename))
-        endif
+        call ale#util#Execute('edit +' . a:line . ' ' . fnameescape(a:filename))
+    else
+        normal! m`
     endif
 
     call cursor(a:line, a:column)
@@ -268,7 +268,7 @@ endfunction
 " See :help sandbox
 function! ale#util#InSandbox() abort
     try
-        let &equalprg=&equalprg
+        let &l:equalprg=&l:equalprg
     catch /E48/
         " E48 is the sandbox error.
         return 1
@@ -303,8 +303,8 @@ endfunction
 " Only the first pattern which matches a line will be returned.
 function! ale#util#GetMatches(lines, patterns) abort
     let l:matches = []
-    let l:lines = type(a:lines) == type([]) ? a:lines : [a:lines]
-    let l:patterns = type(a:patterns) == type([]) ? a:patterns : [a:patterns]
+    let l:lines = type(a:lines) is v:t_list ? a:lines : [a:lines]
+    let l:patterns = type(a:patterns) is v:t_list ? a:patterns : [a:patterns]
 
     for l:line in l:lines
         for l:pattern in l:patterns
@@ -382,7 +382,7 @@ function! ale#util#FuzzyJSONDecode(data, default) abort
         return a:default
     endif
 
-    let l:str = type(a:data) == type('') ? a:data : join(a:data, '')
+    let l:str = type(a:data) is v:t_string ? a:data : join(a:data, '')
 
     try
         let l:result = json_decode(l:str)
