@@ -7,8 +7,8 @@
 \pset null '⬥'
 
 -- Customize prompts
-\set PROMPT1 '%[%033[36m%] %n@%M:%> %[%033[33m%]%/ %[%033[32m%][%R] %[%033[36m%]%#%[%033[0m%]% '
-\set PROMPT2 '%[%033[36m%] ... %[%033[36m%]%R%[%033[0m%] '
+\set PROMPT1 '%[%033[36m%]  %n@%M:%> %[%033[33m%]%/ %[%033[32m%][%R] %[%033[36m%]%#%[%033[0m%]% '
+\set PROMPT2 '%[%033[36m%]  ... %[%033[36m%]%R%[%033[0m%] '
 
 -- Show how long each query takes to execute
 \timing
