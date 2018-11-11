@@ -23,6 +23,8 @@ test.py
 
 # JavaScript #
 node_modules
+# nvm #
+.nvmrc
 
 # R #
 *.RData
