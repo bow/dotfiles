@@ -162,7 +162,7 @@ augroup FTS
     au FileType make setlocal tw=100
     au BufNewFile,BufRead Makefile,*.mk setlocal ft=make
 
-    au FileType markdown setlocal ts=2 sw=2 tw=120
+    au FileType markdown setlocal ts=2 sw=2 tw=120 wrap
     au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
 
     au FileType plaintex setlocal ts=2 sw=2
@@ -171,7 +171,7 @@ augroup FTS
     au FileType refFlat setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.refFlat setlocal ft=refFlat
 
-    au FileType rst setlocal ts=2 sw=2 tw=120
+    au FileType rst setlocal ts=2 sw=2 tw=120 wrap
     au BufNewFile,BufRead *.rst,*.RST setlocal ft=rst
 
     au FileType sam setlocal wrap linebreak noexpandtab
@@ -182,6 +182,8 @@ augroup FTS
 
     au FileType snakemake setlocal tw=100
     au BufNewFile,BufRead Snakefile,Snakefile.*,*.snakefile,*.snake,*.rule,*.rules setlocal ft=snakemake
+
+    au FileType text setlocal wrap
 
     au FileType tsv setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.tsv setlocal ft=tsv
