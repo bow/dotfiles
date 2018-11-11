@@ -64,6 +64,7 @@ grey='\033[37m'
 
 function set_prompt {
     venv_name="" && [[ -n $PYENV_VIRTUAL_ENV ]] && venv_name="\[${green}\] $(basename $PYENV_VIRTUAL_ENV) \[${nocol}\]"
+    nvm_name="" && [[ -n $NVM_BIN ]] && venv_name="\[${green}\] $(nvm current) \[${nocol}\]"
     dm_name="" && [[ -n $DOCKER_MACHINE_NAME ]] && dm_name="\[${purple}\] $DOCKER_MACHINE_NAME \[${nocol}\]"
     PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${blue}"; else echo "${red}"; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${dm_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
@@ -221,3 +222,14 @@ fi
 if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
+
+# nvm lazy config
+nvm() {
+    unset -f nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/usr/share/nvm/nvm.sh" ] && . "/usr/share/nvm/nvm.sh"
+    [ -s "/usr/share/nvm/bash_completion" ] && . "/usr/share/nvm/bash_completion"
+    [ -s "/usr/share/nvm/install-nvm-exec" ] && . "/usr/share/nvm/install-nvm-exec"
+    nvm deactivate > /dev/null
+    nvm "$@"
+}
