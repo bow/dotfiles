@@ -143,6 +143,9 @@ set foldnestmax=10
 " Open all folds by default.
 set nofoldenable
 
+" Add paths for file lookup.
+let &path.="src/include,/usr/include/AL,"
+
 " Filetype-specific settings
 augroup FTS
     au!
@@ -202,6 +205,7 @@ augroup FTS
 
     au FileType c setlocal tw=100
     au FileType cfg setlocal ts=2 sw=2
+    au FileType cpp setlocal tw=100
     au FileType css setlocal tw=100 ts=2 sw=2
     au Filetype gitcommit setlocal spell tw=72
     au FileType go setlocal tw=150 noexpandtab nolist
@@ -295,6 +299,11 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'go']
 
 
 " Setup Ale
+let g:ale_linters = {
+\   'cpp': ['clangtidy'],
+\}
+let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
+
 let g:ale_sign_error = '✕'
 let g:ale_sign_warning = '≫'
 let g:ale_sign_column_always = 1
