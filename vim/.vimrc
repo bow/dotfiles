@@ -8,6 +8,12 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 
+" Enable local .vimrc use.
+set exrc
+
+" Restrict some command in non-default .vimrc.
+set secure
+
 " Set character encoding.
 set encoding=utf-8
 
