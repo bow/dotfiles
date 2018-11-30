@@ -1,3 +1,4 @@
 .header ON
 .mode column
-.nullvalue "NULL"
+.nullvalue "⬥"
+.width 0
