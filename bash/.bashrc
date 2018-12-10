@@ -104,6 +104,29 @@ alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
 alias xclip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
 
+# Docker aliases
+# Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
+# list container process
+alias dps="docker ps"
+# list process included stop container
+alias dpa="docker ps -a"
+# list images
+alias di="docker images"
+# run daemonized container, e.g., $dkd base /bin/echo hello
+alias dkd="docker run -dP"
+# run interactive container, e.g., $dki base /bin/bash
+alias dki="docker run -itP"
+# execute interactive container, e.g., $dex base /bin/bash
+alias dex="docker exec -it"
+# remove exited containers
+function drm() { docker rm $(docker ps -qf 'status=exited'); }
+# remove dangling images
+function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
+# bash into running container
+function dsh() { docker exec -it $(docker ps -aqf "name=$1") "${2:-sh}"; }
+# dockerfile build, e.g., $dbu tcnksm/test
+function dbu() { docker build -t="$1" .; }
+
 # create dir and cd into it
 function mkcd() { mkdir -p "$1" && cd "$1"; }
 
