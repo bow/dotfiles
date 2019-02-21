@@ -16,6 +16,7 @@
 .cache
 .eggs
 .pytest_cache
+.mypy_cache
 htmlcov/
 test.py
 # pyenv #
@@ -72,3 +73,6 @@ Thumbs.db
 # Dev files #
 .envrc
 sandbox
+.scannerwork
+
+.~lock.*
