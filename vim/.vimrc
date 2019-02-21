@@ -224,7 +224,7 @@ augroup FTS
     au FileType json setlocal ts=2 sw=2
     au FileType php setlocal tw=100 ts=2 sw=2
     au FileType ruby setlocal tw=80 ts=2 sw=2
-    au FileType python setlocal tw=80
+    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=80
     au FileType R setlocal tw=100 ts=2 sw=2
     au FileType xml setlocal ts=2 sw=2
     au FileType xml,xhtml,htmljinja so ~/.vim/ftplugin/html_autoclosetag.vim
