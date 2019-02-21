@@ -397,6 +397,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]\.(git|hg|svn)$',
     \ 'file': '\v\.(exe|so|dll|class|jar|tar.gz|tgz|swp|swo|pyc|pyo)$',
     \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 
 " Setup Tagbar.
