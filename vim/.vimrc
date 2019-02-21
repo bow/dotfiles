@@ -107,8 +107,18 @@ set cindent
 " Set color to 256 colors.
 set t_Co=256
 
-" Set base colorscheme.
-colorscheme jellybeans
+" Set GUI colors.
+set termguicolors
+
+" Set base colorscheme and its related options.
+let g:gruvbox_italic = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_italicize_comments = 0
+let g:gruvbox_invert_selection = 0
+colorscheme gruvbox
+
+" Ensure background is dark.
+set background=dark
 
 " Set auto indentation.
 set autoindent
@@ -237,7 +247,8 @@ augroup END
 
 
 " Setup vim-airline.
-let g:airline_theme='term'
+let g:airline#skip_empty_sections = 1
+let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -245,7 +256,10 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline_symbols.branch = "⎇ "
 let g:airline_symbols.notexists = "*"
+" Set airline font.
 set guifont=Inconsolata\ for\ Powerline
+" This highlight group is used for the airline warning.
+hi SpellRare guifg=#111111 guibg=#b57614
 
 " Custom airline function to add total line number
 function! AirlineInit()
@@ -264,10 +278,13 @@ hi Search cterm=NONE ctermbg=darkgreen ctermfg=black
 hi MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 " Disable background highlighting on non-texts.
-hi NonText guibg=NONE ctermbg=NONE
+hi NonText guifg=bg guibg=NONE ctermfg=bg ctermbg=NONE
 
-" Disable background highlighting on normal text.
-hi Normal guibg=NONE ctermbg=NONE
+" Set text width column color.
+hi ColorColumn guibg=grey15
+
+" Set visual selection color.
+hi Visual guibg=grey27
 
 " Update Ale colors.
 hi ALEWarning ctermbg=172 ctermfg=black
