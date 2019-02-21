@@ -110,20 +110,24 @@ alias unix-ns='date +%s%9N'
 # list container process
 alias dps="docker ps"
 # list process included stop container
-alias dpa="docker ps -a"
+alias dpsa="docker ps -a"
 # list images
-alias di="docker images"
+alias dlsi="docker images"
+# list volumes
+alias dlsv="docker volume ls"
+# list networks
+alias dlsn="docker network ls"
 # run daemonized container, e.g., $dkd base /bin/echo hello
-alias dkd="docker run -dP"
+alias drnd="docker run -dP"
 # run interactive container, e.g., $dki base /bin/bash
-alias dki="docker run -itP"
+alias drni="docker run -itP"
 # execute interactive container, e.g., $dex base /bin/bash
-alias dex="docker exec -it"
+alias dexi="docker exec -it"
 # remove exited containers
 function drm() { docker rm $(docker ps -qf 'status=exited'); }
 # remove dangling images
 function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
-# bash into running container
+# shell into running container
 function dsh() { docker exec -it $(docker ps -aqf "name=$1") "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
 function dbu() { docker build -t="$1" .; }
