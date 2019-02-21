@@ -374,12 +374,15 @@ let g:vimrplugin_term = "termite"
 " Disable '_' auto replacement with '<-' in R files.
 let g:vimrplugin_underscore = 0
 
-" List of VCS that vim-signify uses.
+" Setup vim-signify.
 let g:signify_vcs_list = [ 'git' ]
+hi SignifySignAdd    gui=bold guifg=#111111 guibg=#427b58
+hi SignifySignDelete gui=bold guifg=#111111 guibg=#af3a03
+hi SignifySignChange gui=bold guifg=#111111 guibg=#b57614
+let g:signify_sign_delete = '-'
 
 " List of excluded name patterns in editorconfig-vim.
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
 
 " Setup NERDTree.
 let g:NERDTreeWinSize = 31
