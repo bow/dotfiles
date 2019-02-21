@@ -71,7 +71,7 @@ syntax on
 " Detect file extension.
 filetype on
 
-" Enable file type-specific autoindenting..
+" Enable file type-specific autoindenting.
 filetype indent on
 
 " Enable filetype specific plugins.
