@@ -1,4 +1,36 @@
-# Compiled source #
+# Python
+*.pyc
+*.pyo
+*.egg-info
+.cache
+.coverage
+.coverage.*
+.eggs
+.mypy_cache
+.tox
+.pytest_cache
+.python-version
+htmlcov
+test.py
+venv
+
+# JavaScript
+.nvmrc
+node_modules
+
+# R
+*.RData
+*.RHistory
+*.Rout
+
+# Rust
+target
+
+# Scala
+target
+test.sc
+
+# Compiled
 *.com
 *.class
 *.dll
@@ -6,46 +38,19 @@
 *.o
 *.so
 
-# Python #
-*.pyc
-*.pyo
-*.egg-info
-.coverage
-.coverage.*
-.tox
-.cache
-.eggs
-.pytest_cache
-.mypy_cache
-htmlcov/
-test.py
-# pyenv #
-.python-version
+# SQLite
+*.sqlite
+test.db
 
-# JavaScript #
-node_modules
-# nvm #
-.nvmrc
+# Vim
+*.swp
+*.swo
 
-# R #
-*.RData
-*.RHistory
-*.Rout
-
-# Rust #
-target
-
-# Scala #
-target
-test.sc
-
-# IntelliJ #
+# IntelliJ
 *.iml
 .idea
 
-# Packages #
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
+# Archives
 *.7z
 *.dmg
 *.gz
@@ -55,24 +60,15 @@ test.sc
 *.tar
 *.zip
 
-# Logs and databases #
-*.log
-*.sqlite
-test.db
-
-# OS generated files #
+# OS-specific
 .DS_Store?
 ehthumbs.db
 Icon?
 Thumbs.db
 
-# Temp files #
-*.swp
-*.swo
-
-# Dev files #
+# Misc
+*.log
 .envrc
-sandbox
 .scannerwork
-
+sandbox
 .~lock.*
