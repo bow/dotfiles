@@ -103,6 +103,7 @@ alias ....='cd ../../..'
 alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
 alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
 alias xclip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
+alias unix-ns='date +%s%9N'
 
 # Docker aliases
 # Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
