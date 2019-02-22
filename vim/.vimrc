@@ -115,6 +115,7 @@ let g:gruvbox_italic = 1
 let g:gruvbox_italicize_strings = 1
 let g:gruvbox_italicize_comments = 0
 let g:gruvbox_invert_selection = 0
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 
 " Ensure background is dark.
@@ -248,7 +249,7 @@ augroup END
 
 " Setup vim-airline.
 let g:airline#skip_empty_sections = 1
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -316,8 +317,8 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_guide_size = 4
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
-au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey15 ctermbg=233
-au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey17 ctermbg=234
+au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=NONE ctermbg=NONE
+au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey11 ctermbg=234
 
 
 " Setup Ale
