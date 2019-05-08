@@ -10,3 +10,9 @@
 [submodule "pyenv/pyenv-which-ext"]
     path = pyenv/pyenv-which-ext
     url = https://github.com/pyenv/pyenv-which-ext.git
+[submodule "nodenv/nodenv"]
+    path = nodenv/nodenv
+    url = https://github.com/nodenv/nodenv.git
+[submodule "nodenv/node-build"]
+    path = nodenv/node-build
+    url = https://github.com/nodenv/node-build.git
