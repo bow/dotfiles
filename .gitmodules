@@ -7,3 +7,6 @@
 [submodule "pyenv/pyenv-virtualenv"]
     path = pyenv/pyenv-virtualenv
     url = https://github.com/pyenv/pyenv-virtualenv.git
+[submodule "pyenv/pyenv-which-ext"]
+    path = pyenv/pyenv-which-ext
+    url = https://github.com/pyenv/pyenv-which-ext.git
