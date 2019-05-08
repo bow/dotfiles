@@ -67,9 +67,10 @@ grey='\033[37m'
 function set_prompt {
     pyenv_name=$(pyenv version-name 2> /dev/null || true)
     venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
-    nvm_name="" && [[ -n $NVM_BIN ]] && venv_name="\[${green}\] $(nvm current) \[${nocol}\]"
+    nodenv_name=$(nodenv version-name 2> /dev/null || true)
+    nvenv_name="" && [ "${nodenv_name}" != "" ] && [ "${nodenv_name}" != "system" ] && nvenv_name="\[${green}\] ${nodenv_name} \[${nocol}\]"
     dm_name="" && [[ -n $DOCKER_MACHINE_NAME ]] && dm_name="\[${purple}\] $DOCKER_MACHINE_NAME \[${nocol}\]"
-    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo "${blue}"; else echo "${red}"; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${dm_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${nvenv_name}${dm_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
 PROMPT_COMMAND=set_prompt
@@ -248,6 +249,13 @@ export PATH="${PYENV_ROOT}/bin:${PATH}"
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+fi
+
+# nodenv config
+export NODENV_ROOT="${HOME}/.nodenv"
+export PATH="${NODENV_ROOT}/bin:${PATH}"
+if command -v nodenv 1>/dev/null 2>&1; then
+    eval "$(nodenv init -)"
 fi
 
 # direnv config
