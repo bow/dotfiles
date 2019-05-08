@@ -42,8 +42,8 @@ source $VIMRUNTIME/syntax/python.vim
 " shell      = "shell" ":" stringliteral
 
 syn keyword pythonStatement	include workdir onsuccess onerror
-syn keyword pythonStatement	ruleorder localrules configfile
-syn keyword pythonStatement	touch protected temp wrapper srcdir
+syn keyword pythonStatement	ruleorder localrules configfile group
+syn keyword pythonStatement	touch protected temp wrapper srcdir directory pipe
 syn keyword pythonStatement	input output params message threads resources conda singularity
 syn keyword pythonStatement	version run shell benchmark snakefile log script
 syn keyword pythonStatement	rule subworkflow nextgroup=pythonFunction skipwhite
