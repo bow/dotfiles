@@ -6,11 +6,13 @@
 
 # load own copy of .git-prompt.sh if it exists
 if [ -f ~/.git-prompt.sh ]; then
+    # shellcheck source=.git-prompt.sh
     source ~/.git-prompt.sh
 fi
 
 # load own copy of .git-completion.bash if it exists
 if [ -f ~/.git-completion.bash ]; then
+    # shellcheck source=.git-completion.bash
     source ~/.git-completion.bash
 fi
 
@@ -49,7 +51,7 @@ fi
 
 # set .dircolors
 if [ -e /bin/dircolors ]; then
-    eval $(dircolors -b ~/.dircolors)
+    eval "$(dircolors -b ~/.dircolors)"
 fi
 
 # set prompt
@@ -125,19 +127,19 @@ alias drni="docker run -itP"
 # execute interactive container, e.g., $dex base /bin/bash
 alias dexi="docker exec -it"
 # remove exited containers
-function drm() { docker rm $(docker ps -qf 'status=exited'); }
+function drm() { docker rm "$(docker ps -qf 'status=exited')"; }
 # remove dangling images
-function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
+function drmi() { docker rmi "$(docker images -qf 'dangling=true')"; }
 # shell into running container
-function dsh() { docker exec -it $(docker ps -aqf "name=$1") "${2:-sh}"; }
+function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
 function dbu() { docker build -t="$1" .; }
 
 # create dir and cd into it
-function mkcd() { mkdir -p "$1" && cd "$1"; }
+function mkcd() { mkdir -p "$1" && (cd "$1" || return); }
 
 # change owner to current user
-function mkmine() { sudo chown -R ${USER} ${1:-.}; }
+function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 
 # check wikipedia summary
 function wiki() { dig +short txt "$*".wp.dg.cx; }
@@ -147,7 +149,7 @@ function calc() { echo "$*" | bc; }
 
 # passwordless ssh login
 function pwdless() {
-    cat ~/.ssh/id_rsa.pub | ssh $1 'mkdir .ssh && cat >> .ssh/authorized_keys'
+    ssh "$1" 'mkdir .ssh && cat >> .ssh/authorized_keys' < "${HOME}/.ssh/id_rsa.pub"
 }
 
 # mount iso images
@@ -157,15 +159,15 @@ function mountiso() {
         return
     fi
     mountdir="/media/${1%.iso}"
-    if [ ! -d $mountdir ]; then
-        sudo mkdir -p $mountdir
+    if [ ! -d "{mountdir}" ]; then
+        sudo 'mkdir' '-p' "${mountdir}"
     fi
     sudo mount -o loop "$1" "$mountdir"
 }
 
 # unmount iso images
 function umountiso() {
-    if [ -d $1 ]; then
+    if [ -d "$1" ]; then
         sudo umount "$1"
         sudo rmdir "$1"
     else
@@ -179,17 +181,17 @@ function pack() {
     target=${2%/}
     case $1 in
     gz)
-        tar czvf ${target}.tar.gz $target ;;
+        tar czvf "${target}.tar.gz" "${target}" ;;
     bz)
-        tar cjvf ${target}.tar.bz2 $target ;;
+        tar cjvf "${target}.tar.bz2" "${target}" ;;
     xz)
-        tar cJvf ${target}.tar.xz $target ;;
+        tar cJvf "${target}.tar.xz" "${target}" ;;
     7z)
-        7zr a ${target}.7z $target ;;
+        7zr a "${target}.7z" "${target}" ;;
     rar)
-        rar a ${target}.rar $target ;;
+        rar a "${target}.rar" "${target}" ;;
     zip)
-        zip -r ${target}.zip $target ;;
+        zip -r "${target}.zip" "${target}" ;;
     *)
         echo "Usage: pack [gzip|bzip2|xz|7z|rar|zip] [target]" ;;
     esac
@@ -199,13 +201,13 @@ function pack() {
 function unpack() {
     case $1 in
     *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz)
-        tar xfv $1 ;;
+        tar xfv "$1" ;;
     *.7z)
-        7zr x $1 ;;
+        7zr x "$1" ;;
     *.rar)
-        unrar x $1 ;;
+        unrar x "$1" ;;
     *.zip)
-        unzip $1 ;;
+        unzip "$1" ;;
     *)
         echo "Usage: unpack [target]" ;;
     esac
@@ -213,7 +215,7 @@ function unpack() {
 
 # check weather from wego
 function wttr() {
-    curl http://wttr.in/${1:-Copenhagen}
+    curl http://wttr.in/"${1:-Copenhagen}"
 }
 
 # controls git prompt and its color
@@ -229,6 +231,7 @@ function get_git_stat {
 
 # load private settings if it exists
 if [ -f ~/.bash_private ]; then
+    # shellcheck source=.git-prompt.sh
     source ~/.bash_private
 fi
 
@@ -251,14 +254,3 @@ fi
 if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
-
-# nvm lazy config
-nvm() {
-    unset -f nvm
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/share/nvm/nvm.sh" ] && . "/usr/share/nvm/nvm.sh"
-    [ -s "/usr/share/nvm/bash_completion" ] && . "/usr/share/nvm/bash_completion"
-    [ -s "/usr/share/nvm/install-nvm-exec" ] && . "/usr/share/nvm/install-nvm-exec"
-    nvm deactivate > /dev/null
-    nvm "$@"
-}
