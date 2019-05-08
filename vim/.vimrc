@@ -205,19 +205,23 @@ augroup FTS
 
     au FileType text setlocal wrap
 
+    au FileType typescript setlocal tw=100 ts=4 sw=4
+    au BufNewFile,BufRead *.ts setlocal ft=typescript
+
     au FileType tsv setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.tsv setlocal ft=tsv
 
     au FileType yaml setlocal ts=2 sw=2 indentkeys-=<:>
     au BufNewFile,BufRead *.yml,*.yaml setlocal ft=yaml
 
-    au FileType wdl setlocal tw=100 ts=2 sw=2
+    au FileType wdl setlocal tw=100 ts=2 sw=2 nocindent
     au BufNewFile,BufRead *.wdl setlocal ft=wdl
 
     au FileType c setlocal tw=100
     au FileType cfg setlocal ts=2 sw=2
     au FileType cpp setlocal tw=100
     au FileType css setlocal tw=100 ts=2 sw=2
+    au FileType scss setlocal tw=100 ts=2 sw=2
     au Filetype gitcommit setlocal spell tw=72
     au FileType go setlocal tw=150 noexpandtab nolist
     au FileType html,htmljinja setlocal ts=2 sw=2
@@ -317,13 +321,15 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 let g:indent_guides_guide_size = 4
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
-au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=NONE ctermbg=NONE
-au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=grey11 ctermbg=234
+au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
+au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 
 
 " Setup Ale
 let g:ale_linters = {
 \   'cpp': ['clangtidy'],
+\   'elixir': [],
+\   'typescript': ['eslint', 'prettier'],
 \}
 let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
 
