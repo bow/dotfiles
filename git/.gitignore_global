@@ -15,6 +15,7 @@ test.py
 venv
 
 # JavaScript
+.node-version
 .nvmrc
 node_modules
 
