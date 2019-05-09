@@ -137,7 +137,7 @@ function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 function dbu() { docker build -t="$1" .; }
 
 # create dir and cd into it
-function mkcd() { mkdir -p "$1" && (cd "$1" || return); }
+function mkcd() { command mkdir -p "$1" && cd "$1"; }
 
 # change owner to current user
 function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
