@@ -180,7 +180,7 @@ augroup FTS
     au FileType gff setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.gff setlocal ft=gff
 
-    au FileType javascript setlocal tw=80 ts=2 sw=2
+    au FileType javascript setlocal tw=80 ts=4 sw=4
     au BufNewFile,BufRead *.js,*.jsx setlocal ft=javascript
 
     au FileType make setlocal tw=100
