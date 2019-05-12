@@ -286,10 +286,19 @@ hi MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 hi NonText guifg=bg guibg=NONE ctermfg=bg ctermbg=NONE
 
 " Set text width column color.
-hi ColorColumn guibg=grey15
+hi ColorColumn guibg=#262626
+
+" Set gutter color.
+hi SignColumn guibg=#262626
+
+" Set gutter line indicator color.
+hi CursorLineNr guibg=#262626
+
+" Set vertical split color.
+hi VertSplit guibg=#262626
 
 " Set visual selection color.
-hi Visual guibg=grey27
+hi Visual guibg=grey23
 
 " Update Ale colors.
 hi ALEWarning ctermbg=172 ctermfg=black
@@ -323,7 +332,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
 au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
-
 
 " Setup Ale
 let g:ale_linters = {
