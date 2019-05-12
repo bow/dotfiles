@@ -89,9 +89,6 @@ set laststatus=2
 " Always show one line below cursor
 set scrolloff=1
 
-" Shorten command timeout length (default: 1000).
-set timeoutlen=500
-
 " Highlight column after 'textwidth' / 'tw'.
 set colorcolumn=+1
 
@@ -156,6 +153,13 @@ set nofoldenable
 
 " Add paths for file lookup.
 let &path.="src/include,/usr/include/AL,"
+
+" Remove Esc delay when exiting from insert mode.
+augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=500
+augroup END
 
 " Filetype-specific settings
 augroup FTS
