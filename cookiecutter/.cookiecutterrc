@@ -1,6 +1,6 @@
 default_context:
-    full_name: "Wibowo Arindrarto"
-    email: "bow@bow.web.id"
+    author_full_name: "Wibowo Arindrarto"
+    author_email: "bow@bow.web.id"
     github_username: "bow"
     use_travis: true
     use_codecov: true
