@@ -154,9 +154,12 @@ set nofoldenable
 " Add paths for file lookup.
 let &path.="src/include,/usr/include/AL,"
 
+" Shorten command timeout length (default: 1000).
+set timeoutlen=500
+
 " Remove Esc delay when exiting from insert mode.
 augroup FastEscape
-    autocmd!
+    au!
     au InsertEnter * set timeoutlen=0
     au InsertLeave * set timeoutlen=500
 augroup END
