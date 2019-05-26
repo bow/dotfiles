@@ -15,6 +15,7 @@ progs=(
     [git]="${HOME}"
     [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"
+    [ocaml]="${HOME}"
     [postgresql]="${HOME}"
     [r]="${HOME}"
     [sqlite]="${HOME}"

@@ -1,0 +1,9 @@
+(* Added by OPAM. *)
+  try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
+  with Not_found -> ()
+;;
+
+Sys.interactive := false;;
+#use "topfind";;
+#require "base";;
+Sys.interactive := true;;
