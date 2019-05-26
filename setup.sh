@@ -12,6 +12,7 @@ progs=(
     [conda]="${HOME}"
     [cookiecutter]="${HOME}"
     [ctags]="${HOME}"
+    [elixir]="${HOME}"
     [git]="${HOME}"
     [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"
