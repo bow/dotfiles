@@ -1,4 +1,4 @@
--- PostgreSQL .rc file
+-- psql .rc file
 
 \set QUIET 1
 
