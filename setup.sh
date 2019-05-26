@@ -21,6 +21,7 @@ progs=(
     [postgresql]="${HOME}"
     [r]="${HOME}"
     [sqlite]="${HOME}"
+    [termite]="${HOME}/.config/termite"
     [vim]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
@@ -32,6 +33,7 @@ echo "Adding tools settings ..."
 for pn in "${!progs[@]}"
 do
     loc="${progs[$pn]}"
+    mkdir -p ${loc}
     printf "  - ${pn} at ${loc}: "
     (stow -t "${loc}" "${pn}" && echo "ok") || echo "error!"
 done
