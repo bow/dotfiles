@@ -229,6 +229,7 @@ augroup FTS
     au FileType cpp setlocal tw=100
     au FileType css setlocal tw=100 ts=2 sw=2
     au FileType scss setlocal tw=100 ts=2 sw=2
+    au FileType elixir setlocal tw=100
     au Filetype gitcommit setlocal spell tw=72
     au FileType go setlocal tw=150 noexpandtab nolist
     au FileType html,htmljinja setlocal ts=2 sw=2
