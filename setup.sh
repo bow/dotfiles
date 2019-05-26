@@ -6,10 +6,29 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+declare -A progs
+progs=(
+    [bash]="${HOME}"
+    [conda]="${HOME}"
+    [cookiecutter]="${HOME}"
+    [ctags]="${HOME}"
+    [git]="${HOME}"
+    [mercurial]="${HOME}"
+    [ncmpcpp]="${HOME}"
+    [postgresql]="${HOME}"
+    [r]="${HOME}"
+    [sqlite]="${HOME}"
+    [vim]="${HOME}"
+    [xorg]="${HOME}"
+    [xterm]="${HOME}"
+)
+
 type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
 
-for prog in `find * -maxdepth 0 -type d | grep -vP 'virtualenvwrapper|xfce|pyenv'`;
+echo "Adding tools settings ..."
+for pn in "${!progs[@]}"
 do
-    echo "Setting up ${prog} ..."
-    stow -t ~ ${prog} || echo "Error when trying to set up ${prog}."
+    loc="${progs[$pn]}"
+    printf "  - ${pn} at ${loc}: "
+    (stow -t "${loc}" "${pn}" && echo "ok") || echo "error!"
 done
