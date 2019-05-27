@@ -33,7 +33,7 @@ echo "Adding tools settings ..."
 for pn in "${!progs[@]}"
 do
     loc="${progs[$pn]}"
-    mkdir -p ${loc}
-    printf "  - ${pn} at ${loc}: "
+    mkdir -p "${loc}"
+    printf "  - %s at %s: " "${pn}" "${loc}"
     (stow -t "${loc}" "${pn}" && echo "ok") || echo "error!"
 done
