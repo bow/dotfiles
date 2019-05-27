@@ -128,9 +128,9 @@ alias drni="docker run -itP"
 # execute interactive container, e.g., $dex base /bin/bash
 alias dexi="docker exec -it"
 # remove exited containers
-function drm() { docker rm "$(docker ps -qf 'status=exited')"; }
+function drm() { docker rm $(docker ps -qf 'status=exited'); }
 # remove dangling images
-function drmi() { docker rmi "$(docker images -qf 'dangling=true')"; }
+function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
 # shell into running container
 function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
