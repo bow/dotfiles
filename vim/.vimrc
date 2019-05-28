@@ -192,7 +192,7 @@ augroup FTS
     au FileType markdown setlocal ts=2 sw=2 tw=0 wrap
     au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
 
-    au FileType plaintex setlocal ts=2 sw=2
+    au FileType plaintex setlocal ts=2 sw=2 tw=100 wrap
     au BufNewFile,BufRead *.tex setlocal ft=plaintex
 
     au FileType refFlat setlocal wrap linebreak noexpandtab
@@ -239,6 +239,7 @@ augroup FTS
     au FileType ruby setlocal tw=80 ts=2 sw=2
     au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=80
     au FileType R setlocal tw=100 ts=2 sw=2
+    au FileType tex setlocal ts=2 sw=2 tw=100 wrap
     au FileType xml setlocal ts=2 sw=2
     au FileType xml,xhtml,htmljinja so ~/.vim/ftplugin/html_autoclosetag.vim
 
@@ -345,6 +346,8 @@ au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 let g:ale_linters = {
 \   'cpp': ['clangtidy'],
 \   'elixir': [],
+\   'plaintex': [],
+\   'tex': [],
 \   'typescript': ['eslint', 'prettier'],
 \}
 let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
