@@ -224,6 +224,7 @@ augroup FTS
     au FileType wdl setlocal tw=100 ts=2 sw=2 nocindent
     au BufNewFile,BufRead *.wdl setlocal ft=wdl
 
+    au FileType bib setlocal ts=2 sw=2 tw=100
     au FileType c setlocal tw=100
     au FileType cfg setlocal ts=2 sw=2
     au FileType cpp setlocal tw=100
