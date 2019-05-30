@@ -438,10 +438,23 @@ let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll|class|jar|tar.gz|tgz|swp|swo|pyc|pyo)$',
+    \ 'dir': '\v[\/](
+        \\.git|\.hg|\.svn
+        \|__pycache__|node_modules|bower_components
+        \|build|wheels|target|_deps|dist|coverage|htmlcov
+        \|.snakemake
+        \|.DS_Store
+        \)$|.egg-info$',
+    \ 'file': '\v\.(
+        \exe|so|dll|pdf|dvi|png|jpg|jpeg|ico
+        \|doc|docx|xls|xlsx|xlsm
+        \|bcl|cbcl|fastq|fasta|sam|bam|cram|vcf|bcf|gff|gtf|bed|wig|bigwig
+        \|sif|simg
+        \|swp|swo|whl
+        \|pyc|pyo|jar|class
+        \|tgz|tar|zip|gz|gzip|bz2|xz
+        \)$',
     \ }
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 
 " Setup Tagbar.
