@@ -17,12 +17,16 @@ syntax match wdlCommandParameterName /\v\zs\w+\ze([\\?\\*\\+]?\})/ contained con
 
 " Keywords
 syntax keyword wdlKeyword workflow task call nextgroup=wdlTaskName
-syntax keyword wdlKeyword output scatter
-syntax keyword wdlType Boolean Int Float String File Uri nextgroup=wdlIdentifier
+syntax keyword wdlKeyword struct input output scatter if then else runtime
+syntax keyword wdlType Boolean Int Float String File Uri Object nextgroup=wdlTypeModifier
 syntax keyword wdlImport import
+syntax keyword wdlVersion version
 
 " Compound Types
-syntax region wdlType start=/\(Map\|Array\)\[/ end=/\]/ contains=wdlType nextgroup=wdlIdentifier
+syntax region wdlType start=/\(Map\|Array\|Pair\)\[/ end=/\]/ contains=wdlType nextgroup=wdlTypeModifier
+
+" Type modifiers
+syntax match wdlTypeModifier /\(?\|+\)\?/ contained nextgroup=wdlIdentifier
 
 " Identifiers
 syntax match wdlIdentifier /\v\s*\w+/ contained
@@ -45,8 +49,10 @@ highlight link wdlTaskName Identifier
 highlight link wdlCommandParameterName Identifier
 highlight link wdlIdentifier Identifier
 highlight link wdlType Type
+highlight link wdlTypeModifier Delimiter
 highlight link wdlString String
 highlight link wdlImport Include
+highlight link wdlVersion Include
 highlight link wdlInterpolationWrapper Include
 highlight link wdlInterpolatedString Include
 highlight link wdlComment Comment
