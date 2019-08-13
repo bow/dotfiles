@@ -121,9 +121,9 @@ alias dlsi="docker images"
 alias dlsv="docker volume ls"
 # list networks
 alias dlsn="docker network ls"
-# run daemonized container, e.g., $dkd base /bin/echo hello
+# run daemonized container, e.g., $drnd base /bin/echo hello
 alias drnd="docker run -dP"
-# run interactive container, e.g., $dki base /bin/bash
+# run interactive container, e.g., $drni base /bin/bash
 alias drni="docker run -itP"
 # execute interactive container, e.g., $dex base /bin/bash
 alias dexi="docker exec -it"
