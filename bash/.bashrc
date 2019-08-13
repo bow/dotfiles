@@ -153,6 +153,16 @@ function pwdless() {
     ssh "$1" 'mkdir .ssh && cat >> .ssh/authorized_keys' < "${HOME}/.ssh/id_rsa.pub"
 }
 
+# helper for creating and activating new pyenv virtualenvs
+function mkenv() {
+    py_version=3.7.3
+    env_name=$1
+    pyenv virtualenv "${py_version}" "${env_name}" \
+        && printf "%s\n%s\n" "${env_name}" "${py_version}" \
+        > .python-version \
+        && pip install --upgrade pip
+}
+
 # mount iso images
 function mountiso() {
     if [ ! "$1" ]; then
