@@ -262,3 +262,17 @@ fi
 if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
+
+# ssh-agent config
+SSH_AGENT_ENV="${HOME}/.ssh/.agent.env"
+if [ -f "${SSH_AGENT_ENV}" ] ; then
+    . "${SSH_AGENT_ENV}" > /dev/null
+    if ! kill -0 "${SSH_AGENT_PID}" > /dev/null 2>&1; then
+        echo "stale agent file found - spawning new agent ..."
+        eval $(ssh-agent | tee "${SSH_AGENT_ENV}")
+        ssh-add
+    fi
+else
+    eval $(ssh-agent | tee "${SSH_AGENT_ENV}")
+    ssh-add
+fi
