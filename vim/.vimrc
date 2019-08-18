@@ -442,6 +442,7 @@ let g:ctrlp_custom_ignore = {
         \\.git|\.hg|\.svn
         \|__pycache__|node_modules|bower_components
         \|build|wheels|target|_deps|dist|coverage|htmlcov
+        \|_build
         \|.snakemake
         \|.DS_Store
         \)$|.egg-info$',
