@@ -124,9 +124,9 @@ alias dlsn="docker network ls"
 # run daemonized container, e.g., $drnd base /bin/echo hello
 alias drnd="docker run -dP"
 # run interactive container, e.g., $drni base /bin/bash
-alias drni="docker run -itP"
+alias drni="docker run --rm -itP"
 # execute interactive container, e.g., $dex base /bin/bash
-alias dexi="docker exec -it"
+function dexi() { docker exec -it "${1}" "${2:-/bin/bash}"; }
 # remove exited containers
 function drm() { docker rm $(docker ps -qf 'status=exited'); }
 # remove dangling images
