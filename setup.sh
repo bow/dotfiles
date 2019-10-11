@@ -20,6 +20,7 @@ progs=(
     [ocaml]="${HOME}"
     [postgresql]="${HOME}"
     [r]="${HOME}"
+    [readline]="${HOME}"
     [sqlite]="${HOME}"
     [termite]="${HOME}/.config/termite"
     [vim]="${HOME}"
