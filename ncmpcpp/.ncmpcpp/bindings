@@ -1,0 +1,8 @@
+# -*- mode: conf -*-
+# vi: set ft=conf :
+
+# ncmpcpp bindings file
+
+# Disable 'y' for single mode shortcut.
+def_key "y"
+  dummy
