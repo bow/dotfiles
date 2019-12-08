@@ -14,6 +14,7 @@ progs=(
     [ctags]="${HOME}"
     [elixir]="${HOME}"
     [git]="${HOME}"
+    [kubernetes]="${HOME}"
     [lightdm]="${HOME}"
     [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"

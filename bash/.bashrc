@@ -16,6 +16,30 @@ if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 fi
 
+# load own copy of .kubectl-completion.bash if it exists
+if [ -f ~/.kubectl-completion.bash ]; then
+    # shellcheck source=.kubectl-completion.bash
+    source ~/.kubectl-completion.bash
+fi
+
+# load own copy of .kube-ps1.sh if it exists
+if [ -f ~/.kube-ps1.sh ]; then
+    # shellcheck source=.kube-ps1.sh
+    source ~/.kube-ps1.sh
+fi
+KUBE_PS1_SEPARATOR=""
+KUBE_PS1_PREFIX=""
+KUBE_PS1_SUFFIX=" "
+KUBE_PS1_SYMBOL_COLOR=magenta
+KUBE_PS1_CTX_COLOR=magenta
+KUBE_PS1_NS_COLOR=magenta
+
+# load own copy of .minikube-completion.bash if it exists
+if [ -f ~/.minikube-completion.bash ]; then
+    # shellcheck source=.minikube-completion.bash
+    source ~/.minikube-completion.bash
+fi
+
 # prevent cluttering history with dup lines
 HISTCONTROL=ignoredups:ignorespace
 
@@ -69,8 +93,7 @@ function set_prompt {
     venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
     nodenv_name=$(nodenv version-name 2> /dev/null || true)
     nvenv_name="" && [ "${nodenv_name}" != "" ] && [ "${nodenv_name}" != "system" ] && nvenv_name="\[${green}\] ${nodenv_name} \[${nocol}\]"
-    dm_name="" && [[ -n $DOCKER_MACHINE_NAME ]] && dm_name="\[${purple}\] $DOCKER_MACHINE_NAME \[${nocol}\]"
-    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${nvenv_name}${dm_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}$(kube_ps1)\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
 PROMPT_COMMAND=set_prompt
