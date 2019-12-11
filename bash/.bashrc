@@ -93,7 +93,7 @@ function set_prompt {
     venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
     nodenv_name=$(nodenv version-name 2> /dev/null || true)
     nvenv_name="" && [ "${nodenv_name}" != "" ] && [ "${nodenv_name}" != "system" ] && nvenv_name="\[${green}\] ${nodenv_name} \[${nocol}\]"
-    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}$(kube_ps1)\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${venv_name}${nvenv_name}$(kube_ps1)\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
 PROMPT_COMMAND=set_prompt
