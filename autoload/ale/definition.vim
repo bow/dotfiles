@@ -3,6 +3,9 @@
 
 let s:go_to_definition_map = {}
 
+" Enable automatic updates of the tagstack
+let g:ale_update_tagstack = get(g:, 'ale_update_tagstack', 1)
+
 " Used to get the definition map in tests.
 function! ale#definition#GetMap() abort
     return deepcopy(s:go_to_definition_map)
@@ -17,6 +20,20 @@ function! ale#definition#ClearLSPData() abort
     let s:go_to_definition_map = {}
 endfunction
 
+function! ale#definition#UpdateTagStack() abort
+    let l:should_update_tagstack = exists('*gettagstack') && exists('*settagstack') && g:ale_update_tagstack
+
+    if l:should_update_tagstack
+        " Grab the old location (to jump back to) and the word under the
+        " cursor (as a label for the tagstack)
+        let l:old_location = [bufnr('%'), line('.'), col('.'), 0]
+        let l:tagname = expand('<cword>')
+        let l:winid = win_getid()
+        call settagstack(l:winid, {'items': [{'from': l:old_location, 'tagname': l:tagname}]}, 'a')
+        call settagstack(l:winid, {'curidx': len(gettagstack(l:winid)['items']) + 1})
+    endif
+endfunction
+
 function! ale#definition#HandleTSServerResponse(conn_id, response) abort
     if get(a:response, 'command', '') is# 'definition'
     \&& has_key(s:go_to_definition_map, a:response.request_seq)
@@ -27,6 +44,7 @@ function! ale#definition#HandleTSServerResponse(conn_id, response) abort
             let l:line = a:response.body[0].start.line
             let l:column = a:response.body[0].start.offset
 
+            call ale#definition#UpdateTagStack()
             call ale#util#Open(l:filename, l:line, l:column, l:options)
         endif
     endif
@@ -51,65 +69,88 @@ function! ale#definition#HandleLSPResponse(conn_id, response) abort
             let l:line = l:item.range.start.line + 1
             let l:column = l:item.range.start.character + 1
 
+            call ale#definition#UpdateTagStack()
             call ale#util#Open(l:filename, l:line, l:column, l:options)
             break
         endfor
     endif
 endfunction
 
-function! s:GoToLSPDefinition(linter, options) abort
-    let l:buffer = bufnr('')
-    let [l:line, l:column] = getcurpos()[1:2]
-    let l:lsp_details = ale#lsp_linter#StartLSP(l:buffer, a:linter)
+function! s:OnReady(line, column, options, capability, linter, lsp_details) abort
+    let l:id = a:lsp_details.connection_id
 
-    if a:linter.lsp isnot# 'tsserver'
-        let l:column = min([l:column, len(getline(l:line))])
+    if !ale#lsp#HasCapability(l:id, a:capability)
+        return
     endif
 
-    if empty(l:lsp_details)
-        return 0
-    endif
+    let l:buffer = a:lsp_details.buffer
 
-    let l:id = l:lsp_details.connection_id
-    let l:root = l:lsp_details.project_root
+    let l:Callback = a:linter.lsp is# 'tsserver'
+    \   ? function('ale#definition#HandleTSServerResponse')
+    \   : function('ale#definition#HandleLSPResponse')
+    call ale#lsp#RegisterCallback(l:id, l:Callback)
 
-    function! OnReady(...) abort closure
-        let l:Callback = a:linter.lsp is# 'tsserver'
-        \   ? function('ale#definition#HandleTSServerResponse')
-        \   : function('ale#definition#HandleLSPResponse')
-        call ale#lsp#RegisterCallback(l:id, l:Callback)
+    if a:linter.lsp is# 'tsserver'
+        let l:message = ale#lsp#tsserver_message#Definition(
+        \   l:buffer,
+        \   a:line,
+        \   a:column
+        \)
+    else
+        " Send a message saying the buffer has changed first, or the
+        " definition position probably won't make sense.
+        call ale#lsp#NotifyForChanges(l:id, l:buffer)
 
-        if a:linter.lsp is# 'tsserver'
-            let l:message = ale#lsp#tsserver_message#Definition(
-            \   l:buffer,
-            \   l:line,
-            \   l:column
-            \)
+        " For LSP completions, we need to clamp the column to the length of
+        " the line. python-language-server and perhaps others do not implement
+        " this correctly.
+        if a:capability is# 'definition'
+            let l:message = ale#lsp#message#Definition(l:buffer, a:line, a:column)
+        elseif a:capability is# 'typeDefinition'
+            let l:message = ale#lsp#message#TypeDefinition(l:buffer, a:line, a:column)
         else
-            " Send a message saying the buffer has changed first, or the
-            " definition position probably won't make sense.
-            call ale#lsp#NotifyForChanges(l:id, l:root, l:buffer)
-
-            " For LSP completions, we need to clamp the column to the length of
-            " the line. python-language-server and perhaps others do not implement
-            " this correctly.
-            let l:message = ale#lsp#message#Definition(l:buffer, l:line, l:column)
+            " XXX: log here?
+            return
         endif
+    endif
 
-        let l:request_id = ale#lsp#Send(l:id, l:message, l:lsp_details.project_root)
+    let l:request_id = ale#lsp#Send(l:id, l:message)
 
-        let s:go_to_definition_map[l:request_id] = {
-        \   'open_in_tab': get(a:options, 'open_in_tab', 0),
-        \}
-    endfunction
+    let s:go_to_definition_map[l:request_id] = {
+    \   'open_in': get(a:options, 'open_in', 'current-buffer'),
+    \}
+endfunction
 
-    call ale#lsp#WaitForCapability(l:id, l:root, 'definition', function('OnReady'))
+function! s:GoToLSPDefinition(linter, options, capability) abort
+    let l:buffer = bufnr('')
+    let [l:line, l:column] = getpos('.')[1:2]
+    let l:column = min([l:column, len(getline(l:line))])
+
+    let l:Callback = function(
+    \   's:OnReady',
+    \   [l:line, l:column, a:options, a:capability]
+    \)
+    call ale#lsp_linter#StartLSP(l:buffer, a:linter, l:Callback)
 endfunction
 
 function! ale#definition#GoTo(options) abort
     for l:linter in ale#linter#Get(&filetype)
         if !empty(l:linter.lsp)
-            call s:GoToLSPDefinition(l:linter, a:options)
+            call s:GoToLSPDefinition(l:linter, a:options, 'definition')
+        endif
+    endfor
+endfunction
+
+function! ale#definition#GoToType(options) abort
+    for l:linter in ale#linter#Get(&filetype)
+        if !empty(l:linter.lsp)
+            " TODO: handle typeDefinition for tsserver if supported by the
+            " protocol
+            if l:linter.lsp is# 'tsserver'
+                continue
+            endif
+
+            call s:GoToLSPDefinition(l:linter, a:options, 'typeDefinition')
         endif
     endfor
 endfunction

@@ -22,15 +22,16 @@ let s:global_variable_list = [
 \    'ale_lint_delay',
 \    'ale_lint_on_enter',
 \    'ale_lint_on_filetype_changed',
+\    'ale_lint_on_insert_leave',
 \    'ale_lint_on_save',
 \    'ale_lint_on_text_changed',
-\    'ale_lint_on_insert_leave',
 \    'ale_linter_aliases',
 \    'ale_linters',
 \    'ale_linters_explicit',
-\    'ale_list_window_size',
 \    'ale_list_vertical',
+\    'ale_list_window_size',
 \    'ale_loclist_msg_format',
+\    'ale_lsp_root',
 \    'ale_max_buffer_history_size',
 \    'ale_max_signs',
 \    'ale_maximum_file_size',
@@ -49,9 +50,11 @@ let s:global_variable_list = [
 \    'ale_sign_style_error',
 \    'ale_sign_style_warning',
 \    'ale_sign_warning',
+\    'ale_sign_highlight_linenrs',
 \    'ale_statusline_format',
 \    'ale_type_map',
 \    'ale_use_global_executables',
+\    'ale_virtualtext_cursor',
 \    'ale_warn_about_trailing_blank_lines',
 \    'ale_warn_about_trailing_whitespace',
 \]
@@ -60,7 +63,7 @@ function! s:Echo(message) abort
     execute 'echo a:message'
 endfunction
 
-function! s:GetLinterVariables(filetype, linter_names) abort
+function! s:GetLinterVariables(filetype, exclude_linter_names) abort
     let l:variable_list = []
     let l:filetype_parts = split(a:filetype, '\.')
 
@@ -71,7 +74,7 @@ function! s:GetLinterVariables(filetype, linter_names) abort
         " Include matching variables.
         if !empty(l:match)
         \&& index(l:filetype_parts, l:match[1]) >= 0
-        \&& index(a:linter_names, l:match[2]) >= 0
+        \&& index(a:exclude_linter_names, l:match[2]) == -1
             call add(l:variable_list, l:key)
         endif
     endfor
@@ -209,10 +212,11 @@ function! ale#debugging#Info() abort
 
     let l:all_names = map(copy(l:all_linters), 'v:val[''name'']')
     let l:enabled_names = map(copy(l:enabled_linters), 'v:val[''name'']')
+    let l:exclude_names = filter(copy(l:all_names), 'index(l:enabled_names, v:val) == -1')
 
     " Load linter variables to display
     " This must be done after linters are loaded.
-    let l:variable_list = s:GetLinterVariables(l:filetype, l:enabled_names)
+    let l:variable_list = s:GetLinterVariables(l:filetype, l:exclude_names)
 
     let l:fixers = ale#fix#registry#SuggestedFixers(l:filetype)
     let l:fixers = uniq(sort(l:fixers[0] + l:fixers[1]))
@@ -236,10 +240,17 @@ function! ale#debugging#Info() abort
 endfunction
 
 function! ale#debugging#InfoToClipboard() abort
-    redir @+>
+    if !has('clipboard')
+        call s:Echo('clipboard not available. Try :ALEInfoToFile instead.')
+
+        return
+    endif
+
+    redir => l:output
         silent call ale#debugging#Info()
     redir END
 
+    let @+ = l:output
     call s:Echo('ALEInfo copied to your clipboard')
 endfunction
 

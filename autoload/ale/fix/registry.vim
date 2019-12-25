@@ -17,10 +17,25 @@ let s:default_registry = {
 \       'suggested_filetypes': ['python'],
 \       'description': 'Fix PEP8 issues with autopep8.',
 \   },
+\   'bibclean': {
+\       'function': 'ale#fixers#bibclean#Fix',
+\       'suggested_filetypes': ['bib'],
+\       'description': 'Format bib files using bibclean.',
+\   },
 \   'black': {
 \       'function': 'ale#fixers#black#Fix',
 \       'suggested_filetypes': ['python'],
 \       'description': 'Fix PEP8 issues with black.',
+\   },
+\   'dfmt': {
+\       'function': 'ale#fixers#dfmt#Fix',
+\       'suggested_filetypes': ['d'],
+\       'description': 'Fix D files with dfmt.',
+\   },
+\   'fecs': {
+\       'function': 'ale#fixers#fecs#Fix',
+\       'suggested_filetypes': ['javascript', 'css', 'html'],
+\       'description': 'Apply fecs format to a file.',
 \   },
 \   'tidy': {
 \       'function': 'ale#fixers#tidy#Fix',
@@ -39,6 +54,11 @@ let s:default_registry = {
 \       'description': 'Apply elm-format to a file.',
 \       'aliases': ['format'],
 \   },
+\   'nimpretty': {
+\       'function': 'ale#fixers#nimpretty#Fix',
+\       'suggested_filetypes': ['nim'],
+\       'description': 'Apply nimpretty to a file.',
+\   },
 \   'eslint': {
 \       'function': 'ale#fixers#eslint#Fix',
 \       'suggested_filetypes': ['javascript', 'typescript'],
@@ -56,7 +76,7 @@ let s:default_registry = {
 \   },
 \   'prettier': {
 \       'function': 'ale#fixers#prettier#Fix',
-\       'suggested_filetypes': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'json5', 'graphql', 'markdown', 'vue'],
+\       'suggested_filetypes': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'json5', 'graphql', 'markdown', 'vue', 'html', 'yaml'],
 \       'description': 'Apply prettier to a file.',
 \   },
 \   'prettier_eslint': {
@@ -105,14 +125,24 @@ let s:default_registry = {
 \       'suggested_filetypes': ['scala'],
 \       'description': 'Fix Scala files using scalafmt',
 \   },
+\   'sorbet': {
+\       'function': 'ale#fixers#sorbet#Fix',
+\       'suggested_filetypes': ['ruby'],
+\       'description': 'Fix ruby files with srb tc --autocorrect.',
+\   },
 \   'standard': {
 \       'function': 'ale#fixers#standard#Fix',
 \       'suggested_filetypes': ['javascript'],
 \       'description': 'Fix JavaScript files using standard --fix',
 \   },
+\   'standardrb': {
+\       'function': 'ale#fixers#standardrb#Fix',
+\       'suggested_filetypes': ['ruby'],
+\       'description': 'Fix ruby files with standardrb --fix',
+\   },
 \   'stylelint': {
 \       'function': 'ale#fixers#stylelint#Fix',
-\       'suggested_filetypes': ['css', 'sass', 'scss', 'stylus'],
+\       'suggested_filetypes': ['css', 'sass', 'scss', 'sugarss', 'stylus'],
 \       'description': 'Fix stylesheet files using stylelint --fix.',
 \   },
 \   'swiftformat': {
@@ -130,10 +160,20 @@ let s:default_registry = {
 \       'suggested_filetypes': ['php'],
 \       'description': 'Fix PHP files with php-cs-fixer.',
 \   },
+\   'clangtidy': {
+\       'function': 'ale#fixers#clangtidy#Fix',
+\       'suggested_filetypes': ['c', 'cpp', 'objc'],
+\       'description': 'Fix C/C++ and ObjectiveC files with clang-tidy.',
+\   },
 \   'clang-format': {
 \       'function': 'ale#fixers#clangformat#Fix',
-\       'suggested_filetypes': ['c', 'cpp'],
-\       'description': 'Fix C/C++ files with clang-format.',
+\       'suggested_filetypes': ['c', 'cpp', 'cuda'],
+\       'description': 'Fix C/C++ and cuda files with clang-format.',
+\   },
+\   'cmakeformat': {
+\       'function': 'ale#fixers#cmakeformat#Fix',
+\       'suggested_filetypes': ['cmake'],
+\       'description': 'Fix CMake files with cmake-format.',
 \   },
 \   'gofmt': {
 \       'function': 'ale#fixers#gofmt#Fix',
@@ -145,6 +185,11 @@ let s:default_registry = {
 \       'suggested_filetypes': ['go'],
 \       'description': 'Fix Go files imports with goimports.',
 \   },
+\   'gomod': {
+\       'function': 'ale#fixers#gomod#Fix',
+\       'suggested_filetypes': ['gomod'],
+\       'description': 'Fix Go module files with go mod edit -fmt.',
+\   },
 \   'tslint': {
 \       'function': 'ale#fixers#tslint#Fix',
 \       'suggested_filetypes': ['typescript'],
@@ -155,10 +200,20 @@ let s:default_registry = {
 \       'suggested_filetypes': ['rust'],
 \       'description': 'Fix Rust files with Rustfmt.',
 \   },
+\   'textlint': {
+\       'function': 'ale#fixers#textlint#Fix',
+\       'suggested_filetypes': ['text','markdown','asciidoc','tex'],
+\       'description': 'Fix text files with textlint --fix',
+\   },
 \   'hackfmt': {
 \       'function': 'ale#fixers#hackfmt#Fix',
 \       'suggested_filetypes': ['hack'],
 \       'description': 'Fix Hack files with hackfmt.',
+\   },
+\   'floskell': {
+\       'function': 'ale#fixers#floskell#Fix',
+\       'suggested_filetypes': ['haskell'],
+\       'description': 'Fix Haskell files with floskell.',
 \   },
 \   'hfmt': {
 \       'function': 'ale#fixers#hfmt#Fix',
@@ -170,6 +225,36 @@ let s:default_registry = {
 \       'suggested_filetypes': ['haskell'],
 \       'description': 'Fix Haskell files with brittany.',
 \   },
+\   'hindent': {
+\       'function': 'ale#fixers#hindent#Fix',
+\       'suggested_filetypes': ['haskell'],
+\       'description': 'Fix Haskell files with hindent.',
+\   },
+\   'hlint': {
+\       'function': 'ale#fixers#hlint#Fix',
+\       'suggested_filetypes': ['haskell'],
+\       'description': 'Refactor Haskell files with hlint.',
+\   },
+\   'stylish-haskell': {
+\       'function': 'ale#fixers#stylish_haskell#Fix',
+\       'suggested_filetypes': ['haskell'],
+\       'description': 'Refactor Haskell files with stylish-haskell.',
+\   },
+\   'purty': {
+\       'function': 'ale#fixers#purty#Fix',
+\       'suggested_filetypes': ['purescript'],
+\       'description': 'Format PureScript files with purty.',
+\   },
+\   'ocamlformat': {
+\       'function': 'ale#fixers#ocamlformat#Fix',
+\       'suggested_filetypes': ['ocaml'],
+\       'description': 'Fix OCaml files with ocamlformat.',
+\   },
+\   'ocp-indent': {
+\       'function': 'ale#fixers#ocp_indent#Fix',
+\       'suggested_filetypes': ['ocaml'],
+\       'description': 'Fix OCaml files with ocp-indent.',
+\   },
 \   'refmt': {
 \       'function': 'ale#fixers#refmt#Fix',
 \       'suggested_filetypes': ['reason'],
@@ -179,6 +264,16 @@ let s:default_registry = {
 \       'function': 'ale#fixers#shfmt#Fix',
 \       'suggested_filetypes': ['sh'],
 \       'description': 'Fix sh files with shfmt.',
+\   },
+\   'sqlfmt': {
+\       'function': 'ale#fixers#sqlfmt#Fix',
+\       'suggested_filetypes': ['sql'],
+\       'description': 'Fix SQL files with sqlfmt.',
+\   },
+\   'sqlformat': {
+\       'function': 'ale#fixers#sqlformat#Fix',
+\       'suggested_filetypes': ['sql'],
+\       'description': 'Fix SQL files with sqlformat.',
 \   },
 \   'google_java_format': {
 \       'function': 'ale#fixers#google_java_format#Fix',
@@ -202,8 +297,8 @@ let s:default_registry = {
 \   },
 \   'xo': {
 \       'function': 'ale#fixers#xo#Fix',
-\       'suggested_filetypes': ['javascript'],
-\       'description': 'Fix JavaScript files using xo --fix.',
+\       'suggested_filetypes': ['javascript', 'typescript'],
+\       'description': 'Fix JavaScript/TypeScript files using xo --fix.',
 \   },
 \   'qmlfmt': {
 \       'function': 'ale#fixers#qmlfmt#Fix',
@@ -214,6 +309,61 @@ let s:default_registry = {
 \       'function': 'ale#fixers#dartfmt#Fix',
 \       'suggested_filetypes': ['dart'],
 \       'description': 'Fix Dart files with dartfmt.',
+\   },
+\   'xmllint': {
+\       'function': 'ale#fixers#xmllint#Fix',
+\       'suggested_filetypes': ['xml'],
+\       'description': 'Fix XML files with xmllint.',
+\   },
+\   'uncrustify': {
+\       'function': 'ale#fixers#uncrustify#Fix',
+\       'suggested_filetypes': ['c', 'cpp', 'cs', 'objc', 'objcpp', 'd', 'java', 'p', 'vala' ],
+\       'description': 'Fix C, C++, C#, ObjectiveC, ObjectiveC++, D, Java, Pawn, and VALA files with uncrustify.',
+\   },
+\   'terraform': {
+\       'function': 'ale#fixers#terraform#Fix',
+\       'suggested_filetypes': ['hcl', 'terraform'],
+\       'description': 'Fix tf and hcl files with terraform fmt.',
+\   },
+\   'ktlint': {
+\       'function': 'ale#fixers#ktlint#Fix',
+\       'suggested_filetypes': ['kt'],
+\       'description': 'Fix Kotlin files with ktlint.',
+\   },
+\   'styler': {
+\       'function': 'ale#fixers#styler#Fix',
+\       'suggested_filetypes': ['r', 'rmarkdown', 'rmd'],
+\       'description': 'Fix R files with styler.',
+\   },
+\   'latexindent': {
+\       'function': 'ale#fixers#latexindent#Fix',
+\       'suggested_filetypes': ['tex'],
+\       'description' : 'Indent code within environments, commands, after headings and within special code blocks.',
+\   },
+\   'pgformatter': {
+\       'function': 'ale#fixers#pgformatter#Fix',
+\       'suggested_filetypes': ['sql'],
+\       'description': 'A PostgreSQL SQL syntax beautifier',
+\   },
+\   'reorder-python-imports': {
+\       'function': 'ale#fixers#reorder_python_imports#Fix',
+\       'suggested_filetypes': ['python'],
+\       'description': 'Sort Python imports with reorder-python-imports.',
+\   },
+\   'gnatpp': {
+\       'function': 'ale#fixers#gnatpp#Fix',
+\       'suggested_filetypes': ['ada'],
+\       'description': 'Format Ada files with gnatpp.',
+\   },
+\   'nixpkgs-fmt': {
+\       'function': 'ale#fixers#nixpkgsfmt#Fix',
+\       'suggested_filetypes': ['nix'],
+\       'description': 'A formatter for Nix code',
+\   },
+\   'html-beautify': {
+\       'function': 'ale#fixers#html_beautify#Fix',
+\       'suggested_filetypes': ['html', 'htmldjango'],
+\       'description': 'Fix HTML files with html-beautify.',
 \   },
 \}
 

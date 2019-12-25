@@ -3,16 +3,20 @@
 
 let g:ale_php_phpcs_standard = get(g:, 'ale_php_phpcs_standard', '')
 
+call ale#Set('php_phpcs_options', '')
 call ale#Set('php_phpcs_executable', 'phpcs')
 call ale#Set('php_phpcs_use_global', get(g:, 'ale_use_global_executables', 0))
 
 function! ale_linters#php#phpcs#GetCommand(buffer) abort
     let l:standard = ale#Var(a:buffer, 'php_phpcs_standard')
     let l:standard_option = !empty(l:standard)
-    \   ? '--standard=' . l:standard
+    \   ? '--standard=' . ale#Escape(l:standard)
     \   : ''
 
-    return '%e -s --report=emacs --stdin-path=%s' . ale#Pad(l:standard_option)
+    return ale#path#BufferCdString(a:buffer)
+    \   . '%e -s --report=emacs --stdin-path=%s'
+    \   . ale#Pad(l:standard_option)
+    \   . ale#Pad(ale#Var(a:buffer, 'php_phpcs_options'))
 endfunction
 
 function! ale_linters#php#phpcs#Handle(buffer, lines) abort
@@ -32,6 +36,7 @@ function! ale_linters#php#phpcs#Handle(buffer, lines) abort
         \   'col': l:match[2] + 0,
         \   'text': l:text,
         \   'type': l:type is# 'error' ? 'E' : 'W',
+        \   'sub_type': 'style',
         \})
     endfor
 
@@ -40,10 +45,10 @@ endfunction
 
 call ale#linter#Define('php', {
 \   'name': 'phpcs',
-\   'executable_callback': ale#node#FindExecutableFunc('php_phpcs', [
+\   'executable': {b -> ale#node#FindExecutable(b, 'php_phpcs', [
 \       'vendor/bin/phpcs',
 \       'phpcs'
-\   ]),
-\   'command_callback': 'ale_linters#php#phpcs#GetCommand',
+\   ])},
+\   'command': function('ale_linters#php#phpcs#GetCommand'),
 \   'callback': 'ale_linters#php#phpcs#Handle',
 \})
