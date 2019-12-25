@@ -348,10 +348,15 @@ au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 let g:ale_linters = {
 \   'cpp': ['clangtidy'],
 \   'elixir': [],
+\   'go': ['golangci-lint'],
 \   'plaintex': [],
 \   'tex': [],
 \   'typescript': ['eslint', 'prettier'],
 \}
+let g:ale_fixers = {
+\   'go': ['gofmt', 'remove_trailing_lines', 'trim_whitespace'],
+\}
+let g:ale_fix_on_save = 1
 let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
 
 let g:ale_sign_error = '✕'
@@ -381,6 +386,7 @@ let g:syntastic_ignore_files = ['.*\.sbt$', '*\.lalrpop$']
 
 let g:syntastic_scala_checkers = []
 let g:syntastic_java_checkers = []
+let g:syntastic_go_checkers = []
 
 let g:syntastic_python_checkers = ['flake8']
 
