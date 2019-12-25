@@ -23,14 +23,13 @@ about: Report a bug with ALE.
 
 Operating System: <!-- Describe your operating system version. -->
 
-### :ALEInfo
-
-<!-- Paste the output of :ALEInfo here. Try :ALEInfoToClipboard -->
-<!-- Make sure to run :ALEInfo from the buffer where the bug occurred. -->
-
 ## What went wrong
 
-<!-- Describe what went wrong here. -->
+<!-- Describe what went wrong here. Be specific. -->
+
+Something went wrong in specifically this place, and I also searched through both open and closed issues for the same problem before reporting a bug here.
+
+Are you having trouble configuring ALE? Try asking for help on [Stack Exchange](https://vi.stackexchange.com/) or perhaps on [Reddit](https://www.reddit.com/r/vim/) instead. The GitHub issue tracker should be used for reporting bugs or asking for new features.
 
 ## Reproducing the bug
 
@@ -38,3 +37,9 @@ Operating System: <!-- Describe your operating system version. -->
 
 1. I did this.
 2. Then this happened.
+
+### :ALEInfo
+
+<!-- Paste the output of :ALEInfo here. Try :ALEInfoToClipboard -->
+<!-- Make sure to run :ALEInfo from the buffer where the bug occurred. -->
+<!-- Read the output. You might figure out what went wrong yourself. -->
