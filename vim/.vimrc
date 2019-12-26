@@ -348,7 +348,7 @@ au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 let g:ale_linters = {
 \   'cpp': ['clangtidy'],
 \   'elixir': [],
-\   'go': ['golangci-lint'],
+\   'go': ['gofmt', 'govet'],
 \   'plaintex': [],
 \   'tex': [],
 \   'typescript': ['eslint', 'prettier'],
