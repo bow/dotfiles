@@ -51,16 +51,22 @@ def add(
         raise RuntimeError("Can not add new subtree remote when repo is dirty")
 
     # TODO: Check if we need to add -C for git here.
-    repo_name = get_repo_name(git_url)
-    check_call(["git", "remote", "add", "-f", remote_name, git_url])
-    path = path or Path(f"vim/.vim/bundle/{repo_name}")
-    check_call([
-        *("git subtree add --prefix".split(" ")),
+    add_remote_toks = ["git", "remote", "add", "-f", remote_name, git_url]
+    check_call(add_remote_toks)
+
+    # TODO: Check if we need to add -C for git here.
+    path = path or Path(f"vim/.vim/bundle/{get_repo_name(git_url)}")
+    add_subtree_toks = [
+        "git",
+        "subtree",
+        "add",
+        "--prefix",
         f"{path}",
         "--squash",
         f"{remote_name}",
         f"{branch_name}"
-    ])
+    ]
+    check_call(add_subtree_toks)
 
 
 if __name__ == "__main__":
