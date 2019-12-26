@@ -371,41 +371,6 @@ let g:ale_echo_msg_format = '%linter%: %s [%code%]'
 
 let g:airline#extensions#ale#enabled = 1
 
-
-" Setup Syntastic.
-let g:syntastic_mode_map = {'mode': 'passive'}
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ignore_files = ['.*\.sbt$', '*\.lalrpop$']
-
-let g:syntastic_scala_checkers = []
-let g:syntastic_java_checkers = []
-let g:syntastic_go_checkers = []
-
-let g:syntastic_python_checkers = ['flake8']
-
-let g:syntastic_rust_rustc_exe = 'cargo check'
-let g:syntastic_rust_rustc_fname = ''
-let g:syntastic_rust_rustc_args = '--'
-let g:syntastic_rust_checkers = []
-
-let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-let g:syntastic_cpp_include_dirs = ["/home/bow/local/lib"]
-
-let g:syntastic_html_tidy_ignore_errors = [
-    \ '<html> attribute "lang" lacks value',
-    \ '<a> attribute "href" lacks value',
-    \ '<a> proprietary attribute "alt"',
-    \ 'trimming empty <span>',
-    \ 'trimming empty <i>'
-    \ ]
-
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
