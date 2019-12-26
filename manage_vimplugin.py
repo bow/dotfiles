@@ -49,7 +49,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Vim plugin management script"
     )
-    subparsers = parser.add_subparsers(dest="subcmd_name")
+    subparsers = parser.add_subparsers(
+        dest="subcommand",
+        required=True,
+    )
 
     add_parser = subparsers.add_parser(
         "add",
@@ -85,7 +88,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.subcmd_name == "add":
+    if args.subcommand == "add":
         add(
             git_url=args.git_url,
             remote_name=args.remote_name,
