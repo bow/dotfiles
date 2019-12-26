@@ -36,7 +36,7 @@ def add(
     git_url: str,
     remote_name: str,
     branch_name: str = "master",
-    path: Optional[str] = None,
+    path: Optional[Path] = None,
 ) -> None:
     """Set up a Pathogen plugin or Vim pack using git subtree.
 
@@ -53,10 +53,10 @@ def add(
     # TODO: Check if we need to add -C for git here.
     repo_name = get_repo_name(git_url)
     check_call(["git", "remote", "add", "-f", remote_name, git_url])
-    path = path or f"vim/.vim/bundle/{repo_name}"
+    path = path or Path(f"vim/.vim/bundle/{repo_name}")
     check_call([
         *("git subtree add --prefix".split(" ")),
-        path,
+        f"{path}",
         "--squash",
         f"{remote_name}",
         f"{branch_name}"
@@ -112,5 +112,5 @@ if __name__ == "__main__":
             git_url=args.git_url,
             remote_name=args.remote_name,
             branch_name=args.branch_name,
-            path=args.path,
+            path=Path(args.path),
         )
