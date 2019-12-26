@@ -43,7 +43,7 @@ def add(
     :param git_url: URL of the remote git repository to add as subtree.
     :param remote_name: Name of the remote git repo.
     :param path: Local directory path to which the repo will be cloned.
-    :param branch_name: name of the git branch to use.
+    :param branch_name: Name of the git branch to use.
 
     """
     dirty_files = get_changed()
