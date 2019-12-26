@@ -32,6 +32,35 @@ def get_changed() -> List[str]:
     return ret
 
 
+def update(
+    remote_name: str,
+    path: Path,
+    branch_name: Optional[str] = "master",
+) -> None:
+    """Update an existing Pathogen plugin or Vim pack subtree.
+
+    :param remote_name: Name of the remote git repo.
+    :param path: Path to the plugin directory.
+    :param branch_name: Name of the git branch to use.
+
+    """
+    dirty_files = get_changed()
+    if dirty_files:
+        raise RuntimeError("Can not add new subtree remote when repo is dirty")
+
+    cmd_toks = [
+        "git",
+        "subtree",
+        "pull",
+        "--prefix",
+        f"{path}",
+        remote_name,
+        branch_name,
+        "--squash",
+    ]
+    check_call(cmd_toks)
+
+
 def add(
     git_url: str,
     remote_name: str,
@@ -111,6 +140,32 @@ if __name__ == "__main__":
         help="Remote branch to add as subtree.",
     )
 
+    update_parser = subparsers.add_parser(
+        "update",
+        description="Update an existing vim plugin subtree",
+        help="Update a vim plugin",
+    )
+    update_parser.add_argument(
+        "-n",
+        "--remote-name",
+        required=True,
+        help="Name of remote.",
+    )
+    update_parser.add_argument(
+        "-p",
+        "--path",
+        required=False,
+        default=None,
+        help="Custom path in repo at which the plugin is located.",
+    )
+    update_parser.add_argument(
+        "-b",
+        "--branch-name",
+        required=False,
+        default="master",
+        help="Remote branch to use as source.",
+    )
+
     args = parser.parse_args()
 
     if args.subcommand == "add":
@@ -119,4 +174,10 @@ if __name__ == "__main__":
             remote_name=args.remote_name,
             branch_name=args.branch_name,
             path=Path(args.path),
+        )
+    elif args.subcommand == "update":
+        update(
+            remote_name=args.remote_name,
+            path=Path(args.path),
+            branch_name=args.branch_name,
         )
