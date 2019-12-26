@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 
 import argparse
-from subprocess import check_call
-from typing import Optional
+from pathlib import Path
+from subprocess import check_call, run, PIPE
+from typing import List, Optional
 from urllib.parse import urlsplit
+
+
+# Path to repo directory.
+DIR = Path(__file__).resolve().parent
 
 
 def get_repo_name(git_url: str) -> str:
@@ -16,6 +21,15 @@ def get_repo_name(git_url: str) -> str:
     _, repo_name = ptok.rsplit("/", 1)
 
     return repo_name
+
+
+def get_changed() -> List[str]:
+    """Return a list of tracked and changed files"""
+    cmd_toks = ["git", "-C", str(DIR), "diff", "--name-only", "HEAD"]
+    proc = run(cmd_toks, stdout=PIPE)
+    ret = proc.stdout.strip().split()
+
+    return ret
 
 
 def add(
@@ -32,6 +46,11 @@ def add(
     :param branch_name: name of the git branch to use.
 
     """
+    dirty_files = get_changed()
+    if dirty_files:
+        raise RuntimeError("Can not add new subtree remote when repo is dirty")
+
+    # TODO: Check if we need to add -C for git here.
     repo_name = get_repo_name(git_url)
     check_call(["git", "remote", "add", "-f", remote_name, git_url])
     path = path or f"vim/.vim/bundle/{repo_name}"
