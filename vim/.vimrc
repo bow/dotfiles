@@ -337,7 +337,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Setup indent guides.
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_exclude_filetypes = ['help']
 let g:indent_guides_guide_size = 4
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
@@ -435,11 +435,6 @@ let g:signify_sign_delete = '-'
 " List of excluded name patterns in editorconfig-vim.
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" Setup NERDTree.
-let g:NERDTreeWinSize = 31
-let NERDTreeMapPreview = 'n'
-let NERDTreeIgnore=['\.pyc$', '\.swp$', '\~$']
-
 
 " Setup CtrlP.
 let g:ctrlp_map = '<C-p>'
@@ -501,7 +496,6 @@ nnoremap ; :
 nnoremap <C-n> :set relativenumber!<CR>
 
 " Remaps - plugin shortcuts.
-nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :TagbarToggle<CR>
 
 " Remaps - shortcuts for dropdown popups.
