@@ -177,8 +177,8 @@ function pwdless() {
 }
 
 # helper for creating and activating new pyenv virtualenvs
-function mkenv() {
-    py_version=3.7.3
+function mkpyenv() {
+    py_version=${2:-3.8.1}
     env_name=$1
     pyenv virtualenv "${py_version}" "${env_name}" \
         && printf "%s\n%s\n" "${env_name}" "${py_version}" \
