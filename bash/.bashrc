@@ -22,10 +22,10 @@ if [ -f ~/.kubectl-completion.bash ]; then
     source ~/.kubectl-completion.bash
 fi
 
-# load own copy of .kube-ps1.sh if it exists
-if [ -f ~/.kube-ps1.sh ]; then
-    # shellcheck source=.kube-ps1.sh
-    source ~/.kube-ps1.sh
+# load own copy of .kube-ps1.bash if it exists
+if [ -f ~/.kube-ps1.bash ]; then
+    # shellcheck source=.kube-ps1.bash
+    source ~/.kube-ps1.bash
 fi
 KUBE_PS1_SEPARATOR=""
 KUBE_PS1_PREFIX=""
