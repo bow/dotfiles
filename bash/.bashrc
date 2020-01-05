@@ -163,6 +163,13 @@ function mkcd() { command mkdir -p "$1" && cd "$1"; }
 # change owner to current user
 function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 
+# resolve path and copy it to clipboard
+function pcp() {
+    target=$(readlink -f "${1:-.}")
+    (echo ${target} | xargs echo -n | xclip -selection c) \
+        && echo "${target}"
+}
+
 # calculator
 function calc() { echo "$*" | bc; }
 
