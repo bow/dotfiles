@@ -127,7 +127,7 @@ alias chmox='chmod +x'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias xclip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
+alias clip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
 alias unix-ns='date +%s%9N'
 
 # Docker aliases
