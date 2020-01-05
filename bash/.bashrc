@@ -127,8 +127,6 @@ alias chmox='chmod +x'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ucsc='mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A'
-alias ensembl='mysql --user=anonymous --host=ensembldb.ensembl.org -A --port=3306'
 alias xclip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
 alias unix-ns='date +%s%9N'
 
@@ -165,16 +163,8 @@ function mkcd() { command mkdir -p "$1" && cd "$1"; }
 # change owner to current user
 function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 
-# check wikipedia summary
-function wiki() { dig +short txt "$*".wp.dg.cx; }
-
 # calculator
 function calc() { echo "$*" | bc; }
-
-# passwordless ssh login
-function pwdless() {
-    ssh "$1" 'mkdir .ssh && cat >> .ssh/authorized_keys' < "${HOME}/.ssh/id_rsa.pub"
-}
 
 # helper for creating and activating new pyenv virtualenvs
 function mkpyenv() {
