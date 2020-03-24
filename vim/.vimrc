@@ -229,8 +229,10 @@ augroup FTS
     au FileType cfg setlocal ts=2 sw=2
     au FileType cpp setlocal tw=100
     au FileType css setlocal tw=100 ts=2 sw=2
+    au FileType dockerfile setlocal tw=100
     au FileType scss setlocal tw=100 ts=2 sw=2
     au FileType elixir setlocal tw=100
+    au FileType erlang setlocal tw=100 ts=2 sw=2
     au Filetype gitcommit setlocal spell tw=72
     au FileType hocon setlocal ts=2 sw=2
     au FileType go setlocal tw=100 noexpandtab nolist
@@ -249,6 +251,7 @@ augroup FTS
     au BufNewFile,BufRead *.cwl setlocal ft=yaml
     au BufNewFile,BufRead .envrc setlocal ft=bash
     au BufNewFile,BufRead *.jdl setlocal ft=jdl
+    au BufNewFile,BufRead *.jsonl setlocal ft=json
     au BufNewFile,BufRead *.hs setlocal ft=haskell
     au BufNewFile,BufRead *.lgr setlocal ft=ledger
     au BufNewFile,BufRead *.mdj setlocal ft=json
