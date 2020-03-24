@@ -27,6 +27,7 @@
     br = branch
     mg = merge
     sh = stash
+    wt = worktree
 
     # various commit displays
     hist  = log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset• %s%C(red)%d%Creset %C(cyan)[%an]%Creset' --graph --date=short
