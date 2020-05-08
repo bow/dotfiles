@@ -1,7 +1,6 @@
 [user]
-    name = bow
-    email = bow@bow.web.id
-    signingkey = 7A10C00C
+    name = Wibowo Arindrarto
+    email = contact@arindrarto.dev
 [core]
     autocrlf = input
     safecrlf = warn
