@@ -74,3 +74,6 @@ Thumbs.db
 sandbox
 .~lock.*
 *.sif
+
+# Ruby
+.rspec
