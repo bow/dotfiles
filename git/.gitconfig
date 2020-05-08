@@ -30,10 +30,10 @@
     wt = worktree
 
     # various commit displays
-    hist  = log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset• %s%C(red)%d%Creset %C(cyan)[%an]%Creset' --graph --date=short
-    histh = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%an]%Creset' --graph --abbrev-commit --
-    histf = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%cn]' --decorate --numstat
-    histo = log --format=format:'%C(yellow)%h %Creset• %<(50,trunc)%s %C(cyan)[%cN] %C(blue)%cr%Creset %Cred%d' --graph -20 --branches --remotes --tags --date-order
+    hist  = log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset• %s%C(red)%d%Creset %C(cyan)[%an • %G?]%Creset' --graph --date=short
+    histh = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%an • %G?]%Creset' --graph --abbrev-commit --
+    histf = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%cn • %G?]' --decorate --numstat
+    histo = log --format=format:'%C(yellow)%h %Creset• %<(50,trunc)%s %C(cyan)[%cN • %G?] %C(blue)%cr%Creset %Cred%d' --graph -20 --branches --remotes --tags --date-order
     makepatch = log -u
 
     # handy aliases
