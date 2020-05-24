@@ -315,10 +315,12 @@ hi VertSplit guibg=#262626
 hi Visual guibg=grey23
 
 " Update Ale colors.
-hi ALEWarning ctermbg=172 ctermfg=black
-hi ALEWarningSign ctermbg=172 ctermfg=black
-hi ALEError ctermbg=88 ctermfg=white
-hi ALEErrorSign ctermbg=88 ctermfg=white
+hi ALEInfo guifg=#1d2021 guibg=#458588 gui=bold
+hi ALEInfoSign guifg=#458588 guibg=#262626 gui=none
+hi ALEWarning guifg=#1d2021 guibg=#d79921 gui=bold
+hi ALEWarningSign guifg=#d79921 guibg=#262626 gui=none
+hi ALEError guifg=#1d2021 guibg=#cc241d gui=bold
+hi ALEErrorSign guifg=#cc241d guibg=#262626 gui=none
 
 " Show current line number.
 set number
@@ -349,10 +351,12 @@ au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 
 " Setup Ale
 let g:ale_linters = {
+\   'c': [],
 \   'cpp': ['clangtidy'],
 \   'elixir': [],
 \   'go': ['gofmt', 'govet'],
 \   'plaintex': [],
+\   'rust': ['cargo'],
 \   'tex': [],
 \   'typescript': ['eslint', 'prettier'],
 \}
@@ -360,10 +364,13 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_fix_on_save = 1
+
+let g:ale_html_tidy_options = '-q -e -language en --drop-empty-elements no'
+
 let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
 
-let g:ale_sign_error = '✕'
-let g:ale_sign_warning = '≫'
+let g:ale_sign_error = '➡'
+let g:ale_sign_warning = '➡'
 let g:ale_sign_column_always = 1
 let g:ale_set_quickfix = 1
 let g:ale_set_loclist = 0
