@@ -18,6 +18,7 @@ progs=(
     [lightdm]="${HOME}"
     [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"
+    [neovim]="${HOME}/.config/nvim"
     [ocaml]="${HOME}"
     [postgresql]="${HOME}"
     [r]="${HOME}"
