@@ -27,6 +27,9 @@ node_modules
 # Rust
 target
 
+# Ruby
+.rspec
+
 # Scala
 target
 test.sc
@@ -71,9 +74,8 @@ Thumbs.db
 *.log
 .envrc
 .scannerwork
-sandbox
 .~lock.*
 *.sif
-
-# Ruby
-.rspec
+sandbox
+.todo
+.bak
