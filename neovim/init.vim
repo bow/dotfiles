@@ -273,7 +273,7 @@ augroup FTS
     au FileType json setlocal ts=2 sw=2
     au FileType php setlocal tw=100 ts=2 sw=2
     au FileType ruby setlocal tw=80 ts=2 sw=2
-    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=88
+    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=80
     au FileType R setlocal tw=100 ts=2 sw=2
     au FileType tex setlocal ts=2 sw=2 tw=100 wrap
     au FileType xml setlocal ts=2 sw=2
