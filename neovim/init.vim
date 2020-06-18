@@ -634,6 +634,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Set more custom colors
+hi Error guifg=#1d2021 guibg=#cc241d gui=bold
+hi NvimInternalError guifg=#1d2021 guibg=#cc241d gui=bold
 " ALE colors
 hi ALEInfo guifg=#1d2021 guibg=#458588 gui=bold
 hi ALEInfoSign guifg=#458588 guibg=#262626 gui=none
@@ -642,6 +644,10 @@ hi ALEWarningSign guifg=#d79921 guibg=#262626 gui=none
 hi ALEError guifg=#1d2021 guibg=#cc241d gui=bold
 hi ALEErrorSign guifg=#cc241d guibg=#262626 gui=none
 " Coc colors"
+hi CocHintHighlight guifg=#1d2021 guibg=#98971a gui=bold
+hi CocInfoHighlight guifg=#1d2021 guibg=#458588 gui=bold
 hi CocInfoSign guifg=#458588 guibg=#262626 gui=none
+hi CocWarningHighlight guifg=#1d2021 guibg=#d79921 gui=bold
 hi CocWarningSign guifg=#d79921 guibg=#262626 gui=none
+hi CocErrorHighlight guifg=#1d2021 guibg=#cc241d gui=bold
 hi CocErrorSign guifg=#cc241d guibg=#262626 gui=none
