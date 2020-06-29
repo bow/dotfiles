@@ -200,6 +200,9 @@ augroup END
 augroup FTS
     au!
 
+    au FileType asciidoc setlocal ts=2 sw=2 tw=100 wrap
+    au BufNewFile,BufRead *.adoc,*.asciidoc setlocal ft=asciidoc
+
     au FileType circos setlocal tw=80 ts=2 sw=2 formatoptions=tcroqn2 comments=n:>
     au BufNewFile,BufRead circos*.conf,ideogram*.conf,ticks*.conf setlocal ft=circos
 
@@ -221,7 +224,7 @@ augroup FTS
     au FileType make setlocal tw=100
     au BufNewFile,BufRead Makefile,*.mk setlocal ft=make
 
-    au FileType markdown setlocal ts=2 sw=2 tw=0 wrap
+    au FileType markdown setlocal ts=2 sw=2 tw=100 wrap
     au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
 
     au FileType plaintex setlocal ts=2 sw=2 tw=100 wrap
@@ -230,7 +233,7 @@ augroup FTS
     au FileType refFlat setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.refFlat setlocal ft=refFlat
 
-    au FileType rst setlocal ts=2 sw=2 tw=0 wrap
+    au FileType rst setlocal ts=2 sw=2 tw=100 wrap
     au BufNewFile,BufRead *.rst,*.RST setlocal ft=rst
 
     au FileType sam setlocal wrap linebreak noexpandtab
