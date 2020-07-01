@@ -71,6 +71,7 @@ Icon?
 Thumbs.db
 
 # Misc
+.tool-versions
 *.log
 .envrc
 .scannerwork

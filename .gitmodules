@@ -16,3 +16,6 @@
 [submodule "nodenv/node-build"]
     path = nodenv/node-build
     url = https://github.com/nodenv/node-build.git
+[submodule "asdf/asdf"]
+    path = asdf/asdf
+    url = https://github.com/asdf-vm/asdf.git
