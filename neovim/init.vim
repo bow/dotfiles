@@ -23,6 +23,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'nathanaelkane/vim-indent-guides', { 'commit': '54d889a63716ee2f1818aa2ec5082db47147147b' }
     Plug 'kevinoid/vim-jsonc', { 'commit': '67d26459fb64236681fb600b610cd56eaeb43999' }
     Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
+    Plug 'ledger/vim-ledger', { 'commit': 'b3e6f3dfaa922cda7771a4db20d3ae0267e08133' }
     Plug 'kburdett/vim-nuuid', { 'commit': '6ae845f9348921f4e436c587da6d2bbf5691c4ed' }
     Plug 'kshenoy/vim-signature', { 'commit': '6bc3dd1294a22e897f0dcf8dd72b85f350e306bc' }
     Plug 'mhinz/vim-signify', { 'tag': 'stable' }
@@ -32,6 +33,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'Glench/Vim-Jinja2-Syntax', { 'commit': 'ceb0f8076ee9aa802668448cefdd782edff4f6b2' }
     Plug 'kien/rainbow_parentheses.vim', { 'commit': 'eb8baa5428bde10ecc1cb14eed1d6e16f5f24695' }
     Plug 'morhetz/gruvbox', { 'commit': '040138616bec342d5ea94d4db296f8ddca17007a' }
+    Plug 'liuchengxu/graphviz.vim', { 'commit': '704aa42852f200db2594382bdf847a92fdab61fc' }
 call plug#end()
 
 " Enable local .vimrc use.
@@ -457,6 +459,8 @@ let g:ctrlp_custom_ignore = {
         \|doc|docx|xls|xlsx|xlsm
         \|bcl|cbcl|fastq|fasta|sam|bam|cram|vcf|bcf|gff|gtf|bed|wig|bigwig
         \|sif|simg
+        \|mp4|mkv|avi|mpg
+        \|mp3|flac
         \|swp|swo|whl
         \|pyc|pyo|jar|class
         \|tgz|tar|zip|gz|gzip|bz2|xz
@@ -512,6 +516,13 @@ cnoremap w!! w !sudo tee % >/dev/null
 
 
 " Settings for coc.nvim ~ adapted from their wiki.
+let g:coc_global_extensions = [
+\   'coc-eslint',
+\   'coc-css',
+\   'coc-html',
+\   'coc-json',
+\   'coc-prettier',
+\]
 
 " TextEdit might fail if hidden is not set.
 set hidden
