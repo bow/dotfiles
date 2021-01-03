@@ -177,7 +177,7 @@ function calc() { echo "$*" | bc; }
 
 # helper for creating and activating new pyenv virtualenvs
 function mkpyenv() {
-    py_version=${2:-3.8.1}
+    py_version=${2:-3.8.6}
     env_name=$1
     pyenv virtualenv "${py_version}" "${env_name}" \
         && printf "%s\n%s\n" "${env_name}" "${py_version}" \
