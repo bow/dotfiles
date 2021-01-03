@@ -257,7 +257,7 @@ function get_git_stat {
   export GIT_PS1_SHOWDIRTYSTATE=true
   export GIT_PS1_SHOWUNTRACKEDFILES=true
   export GIT_PS1_SHOWUPSTREAM="verbose"
-  nick=$(__git_ps1 "(⎇  %s) ")
+  nick=$(__git_ps1 "(  %s) ")
   [[ -n "$nick" ]] && echo "$nick"
   return 0
 }
