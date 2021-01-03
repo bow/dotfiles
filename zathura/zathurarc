@@ -1,0 +1,25 @@
+map [index] q quit
+
+set selection-clipboard clipboard
+set statusbar-basename true
+
+set guioptions "cv"
+set font "Inconsolata Nerd Font 12"
+
+set default-bg "#151515"
+set default-fg "#ebdbb2"
+
+set completion-group-fg "#ebdbb2"
+set completion-group-bg "#458588"
+
+# set inputbar-fg "#e8e8d3"
+# set inputbar-bg "#000000"
+set inputbar-fg "#ebdbb2"
+set inputbar-bg "#151515"
+
+# set completion-highlight-bg "#d8ad4c"
+set completion-highlight-bg "#fabd2f"
+set completion-highlight-fg "#151515"
+
+set highlight-color "#6bb95f"
+set highlight-active-color "#b769c3"

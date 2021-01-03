@@ -14,6 +14,7 @@ progs=(
     [ctags]="${HOME}"
     [elixir]="${HOME}"
     [git]="${HOME}"
+    [gtk-3.0]="${HOME}/.config/gtk-3.0"
     [kubernetes]="${HOME}"
     [lightdm]="${HOME}"
     [mercurial]="${HOME}"
@@ -28,6 +29,8 @@ progs=(
     [vim]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
+    [zathura]="${HOME}/.config/zathura"
+    [xdg]="${HOME}/.config"
 )
 
 type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
