@@ -93,8 +93,8 @@ function set_prompt {
     venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
     nodenv_name=$(nodenv version-name 2> /dev/null || true)
     nvenv_name="" && [ "${nodenv_name}" != "" ] && [ "${nodenv_name}" != "system" ] && nvenv_name="\[${green}\] ${nodenv_name} \[${nocol}\]"
-    asdf_active=$(asdf current 2>&1 | grep -vP " system " | grep 'set by' > /dev/null && echo "ok" || true)
-    asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${purple}\]  \[${nocol}\]"
+    asdf_active=$(asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok" || true)
+    asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${green}\]  \[${nocol}\]"
     PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${asdf_indicator}${venv_name}${nvenv_name}$(kube_ps1)\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
 }
 
