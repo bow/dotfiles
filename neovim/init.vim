@@ -273,7 +273,7 @@ augroup FTS
     au Filetype gitcommit setlocal spell tw=72
     au FileType hocon setlocal ts=2 sw=2
     au FileType go setlocal tw=100 noexpandtab nolist
-    au FileType html,htmljinja setlocal ts=2 sw=2
+    au FileType html,htmljinja,jinja setlocal ts=2 sw=2
     au FileType mako setlocal ts=2 sw=2
     au FileType json setlocal ts=2 sw=2
     au FileType php setlocal tw=100 ts=2 sw=2
