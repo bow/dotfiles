@@ -1,5 +1,5 @@
 # .bashrc
-# Wibowo Arindrarto  <bow@bow.web.id>
+# Wibowo Arindrarto  <contact@arindrarto.dev>
 
 # check if bash is running interactively
 [ -z "$PS1" ] && return
