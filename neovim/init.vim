@@ -29,6 +29,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'mhinz/vim-signify', { 'tag': 'stable' }
     Plug 'mhinz/vim-startify', { 'commit': '593388d3dbe7bfdcc06a714550d3253442b2fc65' }
     Plug 'tpope/vim-surround', { 'commit': 'f51a26d3710629d031806305b6c8727189cd1935' }
+    Plug 'easymotion/vim-easymotion', { 'commit': 'd75d9591e415652b25d9e0a3669355550325263d' }
 
     Plug 'Glench/Vim-Jinja2-Syntax', { 'commit': 'ceb0f8076ee9aa802668448cefdd782edff4f6b2' }
     Plug 'kien/rainbow_parentheses.vim', { 'commit': 'eb8baa5428bde10ecc1cb14eed1d6e16f5f24695' }
@@ -202,7 +203,7 @@ augroup END
 augroup FTS
     au!
 
-    au FileType asciidoc setlocal ts=2 sw=2 tw=100 wrap
+    au FileType asciidoc setlocal ts=2 sw=2 tw=100 wrap commentstring=//\ %s
     au BufNewFile,BufRead *.adoc,*.asciidoc setlocal ft=asciidoc
 
     au FileType circos setlocal tw=80 ts=2 sw=2 formatoptions=tcroqn2 comments=n:>
