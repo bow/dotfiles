@@ -7,7 +7,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 call plug#begin(stdpath('data') . '/plugged')
     Plug 'sheerun/vim-polyglot', { 'tag': 'v4.2.1' }
     Plug 'dense-analysis/ale', { 'tag': 'v2.6.0' }
-    Plug 'neoclide/coc.nvim', {'branch': 'v0.0.80'}
+    Plug 'neoclide/coc.nvim', {'tag': 'v0.0.80'}
     Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
 
     Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
