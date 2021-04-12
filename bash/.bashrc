@@ -294,6 +294,6 @@ if command -v direnv 1>/dev/null 2>&1; then
 fi
 
 # starship config
-if command -v starship 1>/dev/null 2>&1; then
+if [[ "${starship_exists}" -eq 1 ]]; then
     eval "$(starship init bash)"
 fi
