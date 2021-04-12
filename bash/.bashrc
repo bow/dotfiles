@@ -4,10 +4,10 @@
 # check if bash is running interactively
 [ -z "$PS1" ] && return
 
-# load own copy of .git-prompt.sh if it exists
-if [ -f ~/.git-prompt.sh ]; then
-    # shellcheck source=.git-prompt.sh
-    source ~/.git-prompt.sh
+# check if we have starship and use result to decide how to build prompt
+starship_exists=0
+if command -v starship 1>/dev/null 2>&1; then
+    starship_exists=1
 fi
 
 # load own copy of .git-completion.bash if it exists
@@ -21,18 +21,6 @@ if [ -f ~/.kubectl-completion.bash ]; then
     # shellcheck source=.kubectl-completion.bash
     source ~/.kubectl-completion.bash
 fi
-
-# load own copy of .kube-ps1.bash if it exists
-if [ -f ~/.kube-ps1.bash ]; then
-    # shellcheck source=.kube-ps1.bash
-    source ~/.kube-ps1.bash
-fi
-KUBE_PS1_SEPARATOR=""
-KUBE_PS1_PREFIX=""
-KUBE_PS1_SUFFIX=" "
-KUBE_PS1_SYMBOL_COLOR=magenta
-KUBE_PS1_CTX_COLOR=magenta
-KUBE_PS1_NS_COLOR=magenta
 
 # load own copy of .minikube-completion.bash if it exists
 if [ -f ~/.minikube-completion.bash ]; then
@@ -88,15 +76,46 @@ purple='\033[35m'
 cyan='\033[36m'
 grey='\033[37m'
 
-function set_prompt {
-    pyenv_name=$(pyenv version-name 2> /dev/null || true)
-    venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
-    asdf_active=$(asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok" || true)
-    asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${green}\]  \[${nocol}\]"
-    PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${asdf_indicator}${venv_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
-}
+# define custom PS1 if starship does not exist
+if [[ "${starship_exists}" -eq 0 ]]; then
+    # load own copy of .git-prompt.sh if it exists
+    if [ -f ~/.git-prompt.sh ]; then
+        # shellcheck source=.git-prompt.sh
+        source ~/.git-prompt.sh
+    fi
 
-PROMPT_COMMAND=set_prompt
+    # load own copy of .kube-ps1.bash if it exists
+    if [ -f ~/.kube-ps1.bash ]; then
+        # shellcheck source=.kube-ps1.bash
+        source ~/.kube-ps1.bash
+    fi
+    KUBE_PS1_SEPARATOR=""
+    KUBE_PS1_PREFIX=""
+    KUBE_PS1_SUFFIX=" "
+    KUBE_PS1_SYMBOL_COLOR=magenta
+    KUBE_PS1_CTX_COLOR=magenta
+    KUBE_PS1_NS_COLOR=magenta
+
+    function get_git_stat {
+        export GIT_PS1_SHOWSTASHSTATE=true
+        export GIT_PS1_SHOWDIRTYSTATE=true
+        export GIT_PS1_SHOWUNTRACKEDFILES=true
+        export GIT_PS1_SHOWUPSTREAM="verbose"
+        nick=$(__git_ps1 "(  %s) ")
+        [[ -n "$nick" ]] && echo "$nick"
+        return 0
+    }
+
+    function set_prompt {
+        pyenv_name=$(pyenv version-name 2> /dev/null || true)
+        venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
+        asdf_active=$(asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok" || true)
+        asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${green}\]  \[${nocol}\]"
+        PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${asdf_indicator}${venv_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+    }
+
+    PROMPT_COMMAND=set_prompt
+fi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -247,17 +266,6 @@ function unpack() {
 # check weather from wego
 function wttr() {
     curl http://wttr.in/"${1:-Copenhagen}"
-}
-
-# controls git prompt and its color
-function get_git_stat {
-  export GIT_PS1_SHOWSTASHSTATE=true
-  export GIT_PS1_SHOWDIRTYSTATE=true
-  export GIT_PS1_SHOWUNTRACKEDFILES=true
-  export GIT_PS1_SHOWUPSTREAM="verbose"
-  nick=$(__git_ps1 "(  %s) ")
-  [[ -n "$nick" ]] && echo "$nick"
-  return 0
 }
 
 # load private settings if it exists
