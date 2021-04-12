@@ -199,7 +199,7 @@ augroup END
 augroup FTS
     au!
 
-    au FileType asciidoc setlocal ts=2 sw=2 tw=100 wrap commentstring=//\ %s
+    au FileType asciidoc setlocal ts=2 sw=2 tw=90 wrap commentstring=//\ %s
     au BufNewFile,BufRead *.adoc,*.asciidoc setlocal ft=asciidoc
 
     au FileType circos setlocal tw=80 ts=2 sw=2 formatoptions=tcroqn2 comments=n:>
@@ -223,7 +223,7 @@ augroup FTS
     au FileType make setlocal tw=100
     au BufNewFile,BufRead Makefile,*.mk setlocal ft=make
 
-    au FileType markdown setlocal ts=2 sw=2 tw=100 wrap
+    au FileType markdown setlocal ts=2 sw=2 tw=90 wrap
     au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
 
     au FileType plaintex setlocal ts=2 sw=2 tw=100 wrap
@@ -232,7 +232,7 @@ augroup FTS
     au FileType refFlat setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.refFlat setlocal ft=refFlat
 
-    au FileType rst setlocal ts=2 sw=2 tw=100 wrap
+    au FileType rst setlocal ts=2 sw=2 tw=90 wrap
     au BufNewFile,BufRead *.rst,*.RST setlocal ft=rst
 
     au FileType sam setlocal wrap linebreak noexpandtab
@@ -274,8 +274,10 @@ augroup FTS
     au FileType mako setlocal ts=2 sw=2
     au FileType json setlocal ts=2 sw=2
     au FileType php setlocal tw=100 ts=2 sw=2
+    au FileType proto setlocal tw=100
+    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=88
     au FileType ruby setlocal tw=80 ts=2 sw=2
-    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=80
+    au FileType sql setlocal commentstring=--\ %s
     au FileType R setlocal tw=100 ts=2 sw=2
     au FileType tex setlocal ts=2 sw=2 tw=100 wrap
     au FileType xml setlocal ts=2 sw=2
@@ -292,6 +294,7 @@ augroup FTS
     au BufNewFile,BufRead *.lalrpop setlocal ft=rust
     au BufNewFile,BufRead Pipfile setlocal ft=toml
     au BufNewFile,BufRead Pipfile.lock setlocal ft=json
+    au BufNewFile,BufRead Tiltfile,Tiltfile.* setlocal ft=bzl
     au BufNewFile,BufRead *.rl setlocal ft=ragel
     au BufNewFile,BufRead Vagrantfile setlocal ft=ruby
 
