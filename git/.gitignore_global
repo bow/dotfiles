@@ -76,6 +76,7 @@ Thumbs.db
 .scannerwork
 .~lock.*
 *.sif
+.evans.toml
 sandbox
 .todo
 .bak
