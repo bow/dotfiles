@@ -1,0 +1,70 @@
+# Prompt format.
+# format = "[➜](blue) $all"
+format = """
+[➜](blue) $username$hostname \
+$git_branch\
+$git_status\
+$git_commit\
+$python\
+$golang\
+$nodejs\
+$directory\
+$line_break\
+$shell\
+$character"""
+add_newline = true
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[directory]
+format = "[•](dimmed white) [$path]($style)[$read_only]($read_only_style) "
+style = "yellow"
+truncation_length = 100
+truncate_to_repo = false
+
+[git_branch]
+format = "[•](dimmed white) [$symbol$branch]($style) "
+style = "bright-black"
+
+[git_commit]
+style = "bright-black"
+disabled = false
+only_detached = false
+tag_disabled = false
+
+[git_status]
+format= '([$all_status$ahead_behind]($style) )'
+style = "bright-black"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+staged = '+${count}'
+modified = "*"
+
+[golang]
+format = '[•](dimmed white) [go\[($version)\]]($style) '
+style = "cyan"
+
+[hostname]
+format = "[@$hostname]($style)"
+style = "blue"
+ssh_only = false
+trim_at = ""
+
+[nodejs]
+format = '[•](dimmed white) [js\[($version)\]]($style) '
+style = "cyan"
+
+[python]
+format = '[•](dimmed white) [py\[(${version})\]]($style) '
+style = "cyan"
+pyenv_version_name = true
+detect_extensions = [".py"]
+
+[username]
+style_user = "blue"
+style_root = "red"
+show_always = true
+format = "[$user]($style)"
