@@ -257,33 +257,48 @@ if [ -f ~/.bash_private ]; then
 fi
 
 # basher config
-export PATH="${HOME}/.basher/bin:${PATH}"
+case ":${PATH}:" in
+    *:"${HOME}/.basher/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/.basher/bin:${PATH}"
+        ;;
+esac
 if command -v basher 1>/dev/null 2>&1; then
     eval "$(basher init -)"
 fi
 
 # asdf config
-if [ -f ~/.asdf/asdf.sh ]; then
-    # shellcheck source=.asdf/asdf.sh
-    source ~/.asdf/asdf.sh
-fi
-if [ -f ~/.asdf/completions/asdf.bash ]; then
-    # shellcheck source=.asdf/completions/asdf.bash
-    source ~/.asdf/completions/asdf.bash
+if [ -f /opt/asdf-vm/asdf.sh ]; then
+    # shellcheck source=/opt/asdf-vm/asdf.sh
+    source /opt/asdf-vm/asdf.sh
 fi
 
 # pyenv config
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
+case ":${PATH}:" in
+    *:"${PYENV_ROOT}/bin":*)
+        ;;
+    *)
+        export PATH="${PYENV_ROOT}/bin:${PATH}"
+        ;;
+esac
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
+    eval "$(pyenv init --path)"
     eval "$(pyenv virtualenv-init -)"
 fi
 
 # nodenv config
 export NODENV_ROOT="${HOME}/.nodenv"
-export PATH="${NODENV_ROOT}/bin:${PATH}"
+case ":${PATH}:" in
+    *:"${NODENV_ROOT}/bin":*)
+        ;;
+    *)
+        export PATH="${NODENV_ROOT}/bin:${PATH}"
+        ;;
+esac
 if command -v nodenv 1>/dev/null 2>&1; then
     eval "$(nodenv init -)"
 fi
