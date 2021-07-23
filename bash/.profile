@@ -4,14 +4,10 @@ if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 fi
 
-# load own copy of .kubectl-completion.bash if it exists
-if [ -f ~/.kubectl-completion.bash ]; then
-    # shellcheck source=.kubectl-completion.bash
-    source ~/.kubectl-completion.bash
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
+export GPG_TTY=$(tty)
 
-# load own copy of .minikube-completion.bash if it exists
-if [ -f ~/.minikube-completion.bash ]; then
-    # shellcheck source=.minikube-completion.bash
-    source ~/.minikube-completion.bash
-fi
+gpg-connect-agent updatestartuptty /bye >/dev/null
