@@ -277,6 +277,7 @@ augroup FTS
     au FileType proto setlocal tw=100
     au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=88
     au FileType ruby setlocal tw=80 ts=2 sw=2
+    au FileType rust setlocal tw=99 ts=4 sw=4
     au FileType sql setlocal commentstring=--\ %s
     au FileType R setlocal tw=100 ts=2 sw=2
     au FileType tex setlocal ts=2 sw=2 tw=100 wrap
@@ -386,7 +387,6 @@ let g:ale_linters = {
 \   'go': ['gofmt', 'govet'],
 \   'plaintex': [],
 \   'python': ['flake8'],
-\   'rust': ['cargo'],
 \   'tex': [],
 \   'typescript': ['eslint', 'prettier'],
 \}
