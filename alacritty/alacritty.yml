@@ -14,6 +14,13 @@ window:
   # Window title
   title: Terminal
 
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 3
+
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
 
