@@ -92,6 +92,16 @@ colors:
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
 
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor.
+  #
+  # Allowed values are CellForeground/CellBackground, which reference the
+  # affected cell, or hexadecimal colors like #ff00ff.
+  cursor:
+    text: CellBackground
+    cursor: '#928374'
+
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
@@ -135,7 +145,7 @@ cursor:
   vi_mode_style: None
 
   # Cursor blinking interval in milliseconds.
-  blink_interval: 600
+  blink_interval: 750
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -143,7 +153,7 @@ cursor:
 
   # Thickness of the cursor relative to the cell width as floating point number
   # from `0.0` to `1.0`.
-  thickness: 0.1
+  thickness: 0.15
 
 # Live config reload (changes require restarttrue
 live_config_reload: true
