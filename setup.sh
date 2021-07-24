@@ -8,6 +8,7 @@ set -o pipefail
 
 declare -A progs
 progs=(
+    [alacritty]="${HOME}/.config/alacritty"
     [bash]="${HOME}"
     [conda]="${HOME}"
     [cookiecutter]="${HOME}"
