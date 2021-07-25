@@ -25,6 +25,7 @@ progs=(
     [ocaml]="${HOME}"
     [postgresql]="${HOME}"
     [r]="${HOME}"
+    [rofi]="${HOME}/.config/rofi"
     [readline]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
