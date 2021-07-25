@@ -23,6 +23,7 @@ progs=(
     [ncmpcpp]="${HOME}"
     [neovim]="${HOME}/.config/nvim"
     [ocaml]="${HOME}"
+    [picom]="${HOME}/.config/picom"
     [postgresql]="${HOME}"
     [r]="${HOME}"
     [rofi]="${HOME}/.config/rofi"
