@@ -1,2 +1,12 @@
+$include /etc/inputrc
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+set bell-style none
+set colored-completion-prefix on
+set colored-stats on
+set comment-begin "# "
+set mark-symlinked-directories on
+set show-all-if-unmodified on
+set skip-completed-text on
