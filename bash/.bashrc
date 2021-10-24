@@ -277,16 +277,15 @@ fi
 # pyenv config
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
 case ":${PATH}:" in
-    *:"${PYENV_ROOT}/bin":*)
+    *:"${PYENV_ROOT}/shims":*)
         ;;
     *)
-        export PATH="${PYENV_ROOT}/bin:${PATH}"
+        export PATH="${PYENV_ROOT}/shims:${PATH}"
         ;;
 esac
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
+    eval "$(pyenv init --path -)"
     eval "$(pyenv virtualenv-init -)"
 fi
 
