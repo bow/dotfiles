@@ -218,6 +218,9 @@ augroup FTS
     au FileType gff setlocal wrap linebreak noexpandtab
     au BufNewFile,BufRead *.gff setlocal ft=gff
 
+    au FileType go setlocal tw=100 noexpandtab nolist
+    au BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
     au FileType javascript setlocal tw=80 ts=2 sw=2
     au BufNewFile,BufRead *.js,*.jsx setlocal ft=javascript
 
@@ -270,7 +273,6 @@ augroup FTS
     au FileType erlang setlocal tw=100 ts=2 sw=2
     au Filetype gitcommit setlocal spell tw=72
     au FileType hocon setlocal ts=2 sw=2
-    au FileType go setlocal tw=100 noexpandtab nolist
     au FileType html,htmljinja,jinja setlocal ts=2 sw=2
     au FileType mako setlocal ts=2 sw=2
     au FileType json setlocal ts=2 sw=2
