@@ -9,6 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'dense-analysis/ale', { 'tag': 'v2.6.0' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'snakemake/snakemake', {'rtp': 'misc/vim'}
+    Plug 'broadinstitute/vim-wdl', { 'commit': '1aaf200284b85d6075901faa8bda9ea67c6ce515' }
 
     Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
     Plug 'kien/ctrlp.vim', { 'commit': '564176f01d7f3f7f8ab452ff4e1f5314de7b0981' }
