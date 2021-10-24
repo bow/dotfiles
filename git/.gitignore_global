@@ -13,6 +13,7 @@
 htmlcov
 test.py
 venv
+.ipynb_checkpoints/
 
 # JavaScript
 .node-version
