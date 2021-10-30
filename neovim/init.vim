@@ -5,19 +5,18 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " Load plugins
 call plug#begin(stdpath('data') . '/plugged')
-    Plug 'sheerun/vim-polyglot', { 'tag': 'v4.2.1' }
-    Plug 'dense-analysis/ale', { 'tag': 'v2.6.0' }
+    Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'snakemake/snakemake', { 'rtp': 'misc/vim' }
     Plug 'broadinstitute/vim-wdl', { 'commit': '1aaf200284b85d6075901faa8bda9ea67c6ce515' }
 
     Plug 'jiangmiao/auto-pairs', { 'tag': 'v2.0.0' }
-    Plug 'kien/ctrlp.vim', { 'commit': '564176f01d7f3f7f8ab452ff4e1f5314de7b0981' }
+    Plug 'ctrlpvim/ctrlp.vim', { 'tag': '1.81' }
     Plug 'vim-airline/vim-airline', { 'tag': 'v0.11' }
-    Plug 'vim-airline/vim-airline-themes', { 'commit': '3fb676b8729a98817f561ef1554c0ad1a514c96a' }
-    Plug 'tpope/vim-commentary', { 'commit': 'f8238d70f873969fb41bf6a6b07ca63a4c0b82b1' }
+    Plug 'vim-airline/vim-airline-themes', { 'commit': '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256' }
+    Plug 'tpope/vim-commentary', { 'tag': 'v3.4' }
     Plug 'tpope/vim-fugitive', { 'tag': 'v3.2' }
-    Plug 'nathanaelkane/vim-indent-guides', { 'commit': '54d889a63716ee2f1818aa2ec5082db47147147b' }
+    Plug 'nathanaelkane/vim-indent-guides', { 'commit': '765084d38bf102a95ab966fb06472e83fa7deff7' }
     Plug 'kevinoid/vim-jsonc', { 'commit': '67d26459fb64236681fb600b610cd56eaeb43999' }
     Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
     Plug 'ledger/vim-ledger', { 'commit': 'b3e6f3dfaa922cda7771a4db20d3ae0267e08133' }
