@@ -274,6 +274,7 @@ augroup FTS
     au Filetype gitcommit setlocal spell tw=72
     au FileType hocon setlocal ts=2 sw=2
     au FileType html,htmljinja,jinja setlocal ts=2 sw=2
+    au FileType lua setlocal ts=2 sw=2
     au FileType mako setlocal ts=2 sw=2
     au FileType json setlocal ts=2 sw=2
     au FileType php setlocal tw=100 ts=2 sw=2
@@ -521,10 +522,14 @@ cnoremap w!! w !sudo tee % >/dev/null
 " Settings for coc.nvim ~ adapted from their wiki.
 let g:coc_global_extensions = [
 \   'coc-eslint',
+\   'coc-explorer',
 \   'coc-css',
+\   'coc-go',
 \   'coc-html',
 \   'coc-json',
 \   'coc-prettier',
+\   'coc-pyright',
+\   'coc-rls',
 \]
 
 " TextEdit might fail if hidden is not set.
@@ -534,6 +539,9 @@ set nobackup
 set nowritebackup
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+" Set coc-explorer shortcut
+nmap <C-e> <Cmd>CocCommand explorer<CR>
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -635,7 +643,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <A-a>  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <C-d>  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.

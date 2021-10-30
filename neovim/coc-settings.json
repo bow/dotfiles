@@ -1,4 +1,5 @@
 {
+  "json.enable": true,
   "diagnostic.errorSign": "➡",
   "diagnostic.warningSign": "➡",
   "python.linting.enabled": true,
