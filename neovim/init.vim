@@ -390,14 +390,6 @@ let g:indent_guides_auto_colors = 0
 au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
 au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
 " Set default SQL file types to PostgreSQL
 let g:sql_type_default = 'pgsql'
 
