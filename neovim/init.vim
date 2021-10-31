@@ -31,6 +31,10 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'luochen1990/rainbow', { 'commit': '54c79a24725af3a15d3aad20f70a56c7abbd46c3' }
     Plug 'morhetz/gruvbox', { 'commit': '040138616bec342d5ea94d4db296f8ddca17007a' }
     Plug 'liuchengxu/graphviz.vim', { 'commit': '704aa42852f200db2594382bdf847a92fdab61fc' }
+
+    " nvim-tree.lua plugin
+    Plug 'kyazdani42/nvim-web-devicons', { 'commit': 'ee101462d127ed6a5561ce9ce92bfded87d7d478' }
+    Plug 'kyazdani42/nvim-tree.lua', { 'commit': 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c' }
 call plug#end()
 
 " Enable local .vimrc use.
@@ -520,11 +524,9 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " Remaps - command mode.
 cnoremap w!! w !sudo tee % >/dev/null
 
-
 " Settings for coc.nvim ~ adapted from their wiki.
 let g:coc_global_extensions = [
 \   'coc-eslint',
-\   'coc-explorer',
 \   'coc-css',
 \   'coc-go',
 \   'coc-html',
@@ -542,8 +544,25 @@ set nowritebackup
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-" Set coc-explorer shortcut
-nmap <C-e> <Cmd>CocCommand explorer<CR>
+" Configure nvim-tree.lua
+nnoremap <C-e> :NvimTreeToggle<CR>
+let g:nvim_tree_gitignore = 1
+let g:nvim_tree_add_trailing = 1
+let g:nvim_tree_group_empty = 1
+let g:nvim_tree_special_files = {
+\   'Makefile': 1,
+\   'README.adoc': 1,
+\   'README.md': 1,
+\   'README.rst': 1
+\}
+
+lua << EOF
+require'nvim-tree'.setup {
+  view = {
+    width = '20%'
+  },
+}
+EOF
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
