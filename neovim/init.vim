@@ -28,7 +28,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'easymotion/vim-easymotion', { 'commit': 'd75d9591e415652b25d9e0a3669355550325263d' }
 
     Plug 'Glench/Vim-Jinja2-Syntax', { 'commit': 'ceb0f8076ee9aa802668448cefdd782edff4f6b2' }
-    Plug 'kien/rainbow_parentheses.vim', { 'commit': 'eb8baa5428bde10ecc1cb14eed1d6e16f5f24695' }
+    Plug 'luochen1990/rainbow', { 'commit': '54c79a24725af3a15d3aad20f70a56c7abbd46c3' }
     Plug 'morhetz/gruvbox', { 'commit': '040138616bec342d5ea94d4db296f8ddca17007a' }
     Plug 'liuchengxu/graphviz.vim', { 'commit': '704aa42852f200db2594382bdf847a92fdab61fc' }
 call plug#end()
@@ -367,10 +367,7 @@ au BufLeave * :set norelativenumber
 
 
 " Setup rainbow parens.
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+let g:rainbow_active = 1
 
 
 " Setup indent guides.
