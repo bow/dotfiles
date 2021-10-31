@@ -509,6 +509,9 @@ nnoremap <C-n> :set relativenumber!<CR>
 " Remaps - plugin shortcuts.
 nnoremap <F4> :TagbarToggle<CR>
 
+" Remap for sourcing config.
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " Remaps - shortcuts for dropdown popups.
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
