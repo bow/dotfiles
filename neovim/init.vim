@@ -362,8 +362,11 @@ set number
 set relativenumber
 
 " Toggle relative numbering on buffer enter and leave events.
-au BufEnter * :set relativenumber
-au BufLeave * :set norelativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | setlocal rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | setlocal nornu | endif
+augroup END
 
 
 " Setup rainbow parens.
