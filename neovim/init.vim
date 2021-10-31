@@ -35,6 +35,10 @@ call plug#begin(stdpath('data') . '/plugged')
     " nvim-tree.lua plugin
     Plug 'kyazdani42/nvim-web-devicons', { 'commit': 'ee101462d127ed6a5561ce9ce92bfded87d7d478' }
     Plug 'kyazdani42/nvim-tree.lua', { 'commit': 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c' }
+
+    " telescope plugin
+    Plug 'nvim-lua/plenary.nvim', { 'commit': '96e821e8001c21bc904d3c15aa96a70c11462c5f' }
+    Plug 'nvim-telescope/telescope.nvim', { 'commit': 'd7f09f58954495d1373f3a400596b2fed71a8d1c' }
 call plug#end()
 
 " Enable local .vimrc use.
@@ -563,6 +567,13 @@ require'nvim-tree'.setup {
   },
 }
 EOF
+
+" Configure Telescope key maps.
+nnoremap <C-f> <cmd>Telescope find_files<cr>
+nnoremap <C-g> <cmd>Telescope live_grep<cr>
+nnoremap <C-s> <cmd>Telescope grep_string<cr>
+nnoremap <C-b> <cmd>Telescope buffers<cr>
+nnoremap <leader>gs <cmd>Telescope git_status<cr>
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
