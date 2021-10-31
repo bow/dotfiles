@@ -390,41 +390,6 @@ let g:indent_guides_auto_colors = 0
 au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
 au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
 
-" Setup Ale
-let g:ale_linters = {
-\   'c': [],
-\   'cpp': ['clangtidy'],
-\   'elixir': [],
-\   'go': ['gofmt', 'govet'],
-\   'plaintex': [],
-\   'python': ['flake8'],
-\   'tex': [],
-\   'typescript': ['eslint', 'prettier'],
-\}
-let g:ale_fixers = {
-\   'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['isort'],
-\}
-let g:ale_fix_on_save = 1
-
-let g:ale_html_tidy_options = '-q -e -language en --drop-empty-elements no'
-
-let g:ale_cpp_clangtidy_checks = ['-llvm-header-guard']
-
-" let g:ale_sign_error = ''
-" let g:ale_sign_warning = ''
-let g:ale_sign_error = '➡'
-let g:ale_sign_warning = '➡'
-let g:ale_sign_column_always = 1
-let g:ale_set_quickfix = 1
-let g:ale_set_loclist = 0
-
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '%linter%: %s [%code%]'
-
-let g:airline#extensions#ale#enabled = 1
-
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
@@ -694,13 +659,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Set more custom colors
 hi Error guifg=#1d2021 guibg=#cc241d gui=bold
 hi NvimInternalError guifg=#1d2021 guibg=#cc241d gui=bold
-" ALE colors
-hi ALEInfo guifg=#1d2021 guibg=#458588 gui=bold
-hi ALEInfoSign guifg=#458588 guibg=#262626 gui=none
-hi ALEWarning guifg=#1d2021 guibg=#d79921 gui=bold
-hi ALEWarningSign guifg=#d79921 guibg=#262626 gui=none
-hi ALEError guifg=#1d2021 guibg=#cc241d gui=bold
-hi ALEErrorSign guifg=#cc241d guibg=#262626 gui=none
 " Coc colors"
 hi CocHintHighlight guifg=#1d2021 guibg=#98971a gui=bold
 hi CocInfoHighlight guifg=#1d2021 guibg=#458588 gui=bold
