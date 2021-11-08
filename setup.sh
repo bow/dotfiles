@@ -30,7 +30,6 @@ progs=(
     [readline]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
-    [termite]="${HOME}/.config/termite"
     [vim]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"

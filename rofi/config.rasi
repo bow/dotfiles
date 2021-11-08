@@ -6,7 +6,7 @@ configuration {
     font: "Titillium Thin 20";
     bw: 0;
     padding: 40;
-    terminal: "termite";
+    terminal: "alacritty";
     ssh-command: "{terminal} -e "{ssh-client} {host}"";
     drun-match-fields: "name";
     drun-display-format: "{name}";

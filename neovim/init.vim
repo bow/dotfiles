@@ -398,7 +398,7 @@ let g:sql_type_default = 'pgsql'
 
 " Disable vim-r-plugin integration with screen.vim
 let vimrplugin_screenplugin = 0
-let g:vimrplugin_term = "termite"
+let g:vimrplugin_term = "alacritty"
 
 " Disable '_' auto replacement with '<-' in R files.
 let g:vimrplugin_underscore = 0
