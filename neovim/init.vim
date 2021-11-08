@@ -464,6 +464,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-Right> :bn<CR>
+nnoremap <C-Left> :bp<CR>
 
 " Remap toggle for search highlighting.
 nnoremap <silent> ,/ :set hlsearch!<CR>
