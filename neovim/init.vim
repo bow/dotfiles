@@ -228,6 +228,9 @@ augroup FTS
     au FileType go setlocal tw=100 noexpandtab nolist
     au BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
+    au FileType java setlocal tw=120
+    au BufWritePre *.java :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
     au FileType javascript setlocal tw=80 ts=2 sw=2
     au BufNewFile,BufRead *.js,*.jsx setlocal ft=javascript
 
@@ -491,6 +494,7 @@ let g:coc_global_extensions = [
 \   'coc-css',
 \   'coc-go',
 \   'coc-html',
+\   'coc-java',
 \   'coc-json',
 \   'coc-prettier',
 \   'coc-pyright',
