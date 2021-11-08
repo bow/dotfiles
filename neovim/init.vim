@@ -232,7 +232,7 @@ augroup FTS
     au BufNewFile,BufRead *.js,*.jsx setlocal ft=javascript
 
     au FileType make setlocal tw=100
-    au BufNewFile,BufRead Makefile,*.mk setlocal ft=make
+    au BufNewFile,BufRead,BufWritePost Makefile,*.mk,*.make setlocal ft=make
 
     au FileType markdown setlocal ts=2 sw=2 tw=90 wrap
     au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
