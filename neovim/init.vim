@@ -410,9 +410,6 @@ hi SignifySignDelete gui=bold guifg=#262626 guibg=#af3a03
 hi SignifySignChange gui=bold guifg=#262626 guibg=#b57614
 let g:signify_sign_delete = '-'
 
-" List of excluded name patterns in editorconfig-vim.
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
 " Setup CtrlP.
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
