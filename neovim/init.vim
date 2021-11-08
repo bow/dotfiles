@@ -172,111 +172,111 @@ augroup END
 augroup FTS
     au!
 
-    au FileType asciidoc setlocal ts=2 sw=2 tw=90 wrap commentstring=//\ %s
-    au BufNewFile,BufRead *.adoc,*.asciidoc setlocal ft=asciidoc
+    au FileType asciidoc setl ts=2 sw=2 tw=90 wrap commentstring=//\ %s
+    au BufNewFile,BufRead *.adoc,*.asciidoc setl ft=asciidoc
 
-    au FileType circos setlocal tw=80 ts=2 sw=2 formatoptions=tcroqn2 comments=n:>
-    au BufNewFile,BufRead circos*.conf,ideogram*.conf,ticks*.conf setlocal ft=circos
+    au FileType circos setl tw=80 ts=2 sw=2 formatoptions=tcroqn2 comments=n:>
+    au BufNewFile,BufRead circos*.conf,ideogram*.conf,ticks*.conf setl ft=circos
 
-    au FileType cython setlocal tw=80
-    au BufNewFile,BufRead *.pyx setlocal ft=cython
+    au FileType cython setl tw=80
+    au BufNewFile,BufRead *.pyx setl ft=cython
 
-    au FileType bed setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.bed setlocal ft=bed
+    au FileType bed setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.bed setl ft=bed
 
-    au FileType gtf setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.gtf setlocal ft=gtf
+    au FileType gtf setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.gtf setl ft=gtf
 
-    au FileType gff setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.gff setlocal ft=gff
+    au FileType gff setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.gff setl ft=gff
 
-    au FileType go setlocal tw=100 noexpandtab nolist
+    au FileType go setl tw=100 noexpandtab nolist
     au BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
-    au FileType java setlocal tw=120
+    au FileType java setl tw=120
     au BufWritePre *.java :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
-    au FileType javascript setlocal tw=80 ts=2 sw=2
-    au BufNewFile,BufRead *.js,*.jsx setlocal ft=javascript
+    au FileType javascript setl tw=80 ts=2 sw=2
+    au BufNewFile,BufRead *.js,*.jsx setl ft=javascript
 
-    au FileType make setlocal tw=100
-    au BufNewFile,BufRead,BufWritePost Makefile,*.mk,*.make setlocal ft=make
+    au FileType make setl tw=100
+    au BufNewFile,BufRead,BufWritePost Makefile,*.mk,*.make setl ft=make
 
-    au FileType markdown setlocal ts=2 sw=2 tw=90 wrap
-    au BufNewFile,BufRead *.md,*.MD setlocal ft=markdown
+    au FileType markdown setl ts=2 sw=2 tw=90 wrap
+    au BufNewFile,BufRead *.md,*.MD setl ft=markdown
 
-    au FileType plaintex setlocal ts=2 sw=2 tw=100 wrap
-    au BufNewFile,BufRead *.tex setlocal ft=plaintex
+    au FileType plaintex setl ts=2 sw=2 tw=100 wrap
+    au BufNewFile,BufRead *.tex setl ft=plaintex
 
-    au FileType refFlat setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.refFlat setlocal ft=refFlat
+    au FileType refFlat setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.refFlat setl ft=refFlat
 
-    au FileType rst setlocal ts=2 sw=2 tw=90 wrap
-    au BufNewFile,BufRead *.rst,*.RST setlocal ft=rst
+    au FileType rst setl ts=2 sw=2 tw=90 wrap
+    au BufNewFile,BufRead *.rst,*.RST setl ft=rst
 
-    au FileType sam setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.sam setlocal ft=sam
+    au FileType sam setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.sam setl ft=sam
 
-    au FileType scala setlocal tw=120 ts=2 sw=2
-    au BufNewFile,BufRead *.scala,*.sc setlocal ft=scala
+    au FileType scala setl tw=120 ts=2 sw=2
+    au BufNewFile,BufRead *.scala,*.sc setl ft=scala
 
-    au FileType snakemake setlocal tw=100
-    au BufNewFile,BufRead Snakefile,Snakefile.*,*.snakefile,*.snake,*.rule,*.rules setlocal ft=snakemake
+    au FileType snakemake setl tw=100
+    au BufNewFile,BufRead Snakefile,Snakefile.*,*.snakefile,*.snake,*.rule,*.rules setl ft=snakemake
 
-    au FileType text setlocal wrap
+    au FileType text setl wrap
 
-    au FileType typescript setlocal tw=100 ts=4 sw=4
-    au BufNewFile,BufRead *.ts setlocal ft=typescript
+    au FileType typescript setl tw=100 ts=4 sw=4
+    au BufNewFile,BufRead *.ts setl ft=typescript
 
-    au FileType tsv setlocal wrap linebreak noexpandtab
-    au BufNewFile,BufRead *.tsv setlocal ft=tsv
+    au FileType tsv setl wrap linebreak noexpandtab
+    au BufNewFile,BufRead *.tsv setl ft=tsv
 
-    au FileType yaml setlocal ts=2 sw=2 indentkeys-=<:>
-    au BufNewFile,BufRead *.yml,*.yaml setlocal ft=yaml
+    au FileType yaml setl ts=2 sw=2 indentkeys-=<:>
+    au BufNewFile,BufRead *.yml,*.yaml setl ft=yaml
 
-    au FileType wdl setlocal tw=100 ts=2 sw=2 nocindent
-    au BufNewFile,BufRead *.wdl setlocal ft=wdl
+    au FileType wdl setl tw=100 ts=2 sw=2 nocindent
+    au BufNewFile,BufRead *.wdl setl ft=wdl
 
-    au FileType bib setlocal ts=2 sw=2 tw=100
-    au FileType c setlocal tw=100
-    au FileType cfg setlocal ts=2 sw=2
-    au FileType cpp setlocal tw=100
-    au FileType css setlocal tw=100 ts=2 sw=2
-    au FileType dockerfile setlocal tw=100
-    au FileType scss setlocal tw=100 ts=2 sw=2
-    au FileType elixir setlocal tw=100
-    au FileType erlang setlocal tw=100 ts=2 sw=2
-    au Filetype gitcommit setlocal spell tw=72
-    au FileType hocon setlocal ts=2 sw=2
-    au FileType html,htmljinja,jinja setlocal ts=2 sw=2
-    au FileType lua setlocal ts=2 sw=2
-    au FileType mako setlocal ts=2 sw=2
-    au FileType json setlocal ts=2 sw=2
-    au FileType php setlocal tw=100 ts=2 sw=2
-    au FileType proto setlocal tw=100
-    au FileType python setlocal indentkeys-=<:> indentkeys-=: tw=88
-    au FileType ruby setlocal tw=80 ts=2 sw=2
-    au FileType rust setlocal tw=99 ts=4 sw=4
-    au FileType sql setlocal commentstring=--\ %s
-    au FileType R setlocal tw=100 ts=2 sw=2
-    au FileType tex setlocal ts=2 sw=2 tw=100 wrap
-    au FileType xml setlocal ts=2 sw=2
+    au FileType bib setl ts=2 sw=2 tw=100
+    au FileType c setl tw=100
+    au FileType cfg setl ts=2 sw=2
+    au FileType cpp setl tw=100
+    au FileType css setl tw=100 ts=2 sw=2
+    au FileType dockerfile setl tw=100
+    au FileType scss setl tw=100 ts=2 sw=2
+    au FileType elixir setl tw=100
+    au FileType erlang setl tw=100 ts=2 sw=2
+    au Filetype gitcommit setl spell tw=72
+    au FileType hocon setl ts=2 sw=2
+    au FileType html,htmljinja,jinja setl ts=2 sw=2
+    au FileType lua setl ts=2 sw=2
+    au FileType mako setl ts=2 sw=2
+    au FileType json setl ts=2 sw=2
+    au FileType php setl tw=100 ts=2 sw=2
+    au FileType proto setl tw=100
+    au FileType python setl indentkeys-=<:> indentkeys-=: tw=88
+    au FileType ruby setl tw=80 ts=2 sw=2
+    au FileType rust setl tw=99 ts=4 sw=4
+    au FileType sql setl commentstring=--\ %s
+    au FileType R setl tw=100 ts=2 sw=2
+    au FileType tex setl ts=2 sw=2 tw=100 wrap
+    au FileType xml setl ts=2 sw=2
     au FileType xml,xhtml,htmljinja so ~/.vim/ftplugin/html_autoclosetag.vim
 
-    au BufNewFile,BufRead *.cool,*.cl setlocal ft=cool
-    au BufNewFile,BufRead *.cwl setlocal ft=yaml
-    au BufNewFile,BufRead .envrc setlocal ft=bash
-    au BufNewFile,BufRead *.jdl setlocal ft=jdl
-    au BufNewFile,BufRead *.jsonl setlocal ft=json
-    au BufNewFile,BufRead *.hs setlocal ft=haskell
-    au BufNewFile,BufRead *.lgr setlocal ft=ledger
-    au BufNewFile,BufRead *.mdj setlocal ft=json
-    au BufNewFile,BufRead *.lalrpop setlocal ft=rust
-    au BufNewFile,BufRead Pipfile setlocal ft=toml
-    au BufNewFile,BufRead Pipfile.lock setlocal ft=json
-    au BufNewFile,BufRead Tiltfile,Tiltfile.* setlocal ft=bzl
-    au BufNewFile,BufRead *.rl setlocal ft=ragel
-    au BufNewFile,BufRead Vagrantfile setlocal ft=ruby
+    au BufNewFile,BufRead *.cool,*.cl setl ft=cool
+    au BufNewFile,BufRead *.cwl setl ft=yaml
+    au BufNewFile,BufRead .envrc setl ft=bash
+    au BufNewFile,BufRead *.jdl setl ft=jdl
+    au BufNewFile,BufRead *.jsonl setl ft=json
+    au BufNewFile,BufRead *.hs setl ft=haskell
+    au BufNewFile,BufRead *.lgr setl ft=ledger
+    au BufNewFile,BufRead *.mdj setl ft=json
+    au BufNewFile,BufRead *.lalrpop setl ft=rust
+    au BufNewFile,BufRead Pipfile setl ft=toml
+    au BufNewFile,BufRead Pipfile.lock setl ft=json
+    au BufNewFile,BufRead Tiltfile,Tiltfile.* setl ft=bzl
+    au BufNewFile,BufRead *.rl setl ft=ragel
+    au BufNewFile,BufRead Vagrantfile setl ft=ruby
 
     au BufNewFile,BufRead roles/*/*.yml,playbooks/*.yml set ft=yaml.ansible
 augroup END
@@ -338,10 +338,10 @@ set number
 set relativenumber
 
 " Toggle relative numbering on buffer enter and leave events.
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | setlocal rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | setlocal nornu | endif
+augroup NumberToggle
+  au!
+  au BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | setl rnu   | endif
+  au BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | setl nornu | endif
 augroup END
 
 
@@ -521,7 +521,7 @@ else
 endif
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+au CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -530,12 +530,12 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
+augroup MyGroup
+  au!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  au FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  au User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
