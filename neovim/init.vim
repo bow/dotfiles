@@ -439,26 +439,6 @@ let g:ctrlp_custom_ignore = {
     \ }
 
 
-" Setup Tagbar.
-let g:tagbar_width = 60
-let g:tagbar_show_linenumbers = 1
-let g:tagbar_type_scala = {
-    \ 'ctagstype' : 'Scala',
-    \ 'kinds'     : [
-        \ 'p:packages:1',
-        \ 'V:values',
-        \ 'v:variables',
-        \ 'T:types',
-        \ 't:traits',
-        \ 'o:objects',
-        \ 'a:aclasses',
-        \ 'c:classes',
-        \ 'r:cclasses',
-        \ 'm:methods'
-    \ ]
-\ }
-
-
 " Remaps - buffer navigation.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -475,9 +455,6 @@ nnoremap ; :
 
 " Remap shortcut for toggling relative numbers.
 nnoremap <C-n> :set relativenumber!<CR>
-
-" Remaps - plugin shortcuts.
-nnoremap <F4> :TagbarToggle<CR>
 
 " Remap for sourcing config.
 nnoremap <leader>sv :source $MYVIMRC<CR>
