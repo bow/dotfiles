@@ -2,9 +2,9 @@
 --
 -- nvim/lua/plugins.lua
 
-local Plug = vim.fn["plug#"]
+local Plug = vim.fn['plug#']
 
-vim.call("plug#begin", vim.fn.stdpath("data") .. "/plugged")
+vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
 
   Plug('sheerun/vim-polyglot', {tag = 'v4.17.0'})
   Plug('neoclide/coc.nvim', {branch = 'release'})
@@ -41,4 +41,4 @@ vim.call("plug#begin", vim.fn.stdpath("data") .. "/plugged")
   Plug('nvim-lua/plenary.nvim', {commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f'})
   Plug('nvim-telescope/telescope.nvim', {commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c'})
 
-vim.call("plug#end")
+vim.call('plug#end')
