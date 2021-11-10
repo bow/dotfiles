@@ -1,165 +1,36 @@
 " nvim/init.vim
 " Wibowo Arindrarto <contact@arindrarto.dev>
 
-let g:python3_host_prog = '/usr/bin/python3'
+lua << EOF
+local g = vim.g
+g.python3_host_prog = '/usr/bin/python3'
+g.mapleader = ','
+EOF
 
 " Load plugins
-lua require("plugins")
+lua require 'plugins'
 
-" Enable local .vimrc use.
-set exrc
-
-" Restrict some command in non-default .vimrc.
-set secure
-
-" Set character encoding.
-set encoding=utf-8
-
-" Set global leader key.
-let mapleader = ','
-
-" Enable mouse in all modes.
-set mouse+=a
-
-" Set command completion menu.
-set wildmenu
-
-" Set backup directories.
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Set directories for swap file.
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Disable search highlighting.
-set nohlsearch
-
-" Show match as search proceeds.
-set incsearch
-
-" Set search to be case insensitive
-set ignorecase
-
-" Set search to be case sensitive when caps are used.
-set smartcase
-
-" Set :split to create a new window below current one.
-set splitbelow
-
-" Set :vsplit to create a new window right of the current one.
-set splitright
-
-" Use buffer for unwritten changes.
-set hidden
-
-" Allow backspacing over autoindent, line breaks, and start of insert.
-set backspace=indent,eol,start
-
-" Set paste mode toggle key.
-set pastetoggle=<F5>
-
-" Enable syntax highlighting.
-syntax on
-
-" Detect file extension.
-filetype on
-
-" Enable file type-specific autoindenting.
-filetype indent on
-
-" Enable filetype specific plugins.
-filetype plugin on
-
-" Show entered command.
-set showcmd
-
-" Show the sign column.
-set signcolumn=yes
-
-" Hide default vim mode.
-set noshowmode
-
-" Set command bar height.
-set cmdheight=1
-
-" Always show status line
-set laststatus=2
-
-" Always show one line below cursor
-set scrolloff=1
-
-" Disable GUI cursor
-set guicursor=
-
-" Highlight column after 'textwidth' / 'tw'.
-set colorcolumn=+1
-
-" Show whitespace characters.
-set list
-
-" Map whitespaces to visible characters.
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-" Set cindent.
-set cindent
-
-" Set color to 256 colors.
-set t_Co=256
-
-" Set GUI colors.
-set termguicolors
+" Set global settings
+lua require 'settings'
 
 " Set base colorscheme and its related options.
-let g:gruvbox_italic = 1
-let g:gruvbox_italicize_strings = 0
-let g:gruvbox_italicize_comments = 1
-let g:gruvbox_invert_selection = 0
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+lua <<EOF
+local g = vim.g
+local opt = vim.o
 
-" Ensure background is dark.
-set background=dark
+opt.termguicolors = true
 
-" Set auto indentation.
-set autoindent
+g.gruvbox_italic = 1
+g.gruvbox_italic = 1
+g.gruvbox_italicize_strings = 0
+g.gruvbox_italicize_comments = 1
+g.gruvbox_invert_selection = 0
+g.gruvbox_contrast_dark = 'hard'
+vim.cmd [[colorscheme gruvbox]]
 
-" Set smart indentation.
-set smartindent
+opt.background = 'dark'
+EOF
 
-" Replace tabs with spaces.
-set expandtab
-
-" Set number of spaces for tab replacement.
-set tabstop=4
-
-" Set indentation width.
-set shiftwidth=4
-
-" Use multiples of shiftwidth.
-set shiftround
-
-" Set unlimited maximum line length.
-set textwidth=0
-
-" Disable line wrapping.
-set nowrap
-
-" Set indent-based folding
-set foldmethod=indent
-
-" Set deepest allowed fold level.
-set foldnestmax=10
-
-" Open all folds by default.
-set nofoldenable
-
-" Add paths for file lookup.
-let &path.="src/include,/usr/include/AL,"
-
-" Decrease updatetime.
-set updatetime=100
-
-" Shorten command timeout length (default: 1000).
-set timeoutlen=500
 
 " Remove Esc delay when exiting from insert mode.
 augroup FastEscape
@@ -179,6 +50,7 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline_symbols.branch = "⎇ "
 let g:airline_symbols.notexists = "*"
+
 " Set airline font.
 set guifont=Inconsolata\ for\ Powerline
 " This highlight group is used for the airline warning.
@@ -201,7 +73,7 @@ hi Search cterm=NONE ctermbg=darkgreen ctermfg=black
 hi MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 " Disable background highlighting on non-texts.
-hi NonText guifg=bg guibg=NONE ctermfg=bg ctermbg=NONE
+hi NonText guifg=grey23 guibg=NONE ctermfg=white ctermbg=NONE
 
 " Set text width column color.
 hi ColorColumn guibg=#262626
@@ -218,11 +90,6 @@ hi VertSplit guibg=#262626
 " Set visual selection color.
 hi Visual guibg=grey23
 
-" Show current line number.
-set number
-
-" Show line numbers relative to current line number.
-set relativenumber
 
 " Toggle relative numbering on buffer enter and leave events.
 augroup NumberToggle
@@ -244,9 +111,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
 au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
-
-" Set default SQL file types to PostgreSQL
-let g:sql_type_default = 'pgsql'
 
 " Disable vim-r-plugin integration with screen.vim
 let vimrplugin_screenplugin = 0
@@ -329,27 +193,26 @@ let g:coc_global_extensions = [
 \   'coc-rls',
 \]
 
-" TextEdit might fail if hidden is not set.
-set hidden
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
 " Configure nvim-tree.lua
 nnoremap <C-e> :NvimTreeToggle<CR>
-let g:nvim_tree_gitignore = 1
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_group_empty = 1
-let g:nvim_tree_special_files = {
-\   'Makefile': 1,
-\   'README.adoc': 1,
-\   'README.md': 1,
-\   'README.rst': 1
-\}
 
 lua << EOF
+local g = vim.g
+
+g.nvim_tree_gitignore = 1
+g.nvim_tree_add_trailing = 1
+g.nvim_tree_group_empty = 1
+g.nvim_tree_special_files = {}
+
+local fns = {'Makefile', 'README.adoc', 'README.md', 'README.rst'}
+
+for _, fn in ipairs(fns) do
+    g.nvim_tree_special_files[fn] = 1
+end
+
 require'nvim-tree'.setup {
   view = {
     width = '20%'
@@ -491,5 +354,3 @@ hi CocWarningHighlight guifg=#1d2021 guibg=#d79921 gui=bold
 hi CocWarningSign guifg=#d79921 guibg=#262626 gui=none
 hi CocErrorHighlight guifg=#1d2021 guibg=#cc241d gui=bold
 hi CocErrorSign guifg=#cc241d guibg=#262626 gui=none
-
-command! Scratch lua require'tools'.makeScratch()
