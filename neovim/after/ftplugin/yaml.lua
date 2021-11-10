@@ -1,5 +1,9 @@
+local cmd = vim.cmd
 local bufopt = vim.bo
 
-bufopt.indentkeys:remove('<:>')
 bufopt.shiftwidth = 2
 bufopt.tabstop = 2
+
+cmd [[
+  au FileType yaml setl indentkeys-=<:>
+]]

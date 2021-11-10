@@ -1,7 +1,8 @@
+local cmd = vim.cmd
 local bufopt = vim.bo
 
 bufopt.textwidth = 88
 
-vim.cmd [[
+cmd [[
   au FileType python setl indentkeys-=<:> indentkeys-=:
 ]]
