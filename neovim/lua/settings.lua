@@ -14,11 +14,9 @@ cmd [[
 -- Allow backspacing over autoindent, line breaks, and start of insert.
 opt.backspace = [[indent,eol,start]]
 
--- Set backup directories.
-opt.backupdir = [[~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp]]
-
--- Set directories for swap file.
-opt.directory = opt.backupdir
+-- Disable backups.
+opt.backup = false
+opt.writebackup = false
 
 -- Set command bar height.
 opt.cmdheight = 1
