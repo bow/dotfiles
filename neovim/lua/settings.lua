@@ -1,8 +1,6 @@
 local cmd = vim.cmd
 local fn = vim.fn
-local opt = vim.o
-local bufopt = vim.bo
-local winopt = vim.wo
+local opt = vim.opt
 
 
 -- Enable syntax highlighting and ft detection, specific autoindent, and plugin.
@@ -22,7 +20,7 @@ opt.writebackup = false
 opt.cmdheight = 1
 
 -- Highlight column after 'textwidth' / 'tw'
-winopt.colorcolumn = '+1'
+opt.colorcolumn = '+1'
 
 -- Set character encoding.
 opt.encoding = 'utf-8'
@@ -40,7 +38,7 @@ opt.hidden = true
 opt.laststatus = 2
 
 -- Show whitespace characters.
-winopt.list = true
+opt.list = true
 
 -- Set whitespace characters.
 if fn.has('multi_byte') == 1 and opt.encoding == 'utf-8' then
@@ -53,16 +51,17 @@ end
 opt.mouse = 'a'
 
 -- Show current line number.
-winopt.number = true
+opt.number = true
 
 -- Show line numbers relative to current line number.
-winopt.relativenumber = true
+opt.relativenumber = true
 
 -- Set paste mode toggle key.
 opt.pastetoggle = '<F5>'
 
 -- Add paths for file lookup.
-opt.path = opt.path .. ',src/include,/usr/include'
+opt.path:append('src/include')
+opt.path:append('/usr/include')
 
 -- Restrict commands in non-default .vimrc.
 opt.secure = true
@@ -110,26 +109,26 @@ opt.smartcase = true
 -- Indentation
 
 -- Set cindent.
-bufopt.cindent = true
+opt.cindent = true
 -- Set auto indentation.
-bufopt.autoindent = true
+opt.autoindent = true
 -- Set smart indentation.
-bufopt.smartindent = true
+opt.smartindent = true
 -- Replace tabs with spaces.
-bufopt.expandtab = true
+opt.expandtab = true
 -- Set number of spaces for tab replacement.
-bufopt.tabstop = 4
+opt.tabstop = 4
 -- Set indentation width.
-bufopt.shiftwidth = 4
+opt.shiftwidth = 4
 -- Use multiples of shiftwidth.
 opt.shiftround = true
 -- Set unlimited maximum line length.
 opt.textwidth = 0
 -- Disable line wrapping.
-winopt.wrap = false
+opt.wrap = false
 -- Set indent-based folding
-winopt.foldmethod = 'indent'
+opt.foldmethod = 'indent'
 -- Set deepest allowed fold level.
-winopt.foldnestmax = 10
+opt.foldnestmax = 10
 -- Open all folds by default.
-winopt.foldenable = false
+opt.foldenable = false
