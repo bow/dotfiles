@@ -73,7 +73,7 @@ hi Search cterm=NONE ctermbg=darkgreen ctermfg=black
 hi MatchParen gui=bold guibg=NONE guifg=lightblue cterm=bold ctermbg=NONE
 
 " Disable background highlighting on non-texts.
-hi NonText guifg=grey23 guibg=NONE ctermfg=white ctermbg=NONE
+hi NonText guifg=#545454 gui=NONE guibg=NONE ctermfg=grey ctermbg=NONE cterm=NONE
 
 " Set text width column color.
 hi ColorColumn guibg=#262626
@@ -107,10 +107,10 @@ let g:rainbow_active = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help']
 let g:indent_guides_guide_size = 4
-let g:indent_guides_start_level = 2
+let g:indent_guides_start_level = 1
 let g:indent_guides_auto_colors = 0
-au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 ctermbg=NONE
-au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 ctermbg=234
+au VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#1d2021 guifg=#545454 ctermbg=NONE ctermfg=grey
+au VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#262626 guifg=#545454 ctermbg=234 ctermfg=grey
 
 " Disable vim-r-plugin integration with screen.vim
 let vimrplugin_screenplugin = 0

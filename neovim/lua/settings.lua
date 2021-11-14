@@ -41,11 +41,7 @@ opt.laststatus = 2
 opt.list = true
 
 -- Set whitespace characters.
-if fn.has('multi_byte') == 1 and opt.encoding == 'utf-8' then
-  opt.listchars = [[tab:▸ ,extends:❯,precedes:❮,nbsp:±,trail:…]]
-else
-  opt.listchars = [[tab:> ,extends:>,precedes:<,nbsp:.,trail:_]]
-end
+opt.listchars = [[tab:→·,extends:❯,precedes:❮,nbsp:±,trail:␣]]
 
 -- Enable mouse in all modes.
 opt.mouse = 'a'
@@ -55,6 +51,9 @@ opt.number = true
 
 -- Show line numbers relative to current line number.
 opt.relativenumber = true
+
+-- Show mark of wrapped lines.
+opt.showbreak = '↪'
 
 -- Set paste mode toggle key.
 opt.pastetoggle = '<F5>'
