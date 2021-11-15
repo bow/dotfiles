@@ -41,7 +41,7 @@ opt.laststatus = 2
 opt.list = true
 
 -- Set whitespace characters.
-opt.listchars = [[tab:→ ,extends:❯,precedes:❮,nbsp:±,trail:·]]
+opt.listchars = [[tab:→ ,extends:❯,precedes:❮,nbsp:±]]
 
 -- Enable mouse in all modes.
 opt.mouse = 'a'

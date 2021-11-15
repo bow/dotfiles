@@ -90,6 +90,10 @@ hi VertSplit guibg=#262626
 " Set visual selection color.
 hi Visual guibg=grey23
 
+" Configure whitespaces display
+let g:better_whitespace_enabled = 1
+let g:better_whitespace_ctermcolor = 'red'
+let g:better_whitespace_guicolor = '#cc241d'
 
 " Toggle relative numbering on buffer enter and leave events.
 augroup NumberToggle
