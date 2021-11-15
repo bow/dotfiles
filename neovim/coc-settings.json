@@ -2,8 +2,6 @@
   "diagnostic.errorSign": "➡",
   "diagnostic.warningSign": "➡",
   "json.enable": true,
-  "java.sources.organizeImports.starThreshold": 9,
-  "java.sources.organizeImports.staticStarThreshold": 9,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
