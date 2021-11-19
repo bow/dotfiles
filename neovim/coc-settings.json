@@ -1,6 +1,9 @@
 {
   "diagnostic.errorSign": "➡",
   "diagnostic.warningSign": "➡",
+  "go.goplsEnv": {
+    "GOFLAGS": "-tags=test"
+  },
   "json.enable": true,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
