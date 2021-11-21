@@ -17,7 +17,6 @@ progs=(
     [git]="${HOME}"
     [gtk-3.0]="${HOME}/.config/gtk-3.0"
     [i3]="${HOME}/.config/i3"
-    [kubernetes]="${HOME}"
     [lightdm]="${HOME}"
     [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"
