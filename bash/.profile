@@ -1,3 +1,19 @@
+# local bin configs
+case ":${PATH}:" in
+    *:"${HOME}/local/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/local/bin:${PATH}"
+        ;;
+esac
+case ":${PATH}:" in
+    *:"${HOME}/.cargo/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/.cargo/bin:${PATH}"
+        ;;
+esac
+
 # load own copy of .git-completion.bash if it exists
 if [ -f ~/.git-completion.bash ]; then
     # shellcheck source=.git-completion.bash
