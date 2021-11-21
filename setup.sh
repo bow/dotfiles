@@ -12,7 +12,6 @@ progs=(
     [bash]="${HOME}"
     [conda]="${HOME}"
     [cookiecutter]="${HOME}"
-    [ctags]="${HOME}"
     [elixir]="${HOME}"
     [git]="${HOME}"
     [gtk-3.0]="${HOME}/.config/gtk-3.0"
