@@ -1,31 +1,23 @@
 configuration {
-    modi: "combi";
-    width: 30;
-    lines: 7;
-    columns: 1;
-    font: "Titillium Thin 20";
-    bw: 0;
-    padding: 40;
     terminal: "alacritty";
-    ssh-command: "{terminal} -e "{ssh-client} {host}"";
-    drun-match-fields: "name";
-    drun-display-format: "{name}";
-    cycle: false;
-    eh: 1;
-    auto-select: false;
+
+    modi: "combi";
     combi-modi: "drun,window";
+
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   "";
+    display-window: "";
+    display-combi:  " ";
+
+    drun-match-fields: "name,exec";
+    drun-display-format: "{name}";
+    show-icons:     false;
+
+    auto-select: false;
+    cycle: true;
     matching: "normal";
-    line-margin: 5;
-    separator-style: "solid";
-    hide-scrollbar: true;
-    fullscreen: false;
     scroll-method: 1;
-    window-format: "{w}・{t}";
-    color-normal: "argb:00000000, #e8e8d3, argb:00000000, argb:00000000, #e3ac2d";
-    color-urgent: "argb:00000000, #f43753, argb:00000000, argb:00000000, #e3ac2d";
-    color-active: "argb:00000000, #007c5b, argb:00000000, argb:00000000, #e3ac2d";
-    color-window: "argb:da202020, argb:da202020, argb:00202020";
-    display-window: "=";
-    display-drun: "+";
-    display-combi: "";
 }
+
+@theme "theme.rasi"
