@@ -1,7 +1,5 @@
 default_context:
     author_full_name: "Wibowo Arindrarto"
-    author_email: "bow@bow.web.id"
+    author_email: "contact@arindrarto.dev"
     github_username: "bow"
-    use_travis: true
-    use_codecov: true
     license: "BSD 3-Clause"
