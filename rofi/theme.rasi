@@ -33,7 +33,7 @@
 }
 
 window {
-    width: 31%;
+    width: 36%;
     height: 32%;
     background-color: @normal-background;
     border: 0;

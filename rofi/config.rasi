@@ -12,6 +12,7 @@ configuration {
 
     drun-match-fields: "name,exec";
     drun-display-format: "{name}";
+    window-format: "{w} · {t}";
     show-icons: false;
 
     auto-select: false;
