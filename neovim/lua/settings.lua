@@ -53,7 +53,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- Show mark of wrapped lines.
-opt.showbreak = '↪'
+opt.showbreak = '↪ '
 
 -- Set paste mode toggle key.
 opt.pastetoggle = '<F5>'
