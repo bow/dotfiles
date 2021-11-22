@@ -311,3 +311,7 @@ fi
 if [[ "${starship_exists}" -eq 1 ]]; then
     eval "$(starship init bash)"
 fi
+function set_window_title(){
+    echo -ne "\033]0; $(echo "Terminal ${PWD/#$HOME/'~'}") \007"
+}
+starship_precmd_user_func="set_window_title"
