@@ -6,13 +6,13 @@ configuration {
 
     display-ssh:    "";
     display-run:    "";
-    display-drun:   "";
-    display-window: "";
-    display-combi:  " ";
+    display-drun:   "⬢";
+    display-window: "⮼";
+    display-combi:  "";
 
     drun-match-fields: "name,exec";
     drun-display-format: "{name}";
-    show-icons:     false;
+    show-icons: false;
 
     auto-select: false;
     cycle: true;
