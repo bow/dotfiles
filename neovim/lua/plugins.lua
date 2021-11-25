@@ -6,7 +6,6 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
 
-  Plug('sheerun/vim-polyglot', {tag = 'v4.17.0'})
   Plug('neoclide/coc.nvim', {branch = 'release'})
   Plug('snakemake/snakemake', {rtp = 'misc/vim'})
   Plug('broadinstitute/vim-wdl', {commit = '1aaf200284b85d6075901faa8bda9ea67c6ce515'})
