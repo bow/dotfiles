@@ -28,6 +28,7 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
   Plug('tpope/vim-surround', {commit = 'f51a26d3710629d031806305b6c8727189cd1935'})
   Plug('easymotion/vim-easymotion', {commit = 'd75d9591e415652b25d9e0a3669355550325263d'})
   Plug('ntpeters/vim-better-whitespace', {commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322'})
+  Plug('cespare/vim-toml', {commit = '717bd87ef928293e0cc6cfc12ebf2e007cb25311'})
 
   Plug('Glench/Vim-Jinja2-Syntax', {commit = 'ceb0f8076ee9aa802668448cefdd782edff4f6b2'})
   Plug('luochen1990/rainbow', {commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3'})
