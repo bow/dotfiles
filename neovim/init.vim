@@ -130,39 +130,20 @@ hi SignifySignDelete gui=bold guifg=#262626 guibg=#af3a03
 hi SignifySignChange gui=bold guifg=#262626 guibg=#b57614
 let g:signify_sign_delete = '-'
 
-" Setup CtrlP.
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](
-        \\.git|\.hg|\.svn
-        \|__pycache__|node_modules|bower_components
-        \|build|wheels|target|_deps|dist|coverage|htmlcov
-        \|_build
-        \|.snakemake
-        \|.DS_Store
-        \)$|.egg-info$',
-    \ 'file': '\v\.(
-        \exe|so|dll|pdf|dvi|png|jpg|jpeg|ico
-        \|doc|docx|xls|xlsx|xlsm
-        \|bcl|cbcl|fastq|fasta|sam|bam|cram|vcf|bcf|gff|gtf|bed|wig|bigwig
-        \|sif|simg
-        \|mp4|mkv|avi|mpg
-        \|mp3|flac
-        \|swp|swo|whl
-        \|pyc|pyo|jar|class
-        \|tgz|tar|zip|gz|gzip|bz2|xz
-        \)$',
-    \ }
 
-
-" Remaps - buffer navigation.
+" Remaps - buffer and window navigation.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <C-d> :bd<CR>
 nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
+
+nnoremap <C-q> :q<CR>
+nnoremap <C-s> :w<CR>
+nnoremap <C-x> :x<CR>
 
 " Remap toggle for search highlighting.
 nnoremap <silent> ,/ :set hlsearch!<CR>
@@ -225,11 +206,11 @@ require'nvim-tree'.setup {
 EOF
 
 " Configure Telescope key maps.
-nnoremap <C-f> <cmd>Telescope find_files<cr>
-nnoremap <C-g> <cmd>Telescope live_grep<cr>
-nnoremap <C-s> <cmd>Telescope grep_string<cr>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-c> <cmd>Telescope live_grep<cr>
+nnoremap <C-f> <cmd>Telescope grep_string<cr>
 nnoremap <C-b> <cmd>Telescope buffers<cr>
-nnoremap <leader>gs <cmd>Telescope git_status<cr>
+nnoremap <C-g> <cmd>Telescope git_status<cr>
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -319,7 +300,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
-nnoremap <silent> <C-d>  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <C-i>  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.

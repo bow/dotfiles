@@ -11,7 +11,6 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
   Plug('broadinstitute/vim-wdl', {commit = '1aaf200284b85d6075901faa8bda9ea67c6ce515'})
 
   Plug('jiangmiao/auto-pairs', {tag = 'v2.0.0'})
-  Plug('ctrlpvim/ctrlp.vim', {tag = '1.81'})
   Plug('vim-airline/vim-airline', {tag = 'v0.11'})
   Plug('vim-airline/vim-airline-themes', {commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256'})
   Plug('tpope/vim-commentary', {tag = 'v3.4'})
@@ -44,3 +43,23 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
   Plug('nvim-telescope/telescope.nvim', {commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c'})
 
 vim.call('plug#end')
+
+
+-- TODO: Move to own file
+local actions = require 'telescope.actions'
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      n = {
+        ['<esc>'] = actions.close,
+        ['<C-Up>'] = actions.preview_scrolling_up,
+        ['<C-Down>'] = actions.preview_scrolling_down,
+      },
+      i = {
+        ['<esc>'] = actions.close,
+        ['<C-Up>'] = actions.preview_scrolling_up,
+        ['<C-Down>'] = actions.preview_scrolling_down,
+      },
+    },
+  },
+}
