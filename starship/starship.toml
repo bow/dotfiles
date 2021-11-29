@@ -46,6 +46,7 @@ modified = "*"
 
 [golang]
 format = '[•](dimmed white) [go\[($version)\]]($style) '
+version_format = "${major}.${minor}"
 style = "cyan"
 
 [hostname]
