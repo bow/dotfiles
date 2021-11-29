@@ -272,6 +272,10 @@ fi
 if [ -f /opt/asdf-vm/asdf.sh ]; then
     # shellcheck source=/opt/asdf-vm/asdf.sh
     source /opt/asdf-vm/asdf.sh
+    # shellcheck source=$HOME/.asdf/plugins/java/set-java-home.bash
+    if [ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]; then
+        source "$HOME/.asdf/plugins/java/set-java-home.bash"
+    fi
 fi
 
 # pyenv config

@@ -7,6 +7,7 @@ $git_status\
 $git_commit\
 $python\
 $golang\
+$java\
 $nodejs\
 $directory\
 $line_break\
@@ -52,6 +53,11 @@ format = "[@$hostname]($style)"
 style = "blue"
 ssh_only = false
 trim_at = ""
+
+[java]
+format = '[•](dimmed white) [java\[($version)\]]($style) '
+version_format = "${major}.${minor}"
+style = "cyan"
 
 [nodejs]
 format = '[•](dimmed white) [js\[($version)\]]($style) '

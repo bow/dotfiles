@@ -15,6 +15,11 @@ test.py
 venv
 .ipynb_checkpoints/
 
+# Java
+.settings/
+.project
+.classpath
+
 # JavaScript
 .node-version
 .nvmrc
@@ -81,3 +86,5 @@ Thumbs.db
 sandbox
 .todo
 .bak
+
+coc-settings.json
