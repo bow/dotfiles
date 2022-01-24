@@ -14,6 +14,12 @@ window:
   # Window title
   title: Terminal
 
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.95
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -108,12 +114,6 @@ colors:
   cursor:
     text: CellBackground
     cursor: '#928374'
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
 
 selection:
   # This string contains all characters that are used as separators for
