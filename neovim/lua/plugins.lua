@@ -29,6 +29,7 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
   Plug('cespare/vim-toml', {commit = '717bd87ef928293e0cc6cfc12ebf2e007cb25311'})
   Plug('Vimjas/vim-python-pep8-indent', {commit = '60ba5e11a61618c0344e2db190210145083c91f8'})
   Plug('aklt/plantuml-syntax', {commit = '405186847a44c16dd039bb644541b4c8fbdab095'})
+  Plug('alvan/vim-closetag', {commit = 'c0779ef575d5c239162f4ca3506cfb4a95d45a58'})
 
   Plug('Glench/Vim-Jinja2-Syntax', {commit = 'ceb0f8076ee9aa802668448cefdd782edff4f6b2'})
   Plug('luochen1990/rainbow', {commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3'})
