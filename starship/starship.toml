@@ -57,7 +57,7 @@ trim_at = ""
 
 [java]
 format = '[•](dimmed white) [java\[($version)\]]($style) '
-version_format = "${major}.${minor}"
+version_format = "${raw}"
 style = "cyan"
 
 [nodejs]
