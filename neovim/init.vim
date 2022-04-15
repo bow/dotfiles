@@ -206,7 +206,7 @@ require'nvim-tree'.setup {
 EOF
 
 " Configure Telescope key maps.
-nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files { find_command = { "rg", "--files", "--follow", "--hidden", "--ignore", "--ignore-file", vim.fn.expand("~/.config/git/ignore") } }<cr>
 nnoremap <C-c> <cmd>Telescope live_grep<cr>
 nnoremap <C-f> <cmd>Telescope grep_string<cr>
 nnoremap <C-b> <cmd>Telescope buffers<cr>
