@@ -36,6 +36,8 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
   Plug('morhetz/gruvbox', {commit = '040138616bec342d5ea94d4db296f8ddca17007a'})
   Plug('liuchengxu/graphviz.vim', {commit = '704aa42852f200db2594382bdf847a92fdab61fc'})
 
+  Plug('rust-lang/rust.vim', {commit = '4aa69b84c8a58fcec6b6dad6fe244b916b1cf830'})
+
   -- nvim-tree.lua plugin
   Plug('kyazdani42/nvim-web-devicons', {commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478'})
   Plug('kyazdani42/nvim-tree.lua', {commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c'})
