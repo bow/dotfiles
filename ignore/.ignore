@@ -1,2 +1,52 @@
-!sandbox
+!sandbox/
 .git/
+.gnupg/
+
+*.doc
+*.docx
+*.pdf
+*.ps
+*.xls
+*.xlsx
+
+*.lock
+.db
+
+# JavaScript
+node_modules/
+.npm/
+
+# Python
+.pyenv/
+
+# Audio
+*.avi
+*.aiff
+*.flac
+*.flv
+*.m3u
+*.m4a
+*.mp3
+*.mp4
+*.mpg
+*.mpeg
+*.mkv
+*.wav
+*.wma
+
+# Font
+*.eot
+*.ttf
+*.woff
+*.woff2
+
+# Image
+*.bmp
+*.ico
+*.JPG
+*.jpg
+*.JPEG
+*.jpeg
+*.png
+*.svg
+*.tiff
