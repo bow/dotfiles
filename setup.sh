@@ -17,7 +17,6 @@ progs=(
     [i3]="${HOME}/.config/i3"
     [ignore]="${HOME}"
     [lightdm]="${HOME}"
-    [mercurial]="${HOME}"
     [ncmpcpp]="${HOME}"
     [neovim]="${HOME}/.config/nvim"
     [ocaml]="${HOME}"
