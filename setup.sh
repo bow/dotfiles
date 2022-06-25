@@ -15,7 +15,6 @@ progs=(
     [elixir]="${HOME}"
     [gitconfig]="${HOME}"
     [gitignore]="${HOME}/.config/git"
-    [gtk-3.0]="${HOME}/.config/gtk-3.0"
     [i3]="${HOME}/.config/i3"
     [ignore]="${HOME}"
     [lightdm]="${HOME}"
