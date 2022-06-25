@@ -11,7 +11,6 @@ progs=(
     [alacritty]="${HOME}/.config/alacritty"
     [bash]="${HOME}"
     [conda]="${HOME}"
-    [cookiecutter]="${HOME}"
     [elixir]="${HOME}"
     [gitconfig]="${HOME}"
     [gitignore]="${HOME}/.config/git"
