@@ -30,7 +30,6 @@ progs=(
     [readline]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
-    [vim]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
     [zathura]="${HOME}/.config/zathura"
