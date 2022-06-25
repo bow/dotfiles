@@ -4,7 +4,7 @@ IEx.configure(
       number: :light_yellow,
       atom: :light_cyan,
       string: :light_black,
-      boolean: :red, 
+      boolean: :red,
       nil: [:magenta, :bright],
     ],
     ls_directory: :cyan,
@@ -14,16 +14,16 @@ IEx.configure(
     doc_headings: [:cyan, :underline],
     doc_title: [:cyan, :bright, :underline],
   ],
-  default_prompt: 
+  default_prompt:
     "#{IO.ANSI.magenta}%prefix#{IO.ANSI.reset} " <>
     "[#{IO.ANSI.light_black}%counter#{IO.ANSI.reset}]>",
-  alive_prompt: 
+  alive_prompt:
     "#{IO.ANSI.magenta}%prefix#{IO.ANSI.reset} " <>
     "(#{IO.ANSI.cyan}%node#{IO.ANSI.reset}) " <>
     "[#{IO.ANSI.light_black}%counter#{IO.ANSI.reset}]>",
   history_size: 50,
   inspect: [
-    pretty: true, 
+    pretty: true,
     limit: :infinity,
     width: 80,
     # charlists: :as_lists
