@@ -4,7 +4,7 @@
 [core]
     autocrlf = input
     safecrlf = warn
-    editor = vim
+    editor = nvim
     excludesFile = ~/.config/git/ignore
 [init]
     defaultBranch = master

@@ -1,4 +1,5 @@
 local bufopt = vim.bo
+local winopt = vim.wo
 
-bufopt.spell = true
+winopt.spell = true
 bufopt.textwidth = 72
