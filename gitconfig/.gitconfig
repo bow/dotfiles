@@ -50,10 +50,11 @@
     discard = checkout --
     uncommit = reset --mixed HEAD~
     syncr = fetch --all --prune
+    shi = stash --staged
     shl = stash list
-    shs = "!f() { git stash show -p stash@{$1}; }; f"
-    shp = "!f() { git stash pop stash@{$1}; }; f"
-    shd = "!f() { git stash drop stash@{$1}; }; f"
+    shs = "!f() { git stash show -p stash@{$1:-0}; }; f"
+    shp = "!f() { git stash pop stash@{$1:-0}; }; f"
+    shd = "!f() { git stash drop stash@{$1:-0}; }; f"
     brstat = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(objectname:short)%(color:reset) %(color:blue)%(committerdate:short)%(color:reset) • %(color:red)(%(refname:short))%(color:reset) %(contents:subject) %(color:cyan)[%(authorname)]%(color:reset)'
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     linediff = "!f() { git diff --numstat --pretty $1 | awk '{ print $1+$2\"\t\"$0 }' | sort -nrk1,1; }; f"
