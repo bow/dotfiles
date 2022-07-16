@@ -333,5 +333,5 @@ hi CocErrorSign guifg=#cc241d guibg=#262626 gui=none
 nmap <leader>z i<C-R>=trim(system("date -u '+%Y-%m-%dT%H:%M:%S.%3NZ'"))<CR><Esc>
 imap <leader>z <C-R>=trim(system("date -u '+%Y-%m-%dT%H:%M:%S.%3NZ'"))<CR>
 " Insert current timestamp in RFC3399 local format with ms resolution.
-nmap <leader>d i<C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%z'"))<CR><Esc>
-imap <leader>d <C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%z'"))<CR>
+nmap <leader>d i<C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR><Esc>
+imap <leader>d <C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR>
