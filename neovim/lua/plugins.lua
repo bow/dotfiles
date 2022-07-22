@@ -38,6 +38,8 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
 
   Plug('rust-lang/rust.vim', {commit = '4aa69b84c8a58fcec6b6dad6fe244b916b1cf830'})
 
+  Plug('Mxrcon/nextflow-vim', {commit = '77a349ad259f536c03fe2888ed9137249fa7d40e'})
+
   -- nvim-tree.lua plugin
   Plug('kyazdani42/nvim-web-devicons', {commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478'})
   Plug('kyazdani42/nvim-tree.lua', {commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c'})
