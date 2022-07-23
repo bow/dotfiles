@@ -256,6 +256,15 @@ if [ -f ~/.bash_private ]; then
     source ~/.bash_private
 fi
 
+# .local/bin config
+case ":${PATH}:" in
+    *:"${HOME}/.local/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/.local/bin:${PATH}"
+        ;;
+esac
+
 # basher config
 case ":${PATH}:" in
     *:"${HOME}/.basher/bin":*)
