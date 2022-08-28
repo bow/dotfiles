@@ -32,5 +32,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.telemetry.enable": false
 }
