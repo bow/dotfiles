@@ -52,22 +52,15 @@ vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
 
 vim.call('plug#end')
 
+for _, plugin in ipairs {
+  'telescope-nvim',
+  'vim-better-whitespace',
+  'vim-indent-guides',
+  'vim-signify',
+  'nvim-tree',
 
--- TODO: Move to own file
-local actions = require 'telescope.actions'
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      n = {
-        ['<esc>'] = actions.close,
-        ['<C-Up>'] = actions.preview_scrolling_up,
-        ['<C-Down>'] = actions.preview_scrolling_down,
-      },
-      i = {
-        ['<esc>'] = actions.close,
-        ['<C-Up>'] = actions.preview_scrolling_up,
-        ['<C-Down>'] = actions.preview_scrolling_down,
-      },
-    },
-  },
-}
+  'vim-airline',
+  'coc-nvim'
+} do
+  require('plugins/' .. plugin)
+end

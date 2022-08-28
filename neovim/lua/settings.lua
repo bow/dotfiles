@@ -1,7 +1,12 @@
+local g = vim.g
 local cmd = vim.cmd
-local fn = vim.fn
 local opt = vim.opt
+local api = vim.api
+local augroup = api.nvim_create_augroup
+local au = api.nvim_create_autocmd
 
+-- Set font.
+g.guifont='Inconsolata for Powerline'
 
 -- Enable syntax highlighting and ft detection, specific autoindent, and plugin.
 cmd [[
@@ -131,3 +136,21 @@ opt.foldmethod = 'indent'
 opt.foldnestmax = 10
 -- Open all folds by default.
 opt.foldenable = false
+
+-- Autocommand groups.
+
+-- Remove Esc delay when exiting from insert mode.
+local grp_fastescape = augroup('FastEscape', {clear = true})
+au('InsertEnter', {group = grp_fastescape, command = 'set timeoutlen=0'})
+au('InsertLeave', {group = grp_fastescape, command = 'set timeoutlen=500'})
+
+-- Toggle relative numbering on buffer enter and leave events.
+local grp_numbertoggle = augroup('NumberToggle', {clear = true})
+au(
+  {'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter'},
+  {group = grp_numbertoggle, command = 'if &nu && mode() != "i" | setl rnu | endif'}
+)
+au(
+  {'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave'},
+  {group = grp_numbertoggle, command = 'if &nu | setl nornu | endif'}
+)
