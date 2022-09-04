@@ -1,5 +1,6 @@
 local g = vim.g
 local opt = vim.opt
+local au = vim.api.nvim_create_autocmd
 
 --- Set syntax highlighting.
 -- @param hls a table of syntax highlight groups.
@@ -8,8 +9,6 @@ local function set_hls(hls)
     vim.api.nvim_set_hl(0, group, spec)
   end
 end
-
-vim.cmd [[colorscheme gruvbox]]
 
 opt.termguicolors = true
 opt.background = 'dark'
@@ -20,6 +19,9 @@ g.gruvbox_italicize_strings = false
 g.gruvbox_italicize_comments = true
 g.gruvbox_invert_selection = false
 g.gruvbox_contrast_dark = 'hard'
+
+vim.cmd [[colorscheme gruvbox]]
+
 
 set_hls {
   -- Text width column color.
@@ -57,4 +59,20 @@ set_hls {
   SignifySignAdd = {bold = true, bg = '#427b58', fg = '#262626'},
   SignifySignDelete = {bold = true, bg = '#af3a03', fg = '#262626'},
   SignifySignChange = {bold = true, bg = '#b57614', fg = '#262626'},
+
+  -- vim-indent-guides colors.
+  IndentGuidesOdd = {bg = '#1d2021', fg = '#545454', ctermbg = 'NONE', ctermfg = 'grey'},
+  IndentGuidesEven = {bg = '#262626', fg = '#545454', ctermbg = 234, ctermfg = 'grey'},
 }
+
+au(
+  {'VimEnter', 'Colorscheme'},
+  {
+    callback = function()
+      set_hls {
+        IndentGuidesOdd = {bg = '#1d2021', fg = '#545454', ctermbg = 'NONE', ctermfg = 'grey'},
+        IndentGuidesEven = {bg = '#262626', fg = '#545454', ctermbg = 234, ctermfg = 'grey'},
+      }
+    end,
+  }
+)
