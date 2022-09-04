@@ -9,6 +9,8 @@ local function set_hls(hls)
   end
 end
 
+vim.cmd [[colorscheme gruvbox]]
+
 opt.termguicolors = true
 opt.background = 'dark'
 
@@ -18,8 +20,6 @@ g.gruvbox_italicize_strings = false
 g.gruvbox_italicize_comments = true
 g.gruvbox_invert_selection = false
 g.gruvbox_contrast_dark = 'hard'
-
-vim.cmd [[colorscheme gruvbox]]
 
 set_hls {
   -- Text width column color.
@@ -34,14 +34,14 @@ set_hls {
   MatchParen = {
     bg = 'NONE', fg = '#83a598', bold = true,
     ctermbg = 'NONE', cterm = {bold = true},
- },
+  },
   -- Background highlighting on non-texts ~ disable them.
   NonText = {
     bg = 'NONE', fg = '#545454',
     ctermbg = 'NONE', ctermfg = 'grey', cterm = {},
- },
- -- Internal neovim errors.
- NvimInternalError = {default = true, bg = '#cc241d', fg = '#1d2021', bold = true},
+  },
+  -- Internal neovim errors.
+  NvimInternalError = {default = true, bg = '#cc241d', fg = '#1d2021', bold = true},
   -- Search results.
   Search = {default = true, ctermbg = 'darkgreen', ctermfg = 'black', cterm = {}},
   -- Words not recognized by the spellchecker.
@@ -52,4 +52,9 @@ set_hls {
   VertSplit = {default = true, bg = '#262626'},
   -- Visual selection color.
   Visual = {bg = 'grey23'},
+
+  -- vim-signify colors.
+  SignifySignAdd = {bold = true, bg = '#427b58', fg = '#262626'},
+  SignifySignDelete = {bold = true, bg = '#af3a03', fg = '#262626'},
+  SignifySignChange = {bold = true, bg = '#b57614', fg = '#262626'},
 }
