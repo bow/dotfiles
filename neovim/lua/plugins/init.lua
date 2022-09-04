@@ -2,30 +2,25 @@
 --
 -- nvim/lua/plugins.lua
 
-local fn = vim.fn
+--- Clone packer.nvim if it does not yet exist.
+-- @return whether packer.nvim is newly cloned or not.
+local function bootstrap()
+  local fn = vim.fn
+  local packer_url = 'https://github.com/wbthomason/packer.nvim'
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local cloned = nil
 
-local packer_url = 'https://github.com/wbthomason/packer.nvim'
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-local bootstrap = nil
+  require('utils').check_exe {'git', '--version'}
 
-local git_exists, _ = pcall(function() return fn.system {'git', '--version'} end)
-if not git_exists then
-  error('git executable not found')
-  return
+  if fn.empty(fn.glob(install_path)) > 0 then
+    cloned = fn.system {'git', 'clone', '--depth', '1', packer_url, install_path}
+    vim.cmd [[packadd packer.nvim]]
+  end
+
+  return cloned ~= nil
 end
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  bootstrap = fn.system {
-    'git',
-    'clone',
-    '--depth',
-    '1',
-    packer_url,
-    install_path
-  }
-  vim.cmd [[packadd packer.nvim]]
-end
-
+local bootstrapped = bootstrap()
 local packer = require('packer')
 
 packer.startup(
@@ -130,7 +125,7 @@ packer.startup(
     }
 
     -- Automatically set up configuration after cloning packer.nvim.
-    if bootstrap then
+    if bootstrapped then
       packer.sync()
     end
   end
