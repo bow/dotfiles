@@ -2,11 +2,6 @@
 --
 -- nvim/lua/plugins.lua
 
---- Load the named plugin configuration.
-local function load_plugin_config(name)
-  require('plugins/' .. name)
-end
-
 -- Plugins to load.
 local plugins = {
   {
@@ -26,7 +21,7 @@ local plugins = {
         commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
       },
     },
-    config = load_plugin_config('nvim-tree'),
+    config = function() require('plugins/nvim-tree') end,
   },
   {
     'luochen1990/rainbow',
@@ -41,12 +36,12 @@ local plugins = {
         commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
       },
     },
-    config = load_plugin_config('telescope-nvim'),
+    config = function() require('plugins/telescope-nvim') end,
   },
   {
     'ntpeters/vim-better-whitespace',
     commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
-    config = load_plugin_config('vim-better-whitespace'),
+    config = function() require('plugins/vim-better-whitespace') end,
   },
   {
     'alvan/vim-closetag',
@@ -67,7 +62,7 @@ local plugins = {
   {
     'nathanaelkane/vim-indent-guides',
     commit = '765084d38bf102a95ab966fb06472e83fa7deff7',
-    config = load_plugin_config('vim-indent-guides'),
+    config = function() require('plugins/vim-indent-guides') end,
   },
   {
     'farmergreg/vim-lastplace',
@@ -84,7 +79,7 @@ local plugins = {
   {
     'mhinz/vim-signify',
     commit = 'abb1c89f16713728ca1096e5757ae6bd3d8cb7a6',
-    config = load_plugin_config('vim-signify'),
+    config = function() require('plugins/vim-signify') end,
   },
   {
     'dstein64/vim-startuptime',
@@ -101,7 +96,7 @@ local plugins = {
   {
     'neoclide/coc.nvim',
     commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
-    config = load_plugin_config('coc-nvim'),
+    config = function() require('plugins/coc-nvim') end,
   },
   {
     'vim-airline/vim-airline',
@@ -112,7 +107,7 @@ local plugins = {
         commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256',
       },
     },
-    config = load_plugin_config('vim-airline'),
+    config = function() require('plugins/vim-airline') end,
   },
   {
     'mhinz/vim-startify',
