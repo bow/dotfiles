@@ -5,6 +5,19 @@
 -- Plugins to load.
 local plugins = {
   {
+    'goolord/alpha-nvim',
+    commit = '09e5374465810d71c33e9b097214adcdebeee49a',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      },
+    },
+    config = function ()
+        require('alpha').setup(require('alpha.themes.startify').config)
+    end
+  },
+  {
     'jiangmiao/auto-pairs',
     commit = '40ba005829450406e92ec6277d4308ab532dd256',
   },
@@ -108,10 +121,6 @@ local plugins = {
       },
     },
     config = function() require('plugins/vim-airline') end,
-  },
-  {
-    'mhinz/vim-startify',
-    commit = '593388d3dbe7bfdcc06a714550d3253442b2fc65',
   },
 
   -- Filetype-specific plugins.
