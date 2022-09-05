@@ -10,6 +10,99 @@ end
 -- Plugins to load.
 local plugins = {
   {
+    'jiangmiao/auto-pairs',
+    tag = 'v2.0.0',
+  },
+  {
+    'morhetz/gruvbox',
+    commit = '040138616bec342d5ea94d4db296f8ddca17007a',
+  },
+  {
+    'kyazdani42/nvim-tree.lua',
+    commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      },
+    },
+    config = load_plugin_config('nvim-tree'),
+  },
+  {
+    'luochen1990/rainbow',
+    commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3',
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c',
+    requires = {
+      {
+        'nvim-lua/plenary.nvim',
+        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+      },
+    },
+    config = load_plugin_config('telescope-nvim'),
+  },
+  {
+    'ntpeters/vim-better-whitespace',
+    commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
+    config = load_plugin_config('vim-better-whitespace'),
+  },
+  {
+    'alvan/vim-closetag',
+    commit = 'c0779ef575d5c239162f4ca3506cfb4a95d45a58',
+  },
+  {
+    'tpope/vim-commentary',
+    commit = '627308e30639be3e2d5402808ce18690557e8292',
+  },
+  {
+    'easymotion/vim-easymotion',
+    commit = 'd75d9591e415652b25d9e0a3669355550325263d',
+  },
+  {
+    'tpope/vim-fugitive',
+    tag = 'v3.6',
+  },
+  {
+    'nathanaelkane/vim-indent-guides',
+    commit = '765084d38bf102a95ab966fb06472e83fa7deff7',
+    config = load_plugin_config('vim-indent-guides'),
+  },
+  {
+    'farmergreg/vim-lastplace',
+    tag = 'v3.2.1',
+  },
+  {
+    'kburdett/vim-nuuid',
+    commit = '6ae845f9348921f4e436c587da6d2bbf5691c4ed',
+  },
+  {
+    'kshenoy/vim-signature',
+    commit = '6bc3dd1294a22e897f0dcf8dd72b85f350e306bc',
+  },
+  {
+    'mhinz/vim-signify',
+    tag = 'stable',
+    config = load_plugin_config('vim-signify'),
+  },
+  {
+    'mhinz/vim-startify',
+    commit = '593388d3dbe7bfdcc06a714550d3253442b2fc65',
+  },
+  {
+    'dstein64/vim-startuptime',
+    tag = 'v4.3.0',
+    opt = true,
+    cmd = {'StartupTime'},
+  },
+  {
+    'tpope/vim-surround',
+    commit = 'f51a26d3710629d031806305b6c8727189cd1935',
+  },
+
+  -- Under review.
+  {
     'neoclide/coc.nvim',
     commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
     config = load_plugin_config('coc-nvim'),
@@ -21,56 +114,6 @@ local plugins = {
       {'vim-airline/vim-airline-themes', commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256'},
     },
     config = load_plugin_config('vim-airline'),
-  },
-
-  {'jiangmiao/auto-pairs', tag = 'v2.0.0'},
-  {'tpope/vim-commentary', commit = '627308e30639be3e2d5402808ce18690557e8292'},
-  {'tpope/vim-fugitive', tag = 'v3.6'},
-  {'farmergreg/vim-lastplace', tag = 'v3.2.1'},
-  {'kburdett/vim-nuuid', commit = '6ae845f9348921f4e436c587da6d2bbf5691c4ed'},
-  {'kshenoy/vim-signature', commit = '6bc3dd1294a22e897f0dcf8dd72b85f350e306bc'},
-  {'mhinz/vim-startify', commit = '593388d3dbe7bfdcc06a714550d3253442b2fc65'},
-  {'tpope/vim-surround', commit = 'f51a26d3710629d031806305b6c8727189cd1935'},
-  {'easymotion/vim-easymotion', commit = 'd75d9591e415652b25d9e0a3669355550325263d'},
-  {'alvan/vim-closetag', commit = 'c0779ef575d5c239162f4ca3506cfb4a95d45a58'},
-  {'luochen1990/rainbow', commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3'},
-  {'morhetz/gruvbox', commit = '040138616bec342d5ea94d4db296f8ddca17007a'},
-  {
-    'kyazdani42/nvim-tree.lua',
-    commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c',
-    requires = {
-      {'kyazdani42/nvim-web-devicons', commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478'},
-    },
-    config = load_plugin_config('nvim-tree'),
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c',
-    requires = {
-      {'nvim-lua/plenary.nvim', commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f'},
-    },
-    config = load_plugin_config('telescope-nvim'),
-  },
-  {
-    'ntpeters/vim-better-whitespace',
-    commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
-    config = load_plugin_config('vim-better-whitespace'),
-  },
-  {
-    'nathanaelkane/vim-indent-guides',
-    commit = '765084d38bf102a95ab966fb06472e83fa7deff7',
-    config = load_plugin_config('vim-indent-guides'),
-  },
-  {
-    'mhinz/vim-signify',
-    tag = 'stable',
-    config = load_plugin_config('vim-signify'),
-  },
-  {
-    'dstein64/vim-startuptime',
-    tag = 'v4.3.0',
-    opt = true,
-    cmd = {'StartupTime'},
   },
 
   -- Filetype-specific plugins.
