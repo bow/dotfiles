@@ -11,7 +11,7 @@ end
 local plugins = {
   {
     'jiangmiao/auto-pairs',
-    tag = 'v2.0.0',
+    commit = '40ba005829450406e92ec6277d4308ab532dd256',
   },
   {
     'morhetz/gruvbox',
@@ -62,7 +62,7 @@ local plugins = {
   },
   {
     'tpope/vim-fugitive',
-    tag = 'v3.6',
+    commit = '5a24c2527584e4e61a706ad7ecb3514ac7031307',
   },
   {
     'nathanaelkane/vim-indent-guides',
@@ -71,7 +71,7 @@ local plugins = {
   },
   {
     'farmergreg/vim-lastplace',
-    tag = 'v3.2.1',
+    commit = '48ba343c8c1ca3039224727096aae214f51327d1',
   },
   {
     'kburdett/vim-nuuid',
@@ -83,16 +83,12 @@ local plugins = {
   },
   {
     'mhinz/vim-signify',
-    tag = 'stable',
+    commit = 'abb1c89f16713728ca1096e5757ae6bd3d8cb7a6',
     config = load_plugin_config('vim-signify'),
   },
   {
-    'mhinz/vim-startify',
-    commit = '593388d3dbe7bfdcc06a714550d3253442b2fc65',
-  },
-  {
     'dstein64/vim-startuptime',
-    tag = 'v4.3.0',
+    commit = '5f52ed26e0296a3e1d1453935f417e5808eefab8',
     opt = true,
     cmd = {'StartupTime'},
   },
@@ -109,11 +105,18 @@ local plugins = {
   },
   {
     'vim-airline/vim-airline',
-    tag = 'v0.11',
+    commit = '507d4f394f8d6f8bf8b08a63a8596bea3884f4c3',
     requires = {
-      {'vim-airline/vim-airline-themes', commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256'},
+      {
+        'vim-airline/vim-airline-themes',
+        commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256',
+      },
     },
     config = load_plugin_config('vim-airline'),
+  },
+  {
+    'mhinz/vim-startify',
+    commit = '593388d3dbe7bfdcc06a714550d3253442b2fc65',
   },
 
   -- Filetype-specific plugins.
@@ -159,6 +162,7 @@ local plugins = {
   },
   {
     'snakemake/snakemake',
+    commit = '9da571f29c3e4b2c77f8465edcb7e21c91f5feb7',
     rtp = 'misc/vim',
     ft = 'snakemake',
   },
