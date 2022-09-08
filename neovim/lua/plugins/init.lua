@@ -13,9 +13,7 @@ local spec = {
         commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
       },
     },
-    config = function ()
-        require('alpha').setup(require('alpha.themes.startify').config)
-    end
+    config = function () require('plugins/alpha-nvim') end,
   },
   {
     'morhetz/gruvbox',
