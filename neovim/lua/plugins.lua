@@ -221,7 +221,7 @@ local function load(plugins)
 
   packer.startup(
     function(use)
-      use('wbthomason/packer.nvim')
+      use('wbthomason/packer.nvim', {commit = '6db20b4804b432beb04abe2a3e850e03e0ec1f27'})
 
       for _, plugin in ipairs(plugins) do
         use(plugin)
