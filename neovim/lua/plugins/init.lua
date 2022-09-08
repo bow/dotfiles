@@ -3,7 +3,7 @@
 -- nvim/lua/plugins.lua
 
 -- Plugins to load.
-local plugins = {
+local spec = {
   {
     'goolord/alpha-nvim',
     commit = '09e5374465810d71c33e9b097214adcdebeee49a',
@@ -221,4 +221,4 @@ local function load(plugins)
   )
 end
 
-load(plugins)
+load(spec)
