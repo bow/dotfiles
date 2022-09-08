@@ -18,12 +18,13 @@ local spec = {
     end
   },
   {
-    'jiangmiao/auto-pairs',
-    commit = '40ba005829450406e92ec6277d4308ab532dd256',
-  },
-  {
     'morhetz/gruvbox',
     commit = '040138616bec342d5ea94d4db296f8ddca17007a',
+  },
+  {
+    'windwp/nvim-autopairs',
+    commit = '0a18e10a0c3fde190437567e40557dcdbbc89ea1',
+    config = function() require('nvim-autopairs').setup() end,
   },
   {
     'kyazdani42/nvim-tree.lua',
