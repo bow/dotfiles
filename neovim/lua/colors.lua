@@ -1,6 +1,7 @@
 local g = vim.g
 local opt = vim.opt
 local au = vim.api.nvim_create_autocmd
+local tc = require('constants').gruvbox
 
 --- Set syntax highlighting.
 -- @param hls a table of syntax highlight groups.
@@ -10,10 +11,15 @@ local function set_hls(hls)
   end
 end
 
+-- Own custom colors.
+local oc = {
+  dark0 = '#262626',
+  gray0 = '#545454',
+}
+
 opt.termguicolors = true
 opt.background = 'dark'
 
-g.gruvbox_italic = true
 g.gruvbox_italic = true
 g.gruvbox_italicize_strings = false
 g.gruvbox_italicize_comments = true
@@ -25,61 +31,61 @@ vim.cmd [[colorscheme gruvbox]]
 
 set_hls {
   -- Text width column color.
-  ColorColumn = {bg = '#262626'},
+  ColorColumn = {bg = tc.dark0},
   -- Gutter line indicator color.
-  CursorLineNr = {bg = '#262626'},
+  CursorLineNr = {bg = tc.dark0},
   -- Any erroneous construct.
-  Error = {default = true, bg = '#cc241d', fg = '#1d2021', bold = true},
+  Error = {default = true, bg = tc.neutral_red, fg = tc.dark0_hard, bold = true},
   -- Gutter color.
-  SignColumn = {bg = '#1d2021'},
+  SignColumn = {bg = tc.dark0_hard},
   -- Gutter line indicator color.
-  LineNr = {fg = '#504945'},
+  LineNr = {fg = tc.dark2},
   -- Matching parenthesis.
   MatchParen = {
-    bg = 'NONE', fg = '#83a598', bold = true,
+    bg = 'NONE', fg = tc.bright_blue, bold = true,
     ctermbg = 'NONE', cterm = {bold = true},
   },
   -- Background highlighting on non-texts ~ disable them.
   NonText = {
-    bg = 'NONE', fg = '#545454',
+    bg = 'NONE', fg = oc.gray0,
     ctermbg = 'NONE', ctermfg = 'grey', cterm = {},
   },
   -- Internal neovim errors.
-  NvimInternalError = {default = true, bg = '#cc241d', fg = '#1d2021', bold = true},
+  NvimInternalError = {default = true, bg = tc.neutral_red, fg = tc.dark0_hard, bold = true},
   -- Search results.
   Search = {default = true, ctermbg = 'darkgreen', ctermfg = 'black', cterm = {}},
   -- Words not recognized by the spellchecker.
   SpellBad = {reverse = true, cterm = {}},
   -- Rare words.
-  SpellRare = {default = true, bg = '#b57614', fg = '#111111'},
+  SpellRare = {default = true, bg = tc.faded_yellow, fg = '#111111'},
   -- Vertical split color.
-  VertSplit = {default = true, bg = '#262626'},
+  VertSplit = {default = true, bg = tc.dark0},
   -- Visual selection color.
   Visual = {bg = 'grey23'},
 
   -- barbar.nvim colors.
-  BufferCurrent = {bold = true, bg = '#bdae93', fg = '#262626'},
-  BufferCurrentIndex = {bg = '#bdae93', fg = '#262626'},
-  BufferCurrentMod = {bg = '#bdae93', fg = '#262626'},
-  BufferCurrentSign = {bg = '#bdae93', fg = '#bdae93'},
-  BufferCurrentTarget = {bg = '#bdae93', fg = '#262626'},
+  BufferCurrent = {bold = true, bg = tc.light3, fg = tc.dark0},
+  BufferCurrentIndex = {bg = tc.light3, fg = tc.dark0},
+  BufferCurrentMod = {bg = tc.light3, fg = tc.dark0},
+  BufferCurrentSign = {bg = tc.light3, fg = tc.light3},
+  BufferCurrentTarget = {bg = tc.light3, fg = tc.dark0},
 
-  BufferVisible = {bg = '#262626', fg = '#665c54'},
-  BufferVisibleIndex = {bg = '#262626', fg = '#665c54'},
-  BufferVisibleMod = {bg = '#262626', fg = '#665c54'},
-  BufferVisibleSign = {bg = '#262626', fg = '#262626'},
-  BufferVisibleTarget = {bg = '#262626', fg = '#665c54'},
+  BufferVisible = {bg = tc.dark0, fg = tc.dark3},
+  BufferVisibleIndex = {bg = tc.dark0, fg = tc.dark3},
+  BufferVisibleMod = {bg = tc.dark0, fg = tc.dark3},
+  BufferVisibleSign = {bg = tc.dark0, fg = tc.dark0},
+  BufferVisibleTarget = {bg = tc.dark0, fg = tc.dark3},
 
-  BufferTabpageFill = {bg = '#262626', fg = '#262626'},
+  BufferTabpageFill = {bg = tc.dark0, fg = tc.dark0},
 
   -- gitsigns.nvim colors.
-  GitSignsAdd = {bg = '#1d2021', fg = '#427b58'},
-  GitSignsChange = {bg = '#1d2021', fg = '#b57614'},
-  GitSignsDelete = {bg = '#1d2021', fg = '#af3a03'},
+  GitSignsAdd = {bg = tc.dark0_hard, fg = tc.faded_aqua},
+  GitSignsChange = {bg = tc.dark0_hard, fg = tc.faded_yellow},
+  GitSignsDelete = {bg = tc.dark0_hard, fg = tc.faded_red},
 
   -- vim-indent-guides colors.
-  IndentGuidesOdd = {bg = '#1d2021', fg = '#545454', ctermbg = 'NONE', ctermfg = 'grey'},
-  IndentGuidesEven = {bg = '#262626', fg = '#545454', ctermbg = 234, ctermfg = 'grey'},
+  IndentGuidesOdd = {bg = tc.dark0_hard, fg = oc.gray0, ctermbg = 'NONE', ctermfg = 'grey'},
+  IndentGuidesEven = {bg = tc.dark0, fg = oc.gray0, ctermbg = 234, ctermfg = 'grey'},
 }
 
 au(
@@ -87,8 +93,8 @@ au(
   {
     callback = function()
       set_hls {
-        IndentGuidesOdd = {bg = '#1d2021', fg = '#545454', ctermbg = 'NONE', ctermfg = 'grey'},
-        IndentGuidesEven = {bg = '#262626', fg = '#545454', ctermbg = 234, ctermfg = 'grey'},
+        IndentGuidesOdd = {bg = tc.dark0_hard, fg = oc.gray0, ctermbg = 'NONE', ctermfg = 'grey'},
+        IndentGuidesEven = {bg = tc.dark0, fg = oc.gray0, ctermbg = 234, ctermfg = 'grey'},
       }
     end,
   }
