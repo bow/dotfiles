@@ -16,8 +16,39 @@ local spec = {
     config = function () require('plugins/alpha-nvim') end,
   },
   {
+    'lewis6991/gitsigns.nvim',
+    commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
+    config = function() require('plugins/gitsigns') end,
+  },
+  {
+    'feline-nvim/feline.nvim',
+    commit = '79f5e9e5a76842b72f1814dcd4fc239a95ead391',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      },
+      {
+        'lewis6991/gitsigns.nvim',
+        commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
+      },
+    },
+    config = function() require('plugins/feline-nvim') end,
+  },
+  {
     'morhetz/gruvbox',
     commit = '040138616bec342d5ea94d4db296f8ddca17007a',
+  },
+  {
+    'romgrk/barbar.nvim',
+    commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      }
+    },
+    config = function() require('plugins/barbar-nvim') end,
   },
   {
     'windwp/nvim-autopairs',
@@ -89,11 +120,6 @@ local spec = {
     commit = '6bc3dd1294a22e897f0dcf8dd72b85f350e306bc',
   },
   {
-    'mhinz/vim-signify',
-    commit = 'abb1c89f16713728ca1096e5757ae6bd3d8cb7a6',
-    config = function() require('plugins/vim-signify') end,
-  },
-  {
     'dstein64/vim-startuptime',
     commit = '5f52ed26e0296a3e1d1453935f417e5808eefab8',
     opt = true,
@@ -109,17 +135,6 @@ local spec = {
     'neoclide/coc.nvim',
     commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
     config = function() require('plugins/coc-nvim') end,
-  },
-  {
-    'vim-airline/vim-airline',
-    commit = '507d4f394f8d6f8bf8b08a63a8596bea3884f4c3',
-    requires = {
-      {
-        'vim-airline/vim-airline-themes',
-        commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256',
-      },
-    },
-    config = function() require('plugins/vim-airline') end,
   },
 
   -- Filetype-specific plugins.

@@ -31,7 +31,9 @@ set_hls {
   -- Any erroneous construct.
   Error = {default = true, bg = '#cc241d', fg = '#1d2021', bold = true},
   -- Gutter color.
-  SignColumn = {bg = '#262626'},
+  SignColumn = {bg = '#1d2021'},
+  -- Gutter line indicator color.
+  LineNr = {fg = '#504945'},
   -- Matching parenthesis.
   MatchParen = {
     bg = 'NONE', fg = '#83a598', bold = true,
@@ -55,10 +57,25 @@ set_hls {
   -- Visual selection color.
   Visual = {bg = 'grey23'},
 
-  -- vim-signify colors.
-  SignifySignAdd = {bold = true, bg = '#427b58', fg = '#262626'},
-  SignifySignDelete = {bold = true, bg = '#af3a03', fg = '#262626'},
-  SignifySignChange = {bold = true, bg = '#b57614', fg = '#262626'},
+  -- barbar.nvim colors.
+  BufferCurrent = {bold = true, bg = '#bdae93', fg = '#262626'},
+  BufferCurrentIndex = {bg = '#bdae93', fg = '#262626'},
+  BufferCurrentMod = {bg = '#bdae93', fg = '#262626'},
+  BufferCurrentSign = {bg = '#bdae93', fg = '#bdae93'},
+  BufferCurrentTarget = {bg = '#bdae93', fg = '#262626'},
+
+  BufferVisible = {bg = '#262626', fg = '#665c54'},
+  BufferVisibleIndex = {bg = '#262626', fg = '#665c54'},
+  BufferVisibleMod = {bg = '#262626', fg = '#665c54'},
+  BufferVisibleSign = {bg = '#262626', fg = '#262626'},
+  BufferVisibleTarget = {bg = '#262626', fg = '#665c54'},
+
+  BufferTabpageFill = {bg = '#262626', fg = '#262626'},
+
+  -- gitsigns.nvim colors.
+  GitSignsAdd = {bg = '#1d2021', fg = '#427b58'},
+  GitSignsChange = {bg = '#1d2021', fg = '#b57614'},
+  GitSignsDelete = {bg = '#1d2021', fg = '#af3a03'},
 
   -- vim-indent-guides colors.
   IndentGuidesOdd = {bg = '#1d2021', fg = '#545454', ctermbg = 'NONE', ctermfg = 'grey'},
