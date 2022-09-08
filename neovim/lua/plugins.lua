@@ -3,7 +3,7 @@
 -- nvim/lua/plugins.lua
 
 -- Plugins to load.
-local spec = {
+local specs = {
   {
     'goolord/alpha-nvim',
     commit = '09e5374465810d71c33e9b097214adcdebeee49a',
@@ -13,12 +13,12 @@ local spec = {
         commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
       },
     },
-    config = function () require('plugins/alpha-nvim') end,
+    setup = 'plugins.alpha-nvim',
   },
   {
     'lewis6991/gitsigns.nvim',
     commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
-    config = function() require('plugins/gitsigns') end,
+    setup = 'plugins.gitsigns',
   },
   {
     'feline-nvim/feline.nvim',
@@ -33,7 +33,7 @@ local spec = {
         commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
       },
     },
-    config = function() require('plugins/feline-nvim') end,
+    setup = 'plugins.feline-nvim',
   },
   {
     'morhetz/gruvbox',
@@ -48,7 +48,7 @@ local spec = {
         commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
       }
     },
-    config = function() require('plugins/barbar-nvim') end,
+    setup = 'plugins.barbar-nvim',
   },
   {
     'windwp/nvim-autopairs',
@@ -64,7 +64,7 @@ local spec = {
         commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
       },
     },
-    config = function() require('plugins/nvim-tree') end,
+    setup = 'plugins.nvim-tree',
   },
   {
     'luochen1990/rainbow',
@@ -79,12 +79,12 @@ local spec = {
         commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
       },
     },
-    config = function() require('plugins/telescope-nvim') end,
+    setup = 'plugins.telescope-nvim',
   },
   {
     'ntpeters/vim-better-whitespace',
     commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
-    config = function() require('plugins/vim-better-whitespace') end,
+    setup = 'plugins.vim-better-whitespace',
   },
   {
     'alvan/vim-closetag',
@@ -105,7 +105,7 @@ local spec = {
   {
     'nathanaelkane/vim-indent-guides',
     commit = '765084d38bf102a95ab966fb06472e83fa7deff7',
-    config = function() require('plugins/vim-indent-guides') end,
+    setup = 'plugins.vim-indent-guides',
   },
   {
     'farmergreg/vim-lastplace',
@@ -134,7 +134,7 @@ local spec = {
   {
     'neoclide/coc.nvim',
     commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
-    config = function() require('plugins/coc-nvim') end,
+    setup = 'plugins.coc-nvim',
   },
 
   -- Filetype-specific plugins.
@@ -214,6 +214,17 @@ local function bootstrap()
   return cloned ~= nil
 end
 
+--- Check that the given plugin spec is valid and return a value ready for loading.
+local function resolve_spec(plugin)
+  if plugin.setup ~= nil then
+    if plugin.config ~= nil then
+      error('plugin \'' .. plugin[1] .. '\' defines both config and setup but only one is allowed')
+    end
+    plugin.config = function() require(plugin.setup) end
+  end
+  return plugin
+end
+
 --- Load all plugins.
 local function load(plugins)
   local bootstrapped = bootstrap()
@@ -221,10 +232,10 @@ local function load(plugins)
 
   packer.startup(
     function(use)
-      use 'wbthomason/packer.nvim'
+      use('wbthomason/packer.nvim')
 
       for _, plugin in ipairs(plugins) do
-        use(plugin)
+        use(resolve_spec(plugin))
       end
 
       -- Automatically set up configuration after cloning packer.nvim.
@@ -235,4 +246,4 @@ local function load(plugins)
   )
 end
 
-load(spec)
+load(specs)
