@@ -1,3 +1,3 @@
 local bufopt = vim.bo
 
-bufopt.textwidth = 100
+bufopt.textwidth = require('constants').tw.half_screen

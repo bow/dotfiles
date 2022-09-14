@@ -1,4 +1,7 @@
 return {
+  tw = {
+    half_screen = 95,
+  },
   -- NOTE: Ensure these are synced with colors used in the theme.
   --       For now, these just capture the gruvbox dark + high contrast colors.
   -- Taken from https://github.com/ellisonleao/gruvbox.nvim/blob/c7aaa3ec3f431d90b0b9382cb52bebffc0e4283a/lua/gruvbox/palette.lua
