@@ -7,6 +7,7 @@ $git_status\
 $git_commit\
 $python\
 $golang\
+$kotlin\
 $java\
 $nodejs\
 $directory\
@@ -57,6 +58,11 @@ trim_at = ""
 
 [java]
 format = '[•](dimmed white) [java\[($version)\]]($style) '
+version_format = "${raw}"
+style = "cyan"
+
+[kotlin]
+format = '[•](dimmed white) [kotlin\[($version)\]]($style) '
 version_format = "${raw}"
 style = "cyan"
 

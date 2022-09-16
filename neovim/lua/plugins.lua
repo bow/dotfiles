@@ -144,6 +144,11 @@ local specs = {
     ft = 'dot',
   },
   {
+    'udalov/kotlin-vim',
+    commit = '1261f851e5fb2192b3a5e1691650597c71dfce2f',
+    ft = 'kotlin',
+  },
+  {
     'Glench/Vim-Jinja2-Syntax',
     commit = 'ceb0f8076ee9aa802668448cefdd782edff4f6b2',
     ft = {'jinja', 'htmljinja'},
