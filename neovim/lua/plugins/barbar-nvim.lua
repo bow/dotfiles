@@ -6,5 +6,5 @@ require('bufferline').setup {
 
   maximum_padding = 3,
   icon_separator_active = '',
-  icon_separator_inactive = '▌',
+  icon_separator_inactive = '',
 }

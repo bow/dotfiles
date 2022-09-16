@@ -70,13 +70,13 @@ set_hls {
   BufferCurrentSign = {bg = tc.light3, fg = tc.light3},
   BufferCurrentTarget = {bg = tc.light3, fg = tc.dark0},
 
-  BufferVisible = {bg = tc.dark0, fg = tc.dark3},
-  BufferVisibleIndex = {bg = tc.dark0, fg = tc.dark3},
-  BufferVisibleMod = {bg = tc.dark0, fg = tc.dark3},
-  BufferVisibleSign = {bg = tc.dark0, fg = tc.dark0},
-  BufferVisibleTarget = {bg = tc.dark0, fg = tc.dark3},
+  BufferVisible = {italic = true, bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisibleIndex = {bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisibleMod = {bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisibleSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
+  BufferVisibleTarget = {bg = tc.dark0_hard, fg = tc.dark2},
 
-  BufferTabpageFill = {bg = tc.dark0, fg = tc.dark0},
+  BufferTabpageFill = {bg = tc.dark0_hard, fg = tc.dark0_hard},
 
   -- gitsigns.nvim colors.
   GitSignsAdd = {bg = tc.dark0_hard, fg = tc.faded_aqua},
