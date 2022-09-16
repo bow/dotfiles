@@ -7,7 +7,11 @@ require('gitsigns').setup {
     changedelete = {hl = 'GitSignsChange', text = '🭹', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
   },
   numhl = true,
-  current_line_blame = true,
+  current_line_blame = false,
+  current_line_blame_opts = {
+    delay = 0,
+  },
+  current_line_blame_formatter = '◆ <author_time:%d·%m·%y> - <summary>',
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
@@ -37,8 +41,8 @@ require('gitsigns').setup {
     map('n', '<leader>hu', gs.undo_stage_hunk)
     map('n', '<leader>hR', gs.reset_buffer)
     map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-    map('n', '<leader>tb', gs.toggle_current_line_blame)
+    map('n', '<C-b>', function() gs.blame_line{full=true} end)
+    map('n', '<C-l>', gs.toggle_current_line_blame)
     map('n', '<leader>hd', gs.diffthis)
     map('n', '<leader>hD', function() gs.diffthis('~') end)
     map('n', '<leader>td', gs.toggle_deleted)

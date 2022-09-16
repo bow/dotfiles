@@ -82,6 +82,7 @@ set_hls {
   GitSignsAdd = {bg = tc.dark0_hard, fg = tc.faded_aqua},
   GitSignsChange = {bg = tc.dark0_hard, fg = tc.faded_yellow},
   GitSignsDelete = {bg = tc.dark0_hard, fg = tc.faded_red},
+  GitSignsCurrentLineBlame = {default = true, fg = tc.dark2},
 
   -- vim-indent-guides colors.
   IndentGuidesOdd = {bg = tc.dark0_hard, fg = oc.gray0, ctermbg = 'NONE', ctermfg = 'grey'},
