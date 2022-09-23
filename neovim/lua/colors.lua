@@ -66,13 +66,13 @@ set_hls {
   -- barbar.nvim colors.
   BufferCurrent = {bold = true, bg = tc.light3, fg = tc.dark0},
   BufferCurrentIndex = {bg = tc.light3, fg = tc.dark0},
-  BufferCurrentMod = {bg = tc.light3, fg = tc.dark0},
+  BufferCurrentMod = {bold = true, bg = tc.light3, fg = tc.dark0},
   BufferCurrentSign = {bg = tc.light3, fg = tc.light3},
   BufferCurrentTarget = {bg = tc.light3, fg = tc.dark0},
 
-  BufferVisible = {italic = true, bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisible = {bg = tc.dark0_hard, fg = tc.dark2},
   BufferVisibleIndex = {bg = tc.dark0_hard, fg = tc.dark2},
-  BufferVisibleMod = {bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisibleMod = {italic = true, bg = tc.dark0_hard, fg = tc.dark2},
   BufferVisibleSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
   BufferVisibleTarget = {bg = tc.dark0_hard, fg = tc.dark2},
 
