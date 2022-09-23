@@ -97,8 +97,9 @@ local active_L = {
     provider = {
       name = 'file_info',
       opts = {
-        colored_icon = false,
         type = 'unique',
+        colored_icon = false,
+        file_modified_icon = '',
       }
     },
     icon = '',
@@ -110,15 +111,19 @@ local active_L = {
     right_sep = {
       {
         str = ' ',
-        hl = {bg = tc.dark0_hard}
+        hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
       },
-      'slant_right',
+      {
+        str = 'slant_right',
+        hl = {bg = tc.dark1, fg = tc.dark0_hard},
+      }
     },
   },
   {
     provider = 'git_branch',
     hl = {fg = tc.light3},
     left_sep = ' ',
+    right_sep = ' ',
   },
   {
     provider = 'git_diff_added',
@@ -155,6 +160,7 @@ local active_R = {
     provider = 'line_position',
     hl = {bg = tc.dark0_hard, fg = tc.light3,},
     left_sep = {
+      ' ',
       {
         str = 'slant_left',
         hl = {fg = tc.dark0_hard},
@@ -209,55 +215,48 @@ local inactive_L = {
     provider = {
       name = 'file_info',
       opts = {
+        type = 'unique',
         colored_icon = false,
-        type = 'unique-short',
+        file_modified_icon = '',
       }
     },
     icon = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark3},
+    hl = {bg = tc.dark0_hard, fg = tc.dark4},
+    left_sep = {
+      str = ' ',
+      hl = {bg = tc.dark0_hard}
+    },
+    right_sep = {
+      str = ' ',
+      hl = {bg = tc.dark0_hard}
+    },
+  },
+  {
+    provider = '',
+    hl = {bg = tc.dark0, fg = tc.dark0_hard},
+  },
+  {
+    provider = 'git_branch',
+    hl = {bg = tc.dark0, fg = tc.dark4},
     left_sep = {
       {
         str = ' ',
-        hl = {bg = tc.dark0_hard},
+        hl = {bg = tc.dark0},
       }
     },
     right_sep = {
       {
         str = ' ',
-        hl = {bg = tc.dark0_hard},
-      },
-      {
-        str = 'slant_right',
-        hl = {bg = tc.dark0_soft, fg = tc.dark0_hard},
+        hl = {bg = tc.dark0},
       },
     },
-  },
-  {
-    provider = 'git_branch',
-    hl = {bg = tc.dark0_soft, fg = tc.dark4},
-    left_sep = {
-      str = ' ',
-      hl = {bg = tc.dark0_soft, fg = tc.dark0_soft},
-    },
-  },
-  {
-    provider = 'git_diff_added',
-    hl = {bg = tc.dark0_soft, fg = tc.dark4},
-  },
-  {
-    provider = 'git_diff_changed',
-    hl = {bg = tc.dark0_soft, fg = tc.dark4},
-  },
-  {
-    provider = 'git_diff_removed',
-    hl = {bg = tc.dark0_soft, fg = tc.dark4},
   },
 }
 
 local inactive_R = {
   {
     provider = '',
-    hl = {bg = tc.dark0_soft, fg = tc.dark0_hard},
+    hl = {bg = tc.dark0, fg = tc.dark0_hard},
   },
   {
     provider = '',
