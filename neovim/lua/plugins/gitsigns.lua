@@ -11,7 +11,8 @@ require('gitsigns').setup {
   current_line_blame_opts = {
     delay = 0,
   },
-  current_line_blame_formatter = '◆ <author_time:%d·%m·%y> - <summary>',
+  current_line_blame_formatter = '◆ <author_time:%d·%m·%y> - <summary> [<author>]',
+
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
