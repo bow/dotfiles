@@ -116,6 +116,26 @@ local active_L = {
     },
   },
   {
+    provider = 'git_branch',
+    hl = {fg = tc.light3},
+    left_sep = ' ',
+  },
+  {
+    provider = 'git_diff_added',
+    hl = {fg = tc.neutral_aqua},
+  },
+  {
+    provider = 'git_diff_changed',
+    hl = {fg = tc.neutral_yellow},
+  },
+  {
+    provider = 'git_diff_removed',
+    hl = {fg = tc.neutral_red},
+  },
+}
+
+local active_R = {
+  {
     provider = 'diagnostic_errors',
     hl = {fg = tc.bright_red},
   },
@@ -130,27 +150,6 @@ local active_L = {
   {
     provider = 'diagnostic_info',
     hl = {fg = tc.bright_blue},
-  },
-}
-
-local active_R = {
-  {
-    provider = 'git_diff_removed',
-    hl = {fg = tc.neutral_red},
-  },
-  {
-    provider = 'git_diff_changed',
-    hl = {fg = tc.neutral_yellow},
-  },
-  {
-    provider = 'git_diff_added',
-    hl = {fg = tc.neutral_aqua},
-  },
-  {
-    provider = 'git_branch',
-    hl = {fg = tc.light3},
-    left_sep = '  ',
-    right_sep = ' ',
   },
   {
     provider = 'line_position',
@@ -233,21 +232,6 @@ local inactive_L = {
       },
     },
   },
-}
-
-local inactive_R = {
-  {
-    provider = 'git_diff_removed',
-    hl = {bg = tc.dark0_soft, fg = tc.neutral_red},
-  },
-  {
-    provider = 'git_diff_changed',
-    hl = {bg = tc.dark0_soft, fg = tc.neutral_yellow},
-  },
-  {
-    provider = 'git_diff_added',
-    hl = {bg = tc.dark0_soft, fg = tc.neutral_aqua},
-  },
   {
     provider = 'git_branch',
     hl = {bg = tc.dark0_soft, fg = tc.dark4},
@@ -255,13 +239,22 @@ local inactive_R = {
       str = ' ',
       hl = {bg = tc.dark0_soft, fg = tc.dark0_soft},
     },
-    right_sep = {
-      {
-        str = ' ',
-        hl = {bg = tc.dark0_soft, fg = tc.dark0_soft}
-      },
-    },
   },
+  {
+    provider = 'git_diff_added',
+    hl = {bg = tc.dark0_soft, fg = tc.dark4},
+  },
+  {
+    provider = 'git_diff_changed',
+    hl = {bg = tc.dark0_soft, fg = tc.dark4},
+  },
+  {
+    provider = 'git_diff_removed',
+    hl = {bg = tc.dark0_soft, fg = tc.dark4},
+  },
+}
+
+local inactive_R = {
   {
     provider = '',
     hl = {bg = tc.dark0_soft, fg = tc.dark0_hard},
