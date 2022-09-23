@@ -26,6 +26,24 @@ local vi_mode_colors = {
   ['NONE'] = tc.neutral_yellow,
 }
 
+local vi_mode_short = {
+  ['NORMAL'] = 'norm',
+  ['OP'] = 'op',
+  ['INSERT'] = 'ins',
+  ['VISUAL'] = 'vis',
+  ['LINES'] = 'line',
+  ['BLOCK'] = 'blk',
+  ['REPLACE'] = 'rep',
+  ['V-REPLACE'] = 'vrep',
+  ['ENTER'] = 'ent',
+  ['MORE'] = 'mor',
+  ['SELECT'] = 'sel',
+  ['COMMAND'] = 'cmd',
+  ['SHELL'] = 'sh',
+  ['TERM'] = 'term',
+  ['NONE'] = 'none',
+}
+
 local function provide_line_position()
   local cursor_line, _ = unpack(api.nvim_win_get_cursor(0))
   local total_lines = api.nvim_buf_line_count(0)
@@ -36,7 +54,15 @@ end
 local function provide_vi_mode_mod(component, opts)
   local wrapped = require('feline.providers.vi_mode').vi_mode
   local str, tbl = wrapped(component, opts)
-  return string.lower(str), tbl
+  local mode = string.match(str, "%a+", 1)
+  local short_mode = vi_mode_short[mode]
+  local mode_len = #short_mode
+  if mode_len == 2 then
+    short_mode = ' ' .. short_mode .. ' '
+  elseif mode_len == 3 then
+    short_mode = short_mode .. ' '
+  end
+  return  ' ' .. short_mode .. ' ', tbl
 end
 
 local active_L = {
