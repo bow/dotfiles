@@ -48,7 +48,7 @@ local function provide_line_position()
   local cursor_line, _ = unpack(api.nvim_win_get_cursor(0))
   local total_lines = api.nvim_buf_line_count(0)
   local lpad = string.rep('·', #tostring(total_lines) - #tostring(cursor_line))
-  return 'L' .. lpad .. cursor_line .. '/' .. total_lines
+  return lpad .. cursor_line .. '/' .. total_lines .. 'L'
 end
 
 local function provide_vi_mode_mod(component, opts)
@@ -103,7 +103,7 @@ local active_L = {
       }
     },
     icon = '',
-    hl = {bg = tc.dark0_hard, fg = tc.light3},
+    hl = {bg = tc.dark0_hard, fg = tc.neutral_blue, style = 'bold'},
     left_sep = {
       str = 'slant_left_2',
       hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
@@ -157,13 +157,17 @@ local active_R = {
     hl = {fg = tc.bright_blue},
   },
   {
-    provider = 'line_position',
-    hl = {bg = tc.dark0_hard, fg = tc.light3,},
+    provider = {
+      name = 'file_type',
+      opts = {
+        case = 'lowercase',
+      }
+    },
+    hl = {bg = tc.dark0_hard, fg = tc.neutral_blue, style = 'bold'},
     left_sep = {
-      ' ',
       {
         str = 'slant_left',
-        hl = {fg = tc.dark0_hard},
+        hl = {bg = tc.dark1, fg = tc.dark0_hard},
       },
       {
         str = ' ',
@@ -171,46 +175,33 @@ local active_R = {
       },
     },
     right_sep = {
-      {
-        str = ' ',
-        hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-      },
-      {
-        str = 'slant_left',
-        hl = {bg = tc.dark0_hard, fg = tc.neutral_blue},
-      },
+      str = ' ',
+      hl = {bg = tc.dark0_hard},
     },
   },
   {
-    provider = {
-      name = 'file_type',
-      opts = {
-        case = 'lowercase',
-      }
-    },
-    hl = {
-      bg = tc.neutral_blue,
-      fg = tc.dark0_hard,
-      style = 'bold',
-    },
+    provider = 'line_position',
+    hl = {bg = tc.light3, fg = tc.dark0_hard, style = 'bold'},
     left_sep = {
       {
+        str = 'slant_left',
+        hl = {bg = tc.dark0_hard, fg = tc.light3},
+      },
+      {
         str = ' ',
-        hl = {bg = tc.neutral_blue, fg = tc.neutral_blue},
+        hl = {bg = tc.light3, fg = tc.dark0_hard},
       },
     },
     right_sep = {
-      str = ' ',
-      hl = {bg = tc.neutral_blue, fg = tc.dark0_soft},
-    },
+      {
+        str = ' ',
+        hl = {bg = tc.light3, fg = tc.dark0_hard},
+      },
+    }
   },
 }
 
 local inactive_L = {
-  {
-    provider = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark2},
-  },
   {
     provider = {
       name = 'file_info',
@@ -235,32 +226,12 @@ local inactive_L = {
     provider = '',
     hl = {bg = tc.dark0, fg = tc.dark0_hard},
   },
-  {
-    provider = 'git_branch',
-    hl = {bg = tc.dark0, fg = tc.dark4},
-    left_sep = {
-      {
-        str = ' ',
-        hl = {bg = tc.dark0},
-      }
-    },
-    right_sep = {
-      {
-        str = ' ',
-        hl = {bg = tc.dark0},
-      },
-    },
-  },
 }
 
 local inactive_R = {
   {
     provider = '',
     hl = {bg = tc.dark0, fg = tc.dark0_hard},
-  },
-  {
-    provider = '',
-    hl = {bg = tc.dark0_hard, fg = 'bg'},
   },
 }
 

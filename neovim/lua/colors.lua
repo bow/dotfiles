@@ -64,25 +64,25 @@ set_hls {
   Visual = {bg = 'grey23'},
 
   -- barbar.nvim colors.
-  BufferCurrent = {bg = tc.dark1, fg = tc.light3},
-  BufferCurrentIndex = {bg = tc.dark1, fg = tc.light3},
-  BufferCurrentMod = {bg = tc.dark1, fg = tc.light3},
-  BufferCurrentSign = {bg = tc.dark1, fg = tc.dark1},
-  BufferCurrentTarget = {bg = tc.dark1, fg = tc.light3},
+  BufferCurrent = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_blue},
+  BufferCurrentIndex = {bg = tc.dark0_hard, fg = tc.neutral_blue},
+  BufferCurrentMod = {bg = tc.dark0_hard, fg = tc.neutral_blue},
+  BufferCurrentSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
+  BufferCurrentTarget = {bg = tc.dark0_hard, fg = tc.neutral_blue},
 
-  BufferVisible = {bg = tc.dark0_hard, fg = tc.dark2},
-  BufferVisibleIndex = {bg = tc.dark0_hard, fg = tc.dark2},
-  BufferVisibleMod = {bg = tc.dark0_hard, fg = tc.dark2},
-  BufferVisibleSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-  BufferVisibleTarget = {bg = tc.dark0_hard, fg = tc.dark2},
+  BufferVisible = {bg = tc.dark0, fg = tc.dark4},
+  BufferVisibleIndex = {bg = tc.dark0, fg = tc.dark4},
+  BufferVisibleMod = {bg = tc.dark0, fg = tc.dark4},
+  BufferVisibleSign = {bg = tc.dark0, fg = tc.dark0},
+  BufferVisibleTarget = {bg = tc.dark0, fg = tc.dark4},
 
-  BufferInactive = {bg = tc.dark0, fg = tc.dark2},
+  BufferInactive = {italic = true, bg = tc.dark0, fg = tc.dark2},
   BufferInactiveIndex = {bg = tc.dark0, fg = tc.dark2},
   BufferInactiveMod = {bg = tc.dark0, fg = tc.dark2},
   BufferInactiveSign = {bg = tc.dark0, fg = tc.dark0},
   BufferInactiveTarget = {bg = tc.dark0, fg = tc.dark2},
 
-  BufferTabpageFill = {bg = tc.dark0_hard, fg = tc.dark0_hard},
+  BufferTabpageFill = {bg = tc.dark0, fg = tc.dark0},
 
   -- gitsigns.nvim colors.
   GitSignsAdd = {bg = tc.dark0_hard, fg = tc.faded_aqua},
