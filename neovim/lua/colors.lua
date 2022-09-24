@@ -32,8 +32,10 @@ vim.cmd [[colorscheme gruvbox]]
 set_hls {
   -- Text width column color.
   ColorColumn = {bg = tc.dark0},
-  -- Gutter line indicator color.
-  CursorLineNr = {bg = tc.dark0},
+  -- Current line.
+  CursorLine = {bg = tc.dark0_hard},
+  -- Current line number.
+  CursorLineNR = {bg = tc.dark0_hard, fg = tc.dark4},
   -- Any erroneous construct.
   Error = {default = true, bg = tc.neutral_red, fg = tc.dark0_hard, bold = true},
   -- Gutter color.

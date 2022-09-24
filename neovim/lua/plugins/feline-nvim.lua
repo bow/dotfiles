@@ -55,7 +55,7 @@ local function provide_vi_mode_mod(component, opts)
   local wrapped = require('feline.providers.vi_mode').vi_mode
   local str, tbl = wrapped(component, opts)
   local mode = string.match(str, "%a+", 1)
-  local short_mode = vi_mode_short[mode]
+  local short_mode = vi_mode_short[mode] or mode
   local mode_len = #short_mode
   if mode_len == 2 then
     short_mode = ' ' .. short_mode .. ' '

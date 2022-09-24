@@ -27,6 +27,9 @@ opt.cmdheight = 1
 -- Highlight column after 'textwidth' / 'tw'
 opt.colorcolumn = '+1'
 
+-- Highlight current line of cursor.
+opt.cursorline = true
+
 -- Set character encoding.
 opt.encoding = 'utf-8'
 
