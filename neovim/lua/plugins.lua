@@ -71,6 +71,11 @@ local specs = {
     commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3',
   },
   {
+    'sunjon/shade.nvim',
+    commit = '4286b5abc47d62d0c9ffb22a4f388b7bf2ac2461',
+    config = function() require('plugins.shade-nvim') end,
+  },
+  {
     'nvim-telescope/telescope.nvim',
     commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c',
     requires = {
