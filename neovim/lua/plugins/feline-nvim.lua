@@ -85,15 +85,35 @@ local active_L = {
       }
     end,
     icon = '',
-    right_sep = {
-      str = 'slant_right',
+  },
+  {
+    provider = "◊",
+    hl = function()
+      return {
+        name = vi_mode_utils.get_mode_highlight_name(),
+        bg = vi_mode_utils.get_mode_color(),
+        fg = tc.dark0_hard,
+      }
+    end,
+    enabled = function() return vim.opt.paste:get() end,
+    left_sep = {
+      str = 'slant_right_thin',
       hl = function()
         return {
-          bg = tc.dark0_hard,
-          fg = vi_mode_utils.get_mode_color(),
+          fg = tc.dark0_hard,
+          bg = vi_mode_utils.get_mode_color(),
         }
       end,
     },
+  },
+  {
+    provider = '',
+    hl = function()
+      return {
+        bg = tc.dark0_hard,
+        fg = vi_mode_utils.get_mode_color(),
+      }
+    end,
   },
   {
     provider = {
