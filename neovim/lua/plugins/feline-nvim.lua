@@ -10,6 +10,7 @@ local theme = {
 
 local vi_mode_colors = {
   ['NORMAL'] = tc.light3,
+  ['CONFIRM'] = tc.neutral_green,
   ['OP'] = tc.bright_green,
   ['INSERT'] = tc.neutral_orange,
   ['VISUAL'] = tc.neutral_purple,
@@ -28,6 +29,7 @@ local vi_mode_colors = {
 
 local vi_mode_short = {
   ['NORMAL'] = 'norm',
+  ['CONFIRM'] = 'cfrm',
   ['OP'] = 'op',
   ['INSERT'] = 'ins',
   ['VISUAL'] = 'vis',
