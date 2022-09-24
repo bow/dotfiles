@@ -66,11 +66,11 @@ set_hls {
   Visual = {bg = 'grey23'},
 
   -- barbar.nvim colors.
-  BufferCurrent = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_blue},
-  BufferCurrentIndex = {bg = tc.dark0_hard, fg = tc.neutral_blue},
-  BufferCurrentMod = {bg = tc.dark0_hard, fg = tc.neutral_blue},
+  BufferCurrent = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_yellow},
+  BufferCurrentIndex = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
+  BufferCurrentMod = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_yellow},
   BufferCurrentSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-  BufferCurrentTarget = {bg = tc.dark0_hard, fg = tc.neutral_blue},
+  BufferCurrentTarget = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
 
   BufferVisible = {bg = tc.dark0, fg = tc.dark4},
   BufferVisibleIndex = {bg = tc.dark0, fg = tc.dark4},
@@ -78,7 +78,7 @@ set_hls {
   BufferVisibleSign = {bg = tc.dark0, fg = tc.dark0},
   BufferVisibleTarget = {bg = tc.dark0, fg = tc.dark4},
 
-  BufferInactive = {italic = true, bg = tc.dark0, fg = tc.dark2},
+  BufferInactive = {bg = tc.dark0, fg = tc.dark2},
   BufferInactiveIndex = {bg = tc.dark0, fg = tc.dark2},
   BufferInactiveMod = {bg = tc.dark0, fg = tc.dark2},
   BufferInactiveSign = {bg = tc.dark0, fg = tc.dark0},

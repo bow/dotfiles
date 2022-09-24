@@ -10,9 +10,9 @@ local theme = {
 
 local vi_mode_colors = {
   ['NORMAL'] = tc.light3,
-  ['CONFIRM'] = tc.neutral_green,
+  ['CONFIRM'] = tc.neutral_orange,
   ['OP'] = tc.bright_green,
-  ['INSERT'] = tc.neutral_orange,
+  ['INSERT'] = tc.neutral_yellow,
   ['VISUAL'] = tc.neutral_purple,
   ['LINES'] = tc.neutral_purple,
   ['BLOCK'] = tc.neutral_blue,
@@ -20,11 +20,11 @@ local vi_mode_colors = {
   ['V-REPLACE'] = tc.faded_red,
   ['ENTER'] = tc.bright_blue,
   ['MORE'] = tc.bright_blue,
-  ['SELECT'] = tc.neutral_aqua,
-  ['COMMAND'] = tc.neutral_aqua,
-  ['SHELL'] = tc.neutral_aqua,
-  ['TERM'] = tc.neutral_aqua,
-  ['NONE'] = tc.neutral_yellow,
+  ['SELECT'] = tc.neutral_green,
+  ['COMMAND'] = tc.neutral_green,
+  ['SHELL'] = tc.neutral_green,
+  ['TERM'] = tc.neutral_green,
+  ['NONE'] = tc.light3,
 }
 
 local vi_mode_short = {
@@ -116,6 +116,13 @@ local active_L = {
     end,
   },
   {
+    provider = ' ',
+    hl = {
+      bg = tc.faded_aqua,
+      fg = tc.dark0_hard,
+    },
+  },
+  {
     provider = {
       name = 'file_info',
       opts = {
@@ -125,21 +132,15 @@ local active_L = {
       }
     },
     icon = '',
-    hl = {bg = tc.dark0_hard, fg = tc.neutral_blue, style = 'bold'},
-    left_sep = {
-      str = 'slant_left_2',
-      hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-    },
+    hl = {bg = tc.faded_aqua, fg = tc.light1},
     right_sep = {
-      {
-        str = ' ',
-        hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-      },
-      {
-        str = 'slant_right',
-        hl = {bg = tc.dark1, fg = tc.dark0_hard},
-      }
-    },
+      str = ' ',
+      hl = {bg = tc.faded_aqua},
+    }
+  },
+  {
+    provider = '',
+    hl = {bg = tc.dark1, fg = tc.faded_aqua},
   },
   {
     provider = 'git_branch',
@@ -179,36 +180,40 @@ local active_R = {
     hl = {fg = tc.bright_blue},
   },
   {
+    provider = '',
+    hl = {bg = tc.dark1, fg = tc.faded_aqua},
+  },
+  {
     provider = {
       name = 'file_type',
       opts = {
         case = 'lowercase',
       }
     },
-    hl = {bg = tc.dark0_hard, fg = tc.neutral_blue, style = 'bold'},
+    hl = {bg = tc.faded_aqua, fg = tc.light1},
     left_sep = {
       {
-        str = 'slant_left',
-        hl = {bg = tc.dark1, fg = tc.dark0_hard},
-      },
-      {
         str = ' ',
-        hl = {bg = tc.dark0_hard, fg = tc.dark0_soft},
+        hl = {bg = tc.faded_aqua, fg = tc.dark0_soft},
       },
     },
     right_sep = {
       str = ' ',
-      hl = {bg = tc.dark0_hard},
+      hl = {bg = tc.faded_aqua},
     },
+  },
+  {
+    provider = '',
+    hl = {bg = tc.faded_aqua, fg = tc.dark0_hard},
+  },
+  {
+    provider = '',
+    hl = {bg = tc.dark0_hard, fg = tc.light3},
   },
   {
     provider = 'line_position',
     hl = {bg = tc.light3, fg = tc.dark0_hard, style = 'bold'},
     left_sep = {
-      {
-        str = 'slant_left',
-        hl = {bg = tc.dark0_hard, fg = tc.light3},
-      },
       {
         str = ' ',
         hl = {bg = tc.light3, fg = tc.dark0_hard},
@@ -225,24 +230,8 @@ local active_R = {
 
 local inactive_L = {
   {
-    provider = {
-      name = 'file_info',
-      opts = {
-        type = 'unique',
-        colored_icon = false,
-        file_modified_icon = '',
-      }
-    },
-    icon = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark4},
-    left_sep = {
-      str = ' ',
-      hl = {bg = tc.dark0_hard}
-    },
-    right_sep = {
-      str = ' ',
-      hl = {bg = tc.dark0_hard}
-    },
+    provider = '',
+    hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
   },
   {
     provider = '',
@@ -254,6 +243,26 @@ local inactive_R = {
   {
     provider = '',
     hl = {bg = tc.dark0, fg = tc.dark0_hard},
+  },
+  {
+    provider = {
+      name = 'file_info',
+      opts = {
+        type = 'unique',
+        colored_icon = false,
+        file_modified_icon = '',
+      }
+    },
+    icon = '',
+    hl = {bg = tc.dark0_hard, fg = tc.dark2},
+    left_sep = {
+      str = ' ',
+      hl = {bg = tc.dark0_hard}
+    },
+    right_sep = {
+      str = ' ',
+      hl = {bg = tc.dark0_hard}
+    },
   },
 }
 
