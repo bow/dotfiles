@@ -51,6 +51,11 @@ local specs = {
     commit = '040138616bec342d5ea94d4db296f8ddca17007a',
   },
   {
+    'lukas-reineke/indent-blankline.nvim',
+    commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6',
+    config = function() require('plugins.indent-blankline-nvim') end,
+  },
+  {
     'windwp/nvim-autopairs',
     commit = '0a18e10a0c3fde190437567e40557dcdbbc89ea1',
     config = function() require('plugins.nvim-autopairs') end,
@@ -106,11 +111,6 @@ local specs = {
   {
     'tpope/vim-fugitive',
     commit = '5a24c2527584e4e61a706ad7ecb3514ac7031307',
-  },
-  {
-    'nathanaelkane/vim-indent-guides',
-    commit = '765084d38bf102a95ab966fb06472e83fa7deff7',
-    config = function() require('plugins.vim-indent-guides') end,
   },
   {
     'farmergreg/vim-lastplace',

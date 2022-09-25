@@ -1,6 +1,5 @@
 local g = vim.g
 local opt = vim.opt
-local au = vim.api.nvim_create_autocmd
 local tc = require('constants').gruvbox
 
 --- Set syntax highlighting.
@@ -10,12 +9,6 @@ local function set_hls(hls)
     vim.api.nvim_set_hl(0, group, spec)
   end
 end
-
--- Own custom colors.
-local oc = {
-  dark0 = '#262626',
-  gray0 = '#545454',
-}
 
 opt.termguicolors = true
 opt.background = 'dark'
@@ -49,7 +42,7 @@ set_hls {
   },
   -- Background highlighting on non-texts ~ disable them.
   NonText = {
-    bg = 'NONE', fg = oc.gray0,
+    bg = 'NONE', fg = '#545454',
     ctermbg = 'NONE', ctermfg = 'grey', cterm = {},
   },
   -- Internal neovim errors.
@@ -92,19 +85,6 @@ set_hls {
   GitSignsDelete = {bg = tc.dark0_hard, fg = tc.faded_red},
   GitSignsCurrentLineBlame = {default = true, fg = tc.dark2},
 
-  -- vim-indent-guides colors.
-  IndentGuidesOdd = {bg = tc.dark0_hard, fg = oc.gray0, ctermbg = 'NONE', ctermfg = 'grey'},
-  IndentGuidesEven = {bg = tc.dark0, fg = oc.gray0, ctermbg = 234, ctermfg = 'grey'},
+  -- indent-blankline.nvim colors.
+  IndentBlanklineChar = {fg = tc.dark2},
 }
-
-au(
-  {'VimEnter', 'Colorscheme'},
-  {
-    callback = function()
-      set_hls {
-        IndentGuidesOdd = {bg = tc.dark0_hard, fg = oc.gray0, ctermbg = 'NONE', ctermfg = 'grey'},
-        IndentGuidesEven = {bg = tc.dark0, fg = oc.gray0, ctermbg = 234, ctermfg = 'grey'},
-      }
-    end,
-  }
-)
