@@ -16,9 +16,15 @@ local specs = {
     config = function() require('plugins.alpha-nvim') end,
   },
   {
-    'lewis6991/gitsigns.nvim',
-    commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
-    config = function() require('plugins.gitsigns') end,
+    'romgrk/barbar.nvim',
+    commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      }
+    },
+    config = function() require('plugins.barbar-nvim') end,
   },
   {
     'feline-nvim/feline.nvim',
@@ -36,19 +42,13 @@ local specs = {
     config = function() require('plugins.feline-nvim') end,
   },
   {
-    'morhetz/gruvbox',
-    commit = '040138616bec342d5ea94d4db296f8ddca17007a',
+    'lewis6991/gitsigns.nvim',
+    commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
+    config = function() require('plugins.gitsigns') end,
   },
   {
-    'romgrk/barbar.nvim',
-    commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
-    requires = {
-      {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
-      }
-    },
-    config = function() require('plugins.barbar-nvim') end,
+    'morhetz/gruvbox',
+    commit = '040138616bec342d5ea94d4db296f8ddca17007a',
   },
   {
     'windwp/nvim-autopairs',
