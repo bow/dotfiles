@@ -28,29 +28,31 @@ local vi_mode_colors = {
 }
 
 local vi_mode_short = {
-  ['NORMAL'] = 'norm',
-  ['CONFIRM'] = 'cfrm',
-  ['OP'] = 'op',
-  ['INSERT'] = 'ins',
-  ['VISUAL'] = 'vis',
-  ['LINES'] = 'line',
-  ['BLOCK'] = 'blk',
-  ['REPLACE'] = 'rep',
-  ['V-REPLACE'] = 'vrep',
-  ['ENTER'] = 'ent',
-  ['MORE'] = 'more',
-  ['SELECT'] = 'sel',
-  ['COMMAND'] = 'cmd',
-  ['SHELL'] = 'sh',
-  ['TERM'] = 'term',
-  ['NONE'] = 'none',
+  ['NORMAL'] = 'NORM',
+  ['CONFIRM'] = 'CFRM',
+  ['OP'] = 'OP',
+  ['INSERT'] = 'INS',
+  ['VISUAL'] = 'VIS',
+  ['LINES'] = 'LINE',
+  ['BLOCK'] = 'BLK',
+  ['REPLACE'] = 'REP',
+  ['V-REPLACE'] = 'VREP',
+  ['ENTER'] = 'ENT',
+  ['MORE'] = 'MORE',
+  ['SELECT'] = 'SEL',
+  ['COMMAND'] = 'CMD',
+  ['SHELL'] = 'SH',
+  ['TERM'] = 'TERM',
+  ['NONE'] = 'NONE',
 }
 
-local function provide_line_position()
-  local cursor_line, _ = unpack(api.nvim_win_get_cursor(0))
+local function provide_cursor_position()
+  local cursor_line, cursor_col = unpack(api.nvim_win_get_cursor(0))
+  cursor_col = cursor_col + 1
   local total_lines = api.nvim_buf_line_count(0)
   local lpad = string.rep('·', #tostring(total_lines) - #tostring(cursor_line))
-  return lpad .. cursor_line .. '/' .. total_lines .. 'L'
+  local cpad = string.rep('·', #tostring(vim.bo.tw) - #tostring(cursor_col))
+  return lpad .. cursor_line .. '/' .. total_lines .. 'L ' .. cpad .. cursor_col .. 'C'
 end
 
 local function provide_vi_mode_mod(component, opts)
@@ -211,8 +213,8 @@ local active_R = {
     hl = {bg = tc.dark0_hard, fg = tc.light3},
   },
   {
-    provider = 'line_position',
-    hl = {bg = tc.light3, fg = tc.dark0_hard, style = 'bold'},
+    provider = 'cursor_position',
+    hl = {bg = tc.light3, fg = tc.dark0_hard},
     left_sep = {
       {
         str = ' ',
@@ -269,7 +271,7 @@ require('feline').setup {
     inactive = {inactive_L, inactive_R},
   },
   custom_providers = {
-    line_position = provide_line_position,
+    cursor_position = provide_cursor_position,
     vi_mode_mod = provide_vi_mode_mod,
   },
   vi_mode_colors = vi_mode_colors,
