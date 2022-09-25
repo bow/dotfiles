@@ -24,11 +24,13 @@ vim.cmd [[colorscheme gruvbox]]
 
 set_hls {
   -- Text width column color.
-  ColorColumn = {bg = tc.dark0},
+  ColorColumn = {bg = tc.dark0_hard},
   -- Current line.
   CursorLine = {bg = tc.dark0_hard},
   -- Current line number.
   CursorLineNR = {bg = tc.dark0_hard, fg = tc.dark4},
+  -- End of buffer character ('the vim tilde').
+  EndOfBuffer = {fg = tc.dark1},
   -- Any erroneous construct.
   Error = {default = true, bg = tc.neutral_red, fg = tc.dark0_hard, bold = true},
   -- Gutter color.
@@ -51,10 +53,14 @@ set_hls {
   Search = {default = true, ctermbg = 'darkgreen', ctermfg = 'black', cterm = {}},
   -- Words not recognized by the spellchecker.
   SpellBad = {reverse = true, cterm = {}},
+  -- Status line color.
+  StatusLine = {bold = true, bg = tc.dark0},
+  -- Status line color of not-current window.
+  StatusLineNC = {bg = tc.dark0},
   -- Rare words.
   SpellRare = {default = true, bg = tc.faded_yellow, fg = '#111111'},
   -- Vertical split color.
-  VertSplit = {default = true, bg = tc.dark0},
+  VertSplit = {fg = tc.dark0, bg = tc.dark0_hard},
   -- Visual selection color.
   Visual = {bg = 'grey23'},
 

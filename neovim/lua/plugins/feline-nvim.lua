@@ -229,14 +229,6 @@ local active_R = {
 }
 
 local inactive_L = {
-  {
-    provider = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-  },
-  {
-    provider = '',
-    hl = {bg = tc.dark0, fg = tc.dark0_hard},
-  },
 }
 
 local inactive_R = {
@@ -263,6 +255,10 @@ local inactive_R = {
       str = ' ',
       hl = {bg = tc.dark0_hard}
     },
+  },
+  {
+    provider = '',
+    hl = {bg = tc.dark0_hard, fg = tc.dark0},
   },
 }
 

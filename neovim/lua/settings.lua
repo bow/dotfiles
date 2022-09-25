@@ -36,6 +36,10 @@ opt.encoding = 'utf-8'
 -- Disable local .vimrc.
 opt.exrc = false
 
+-- Set custom fillchars.
+opt.fillchars:append('vert:┃')
+opt.fillchars:append('eob:▸')
+
 -- Disable GUI cursor.
 opt.guicursor = ''
 
