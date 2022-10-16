@@ -78,6 +78,7 @@ local active_L = {
         padding = 'center',
       }
     },
+    enabled = function() return vim.bo.filetype ~= 'alpha' end,
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
@@ -199,6 +200,7 @@ local active_R = {
         case = 'lowercase',
       }
     },
+    enabled = function() return vim.bo.filetype ~= 'alpha' end,
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     left_sep = {
       {
@@ -221,6 +223,7 @@ local active_R = {
   },
   {
     provider = 'cursor_position',
+    enabled = function() return vim.bo.filetype ~= 'alpha' end,
     hl = {bg = tc.light3, fg = tc.dark0_hard},
     left_sep = {
       {
