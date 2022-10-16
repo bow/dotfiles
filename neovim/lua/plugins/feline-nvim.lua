@@ -10,7 +10,7 @@ local theme = {
 
 local vi_mode_colors = {
   ['NORMAL'] = tc.light3,
-  ['CONFIRM'] = tc.neutral_orange,
+  ['CONFIRM'] = tc.neutral_green,
   ['OP'] = tc.bright_green,
   ['INSERT'] = tc.neutral_yellow,
   ['VISUAL'] = tc.neutral_purple,
@@ -20,10 +20,10 @@ local vi_mode_colors = {
   ['V-REPLACE'] = tc.faded_red,
   ['ENTER'] = tc.bright_blue,
   ['MORE'] = tc.bright_blue,
-  ['SELECT'] = tc.neutral_green,
-  ['COMMAND'] = tc.neutral_green,
-  ['SHELL'] = tc.neutral_green,
-  ['TERM'] = tc.neutral_green,
+  ['SELECT'] = tc.neutral_orange,
+  ['COMMAND'] = tc.neutral_orange,
+  ['SHELL'] = tc.neutral_orange,
+  ['TERM'] = tc.neutral_orange,
   ['NONE'] = tc.light3,
 }
 
