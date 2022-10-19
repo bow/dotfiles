@@ -250,6 +250,26 @@ function wttr() {
     curl http://wttr.in/"${1:-Copenhagen}"
 }
 
+# set __pycache__ out of source trees
+case "${OSTYPE}" in
+    linux-*)
+        dir="${HOME}/.cache/python/pycache"
+        if [ ! -d "${dir}" ]; then
+            mkdir -p "${dir}"
+        fi
+        export PYTHONPYCACHEPREFIX="${dir}"
+        ;;
+    darwin*)
+        dir="${HOME}/Library/Caches/python/pycache"
+        if [ ! -d "${dir}" ]; then
+            mkdir -p "${dir}"
+        fi
+        export PYTHONPYCACHEPREFIX="${dir}"
+        ;;
+    *)
+        ;;
+esac
+
 # load private settings if it exists
 if [ -f ~/.bash_private ]; then
     # shellcheck source=.git-prompt.sh
