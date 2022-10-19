@@ -137,7 +137,7 @@ local active_L = {
     icon = '',
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     enabled = function()
-      return vim.bo.filetype ~= 'alpha' and vim.bo.filetype ~= ''
+      return vim.bo.filetype ~= 'alpha' and vim.api.nvim_buf_get_name(0) ~= ''
     end,
     left_sep = {
       str = ' ',
