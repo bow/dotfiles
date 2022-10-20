@@ -57,7 +57,7 @@ local specs = {
   },
   {
     'windwp/nvim-autopairs',
-    commit = '0a18e10a0c3fde190437567e40557dcdbbc89ea1',
+    commit = '4fc96c8f3df89b6d23e5092d31c866c53a346347',
     config = function() require('plugins.nvim-autopairs') end,
   },
   {
