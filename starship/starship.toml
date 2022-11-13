@@ -25,7 +25,7 @@ error_symbol = "[❯](red)"
 format = '[•](dimmed white) [[c](cyan)[/](white)($version)](purple) '
 
 [directory]
-format = "[•](dimmed white) [$path]($style)[$read_only]($read_only_style) "
+format = "[•](dimmed white) [$read_only]($read_only_style)[$path]($style) "
 style = "yellow"
 truncation_length = 100
 truncate_to_repo = false
