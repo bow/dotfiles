@@ -171,6 +171,9 @@ function pcp() {
         && echo "${target}"
 }
 
+# sudo and then immediately forget cache
+function sudok() { sudo "$@"; sudo -k; }
+
 # calculator
 function calc() { echo "$*" | bc; }
 

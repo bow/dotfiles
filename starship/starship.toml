@@ -90,12 +90,11 @@ detect_extensions = [".py"]
 [rust]
 format = '[•](dimmed white) [rs\[($version)-($toolchain)\]]($style) '
 style = "cyan"
-detect_extensions = [".py"]
 
 [sudo]
 format = '[$symbol]($style)'
 symbol = "⊹"
-style = "purple"
+style = "#ff7f50"
 disabled = false
 
 [username]
