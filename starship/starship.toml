@@ -71,7 +71,7 @@ format = '[•](dimmed white) [js\[($version)\]]($style) '
 style = "cyan"
 
 [python]
-format = '[•](dimmed white) [py\[(${version})\]]($style) '
+format = '[•](dimmed white) [py\[($version)\]]($style) '
 style = "cyan"
 pyenv_version_name = true
 detect_extensions = [".py"]
