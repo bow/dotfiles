@@ -1,7 +1,7 @@
 # Prompt format.
 # format = "[➜](blue) $all"
 format = """
-[➜](blue) $username$hostname \
+[➜](blue) $username$hostname$sudo \
 $git_branch\
 $git_status\
 $git_commit\
@@ -91,6 +91,12 @@ detect_extensions = [".py"]
 format = '[•](dimmed white) [rs\[($version)-($toolchain)\]]($style) '
 style = "cyan"
 detect_extensions = [".py"]
+
+[sudo]
+format = '[$symbol]($style)'
+symbol = "⊹"
+style = "purple"
+disabled = false
 
 [username]
 style_user = "blue"
