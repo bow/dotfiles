@@ -6,10 +6,13 @@ $git_branch\
 $git_status\
 $git_commit\
 $python\
+$rust\
 $golang\
+$lua\
 $kotlin\
 $java\
 $nodejs\
+$c\
 $directory\
 $line_break\
 $shell\
@@ -19,6 +22,10 @@ add_newline = true
 [character]
 success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
+
+[c]
+format = '[•](dimmed white) [c\[($version)\]]($style) '
+style = "cyan"
 
 [directory]
 format = "[•](dimmed white) [$path]($style)[$read_only]($read_only_style) "
@@ -66,6 +73,10 @@ format = '[•](dimmed white) [kotlin\[($version)\]]($style) '
 version_format = "${raw}"
 style = "cyan"
 
+[lua]
+format = '[•](dimmed white) [lua\[($version)\]]($style) '
+style = "cyan"
+
 [nodejs]
 format = '[•](dimmed white) [js\[($version)\]]($style) '
 style = "cyan"
@@ -74,6 +85,11 @@ style = "cyan"
 format = '[•](dimmed white) [py\[($version)\]]($style) '
 style = "cyan"
 pyenv_version_name = true
+detect_extensions = [".py"]
+
+[rust]
+format = '[•](dimmed white) [rs\[($version)-($toolchain)\]]($style) '
+style = "cyan"
 detect_extensions = [".py"]
 
 [username]
