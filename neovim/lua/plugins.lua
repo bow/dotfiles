@@ -149,6 +149,11 @@ local specs = {
     ft = 'kotlin',
   },
   {
+    'jvirtanen/vim-hcl',
+    commit = '1e1116c17a5774851360ea8077f349e36fc733c1',
+    ft = 'hcl',
+  },
+  {
     'Glench/Vim-Jinja2-Syntax',
     commit = 'ceb0f8076ee9aa802668448cefdd782edff4f6b2',
     ft = {'jinja', 'htmljinja'},
