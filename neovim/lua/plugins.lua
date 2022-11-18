@@ -56,6 +56,11 @@ local specs = {
     config = function() require('plugins.mason-nvim') end,
   },
   {
+    'williamboman/mason-lspconfig.nvim',
+    commit = 'a1e2219ecea273d52b1ce1d527dd3a93cfe5b396',
+    after = 'mason.nvim',
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6',
     config = function() require('plugins.indent-blankline-nvim') end,
