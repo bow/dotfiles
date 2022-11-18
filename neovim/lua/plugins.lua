@@ -27,6 +27,11 @@ local specs = {
     config = function() require('plugins.barbar-nvim') end,
   },
   {
+    'saadparwaiz1/cmp_luasnip',
+    commit = '18095520391186d634a0045dacaa346291096566',
+    after = {'LuaSnip', 'nvim-cmp'},
+  },
+  {
     'feline-nvim/feline.nvim',
     commit = '79f5e9e5a76842b72f1814dcd4fc239a95ead391',
     requires = {
@@ -51,6 +56,10 @@ local specs = {
     commit = '040138616bec342d5ea94d4db296f8ddca17007a',
   },
   {
+    'L3MON4D3/LuaSnip',
+    commit = '563827f00bb4fe43269e3be653deabc0005f1302',
+  },
+  {
     'williamboman/mason.nvim',
     commit = '6600d2af20fc8df1765fbc68283de2a4da17e190',
     config = function() require('plugins.mason-nvim') end,
@@ -69,6 +78,12 @@ local specs = {
     'windwp/nvim-autopairs',
     commit = '4fc96c8f3df89b6d23e5092d31c866c53a346347',
     config = function() require('plugins.nvim-autopairs') end,
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    commit = 'a188be8559d625049010e3b814ad30a2447095bd',
+    config = function() require('plugins.nvim-cmp') end,
+    after = {'nvim-lspconfig', 'LuaSnip'},
   },
   {
     'neovim/nvim-lspconfig',
