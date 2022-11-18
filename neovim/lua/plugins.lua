@@ -211,6 +211,20 @@ local specs = {
   },
 }
 
+-- Set autoreload for this file after writing.
+vim.api.nvim_create_autocmd(
+  'BufWritePost',
+  {
+    pattern = {'plugins.lua'},
+    callback = function()
+      vim.cmd [[
+        luafile plugins.lua
+        PackerCompile
+      ]]
+    end,
+  }
+)
+
 --- Clone packer.nvim if it does not yet exist.
 -- @return whether packer.nvim is newly cloned or not.
 local function bootstrap()
