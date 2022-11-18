@@ -66,6 +66,10 @@ local specs = {
     config = function() require('plugins.nvim-autopairs') end,
   },
   {
+    'neovim/nvim-lspconfig',
+    commit = '2b802ab1e94d595ca5cc7c55f9d1fb9b17f9754c',
+  },
+  {
     'kyazdani42/nvim-tree.lua',
     commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c',
     requires = {
