@@ -153,27 +153,6 @@ local active_L = {
     hl = {bg = tc.dark1, fg = tc.faded_aqua},
   },
   {
-    provider = 'git_branch',
-    hl = {fg = tc.light3},
-    left_sep = ' ',
-    right_sep = ' ',
-  },
-  {
-    provider = 'git_diff_added',
-    hl = {fg = tc.neutral_aqua},
-  },
-  {
-    provider = 'git_diff_changed',
-    hl = {fg = tc.neutral_yellow},
-  },
-  {
-    provider = 'git_diff_removed',
-    hl = {fg = tc.neutral_red},
-  },
-}
-
-local active_R = {
-  {
     provider = 'diagnostic_errors',
     hl = {fg = tc.bright_red},
   },
@@ -188,6 +167,27 @@ local active_R = {
   {
     provider = 'diagnostic_info',
     hl = {fg = tc.bright_blue},
+  },
+}
+
+local active_R = {
+  {
+    provider = 'git_diff_added',
+    hl = {fg = tc.neutral_aqua},
+  },
+  {
+    provider = 'git_diff_removed',
+    hl = {fg = tc.neutral_red},
+  },
+  {
+    provider = 'git_diff_changed',
+    hl = {fg = tc.neutral_yellow},
+  },
+  {
+    provider = 'git_branch',
+    hl = {fg = tc.light3},
+    left_sep = '  ',
+    right_sep = ' ',
   },
   {
     provider = '',
