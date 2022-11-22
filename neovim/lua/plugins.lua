@@ -67,6 +67,7 @@ local specs = {
   {
     'williamboman/mason-lspconfig.nvim',
     commit = 'a1e2219ecea273d52b1ce1d527dd3a93cfe5b396',
+    config = function() require('plugins.mason-lspconfig-nvim') end,
     after = 'mason.nvim',
   },
   {
@@ -88,6 +89,8 @@ local specs = {
   {
     'neovim/nvim-lspconfig',
     commit = '2b802ab1e94d595ca5cc7c55f9d1fb9b17f9754c',
+    config = function() require('plugins.lspconfig') end,
+    after = 'mason-lspconfig.nvim',
   },
   {
     'kyazdani42/nvim-tree.lua',
@@ -164,6 +167,7 @@ local specs = {
     'neoclide/coc.nvim',
     commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
     config = function() require('plugins.coc-nvim') end,
+    disable = true,
   },
 
   -- Filetype-specific plugins.

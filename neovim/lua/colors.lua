@@ -93,4 +93,14 @@ set_hls {
 
   -- indent-blankline.nvim colors.
   IndentBlanklineChar = {fg = tc.dark2},
+
+  DiagnosticSignError = {bg = tc.dark0_soft, fg = tc.neutral_red},
+  DiagnosticSignWarn = {bg = tc.dark0_soft, fg = tc.neutral_yellow},
+  DiagnosticSignInformation = {bg = tc.dark0_soft, fg = tc.neutral_cyan},
+  DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_green},
+
+  DiagnosticVirtualTextError = {bg = tc.dark0_soft, fg = tc.faded_red},
+  DiagnosticVirtualTextWarn = {bg = tc.dark0_soft, fg = tc.faded_yellow},
+  DiagnosticVirtualTextInformation = {bg = tc.dark0_soft, fg = tc.faded_cyan},
+  DiagnosticVirtualTextHint = {bg = tc.dark0_soft, fg = tc.faded_green},
 }
