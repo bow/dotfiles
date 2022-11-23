@@ -19,6 +19,7 @@ vim.diagnostic.config {
   },
   signs = true,
   underline = false,
+  severity_sort = true,
   float = {
     border = 'shadow',
     format = function(diagnostic)
