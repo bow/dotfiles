@@ -64,7 +64,9 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-require('lspconfig')['pylsp'].setup {
+local lspconfig = require('lspconfig')
+
+lspconfig['pylsp'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   settings = {
@@ -72,4 +74,9 @@ require('lspconfig')['pylsp'].setup {
       configurationSources = {'flake8'},
     }
   },
+}
+
+lspconfig['gopls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
 }
