@@ -99,8 +99,8 @@ set_hls {
   DiagnosticSignInformation = {bg = tc.dark0_soft, fg = tc.neutral_cyan},
   DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_green},
 
-  DiagnosticVirtualTextError = {bg = tc.dark0_soft, fg = tc.faded_red},
-  DiagnosticVirtualTextWarn = {bg = tc.dark0_soft, fg = tc.faded_yellow},
-  DiagnosticVirtualTextInformation = {bg = tc.dark0_soft, fg = tc.faded_cyan},
-  DiagnosticVirtualTextHint = {bg = tc.dark0_soft, fg = tc.faded_green},
+  DiagnosticVirtualTextError = {fg = tc.neutral_red},
+  DiagnosticVirtualTextWarn = {fg = tc.neutral_yellow},
+  DiagnosticVirtualTextInformation = {fg = tc.neutral_cyan},
+  DiagnosticVirtualTextHint = {fg = tc.neutral_green},
 }

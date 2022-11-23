@@ -9,8 +9,8 @@ vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
 -- Diagnostic text.
 vim.diagnostic.config {
   virtual_text = {
-    spacing = 1,
-    prefix = '⯁',
+    spacing = 0,
+    prefix = '◆',
     format = function(diagnostic) return '' end,
   },
   signs = true,
