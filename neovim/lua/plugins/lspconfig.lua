@@ -20,7 +20,7 @@ vim.diagnostic.config {
   signs = true,
   underline = false,
   float = {
-    border = 'single',
+    border = 'shadow',
     format = function(diagnostic)
       return string.format(
         '%s (%s) [%s]',
