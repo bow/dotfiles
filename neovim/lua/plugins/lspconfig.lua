@@ -98,7 +98,13 @@ lspconfig['pylsp'].setup {
   settings = {
     pylsp = {
       configurationSources = {'flake8'},
-    }
+      plugins = {
+        pylsp_mypy = {
+          enabled = true,
+          dmypy = true,
+        },
+      },
+    },
   },
 }
 

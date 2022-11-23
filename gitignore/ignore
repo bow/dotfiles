@@ -6,6 +6,7 @@
 .coverage
 .coverage.*
 .eggs
+.dmypy.json
 .mypy_cache
 .tox
 .pytest_cache
