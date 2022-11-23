@@ -103,4 +103,9 @@ set_hls {
   DiagnosticVirtualTextWarn = {fg = tc.neutral_yellow},
   DiagnosticVirtualTextInformation = {fg = tc.neutral_cyan},
   DiagnosticVirtualTextHint = {fg = tc.neutral_green},
+
+  -- LSP.
+  LspReferenceRead = {bg = tc.dark2},
+  LspReferenceWrite = {default = true, reverse = true},
+  LspReferenceText = {bg = tc.neutral_yellow},
 }

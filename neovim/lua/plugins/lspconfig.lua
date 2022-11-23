@@ -1,3 +1,7 @@
+local api = vim.api
+local augroup = api.nvim_create_augroup
+local aucl = api.nvim_clear_autocmds
+local au = api.nvim_create_autocmd
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -58,6 +62,19 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
+
+  if client.server_capabilities.documentHighlightProvider then
+    local grp_lsphl = augroup("LSPDocumentHighlight", {clear = true})
+    aucl {buffer = bufnr, group = grp_lsphl}
+    au(
+      "CursorHold",
+      {callback = vim.lsp.buf.document_highlight, buffer = bufnr, group = grp_lsphl}
+    )
+    au(
+      "CursorMoved",
+      {callback = vim.lsp.buf.clear_references, buffer = bufnr, group = grp_lsphl}
+    )
+  end
 end
 
 local lsp_flags = {
