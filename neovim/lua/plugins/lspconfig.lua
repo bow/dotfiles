@@ -81,6 +81,14 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+require('mason-lspconfig').setup {
+  ensure_installed = {
+    'pylsp',
+    'gopls',
+  },
+  automatic_installation = true,
+}
+
 local lspconfig = require('lspconfig')
 
 lspconfig['pylsp'].setup {

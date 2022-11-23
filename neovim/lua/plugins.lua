@@ -67,7 +67,6 @@ local specs = {
   {
     'williamboman/mason-lspconfig.nvim',
     commit = 'a1e2219ecea273d52b1ce1d527dd3a93cfe5b396',
-    config = function() require('plugins.mason-lspconfig-nvim') end,
     after = 'mason.nvim',
   },
   {
