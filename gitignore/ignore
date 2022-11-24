@@ -73,6 +73,7 @@ Icon?
 Thumbs.db
 
 # Misc
+.luarc.json
 .tool-versions
 *.log
 .envrc
