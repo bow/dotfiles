@@ -29,7 +29,6 @@ local specs = {
   {
     'saadparwaiz1/cmp_luasnip',
     commit = '18095520391186d634a0045dacaa346291096566',
-    after = {'LuaSnip', 'nvim-cmp'},
   },
   {
     'feline-nvim/feline.nvim',
@@ -82,8 +81,10 @@ local specs = {
   {
     'hrsh7th/nvim-cmp',
     commit = 'a188be8559d625049010e3b814ad30a2447095bd',
-    config = function() require('plugins.nvim-cmp') end,
-    after = {'nvim-lspconfig', 'LuaSnip'},
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    commit = '59224771f91b86d1de12570b4070fe4ad7cd1eeb',
   },
   {
     'neovim/nvim-lspconfig',
