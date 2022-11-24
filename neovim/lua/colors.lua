@@ -96,13 +96,13 @@ set_hls {
 
   DiagnosticSignError = {bg = tc.dark0_soft, fg = tc.neutral_red},
   DiagnosticSignWarn = {bg = tc.dark0_soft, fg = tc.neutral_yellow},
-  DiagnosticSignInformation = {bg = tc.dark0_soft, fg = tc.neutral_cyan},
-  DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_green},
+  DiagnosticSignInformation = {bg = tc.dark0_soft, fg = tc.neutral_green},
+  DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_cyan},
 
   DiagnosticVirtualTextError = {fg = tc.neutral_red},
   DiagnosticVirtualTextWarn = {fg = tc.neutral_yellow},
-  DiagnosticVirtualTextInformation = {fg = tc.neutral_cyan},
-  DiagnosticVirtualTextHint = {fg = tc.neutral_green},
+  DiagnosticVirtualTextInformation = {fg = tc.neutral_green},
+  DiagnosticVirtualTextHint = {fg = tc.neutral_cyan},
 
   -- LSP.
   LspReferenceRead = {bg = tc.dark2},
