@@ -107,6 +107,6 @@ set_hls {
   -- LSP.
   LspReferenceRead = {bg = tc.dark2},
   LspReferenceWrite = {default = true, reverse = true},
-  LspReferenceText = {bg = tc.neutral_yellow},
+  LspReferenceText = {bg = tc.dark2},
   FloatShadow = {bg = tc.dark0},
 }
