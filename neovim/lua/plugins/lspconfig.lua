@@ -15,7 +15,7 @@ vim.diagnostic.config {
   virtual_text = {
     spacing = 0,
     prefix = '◆',
-    format = function(diagnostic) return '' end,
+    format = function(_) return '' end,
   },
   signs = true,
   underline = false,
@@ -86,6 +86,7 @@ require('mason-lspconfig').setup {
   ensure_installed = {
     'pylsp',
     'gopls',
+    'sumneko_lua',
   },
   automatic_installation = true,
 }
@@ -114,6 +115,28 @@ lspconfig['gopls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
+}
+
+lspconfig['sumneko_lua'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
 local luasnip = require('luasnip')
