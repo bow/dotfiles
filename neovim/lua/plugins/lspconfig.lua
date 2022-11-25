@@ -14,7 +14,7 @@ vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
 vim.diagnostic.config {
   virtual_text = {
     spacing = 0,
-    prefix = '◆',
+    prefix = '⮈',
     format = function(_) return '' end,
   },
   signs = true,

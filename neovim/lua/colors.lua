@@ -65,11 +65,11 @@ set_hls {
   Visual = {bg = 'grey23'},
 
   -- barbar.nvim colors.
-  BufferCurrent = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_yellow},
-  BufferCurrentIndex = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
-  BufferCurrentMod = {bold = true, bg = tc.dark0_hard, fg = tc.neutral_yellow},
+  BufferCurrent = {bg = tc.dark0_hard, fg = tc.light4},
+  BufferCurrentIndex = {bg = tc.dark0_hard, fg = tc.light4},
+  BufferCurrentMod = {bg = tc.dark0_hard, fg = tc.light4},
   BufferCurrentSign = {bg = tc.dark0_hard, fg = tc.dark0_hard},
-  BufferCurrentTarget = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
+  BufferCurrentTarget = {bg = tc.dark0_hard, fg = tc.light4},
 
   BufferVisible = {bg = tc.dark0, fg = tc.dark4},
   BufferVisibleIndex = {bg = tc.dark0, fg = tc.dark4},
@@ -99,10 +99,10 @@ set_hls {
   DiagnosticInfo = {fg = tc.neutral_green},
   DiagnosticHint = {fg = tc.neutral_aqua},
 
-  DiagnosticSignError = {bg = tc.dark0_soft, fg = tc.neutral_red},
-  DiagnosticSignWarn = {bg = tc.dark0_soft, fg = tc.neutral_yellow},
-  DiagnosticSignInfo = {bg = tc.dark0_soft, fg = tc.neutral_green},
-  DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_aqua},
+  DiagnosticSignError = {fg = tc.neutral_red},
+  DiagnosticSignWarn = {fg = tc.neutral_yellow},
+  DiagnosticSignInfo = {fg = tc.neutral_green},
+  DiagnosticSignHint = {fg = tc.neutral_aqua},
 
   -- LSP.
   LspReferenceRead = {bg = tc.dark2},
@@ -111,7 +111,7 @@ set_hls {
   FloatShadow = {bg = tc.dark0},
 
   -- nvim-navic
-  NavicText = {fg = tc.dark2, italic = true},
+  NavicText = {fg = tc.dark2},
   NavicSeparator = {fg = tc.dark2},
   NavicIconsFile = {fg = tc.dark3},
   NavicIconsModule = {fg = tc.dark3},
