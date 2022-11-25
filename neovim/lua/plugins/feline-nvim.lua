@@ -69,6 +69,25 @@ local function provide_vi_mode_mod(component, opts)
   return  ' ' .. short_mode .. ' ', tbl
 end
 
+local function in_array(needle, haystack)
+  for _, item in ipairs(haystack) do
+    if needle == item then
+      return true
+    end
+  end
+  return false
+end
+
+local disabled_filetypes = {'alpha', 'Trouble'}
+
+local function ft_disabled()
+  return in_array(vim.bo.filetype, disabled_filetypes)
+end
+
+local function ft_enabled()
+  return not ft_disabled()
+end
+
 local active_L = {
   {
     provider = {
@@ -78,7 +97,7 @@ local active_L = {
         padding = 'center',
       }
     },
-    enabled = function() return vim.bo.filetype ~= 'alpha' end,
+    enabled = ft_enabled,
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
@@ -137,7 +156,7 @@ local active_L = {
     icon = '',
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     enabled = function()
-      return vim.bo.filetype ~= 'alpha' and vim.api.nvim_buf_get_name(0) ~= ''
+      return ft_enabled() and vim.api.nvim_buf_get_name(0) ~= ''
     end,
     left_sep = {
       str = ' ',
@@ -200,7 +219,7 @@ local active_R = {
         case = 'lowercase',
       }
     },
-    enabled = function() return vim.bo.filetype ~= 'alpha' end,
+    enabled = ft_enabled,
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     left_sep = {
       {
@@ -223,7 +242,7 @@ local active_R = {
   },
   {
     provider = 'cursor_position',
-    enabled = function() return vim.bo.filetype ~= 'alpha' end,
+    enabled = ft_enabled,
     hl = {bg = tc.light3, fg = tc.dark0_hard},
     left_sep = {
       {

@@ -119,6 +119,17 @@ local specs = {
     config = function() require('plugins.telescope-nvim') end,
   },
   {
+    'folke/trouble.nvim',
+    commit = '897542f90050c3230856bc6e45de58b94c700bbf',
+    requires = {
+      {
+        'kyazdani42/nvim-web-devicons',
+        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+      },
+    },
+    config = function() require('plugins.trouble-nvim') end,
+  },
+  {
     'ntpeters/vim-better-whitespace',
     commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
     config = function() require('plugins.vim-better-whitespace') end,

@@ -1,7 +1,7 @@
 local u = require('utils')
 local g = vim.g
 
-u.nnoremap {'<C-e>', ':NvimTreeToggle<CR>'}
+u.nnoremap {'<C-t>', ':NvimTreeToggle<CR>'}
 
 g.nvim_tree_gitignore = 1
 g.nvim_tree_add_trailing = 1

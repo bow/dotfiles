@@ -48,7 +48,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gR', vim.lsp.buf.references, bufopts)
 
   vim.keymap.set('n', '<A-=>', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '=', vim.lsp.buf.signature_help, bufopts)
