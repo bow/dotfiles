@@ -173,14 +173,6 @@ local specs = {
     commit = 'f51a26d3710629d031806305b6c8727189cd1935',
   },
 
-  -- Under review.
-  {
-    'neoclide/coc.nvim',
-    commit = '0fd56dd25fc36606afe2290240aecb6e6ab85092',
-    config = function() require('plugins.coc-nvim') end,
-    disable = true,
-  },
-
   -- Filetype-specific plugins.
   {
     'liuchengxu/graphviz.vim',
