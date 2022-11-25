@@ -45,6 +45,6 @@ require('trouble').setup {
 }
 
 local u = require('utils')
-u.nnoremap {'<C-e>', ':TroubleToggle<CR>'}
-u.nnoremap {'<leader>xq', ':TroubleToggle quickfix<CR>'}
-u.nnoremap {'gr', ':TroubleToggle lsp_references<CR>'}
+u.nnoremap {'<C-e>', '<cmd>TroubleToggle<CR>'}
+u.nnoremap {'<leader>xq', '<cmd>TroubleToggle quickfix<CR>'}
+u.nnoremap {'gr', '<cmd>TroubleToggle lsp_references<CR>'}

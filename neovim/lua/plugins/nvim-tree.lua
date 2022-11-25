@@ -23,5 +23,4 @@ require('nvim-tree').setup {
 }
 
 local u = require('utils')
-u.nnoremap {'<C-t>', ':NvimTreeToggle<CR>'}
-
+u.nnoremap {'<C-t>', '<cmd>NvimTreeToggle<CR>'}
