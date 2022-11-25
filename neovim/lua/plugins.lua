@@ -93,6 +93,11 @@ local specs = {
     after = 'mason-lspconfig.nvim',
   },
   {
+    'SmiteshP/nvim-navic',
+    commit = '40c0ab2640a0e17c4fad7e17f260414d18852ce6',
+    config = function() require('nvim-navic').setup() end,
+  },
+  {
     'nvim-tree/nvim-tree.lua',
     commit = '68a2a0971eb50f13e4d54498a2add73f131b9a85',
     requires = {

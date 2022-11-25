@@ -40,6 +40,14 @@ for sev, icon in pairs(signs) do
   vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
 
+local navic = require('nvim-navic')
+navic.setup {
+  highlight = true,
+  separator = " ⟩ ",
+  depth_limit = 0,
+  depth_limit_indicator = "…",
+  safe_output = true
+}
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -75,6 +83,11 @@ local on_attach = function(client, bufnr)
       "CursorMoved",
       {callback = vim.lsp.buf.clear_references, buffer = bufnr, group = grp_lsphl}
     )
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+    vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   end
 end
 

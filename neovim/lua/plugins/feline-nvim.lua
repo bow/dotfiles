@@ -293,7 +293,15 @@ local inactive_R = {
   },
 }
 
-require('feline').setup {
+local navic = require('nvim-navic')
+local winbar = {
+  provider = function () return navic.get_location() end,
+  enabled  = function () return navic.is_available() end,
+}
+
+local feline = require('feline')
+
+feline.setup {
   theme = theme,
   components = {
     active = {active_L, active_R},
@@ -304,4 +312,16 @@ require('feline').setup {
     vi_mode_mod = provide_vi_mode_mod,
   },
   vi_mode_colors = vi_mode_colors,
+}
+
+feline.winbar.setup {
+  components = {
+    active = {winbar},
+    inactive = {},
+  },
+  force_inactive = {
+    filetypes = {},
+    buftypes  = {},
+    bufnames  = {}
+  }
 }
