@@ -1,18 +1,27 @@
-local u = require('utils')
-local g = vim.g
-
-u.nnoremap {'<C-t>', ':NvimTreeToggle<CR>'}
-
-g.nvim_tree_gitignore = 1
-g.nvim_tree_add_trailing = 1
-g.nvim_tree_group_empty = 1
-g.nvim_tree_special_files = {}
-for _, fn in ipairs {'Makefile', 'README.adoc', 'README.md', 'README.rst'} do
-    g.nvim_tree_special_files[fn] = 1
-end
-
 require('nvim-tree').setup {
+  git = {
+    enable = true,
+    ignore = true,
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+  renderer = {
+    add_trailing = true,
+    group_empty = true,
+    special_files = {
+      'Makefile',
+      'README.adoc',
+      'README.md',
+      'README.rst',
+    }
+  },
   view = {
     width = '20%'
   },
 }
+
+local u = require('utils')
+u.nnoremap {'<C-t>', ':NvimTreeToggle<CR>'}
+

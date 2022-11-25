@@ -9,8 +9,8 @@ local specs = {
     commit = '09e5374465810d71c33e9b097214adcdebeee49a',
     requires = {
       {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+        'nvim-tree/nvim-web-devicons',
+        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
     config = function() require('plugins.alpha-nvim') end,
@@ -20,8 +20,8 @@ local specs = {
     commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
     requires = {
       {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+        'nvim-tree/nvim-web-devicons',
+        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       }
     },
     config = function() require('plugins.barbar-nvim') end,
@@ -35,8 +35,8 @@ local specs = {
     commit = '79f5e9e5a76842b72f1814dcd4fc239a95ead391',
     requires = {
       {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+        'nvim-tree/nvim-web-devicons',
+        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
       {
         'lewis6991/gitsigns.nvim',
@@ -93,12 +93,12 @@ local specs = {
     after = 'mason-lspconfig.nvim',
   },
   {
-    'kyazdani42/nvim-tree.lua',
-    commit = 'a6c1d45dd6c26f7871f87564baf3860e0e5ac60c',
+    'nvim-tree/nvim-tree.lua',
+    commit = '68a2a0971eb50f13e4d54498a2add73f131b9a85',
     requires = {
       {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+        'nvim-tree/nvim-web-devicons',
+        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
     config = function() require('plugins.nvim-tree') end,
@@ -123,8 +123,8 @@ local specs = {
     commit = '897542f90050c3230856bc6e45de58b94c700bbf',
     requires = {
       {
-        'kyazdani42/nvim-web-devicons',
-        commit = 'ee101462d127ed6a5561ce9ce92bfded87d7d478',
+        'nvim-tree/nvim-web-devicons',
+        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
     config = function() require('plugins.trouble-nvim') end,
