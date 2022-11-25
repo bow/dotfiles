@@ -94,15 +94,15 @@ set_hls {
   -- indent-blankline.nvim colors.
   IndentBlanklineChar = {fg = tc.dark2},
 
+  DiagnosticError = {fg = tc.neutral_red},
+  DiagnosticWarn = {fg = tc.neutral_yellow},
+  DiagnosticInfo = {fg = tc.neutral_green},
+  DiagnosticHint = {fg = tc.neutral_cyan},
+
   DiagnosticSignError = {bg = tc.dark0_soft, fg = tc.neutral_red},
   DiagnosticSignWarn = {bg = tc.dark0_soft, fg = tc.neutral_yellow},
-  DiagnosticSignInformation = {bg = tc.dark0_soft, fg = tc.neutral_green},
+  DiagnosticSignInfo = {bg = tc.dark0_soft, fg = tc.neutral_green},
   DiagnosticSignHint = {bg = tc.dark0_soft, fg = tc.neutral_cyan},
-
-  DiagnosticVirtualTextError = {fg = tc.neutral_red},
-  DiagnosticVirtualTextWarn = {fg = tc.neutral_yellow},
-  DiagnosticVirtualTextInformation = {fg = tc.neutral_green},
-  DiagnosticVirtualTextHint = {fg = tc.neutral_cyan},
 
   -- LSP.
   LspReferenceRead = {bg = tc.dark2},
