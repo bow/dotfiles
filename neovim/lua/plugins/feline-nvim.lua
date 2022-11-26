@@ -173,19 +173,19 @@ local active_L = {
   },
   {
     provider = 'diagnostic_errors',
-    hl = {fg = tc.bright_red},
+    hl = {fg = tc.neutral_red},
   },
   {
     provider = 'diagnostic_warnings',
-    hl = {fg = tc.bright_yellow},
+    hl = {fg = tc.neutral_yellow},
   },
   {
     provider = 'diagnostic_hints',
-    hl = {fg = tc.bright_aqua},
+    hl = {fg = tc.neutral_aqua},
   },
   {
     provider = 'diagnostic_info',
-    hl = {fg = tc.bright_blue},
+    hl = {fg = tc.neutral_green},
   },
 }
 
