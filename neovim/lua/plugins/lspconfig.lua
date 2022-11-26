@@ -13,8 +13,8 @@ vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
 -- Diagnostic text.
 vim.diagnostic.config {
   virtual_text = {
-    spacing = 0,
-    prefix = '⮈',
+    spacing = 1,
+    prefix = '⮜',
     format = function(_) return '' end,
   },
   signs = true,
