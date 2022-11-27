@@ -46,6 +46,11 @@ local specs = {
     config = function() require('plugins.feline-nvim') end,
   },
   {
+    'j-hui/fidget.nvim',
+    commit = '44585a0c0085765195e6961c15529ba6c5a2a13b',
+    config = function() require('plugins.fidget-nvim') end,
+  },
+  {
     'lewis6991/gitsigns.nvim',
     commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
     config = function() require('plugins.gitsigns') end,

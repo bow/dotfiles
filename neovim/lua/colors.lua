@@ -152,6 +152,10 @@ set_hls {
   NavicIconsOperator = {fg = tc.dark3},
   NavicIconsTypeParameter = {fg = tc.dark3},
 
+  -- fidget.nvim
+  FidgetTask = {bold = false, italic = true, fg = tc.dark3},
+  FidgetTitle = {bold = false, italic = true, fg = tc.faded_aqua},
+
   -- todo-comments.nvim
   Todo1 = {fg = tc.neutral_red},
   Todo2 = {fg = tc.neutral_yellow},
