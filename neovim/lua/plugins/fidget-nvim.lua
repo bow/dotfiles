@@ -1,11 +1,12 @@
 require('fidget').setup {
   text = {
     spinner = 'dots_pulse',
-    done = '●',
+    done = '∙∙∙',
     commenced = '',
     completed = '✔',
   },
   timer = {
+    spinner_rate = 125,
     fidget_decay = 1000,
     task_decay = 1000,
   },
@@ -21,12 +22,12 @@ require('fidget').setup {
         return string.format('%s %s', spinner, fidget_name)
       end,
     task = function(task_name, message, percentage)
-        return string.format(
-          '%s%s %s',
-          message,
-          percentage and string.format(' (%s%%)', percentage) or '',
-          task_name
-        )
-      end,
+      local pct_str = string.rep('-', 4)
+      if percentage then
+        local pct_pad = string.rep(' ', 3 - #tostring(percentage))
+        pct_str = string.format('%s%s%%', pct_pad, percentage)
+      end
+      return string.format('%s %s %s', message, task_name, pct_str)
+    end,
   },
 }
