@@ -97,8 +97,8 @@ local lsp_flags = {
 
 require('mason-lspconfig').setup {
   ensure_installed = {
-    'pylsp',
     'gopls',
+    'pylsp',
     'sumneko_lua',
   },
   automatic_installation = true,
@@ -106,6 +106,23 @@ require('mason-lspconfig').setup {
 
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+lspconfig['ccls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+  init_options = {
+    cache = {
+      directory = '/tmp/ccls'
+    }
+  }
+}
+
+lspconfig['gopls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
 
 lspconfig['pylsp'].setup {
   on_attach = on_attach,
@@ -122,12 +139,6 @@ lspconfig['pylsp'].setup {
       },
     },
   },
-}
-
-lspconfig['gopls'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
 }
 
 lspconfig['sumneko_lua'].setup {
