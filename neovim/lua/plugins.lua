@@ -124,6 +124,17 @@ local specs = {
     config = function() require('plugins.telescope-nvim') end,
   },
   {
+    'folke/todo-comments.nvim',
+    commit = '1b9df577262b2c4c4ea422161742927f80ffa131',
+    requires = {
+      {
+        'nvim-lua/plenary.nvim',
+        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+      },
+    },
+    config = function() require('plugins.todo-comments-nvim') end,
+  },
+  {
     'folke/trouble.nvim',
     commit = '897542f90050c3230856bc6e45de58b94c700bbf',
     requires = {

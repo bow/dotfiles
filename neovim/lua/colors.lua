@@ -59,6 +59,8 @@ set_hls {
   StatusLineNC = {bg = tc.dark0},
   -- Rare words.
   SpellRare = {default = true, bg = tc.faded_yellow, fg = '#111111'},
+  -- TODO notes.
+  Todo = {italic = true, bold = true},
   -- Vertical split color.
   VertSplit = {fg = tc.dark0, bg = tc.dark0_hard},
   -- Visual selection color.
@@ -149,4 +151,11 @@ set_hls {
   NavicIconsEvent = {fg = tc.dark3},
   NavicIconsOperator = {fg = tc.dark3},
   NavicIconsTypeParameter = {fg = tc.dark3},
+
+  -- todo-comments.nvim
+  Todo1 = {fg = tc.neutral_red},
+  Todo2 = {fg = tc.neutral_yellow},
+  Todo3 = {fg = tc.neutral_aqua},
+  Todo4 = {fg = tc.neutral_blue},
+  Todo5 = {fg = tc.light1},
 }
