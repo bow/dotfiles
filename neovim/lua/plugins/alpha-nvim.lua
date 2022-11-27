@@ -1,7 +1,7 @@
 local startify = require('alpha.themes.startify')
 
 local header = {
-    type = "text",
+    type = 'text',
     val = {
       [[                         __   ___                     ]],
       [[                        /\ \ /\_ \                    ]],
@@ -14,19 +14,19 @@ local header = {
       [[                                          \/__/       ]],
     },
     opts = {
-      hl = "Type",
+      hl = 'Type',
       shrink_margin = false,
     },
 }
 
 startify.config.layout = {
-  { type = "padding", val = 1 },
+  { type = 'padding', val = 1 },
   header,
-  { type = "padding", val = 1 },
+  { type = 'padding', val = 1 },
   startify.section.top_buttons,
   startify.section.mru_cwd,
   startify.section.mru,
-  { type = "padding", val = 1 },
+  { type = 'padding', val = 1 },
   startify.section.bottom_buttons,
   startify.section.footer,
 }

@@ -58,7 +58,7 @@ end
 local function provide_vi_mode_mod(component, opts)
   local wrapped = require('feline.providers.vi_mode').vi_mode
   local str, tbl = wrapped(component, opts)
-  local mode = string.match(str, "%a+", 1)
+  local mode = string.match(str, '%a+', 1)
   local short_mode = vi_mode_short[mode] or mode
   local mode_len = #short_mode
   if mode_len == 2 then
@@ -109,7 +109,7 @@ local active_L = {
     icon = '',
   },
   {
-    provider = "◊",
+    provider = '◊',
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),

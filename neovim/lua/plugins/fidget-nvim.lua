@@ -10,21 +10,21 @@ require('fidget').setup {
     task_decay = 1000,
   },
   window = {
-    relative = "win",
+    relative = 'win',
     blend = 50,
     zindex = nil,
-    border = "none",
+    border = 'none',
   },
   fmt = {
     fidget =
       function(fidget_name, spinner)
-        return string.format("%s %s", spinner, fidget_name)
+        return string.format('%s %s', spinner, fidget_name)
       end,
     task = function(task_name, message, percentage)
         return string.format(
-          "%s%s %s",
+          '%s%s %s',
           message,
-          percentage and string.format(" (%s%%)", percentage) or "",
+          percentage and string.format(' (%s%%)', percentage) or '',
           task_name
         )
       end,

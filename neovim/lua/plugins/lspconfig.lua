@@ -43,9 +43,9 @@ end
 local navic = require('nvim-navic')
 navic.setup {
   highlight = true,
-  separator = " ⟩ ",
+  separator = ' ⟩ ',
   depth_limit = 0,
-  depth_limit_indicator = "…",
+  depth_limit_indicator = '…',
   safe_output = true
 }
 local on_attach = function(client, bufnr)
@@ -73,21 +73,21 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 
   if client.server_capabilities.documentHighlightProvider then
-    local grp_lsphl = augroup("LSPDocumentHighlight", {clear = true})
+    local grp_lsphl = augroup('LSPDocumentHighlight', {clear = true})
     aucl {buffer = bufnr, group = grp_lsphl}
     au(
-      "CursorHold",
+      'CursorHold',
       {callback = vim.lsp.buf.document_highlight, buffer = bufnr, group = grp_lsphl}
     )
     au(
-      "CursorMoved",
+      'CursorMoved',
       {callback = vim.lsp.buf.clear_references, buffer = bufnr, group = grp_lsphl}
     )
   end
 
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
-    vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+    vim.o.winbar = '%{%v:lua.require("nvim-navic").get_location()%}'
   end
 end
 
@@ -161,7 +161,7 @@ lspconfig['sumneko_lua'].setup {
         globals = {'vim'},
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        library = vim.api.nvim_get_runtime_file('', true),
       },
       telemetry = {
         enable = false,
