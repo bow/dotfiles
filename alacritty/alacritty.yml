@@ -108,8 +108,8 @@ colors:
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
   cursor:
-    text: CellBackground
-    cursor: '#928374'
+    text: '#1d2021'
+    cursor: '#a89984'
 
 selection:
   # This string contains all characters that are used as separators for
