@@ -48,9 +48,18 @@ navic.setup {
   depth_limit_indicator = '…',
   safe_output = true
 }
+
+local null_ls = require('null-ls')
+
+null_ls.setup {
+  sources = {
+    -- Go
+    null_ls.builtins.formatting.goimports,
+    null_ls.builtins.formatting.gofmt,
+  },
+}
+
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -72,6 +81,26 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
 
+  -- Autoformat on save using null-ls.
+  if client.supports_method('textDocument/formatting') then
+    local grp_lspfmt = augroup("LspFormatting", { clear = true })
+    aucl { buffer = bufnr, group = grp_lspfmt }
+    au(
+      'BufWritePre',
+      {
+        callback = function()
+          vim.lsp.buf.format {
+            bufnr = bufnr,
+            filter = function(cl) return cl.name == "null-ls" end
+          }
+        end,
+        buffer = bufnr,
+        group = grp_lspfmt,
+      }
+    )
+  end
+
+  -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
     local grp_lsphl = augroup('LSPDocumentHighlight', {clear = true})
     aucl {buffer = bufnr, group = grp_lsphl}
@@ -85,6 +114,7 @@ local on_attach = function(client, bufnr)
     )
   end
 
+  -- Winbar crumbs.
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
     vim.o.winbar = '%{%v:lua.require("nvim-navic").get_location()%}'

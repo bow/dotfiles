@@ -74,6 +74,17 @@ local specs = {
     after = 'mason.nvim',
   },
   {
+    'jose-elias-alvarez/null-ls.nvim',
+    commit = 'c51978f546a86a653f4a492b86313f4616412cec',
+    requires = {
+      {
+        'nvim-lua/plenary.nvim',
+        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+      },
+    },
+    config = function() require('plugins.null-ls-nvim') end,
+  },
+  {
     'lukas-reineke/indent-blankline.nvim',
     commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6',
     config = function() require('plugins.indent-blankline-nvim') end,
