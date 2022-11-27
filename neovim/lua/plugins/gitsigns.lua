@@ -4,7 +4,7 @@ require('gitsigns').setup {
     change       = {hl = 'GitSignsChange', text = '▊', numhl='', linehl='GitSignsChangeLn'},
     delete       = {hl = 'GitSignsDelete', text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
     topdelete    = {hl = 'GitSignsDelete', text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '🬋', numhl='', linehl='GitSignsChangeLn'},
+    changedelete = {hl = 'GitSignsChange', text = '▊', numhl='', linehl='GitSignsChangeLn'},
   },
   numhl = true,
   current_line_blame = false,
