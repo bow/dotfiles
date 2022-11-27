@@ -122,6 +122,13 @@ lspconfig['gopls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
+  settings = {
+    gopls = {
+      env = {
+        GOFLAGS = '-tags=test',
+      },
+    },
+  },
 }
 
 lspconfig['pylsp'].setup {
