@@ -21,7 +21,7 @@ vim.diagnostic.config {
   underline = false,
   severity_sort = true,
   float = {
-    border = 'shadow',
+    border = 'single',
     format = function(diagnostic)
       return string.format(
         '%s (%s) [%s]',
