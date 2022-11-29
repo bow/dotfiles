@@ -41,7 +41,7 @@ require('gitsigns').setup {
     map('n', '<leader>hS', gs.stage_buffer)
     map('n', '<leader>hu', gs.undo_stage_hunk)
     map('n', '<leader>hR', gs.reset_buffer)
-    map('n', '<leader>hp', gs.preview_hunk)
+    map('n', '<A-g>', gs.preview_hunk)
     map('n', '<C-b>', function() gs.blame_line{full=true} end)
     map('n', '<C-a>', gs.toggle_current_line_blame)
     map('n', '<leader>hd', gs.diffthis)
