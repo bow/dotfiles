@@ -99,8 +99,24 @@ local specs = {
     commit = 'a188be8559d625049010e3b814ad30a2447095bd',
   },
   {
+    'hrsh7th/cmp-buffer',
+    commit = '3022dbc9166796b644a841a02de8dd1cc1d311fa',
+  },
+  {
+    'hrsh7th/cmp-path',
+    commit = '91ff86cd9c29299a64f968ebb45846c485725f23',
+  },
+  {
+    'hrsh7th/cmp-cmdline',
+    commit = '23c51b2a3c00f6abc4e922dbd7c3b9aca6992063',
+  },
+  {
     'hrsh7th/cmp-nvim-lsp',
     commit = '59224771f91b86d1de12570b4070fe4ad7cd1eeb',
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+    commit = 'd2768cb1b83de649d57d967085fe73c5e01f8fd7',
   },
   {
     'neovim/nvim-lspconfig',
