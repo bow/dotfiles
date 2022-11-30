@@ -16,6 +16,10 @@ local specs = {
     config = function() require('plugins.alpha-nvim') end,
   },
   {
+    'pearofducks/ansible-vim',
+    commit = '93798e8c89c441d29d4678da0c0d5e1429eb43b0',
+  },
+  {
     'romgrk/barbar.nvim',
     commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
     requires = {
