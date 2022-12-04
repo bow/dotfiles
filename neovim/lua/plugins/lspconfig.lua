@@ -137,6 +137,23 @@ require('mason-lspconfig').setup {
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+local function opt_lspconfig(args)
+  local ls = lspconfig[args.name]
+  if ls == nil then
+    return nil
+  end
+  return ls.setup(args.opts)
+end
+
+opt_lspconfig {
+  name = 'ansiblels',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  },
+}
+
 lspconfig['ccls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
