@@ -21,7 +21,7 @@ local specs = {
   },
   {
     'romgrk/barbar.nvim',
-    commit = 'c41ad6e3f68c2c9f6aa268c6232cdef885107303',
+    commit = 'e5f1393350cf842389be289c03885b92ab29ffb3',
     requires = {
       {
         'nvim-tree/nvim-web-devicons',
