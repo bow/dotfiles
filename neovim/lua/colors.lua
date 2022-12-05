@@ -97,9 +97,9 @@ set_hls {
   IndentBlanklineChar = {fg = tc.dark2},
 
   DiagnosticUnderlineError = {bg = tc.neutral_red, fg = tc.dark0_hard, underline = false, bold = true},
-  DiagnosticUnderlineWarn = {bg = tc.neutral_yellow, fg = tc.dark0_hard, underline = false, bold = true},
-  DiagnosticUnderlineInfo = {default = true},
-  DiagnosticUnderlineHint = {default = true},
+  DiagnosticUnderlineWarn = {underline = true, sp = tc.neutral_yellow},
+  DiagnosticUnderlineInfo = {underline = true, sp = tc.neutral_blue},
+  DiagnosticUnderlineHint = {underdashed = true, sp = tc.neutral_aqua},
 
   DiagnosticError = {fg = tc.neutral_red},
   DiagnosticWarn = {fg = tc.neutral_yellow},
