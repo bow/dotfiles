@@ -129,6 +129,7 @@ require('mason-lspconfig').setup {
   ensure_installed = {
     'gopls',
     'pylsp',
+    'rust_analyzer',
     'sumneko_lua',
   },
   automatic_installation = true,
@@ -176,6 +177,12 @@ lspconfig['gopls'].setup {
       },
     },
   },
+}
+
+lspconfig['rust_analyzer'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 }
 
 lspconfig['pylsp'].setup {
