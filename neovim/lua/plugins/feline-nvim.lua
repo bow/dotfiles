@@ -206,11 +206,11 @@ local active_R = {
     provider = 'git_branch',
     hl = {fg = tc.light3},
     left_sep = '  ',
-    right_sep = ' ',
   },
   {
     provider = '',
     hl = {bg = tc.dark1, fg = tc.faded_aqua},
+    left_sep = ' ',
   },
   {
     provider = {
