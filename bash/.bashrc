@@ -40,7 +40,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PFffffff" #white
 #   clear #for background artifacting
 else
-    export TERM=xterm-256color
+    export TERM=alacritty
 fi
 
 # set .dircolors
