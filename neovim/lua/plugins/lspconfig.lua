@@ -121,22 +121,13 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local lsp_flags = {
-  debounce_text_changes = 150,
-}
+local lsp_flags = { debounce_text_changes = 150 }
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason-lspconfig').setup {
-  ensure_installed = {
-    'gopls',
-    'pylsp',
-    'rust_analyzer',
-    'sumneko_lua',
-  },
   automatic_installation = true,
 }
-
 local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function opt_lspconfig(args)
   local ls = lspconfig[args.name]
@@ -155,73 +146,88 @@ opt_lspconfig {
   },
 }
 
-lspconfig['ccls'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-  init_options = {
-    cache = {
-      directory = '/tmp/ccls'
-    }
-  }
-}
-
-lspconfig['gopls'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-  settings = {
-    gopls = {
-      env = {
-        GOFLAGS = '-tags=test',
+opt_lspconfig {
+  name = 'ccls',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    init_options = {
+      cache = {
+        directory = '/tmp/ccls'
       },
     },
   },
 }
 
-lspconfig['rust_analyzer'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-}
-
-lspconfig['pylsp'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-  settings = {
-    pylsp = {
-      configurationSources = {'flake8'},
-      plugins = {
-        pylsp_mypy = {
-          enabled = true,
-          dmypy = true,
+opt_lspconfig {
+  name = 'gopls',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    settings = {
+      gopls = {
+        env = {
+          GOFLAGS = '-tags=test',
         },
       },
     },
-  },
+  }
 }
 
-lspconfig['sumneko_lua'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
-      },
-      telemetry = {
-        enable = false,
+opt_lspconfig {
+  name = 'rust_analyzer',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  }
+}
+
+opt_lspconfig {
+  name = 'pylsp',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    settings = {
+      pylsp = {
+        configurationSources = {'flake8'},
+        plugins = {
+          pylsp_mypy = {
+            enabled = true,
+            dmypy = true,
+          },
+        },
       },
     },
-  },
+  }
+}
+
+opt_lspconfig {
+  name = 'sumneko_lua',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          globals = {'vim'},
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file('', true),
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  }
 }
 
 local luasnip = require('luasnip')
