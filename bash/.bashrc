@@ -363,17 +363,6 @@ if command -v direnv 1>/dev/null 2>&1; then
     eval "$(direnv hook bash)"
 fi
 
-# cargo config
-if test -d ${HOME}/.cargo/bin; then
-    case ":${PATH}:" in
-        *:"${HOME}/.cargo/bin":*)
-            ;;
-        *)
-            export PATH="${HOME}/.cargo/bin:${PATH}"
-            ;;
-    esac
-fi
-
 # starship config
 if [[ "${starship_exists}" -eq 1 ]]; then
     eval "$(starship init bash)"
