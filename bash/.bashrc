@@ -382,3 +382,11 @@ function set_window_title(){
     echo -ne "\033]0; $(echo "Terminal ${PWD/#$HOME/'~'}") \007"
 }
 starship_precmd_user_func="set_window_title"
+
+# optional terraform completion.
+if command -v terraform 1>/dev/null 2>&1; then
+    alias tf="terraform"
+    path="$(which terraform)"
+    complete -C ${path} terraform
+    complete -C ${path} tf
+fi
