@@ -106,7 +106,13 @@ fi
 shopt -s checkwinsize
 
 # set default text editor
-export EDITOR="nvim"
+if command -v nvim 1>/dev/null 2>&1; then
+    export EDITOR="nvim"
+elif command -v vim 1>/dev/null 2>&1; then
+    export EDITOR="vim"
+else
+    export EDITOR="vi"
+fi
 
 # aliases
 alias ccat='pygmentize -g -O style=colorful,linenos=1'
