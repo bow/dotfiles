@@ -22,23 +22,23 @@ HISTFILESIZE=200000
 
 # color & ui
 if [ "$TERM" = "linux" ]; then
-    echo -en "\e]P0111111" #black
-    echo -en "\e]P8111111" #darkgrey
-    echo -en "\e]P1803232" #darkred
-    echo -en "\e]P9c43232" #red
-    echo -en "\e]P23d762f" #darkgreen
-    echo -en "\e]PA5ab23a" #green
-    echo -en "\e]P3aa9943" #brown
-    echo -en "\e]PBefef60" #yellow
-    echo -en "\e]P427528e" #darkblue
-    echo -en "\e]PC4388e1" #blue
-    echo -en "\e]P5706c9a" #darkmagenta
-    echo -en "\e]PDa07de7" #magenta
-    echo -en "\e]P65da5a5" #darkcyan
-    echo -en "\e]PE98e1e1" #cyan
-    echo -en "\e]P7d0d0d0" #lightgrey
-    echo -en "\e]PFffffff" #white
-#   clear #for background artifacting
+    echo -en "\e]P0111111" # black
+    echo -en "\e]P8111111" # darkgrey
+    echo -en "\e]P1803232" # darkred
+    echo -en "\e]P9c43232" # red
+    echo -en "\e]P23d762f" # darkgreen
+    echo -en "\e]PA5ab23a" # green
+    echo -en "\e]P3aa9943" # brown
+    echo -en "\e]PBefef60" # yellow
+    echo -en "\e]P427528e" # darkblue
+    echo -en "\e]PC4388e1" # blue
+    echo -en "\e]P5706c9a" # darkmagenta
+    echo -en "\e]PDa07de7" # magenta
+    echo -en "\e]P65da5a5" # darkcyan
+    echo -en "\e]PE98e1e1" # cyan
+    echo -en "\e]P7d0d0d0" # lightgrey
+    echo -en "\e]PFffffff" # white
+    clear                  # for background artifacting
 else
     export TERM=alacritty
 fi
