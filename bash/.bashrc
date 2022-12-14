@@ -4,9 +4,12 @@
 # check if bash is running interactively
 [ -z "$PS1" ] && return
 
+# helper function to check if executable exists
+function has_exe() { test -n "${1}" && command -v "${1}" 1>/dev/null 2>&1; }
+
 # check if we have starship and use result to decide how to build prompt
 starship_exists=0
-if command -v starship 1>/dev/null 2>&1; then
+if has_exe starship; then
     starship_exists=1
 fi
 
@@ -39,7 +42,7 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]P7d0d0d0" # lightgrey
     echo -en "\e]PFffffff" # white
     clear                  # for background artifacting
-elif command -v alacritty 1>/dev/null 2>&1; then
+elif has_exe alacritty; then
     export TERM=alacritty
 else
     export TERM=xterm-256color
@@ -106,9 +109,9 @@ fi
 shopt -s checkwinsize
 
 # set default text editor
-if command -v nvim 1>/dev/null 2>&1; then
+if has_exe nvim; then
     export EDITOR="nvim"
-elif command -v vim 1>/dev/null 2>&1; then
+elif has_exe vim; then
     export EDITOR="vim"
 else
     export EDITOR="vi"
@@ -260,10 +263,10 @@ function wttr() {
 }
 
 # set 'open' handlers from shell
-if command -v handlr 1>/dev/null 2>&1; then
+if has_exe handlr; then
     function open() { handlr open ${1:-.}; }
     alias o='open'
-elif command -v xdg-open 1>/dev/null 2>&1; then
+elif has_exe xdg-open; then
     function open() { xdg-open 1>/dev/null 2>&1 ${1:-.}; }
     alias o='open'
 fi
@@ -295,7 +298,7 @@ if [ -f ~/.bash_private ]; then
 fi
 
 # autojump config
-if command -v autojump 1>/dev/null 2>/dev/null && test -f /etc/profile.d/autojump.bash; then
+if has_exe autojump && test -f /etc/profile.d/autojump.bash; then
     . /etc/profile.d/autojump.bash
 fi
 
@@ -316,7 +319,7 @@ case ":${PATH}:" in
         export PATH="${HOME}/.basher/bin:${PATH}"
         ;;
 esac
-if command -v basher 1>/dev/null 2>&1; then
+if has_exe basher; then
     eval "$(basher init -)"
 fi
 
@@ -340,7 +343,7 @@ case ":${PATH}:" in
         export PATH="${PYENV_ROOT}/shims:${PATH}"
         ;;
 esac
-if command -v pyenv 1>/dev/null 2>&1; then
+if has_exe pyenv; then
     eval "$(pyenv init --path -)"
     eval "$(pyenv virtualenv-init -)"
 fi
@@ -354,12 +357,12 @@ case ":${PATH}:" in
         export PATH="${NODENV_ROOT}/bin:${PATH}"
         ;;
 esac
-if command -v nodenv 1>/dev/null 2>&1; then
+if has_exe nodenv; then
     eval "$(nodenv init -)"
 fi
 
 # direnv config
-if command -v direnv 1>/dev/null 2>&1; then
+if has_exe direnv; then
     eval "$(direnv hook bash)"
 fi
 
@@ -373,7 +376,7 @@ function set_window_title(){
 starship_precmd_user_func="set_window_title"
 
 # optional terraform completion.
-if command -v terraform 1>/dev/null 2>&1; then
+if has_exe terraform; then
     alias tf="terraform"
     path="$(which terraform)"
     complete -C ${path} terraform
