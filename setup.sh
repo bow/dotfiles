@@ -33,7 +33,7 @@ progs=(
     [xdg]="${HOME}/.config"
 )
 
-type stow >/dev/null 2>&1 || { "GNU Stow not found. Exiting."; exit 1; }
+type stow >/dev/null 2>&1 || { echo "GNU Stow not found. Exiting."; exit 1; }
 
 echo "Adding tools settings ..."
 for pn in "${!progs[@]}"

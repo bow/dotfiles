@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # .bashrc
 # Wibowo Arindrarto  <contact@arindrarto.dev>
 
@@ -54,33 +56,44 @@ if [ -e /bin/dircolors ]; then
 fi
 
 # set prompt
+# shellcheck disable=SC2034
 nocol='\033[0m'
+# shellcheck disable=SC2034
 red='\033[31m'
+# shellcheck disable=SC2034
 green='\033[32m'
+# shellcheck disable=SC2034
 yellow='\033[33m'
+# shellcheck disable=SC2034
 blue='\033[34m'
+# shellcheck disable=SC2034
 purple='\033[35m'
+# shellcheck disable=SC2034
 cyan='\033[36m'
+# shellcheck disable=SC2034
 grey='\033[37m'
 
 # define custom PS1 if starship does not exist
 if [[ "${starship_exists}" -eq 0 ]]; then
     # load own copy of .git-prompt.sh if it exists
-    if [ -f ~/.git-prompt.sh ]; then
-        # shellcheck source=.git-prompt.sh
-        source ~/.git-prompt.sh
-    fi
+    # shellcheck source=/dev/null
+    test -f "${HOME}/.git-prompt.sh" && . "${HOME}/.git-prompt.sh"
 
     # load own copy of .kube-ps1.bash if it exists
-    if [ -f ~/.kube-ps1.bash ]; then
-        # shellcheck source=.kube-ps1.bash
-        source ~/.kube-ps1.bash
-    fi
+    # shellcheck source=/dev/null
+    test -f "${HOME}/.kube-ps1.bash" && . "${HOME}/.kube-ps1.bash"
+
+    # shellcheck disable=SC2034
     KUBE_PS1_SEPARATOR=""
+    # shellcheck disable=SC2034
     KUBE_PS1_PREFIX=""
+    # shellcheck disable=SC2034
     KUBE_PS1_SUFFIX=" "
+    # shellcheck disable=SC2034
     KUBE_PS1_SYMBOL_COLOR=magenta
+    # shellcheck disable=SC2034
     KUBE_PS1_CTX_COLOR=magenta
+    # shellcheck disable=SC2034
     KUBE_PS1_NS_COLOR=magenta
 
     function get_git_stat {
@@ -96,7 +109,7 @@ if [[ "${starship_exists}" -eq 0 ]]; then
     function set_prompt {
         pyenv_name=$(pyenv version-name 2> /dev/null || true)
         venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
-        asdf_active=$(asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok" || true)
+        asdf_active=$( (asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok") || true )
         asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${green}\]  \[${nocol}\]"
         PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${asdf_indicator}${venv_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
     }
@@ -159,15 +172,16 @@ alias drni="docker run --rm -itP"
 # execute interactive container, e.g., $dex base /bin/bash
 function dexi() { docker exec -it "${1}" "${2:-/bin/bash}"; }
 # remove exited containers
-function drm() { docker rm $(docker ps -qf 'status=exited'); }
+function drm() { docker rm "$(docker ps -qf 'status=exited')"; }
 # remove dangling images
-function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
+function drmi() { docker rmi "$(docker images -qf 'dangling=true')"; }
 # shell into running container
 function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
 function dbu() { docker build -t="$1" .; }
 
 # create dir and cd into it
+# shellcheck disable=SC2164
 function mkcd() { command mkdir -p "$1" && cd "$1"; }
 
 # change owner to current user
@@ -176,7 +190,7 @@ function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 # resolve path and copy it to clipboard
 function pcp() {
     target=$(readlink -f "${1:-.}")
-    (echo ${target} | xargs echo -n | xclip -selection c) \
+    (echo "${target}" | xargs echo -n | xclip -selection c) \
         && echo "${target}"
 }
 
@@ -264,10 +278,10 @@ function wttr() {
 
 # set 'open' handlers from shell
 if has_exe handlr; then
-    function open() { handlr open ${1:-.}; }
+    function open() { handlr open "${1:-.}"; }
     alias o='open'
 elif has_exe xdg-open; then
-    function open() { xdg-open 1>/dev/null 2>&1 ${1:-.}; }
+    function open() { xdg-open 1>/dev/null 2>&1 "${1:-.}"; }
     alias o='open'
 fi
 
@@ -326,10 +340,10 @@ fi
 # asdf config
 if [ -f /opt/asdf-vm/asdf.sh ]; then
     # shellcheck source=/opt/asdf-vm/asdf.sh
-    source /opt/asdf-vm/asdf.sh
-    # shellcheck source=$HOME/.asdf/plugins/java/set-java-home.bash
+    . /opt/asdf-vm/asdf.sh
+    # shellcheck source=/dev/null
     if [ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]; then
-        source "$HOME/.asdf/plugins/java/set-java-home.bash"
+        . "$HOME/.asdf/plugins/java/set-java-home.bash"
     fi
 fi
 
@@ -371,14 +385,16 @@ if [[ "${starship_exists}" -eq 1 ]]; then
     eval "$(starship init bash)"
 fi
 function set_window_title(){
+    # shellcheck disable=SC2116
     echo -ne "\033]0; $(echo "Terminal ${PWD/#$HOME/'~'}") \007"
 }
+# shellcheck disable=SC2034
 starship_precmd_user_func="set_window_title"
 
 # optional terraform completion.
 if has_exe terraform; then
     alias tf="terraform"
     path="$(which terraform)"
-    complete -C ${path} terraform
-    complete -C ${path} tf
+    complete -C "${path}" terraform
+    complete -C "${path}" tf
 fi
