@@ -53,6 +53,8 @@ local null_ls = require('null-ls')
 
 null_ls.setup {
   sources = {
+    -- Shell
+    null_ls.builtins.diagnostics.shellcheck,
     -- Go
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.gofmt,
