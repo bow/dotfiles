@@ -185,7 +185,7 @@ local active_L = {
   },
   {
     provider = 'diagnostic_info',
-    hl = {fg = tc.neutral_green},
+    hl = {fg = tc.neutral_blue},
   },
 }
 
