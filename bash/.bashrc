@@ -294,6 +294,11 @@ if [ -f ~/.bash_private ]; then
     source ~/.bash_private
 fi
 
+# autojump config
+if command -v autojump 1>/dev/null 2>/dev/null && test -f /etc/profile.d/autojump.bash; then
+    . /etc/profile.d/autojump.bash
+fi
+
 # .local/bin config
 case ":${PATH}:" in
     *:"${HOME}/.local/bin":*)
