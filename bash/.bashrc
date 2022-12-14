@@ -259,6 +259,15 @@ function wttr() {
     curl http://wttr.in/"${1:-Copenhagen}"
 }
 
+# set 'open' handlers from shell
+if command -v handlr 1>/dev/null 2>&1; then
+    function open() { handlr open ${1:-.}; }
+    alias o='open'
+elif command -v xdg-open 1>/dev/null 2>&1; then
+    function open() { xdg-open 1>/dev/null 2>&1 ${1:-.}; }
+    alias o='open'
+fi
+
 # set __pycache__ out of source trees
 case "${OSTYPE}" in
     linux-*)
