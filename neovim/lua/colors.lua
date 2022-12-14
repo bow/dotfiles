@@ -159,7 +159,7 @@ set_hls {
 
   -- fidget.nvim
   FidgetTask = {bold = false, italic = true, fg = tc.dark3},
-  FidgetTitle = {bold = false, italic = true, fg = tc.faded_aqua},
+  FidgetTitle = {bold = false, italic = true, fg = tc.faded_yellow},
 
   -- todo-comments.nvim
   Todo1 = {fg = tc.neutral_red},
