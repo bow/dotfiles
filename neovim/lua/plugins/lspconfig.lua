@@ -56,7 +56,32 @@ null_ls.setup {
     -- Go
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.gofmt,
+    -- Terraform
+    null_ls.builtins.formatting.terraform_fmt.with {
+      filetypes = {"terraform", "tf", "hcl"},
+    },
   },
+
+  on_attach = function(client, bufnr)
+    -- Autoformat on save using null-ls.
+    if client.supports_method("textDocument/formatting") then
+      local grp_lspfmt = augroup("LspFormatting", { clear = true })
+      aucl { buffer = bufnr, group = grp_lspfmt }
+      au(
+        "BufWritePre",
+        {
+          callback = function()
+            vim.lsp.buf.format {
+              bufnr = bufnr,
+              filter = function(cl) return cl.name == "null-ls" end
+            }
+          end,
+          buffer = bufnr,
+          group = grp_lspfmt,
+        }
+      )
+    end
+  end
 }
 
 local on_attach = function(client, bufnr)
@@ -80,25 +105,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-
-  -- Autoformat on save using null-ls.
-  if client.supports_method('textDocument/formatting') then
-    local grp_lspfmt = augroup("LspFormatting", { clear = true })
-    aucl { buffer = bufnr, group = grp_lspfmt }
-    au(
-      'BufWritePre',
-      {
-        callback = function()
-          vim.lsp.buf.format {
-            bufnr = bufnr,
-            filter = function(cl) return cl.name == "null-ls" end
-          }
-        end,
-        buffer = bufnr,
-        group = grp_lspfmt,
-      }
-    )
-  end
 
   -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
