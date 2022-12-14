@@ -115,7 +115,6 @@ else
 fi
 
 # aliases
-alias ccat='pygmentize -g -O style=colorful,linenos=1'
 alias ls='ls -F --color=auto'           # colorize
 alias less='less -SN'                   # no wraps and include line numbers
 alias grep='grep --color=auto'          # colorize
@@ -131,13 +130,12 @@ alias cp='cp -iv'                       # interactive + verbose by default
 alias mv='mv -i'                        # interactive by default
 alias rm='rm -i'                        # interactive by default
 alias reload='source ~/.bashrc'         # reload .bashrc
-alias grest='history | grep'
-alias chmox='chmod +x'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias clip='xargs echo -n | xclip -selection c'        # copy to X clipboard, trimming newline
-alias unix-ns='date +%s%9N'
+alias grest='history | grep'            # grep history
+alias chmox='chmod +x'                  # set user-executable bit
+alias unix-ns='date +%s%9N'             # nanoseconds timestamp
+
+alias ccat='pygmentize -g -O style=gruvbox-dark,linenos=1'  # colorized cat
+alias clip='xargs echo -n | xclip -selection c'             # copy to X clipboard, trimming newline
 
 # Docker aliases
 # Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
