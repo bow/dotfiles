@@ -167,4 +167,12 @@ set_hls {
   Todo3 = {fg = tc.neutral_aqua},
   Todo4 = {fg = tc.neutral_blue},
   Todo5 = {fg = tc.light1},
+
+  -- Alpha nvim, custom highlight groups.
+  AlphaHeader = {fg = tc.bright_yellow},
+  AlphaDirPath = {fg = tc.dark4, italic = true},
+  AlphaSectionTitle = {fg = tc.neutral_blue},
+  AlphaButton = {fg = tc.bright_yellow},
+  AlphaButtonSeparator = {fg = tc.dark4},
+  AlphaButtonIcon = {fg = tc.faded_aqua},
 }
