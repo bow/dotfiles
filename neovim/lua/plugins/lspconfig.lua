@@ -49,43 +49,6 @@ navic.setup {
   safe_output = true
 }
 
-local null_ls = require('null-ls')
-
-null_ls.setup {
-  sources = {
-    -- Shell
-    null_ls.builtins.diagnostics.shellcheck,
-    -- Go
-    null_ls.builtins.formatting.goimports,
-    null_ls.builtins.formatting.gofmt,
-    -- Terraform
-    null_ls.builtins.formatting.terraform_fmt.with {
-      filetypes = {"terraform", "tf", "hcl"},
-    },
-  },
-
-  on_attach = function(client, bufnr)
-    -- Autoformat on save using null-ls.
-    if client.supports_method("textDocument/formatting") then
-      local grp_lspfmt = augroup("LspFormatting", { clear = true })
-      aucl { buffer = bufnr, group = grp_lspfmt }
-      au(
-        "BufWritePre",
-        {
-          callback = function()
-            vim.lsp.buf.format {
-              bufnr = bufnr,
-              filter = function(cl) return cl.name == "null-ls" end
-            }
-          end,
-          buffer = bufnr,
-          group = grp_lspfmt,
-        }
-      )
-    end
-  end
-}
-
 local on_attach = function(client, bufnr)
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -131,6 +94,46 @@ end
 
 local lsp_flags = { debounce_text_changes = 150 }
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local null_ls = require('null-ls')
+null_ls.setup {
+  sources = {
+    -- Shell
+    null_ls.builtins.diagnostics.shellcheck,
+    -- Go
+    null_ls.builtins.formatting.goimports,
+    null_ls.builtins.formatting.gofmt,
+    -- Terraform
+    null_ls.builtins.formatting.terraform_fmt.with {
+      filetypes = {"terraform", "tf", "hcl"},
+    },
+  },
+
+  capabilities = capabilities,
+  flags = lsp_flags,
+
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    -- Autoformat on save using null-ls.
+    if client.supports_method("textDocument/formatting") then
+      local grp_lspfmt = augroup("LspFormatting", { clear = true })
+      aucl { buffer = bufnr, group = grp_lspfmt }
+      au(
+        "BufWritePre",
+        {
+          callback = function()
+            vim.lsp.buf.format {
+              bufnr = bufnr,
+              filter = function(cl) return cl.name == "null-ls" end
+            }
+          end,
+          buffer = bufnr,
+          group = grp_lspfmt,
+        }
+      )
+    end
+  end,
+}
 
 require('mason-lspconfig').setup {
   automatic_installation = true,
