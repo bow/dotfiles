@@ -33,7 +33,7 @@ local function button(sc, txt, keybind, keybind_opts)
 
   local opts = {
     position = 'left',
-    shortcut = sc .. ' · ',
+    shortcut = sc .. ' → ',
     cursor = cursor,
     align_shortcut = 'left',
     hl_shortcut = { { 'AlphaButton', 0, #sc }, { 'AlphaButtonSeparator', #sc, #sc + 4 } },
@@ -86,11 +86,11 @@ local function file_button(fn, sc, short_fn,autocd)
     local hl_option_type = type(nvim_web_devicons.highlight)
     if hl_option_type == 'boolean' then
       if hl and nvim_web_devicons.highlight then
-        table.insert(fb_hl, { hl, 0, 2 })
+        table.insert(fb_hl, { hl, 0, 3 })
       end
     end
     if hl_option_type == 'string' then
-      table.insert(fb_hl, { nvim_web_devicons.highlight, 0, 2 })
+      table.insert(fb_hl, { nvim_web_devicons.highlight, 0, 3 })
     end
     ico_txt = ico .. ' '
   else
@@ -100,7 +100,7 @@ local function file_button(fn, sc, short_fn,autocd)
   local file_button_el = button(sc, ico_txt .. short_fn, '<cmd>e ' .. fn .. cd_cmd ..' <CR>')
   local fn_start = short_fn:match('.*[/\\]')
   if fn_start ~= nil then
-    table.insert(fb_hl, { 'AlphaDirPath', #ico_txt - 2, #fn_start + #ico_txt - 2 })
+    table.insert(fb_hl, { 'AlphaDirPath', #ico_txt - 1, #fn_start + #ico_txt - 1 })
   end
   file_button_el.opts.hl = fb_hl
   return file_button_el
