@@ -115,40 +115,58 @@ local mru_opts = {
   autocd = false
 }
 
+local function is_child_of_cwd()
+  local cwd = vim.fn.getcwd()
+  return function(v)
+    return {
+      match = vim.startswith(v, cwd),
+      fn = v,
+      short_fn = fnamemodify(v, ':.'),
+    }
+  end
+end
+
+local function not_is_child_of_cwd()
+  local cwd = vim.fn.getcwd()
+  return function(v)
+    return {
+      match = not vim.startswith(v, cwd),
+      fn = v,
+      short_fn = fnamemodify(v, ':~'),
+    }
+  end
+end
+
 --- @param start number
---- @param cwd string? optional
+--- @param cwd_cond function? optional
 --- @param items_number number? optional number of items to generate, default = 10
-local function mru(start, cwd, items_number, opts)
+local function mru(start, cwd_cond, items_number, opts)
   opts = opts or mru_opts
   items_number = if_nil(items_number, 10)
-  local oldfiles = {}
+  cwd_cond = if_nil(cwd_cond, function(v) return true end)
+
+  local tbl = {}
+  local num = 0
+
   for _, v in pairs(vim.v.oldfiles) do
-    if #oldfiles == items_number then
+    if num == items_number then
       break
     end
-    local cwd_cond
-    if not cwd then
-      cwd_cond = true
-    else
-      cwd_cond = vim.startswith(v, cwd)
-    end
+
+    local check = cwd_cond(v)
     local ignore = (opts.ignore and opts.ignore(v, get_extension(v))) or false
-    if (filereadable(v) == 1) and cwd_cond and not ignore then
-      oldfiles[#oldfiles + 1] = v
+
+    if (filereadable(v) == 1) and check.match and not ignore then
+      tbl[num + 1] = file_button(
+        check.fn,
+        tostring(num + start),
+        check.short_fn,
+        opts.autocd
+      )
+      num = num + 1
     end
   end
 
-  local tbl = {}
-  for i, fn in ipairs(oldfiles) do
-    local short_fn
-    if cwd then
-      short_fn = fnamemodify(fn, ':.')
-    else
-      short_fn = fnamemodify(fn, ':~')
-    end
-    local file_button_el = file_button(fn, tostring(i + start - 1), short_fn,opts.autocd)
-    tbl[i] = file_button_el
-  end
   return {
     type = 'group',
     val = tbl,
@@ -179,12 +197,12 @@ local section = {
     type = 'group',
     val = {
       { type = 'padding', val = 1 },
-      { type = 'text', val = 'MRU', opts = { hl = 'AlphaSectionTitle' } },
+      { type = 'text', val = 'MRU elsewhere', opts = { hl = 'AlphaSectionTitle' } },
       { type = 'padding', val = 1 },
       {
         type = 'group',
         val = function()
-          return { mru(10) }
+          return { mru(10, not_is_child_of_cwd()) }
         end,
       },
     },
@@ -198,7 +216,7 @@ local section = {
       {
         type = 'group',
         val = function()
-          return { mru(0, vim.fn.getcwd()) }
+          return { mru(0, is_child_of_cwd()) }
         end,
         opts = { shrink_margin = false },
       },
