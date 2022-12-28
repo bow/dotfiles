@@ -1,14 +1,7 @@
 local g = vim.g
 local opt = vim.opt
 local tc = require('constants').gruvbox
-
---- Set syntax highlighting.
--- @param hls a table of syntax highlight groups.
-local function set_hls(hls)
-  for group, spec in pairs(hls) do
-    vim.api.nvim_set_hl(0, group, spec)
-  end
-end
+local u = require('utils')
 
 opt.termguicolors = true
 opt.background = 'dark'
@@ -21,8 +14,7 @@ g.gruvbox_contrast_dark = 'hard'
 
 vim.cmd [[colorscheme gruvbox]]
 
-
-set_hls {
+u.set_hls {
   -- Text width column color.
   ColorColumn = {bg = tc.dark0_hard},
   -- Current line.
