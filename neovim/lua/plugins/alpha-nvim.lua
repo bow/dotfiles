@@ -255,3 +255,6 @@ local startify = {
 }
 
 require('alpha').setup(startify.config)
+
+local u = require('utils')
+u.nnoremap { '<C-w>', '<cmd>Alpha<CR>'}
