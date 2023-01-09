@@ -273,7 +273,7 @@ local specs = {
   },
   {
     'rust-lang/rust.vim',
-    commit = '4aa69b84c8a58fcec6b6dad6fe244b916b1cf830',
+    commit = '889b9a7515db477f4cb6808bef1769e53493c578',
     ft = 'rust',
   },
   {
