@@ -80,9 +80,9 @@ u.set_hls {
   BufferTabpageFill = {bg = tc.dark0, fg = tc.dark0},
 
   -- gitsigns.nvim colors.
-  GitSignsAdd = {bg = tc.dark0_hard, fg = tc.faded_aqua},
-  GitSignsChange = {bg = tc.dark0_hard, fg = tc.faded_yellow},
-  GitSignsDelete = {bg = tc.dark0_hard, fg = tc.faded_red},
+  GitSignsAdd = {bg = tc.dark0_hard, fg = tc.neutral_green},
+  GitSignsChange = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
+  GitSignsDelete = {bg = tc.dark0_hard, fg = tc.neutral_red},
   GitSignsCurrentLineBlame = {default = true, fg = tc.dark2},
 
   -- indent-blankline.nvim colors.

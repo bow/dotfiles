@@ -192,7 +192,7 @@ local active_L = {
 local active_R = {
   {
     provider = 'git_diff_added',
-    hl = {fg = tc.neutral_aqua},
+    hl = {fg = tc.neutral_green},
   },
   {
     provider = 'git_diff_removed',
