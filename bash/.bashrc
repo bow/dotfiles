@@ -172,9 +172,11 @@ alias drni="docker run --rm -itP"
 # execute interactive container, e.g., $dex base /bin/bash
 function dexi() { docker exec -it "${1}" "${2:-/bin/bash}"; }
 # remove exited containers
-function drm() { docker rm "$(docker ps -qf 'status=exited')"; }
+# shellcheck disable=SC2046
+function drm() { docker rm $(docker ps -qf 'status=exited'); }
 # remove dangling images
-function drmi() { docker rmi "$(docker images -qf 'dangling=true')"; }
+# shellcheck disable=SC2046
+function drmi() { docker rmi $(docker images -qf 'dangling=true'); }
 # shell into running container
 function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
