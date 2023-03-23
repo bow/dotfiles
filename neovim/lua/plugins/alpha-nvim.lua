@@ -33,10 +33,10 @@ local function button(sc, txt, keybind, keybind_opts)
 
   local opts = {
     position = 'left',
-    shortcut = sc .. ' → ',
+    shortcut = sc .. ' →  ',
     cursor = cursor,
     align_shortcut = 'left',
-    hl_shortcut = { { 'AlphaButton', 0, #sc }, { 'AlphaButtonSeparator', #sc, #sc + 4 } },
+    hl_shortcut = { { 'AlphaButton', 0, #sc }, { 'AlphaButtonSeparator', #sc, #sc + 5 } },
     shrink_margin = false,
   }
   if keybind then

@@ -1,7 +1,7 @@
 # Prompt format.
 # format = "[➜](blue) $all"
 format = """
-[➜](blue) $username$hostname$sudo \
+[➡](blue) $username$hostname$sudo \
 $git_branch$git_commit$git_status\
 $python\
 $rust\
@@ -18,8 +18,8 @@ $character"""
 add_newline = true
 
 [character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+success_symbol = "[▶](green)"
+error_symbol = "[▶](red)"
 
 [c]
 format = '[•](dimmed white) [[c](cyan)[/](white)($version)](purple) '
