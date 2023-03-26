@@ -204,10 +204,11 @@ function calc() { echo "$*" | bc; }
 
 # helper for creating and activating new pyenv virtualenvs
 function mkpyenv() {
-    py_version=${2:-3.11.0}
     env_name=$1
-    pyenv virtualenv "${py_version}" "${env_name}" \
-        && printf "%s\n%s\n" "${env_name}" "${py_version}" \
+    local_pyenv_version=$(cat "$HOME/.pyenv-version" 2> /dev/null)
+    pyenv_version=${2:-${local_pyenv_version:-3.11.2}}
+    pyenv virtualenv "${pyenv_version}" "${env_name}" \
+        && printf "%s\n%s\n" "${env_name}" "${pyenv_version}" \
         > .python-version \
         && pip install --upgrade pip
 }
