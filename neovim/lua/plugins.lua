@@ -10,7 +10,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
+        commit = '0568104bf8d0c3ab16395433fcc5c1638efc25d4',
       },
     },
     config = function(_) require('plugins.alpha-nvim') end,
@@ -25,7 +25,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
+        commit = '0568104bf8d0c3ab16395433fcc5c1638efc25d4',
       }
     },
     config = function(_) require('plugins.barbar-nvim') end,
@@ -40,7 +40,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
+        commit = '0568104bf8d0c3ab16395433fcc5c1638efc25d4',
       },
       {
         'lewis6991/gitsigns.nvim',
@@ -140,7 +140,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
+        commit = '0568104bf8d0c3ab16395433fcc5c1638efc25d4',
       },
     },
     config = function(_) require('plugins.nvim-tree') end,
@@ -177,7 +177,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
+        commit = '0568104bf8d0c3ab16395433fcc5c1638efc25d4',
       },
     },
     config = function(_) require('plugins.trouble-nvim') end,
