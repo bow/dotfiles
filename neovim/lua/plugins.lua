@@ -7,13 +7,13 @@ local specs = {
   {
     'goolord/alpha-nvim',
     commit = '09e5374465810d71c33e9b097214adcdebeee49a',
-    requires = {
+    dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
         commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
-    config = function() require('plugins.alpha-nvim') end,
+    config = function(_) require('plugins.alpha-nvim') end,
   },
   {
     'pearofducks/ansible-vim',
@@ -22,13 +22,13 @@ local specs = {
   {
     'romgrk/barbar.nvim',
     commit = 'e5f1393350cf842389be289c03885b92ab29ffb3',
-    requires = {
+    dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
         commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       }
     },
-    config = function() require('plugins.barbar-nvim') end,
+    config = function(_) require('plugins.barbar-nvim') end,
   },
   {
     'saadparwaiz1/cmp_luasnip',
@@ -37,7 +37,7 @@ local specs = {
   {
     'feline-nvim/feline.nvim',
     commit = '6d4e3f934bffaa1893a690cd9b8f8b584ef0a7ea',
-    requires = {
+    dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
         commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
@@ -47,21 +47,22 @@ local specs = {
         commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
       },
     },
-    config = function() require('plugins.feline-nvim') end,
+    config = function(_) require('plugins.feline-nvim') end,
   },
   {
     'j-hui/fidget.nvim',
     commit = '44585a0c0085765195e6961c15529ba6c5a2a13b',
-    config = function() require('plugins.fidget-nvim') end,
+    config = function(_) require('plugins.fidget-nvim') end,
   },
   {
     'lewis6991/gitsigns.nvim',
     commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
-    config = function() require('plugins.gitsigns') end,
+    config = function(_) require('plugins.gitsigns') end,
   },
   {
     'morhetz/gruvbox',
     commit = '040138616bec342d5ea94d4db296f8ddca17007a',
+    priority = 1000,
   },
   {
     'L3MON4D3/LuaSnip',
@@ -70,33 +71,33 @@ local specs = {
   {
     'williamboman/mason.nvim',
     commit = '6600d2af20fc8df1765fbc68283de2a4da17e190',
-    config = function() require('plugins.mason-nvim') end,
+    config = function(_) require('plugins.mason-nvim') end,
   },
   {
     'williamboman/mason-lspconfig.nvim',
     commit = 'a1e2219ecea273d52b1ce1d527dd3a93cfe5b396',
-    after = 'mason.nvim',
+    dependencies = {'mason.nvim'},
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
     commit = 'c51978f546a86a653f4a492b86313f4616412cec',
-    requires = {
+    dependencies = {
       {
         'nvim-lua/plenary.nvim',
         commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
       },
     },
-    config = function() require('plugins.null-ls-nvim') end,
+    config = function(_) require('plugins.null-ls-nvim') end,
   },
   {
     'lukas-reineke/indent-blankline.nvim',
     commit = 'db7cbcb40cc00fc5d6074d7569fb37197705e7f6',
-    config = function() require('plugins.indent-blankline-nvim') end,
+    config = function(_) require('plugins.indent-blankline-nvim') end,
   },
   {
     'windwp/nvim-autopairs',
     commit = '4fc96c8f3df89b6d23e5092d31c866c53a346347',
-    config = function() require('plugins.nvim-autopairs') end,
+    config = function(_) require('plugins.nvim-autopairs') end,
   },
   {
     'hrsh7th/nvim-cmp',
@@ -125,24 +126,24 @@ local specs = {
   {
     'neovim/nvim-lspconfig',
     commit = '2b802ab1e94d595ca5cc7c55f9d1fb9b17f9754c',
-    config = function() require('plugins.lspconfig') end,
-    after = 'mason-lspconfig.nvim',
+    config = function(_) require('plugins.lspconfig') end,
+    dependencies = {'mason-lspconfig.nvim'},
   },
   {
     'SmiteshP/nvim-navic',
     commit = '40c0ab2640a0e17c4fad7e17f260414d18852ce6',
-    config = function() require('nvim-navic').setup() end,
+    config = function(_) require('nvim-navic').setup() end,
   },
   {
     'nvim-tree/nvim-tree.lua',
     commit = '68a2a0971eb50f13e4d54498a2add73f131b9a85',
-    requires = {
+    dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
         commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
-    config = function() require('plugins.nvim-tree') end,
+    config = function(_) require('plugins.nvim-tree') end,
   },
   {
     'luochen1990/rainbow',
@@ -151,40 +152,40 @@ local specs = {
   {
     'nvim-telescope/telescope.nvim',
     commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c',
-    requires = {
+    dependencies = {
       {
         'nvim-lua/plenary.nvim',
         commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
       },
     },
-    config = function() require('plugins.telescope-nvim') end,
+    config = function(_) require('plugins.telescope-nvim') end,
   },
   {
     'folke/todo-comments.nvim',
     commit = '1b9df577262b2c4c4ea422161742927f80ffa131',
-    requires = {
+    dependencies = {
       {
         'nvim-lua/plenary.nvim',
         commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
       },
     },
-    config = function() require('plugins.todo-comments-nvim') end,
+    config = function(_) require('plugins.todo-comments-nvim') end,
   },
   {
     'folke/trouble.nvim',
     commit = '897542f90050c3230856bc6e45de58b94c700bbf',
-    requires = {
+    dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
         commit = '3b1b794bc17b7ac3df3ae471f1c18f18d1a0f958',
       },
     },
-    config = function() require('plugins.trouble-nvim') end,
+    config = function(_) require('plugins.trouble-nvim') end,
   },
   {
     'ntpeters/vim-better-whitespace',
     commit = 'c5afbe91d29c5e3be81d5125ddcdc276fd1f1322',
-    config = function() require('plugins.vim-better-whitespace') end,
+    config = function(_) require('plugins.vim-better-whitespace') end,
   },
   {
     'alvan/vim-closetag',
@@ -217,7 +218,7 @@ local specs = {
   {
     'dstein64/vim-startuptime',
     commit = '5f52ed26e0296a3e1d1453935f417e5808eefab8',
-    opt = true,
+    lazy = true,
     cmd = {'StartupTime'},
   },
   {
@@ -279,8 +280,8 @@ local specs = {
   {
     'snakemake/snakemake',
     commit = '9da571f29c3e4b2c77f8465edcb7e21c91f5feb7',
-    rtp = 'misc/vim',
     ft = 'snakemake',
+    config = function(plugin) vim.opt.rtp:append(plugin.dir .. '/misc/vim') end,
   },
   {
     'cespare/vim-toml',
@@ -294,57 +295,4 @@ local specs = {
   },
 }
 
--- Set autoreload for this file after writing.
-vim.api.nvim_create_autocmd(
-  'BufWritePost',
-  {
-    pattern = {'plugins.lua'},
-    callback = function()
-      vim.cmd [[
-        luafile plugins.lua
-        PackerCompile
-      ]]
-    end,
-  }
-)
-
---- Clone packer.nvim if it does not yet exist.
--- @return whether packer.nvim is newly cloned or not.
-local function bootstrap()
-  local fn = vim.fn
-  local packer_url = 'https://github.com/wbthomason/packer.nvim'
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  local cloned = nil
-
-  require('utils').check_exe {'git', '--version'}
-
-  if fn.empty(fn.glob(install_path)) > 0 then
-    cloned = fn.system {'git', 'clone', '--depth', '1', packer_url, install_path}
-    vim.cmd [[packadd packer.nvim]]
-  end
-
-  return cloned ~= nil
-end
-
---- Load all plugins.
-local function load(plugins)
-  local bootstrapped = bootstrap()
-  local packer = require('packer')
-
-  packer.startup(
-    function(use)
-      use('wbthomason/packer.nvim', {commit = '6db20b4804b432beb04abe2a3e850e03e0ec1f27'})
-
-      for _, plugin in ipairs(plugins) do
-        use(plugin)
-      end
-
-      -- Automatically set up configuration after cloning packer.nvim.
-      if bootstrapped then
-        packer.sync()
-      end
-    end
-  )
-end
-
-load(specs)
+require('lazy').setup(specs)

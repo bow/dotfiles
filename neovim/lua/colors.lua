@@ -3,7 +3,6 @@ local opt = vim.opt
 local tc = require('constants').gruvbox
 local u = require('utils')
 
-opt.termguicolors = true
 opt.background = 'dark'
 
 g.gruvbox_italic = true
