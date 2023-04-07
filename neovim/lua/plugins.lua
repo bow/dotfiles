@@ -136,7 +136,7 @@ local specs = {
   },
   {
     'nvim-tree/nvim-tree.lua',
-    commit = '68a2a0971eb50f13e4d54498a2add73f131b9a85',
+    commit = 'd1410cb0896a3aad5d84ddc54284774a627c6d63',
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
