@@ -18,8 +18,10 @@ require('nvim-tree').setup {
     }
   },
   view = {
-    width = '20%'
+    width = '20%',
+    side = 'right',
   },
+  remove_keymaps = {"<C-t>"},
 }
 
 local u = require('utils')
