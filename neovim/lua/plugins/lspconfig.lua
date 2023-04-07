@@ -241,6 +241,15 @@ opt_lspconfig {
   }
 }
 
+opt_lspconfig {
+  name = 'jdtls',
+  opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  }
+}
+
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 
