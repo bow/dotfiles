@@ -78,7 +78,7 @@ local function in_array(needle, haystack)
   return false
 end
 
-local disabled_filetypes = {'alpha', 'Trouble'}
+local disabled_filetypes = {'alpha', 'Trouble', 'NvimTree'}
 
 local function ft_disabled()
   return in_array(vim.bo.filetype, disabled_filetypes)
@@ -276,6 +276,7 @@ local inactive_R = {
         file_modified_icon = '',
       }
     },
+    enabled = ft_enabled,
     icon = '',
     hl = {bg = tc.dark0_hard, fg = tc.dark2},
     left_sep = {
