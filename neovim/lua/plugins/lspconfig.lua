@@ -254,6 +254,11 @@ opt_lspconfig {
 local luasnip = require('luasnip')
 local cmp = require('cmp')
 
+local autopairs_loaded, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
+if not autopairs_loaded then
+  cmp_autopairs = nil
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -319,3 +324,9 @@ cmp.setup.cmdline(
     )
   }
 )
+if cmp_autopairs ~= nil then
+  cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+  )
+end
