@@ -80,6 +80,7 @@ u.set_hls {
 
   -- gitsigns.nvim colors.
   GitSignsAdd = {bg = tc.dark0_hard, fg = tc.neutral_green},
+  GitSignsUntracked = {bg = tc.dark0_hard, fg = tc.dark2},
   GitSignsChange = {bg = tc.dark0_hard, fg = tc.neutral_yellow},
   GitSignsDelete = {bg = tc.dark0_hard, fg = tc.neutral_red},
   GitSignsCurrentLineBlame = {default = true, fg = tc.dark2},

@@ -44,7 +44,7 @@ local specs = {
       },
       {
         'lewis6991/gitsigns.nvim',
-        commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
+        commit = 'bb808fc7376ed7bac0fbe8f47b83d4bf01738167',
       },
     },
     config = function(_) require('plugins.feline-nvim') end,
@@ -56,7 +56,7 @@ local specs = {
   },
   {
     'lewis6991/gitsigns.nvim',
-    commit = 'd7e0bcbe45bd9d5d106a7b2e11dc15917d272c7a',
+    commit = 'bb808fc7376ed7bac0fbe8f47b83d4bf01738167',
     config = function(_) require('plugins.gitsigns') end,
   },
   {

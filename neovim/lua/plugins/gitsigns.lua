@@ -1,17 +1,18 @@
 require('gitsigns').setup {
   signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '▊', numhl='', linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '▊', numhl='', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
-    topdelete    = {hl = 'GitSignsDelete', text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
-    changedelete = {hl = 'GitSignsChange', text = '▊', numhl='', linehl='GitSignsChangeLn'},
+    add          = {hl = 'GitSignsAdd'      , text = '▊', numhl='', linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange'   , text = '▊', numhl='', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete'   , text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete'   , text = '🬋', numhl='', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange'   , text = '▊', numhl='', linehl='GitSignsChangeLn'},
+    untracked    = {hl = 'GitSignsUntracked', text = '▊', numhl='', linehl='GitSignsUntrackedLn'},
   },
   numhl = true,
   current_line_blame = false,
   current_line_blame_opts = {
     delay = 0,
   },
-  current_line_blame_formatter = '◆ <author_time:%d/%m/%y> <abbrev_sha> · <summary> [<author>]',
+  current_line_blame_formatter = '• <author_time:%d/%m/%y> <abbrev_sha> <summary> [<author>]',
 
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
