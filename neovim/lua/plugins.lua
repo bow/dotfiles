@@ -36,7 +36,7 @@ local specs = {
   },
   {
     'feline-nvim/feline.nvim',
-    commit = '6d4e3f934bffaa1893a690cd9b8f8b584ef0a7ea',
+    commit = 'd48b6f92c6ccdd6654c956f437be49ea160b5b0c',
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
