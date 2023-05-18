@@ -131,7 +131,7 @@ local specs = {
   },
   {
     'SmiteshP/nvim-navic',
-    commit = '40c0ab2640a0e17c4fad7e17f260414d18852ce6',
+    commit = '15704c607569d6c5cfeab486d3ef9459645a70ce',
     config = function(_) require('nvim-navic').setup() end,
   },
   {
