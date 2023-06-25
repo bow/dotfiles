@@ -27,6 +27,7 @@ progs=(
     [readline]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
+    [tmux]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
     [zathura]="${HOME}/.config/zathura"
