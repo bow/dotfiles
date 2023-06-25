@@ -196,6 +196,11 @@ function pcp() {
         && echo "${target}"
 }
 
+# open an ssh connection and run tmux
+function sshx() {
+    ssh "${1}" -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'
+}
+
 # sudo and then immediately forget cache
 function sudok() { sudo "$@"; sudo -k; }
 
