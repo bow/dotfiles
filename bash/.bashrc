@@ -284,6 +284,11 @@ function wttr() {
     curl http://wttr.in/"${1:-Copenhagen}"
 }
 
+# open url directly in web browser
+function brw() {
+    python -m webbrowser -t "${1:-google.com}"
+}
+
 # set 'open' handlers from shell
 if has_exe handlr; then
     function open() { handlr open "${1:-.}"; }
