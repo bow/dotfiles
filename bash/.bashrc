@@ -289,6 +289,20 @@ function brw() {
     python -m webbrowser -t "${1:-google.com}"
 }
 
+# get absolute path to python module
+function wpymod() {
+    local modname="${1}"
+python <<EOF || false
+import sys
+try:
+    import ${modname}
+except ImportError:
+    print("Error: module '$1' not found")
+    sys.exit(1)
+print(${modname}.__file__)
+EOF
+}
+
 # set 'open' handlers from shell
 if has_exe handlr; then
     function open() { handlr open "${1:-.}"; }
