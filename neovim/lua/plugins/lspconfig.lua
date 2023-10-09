@@ -206,10 +206,28 @@ opt_lspconfig {
       pylsp = {
         configurationSources = {'flake8'},
         plugins = {
+          autopep8 = {
+            enabled = false
+          },
+          mccabe = {
+            enabled = false
+          },
+          pyflakes = {
+            enabled = false
+          },
+          pylint = {
+            enabled = false
+          },
+          pycodestyle = {
+            enabled = false
+          },
           pylsp_mypy = {
             enabled = true,
             dmypy = true,
           },
+          yapf = {
+            enabled = false,
+          }
         },
       },
     },
