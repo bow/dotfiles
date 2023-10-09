@@ -103,6 +103,8 @@ null_ls.setup {
     -- Go
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.gofmt,
+    -- Python
+    null_ls.builtins.formatting.black,
     -- Terraform
     null_ls.builtins.formatting.terraform_fmt.with {
       filetypes = {"terraform", "tf", "hcl"},
