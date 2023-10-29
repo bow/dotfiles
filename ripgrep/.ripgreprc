@@ -1,0 +1,42 @@
+# Search hidden files and directories.
+--hidden
+
+# Follow symbolic links.
+--follow
+
+# Don't respect ignore files (.gitignore, .ignore, etc.).
+--no-ignore
+
+# Exclude directories.
+--glob=!**/.git/*
+--glob=!**/.cache/*
+--glob=!**/{.mypy_cache,.pytest_cache,.pyenv,.tox,.vpython-root,_build,htmlcov,}/*
+--glob=!**/{node_modules,.npm,dist}/*
+--glob=!**/target/*
+--glob=!**/sandbox/*
+
+# Exclude files.
+--glob=!{poetry.lock,.dmypy.json,.junit.xml}
+--glob=!Cargo.lock
+--glob=!go.sum
+--glob=!{.coverage.xml,.coverage.out}
+--glob=!*.min.css
+--glob=!*.db
+
+# Adjust for long lines
+--max-columns=110
+--max-columns-preview
+
+# Searches case insensitively.
+--smart-case
+
+# Sort by file path.
+--sort=path
+
+# Configure color settings and styles.
+--colors=path:fg:0x68,0x9d,0x6a
+--colors=path:style:bold
+--colors=line:fg:0x92,0x83,0x74
+--colors=match:bg:0xd7,0x99,0x21
+--colors=match:fg:0x00,0x00,0x00
+--colors=match:style:nobold

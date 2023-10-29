@@ -130,6 +130,11 @@ else
     export EDITOR="vi"
 fi
 
+# set ripgreprc
+if has_exe rg; then
+    export RIPGREP_CONFIG_PATH=${HOME}/.ripgreprc
+fi
+
 # aliases
 alias ls='ls -F --color=auto'           # colorize
 alias less='less -SN'                   # no wraps and include line numbers

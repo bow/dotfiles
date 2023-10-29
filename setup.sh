@@ -25,6 +25,7 @@ progs=(
     [r]="${HOME}"
     [rofi]="${HOME}/.config/rofi"
     [readline]="${HOME}"
+    [ripgrep]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
     [tmux]="${HOME}"
