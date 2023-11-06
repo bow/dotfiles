@@ -237,7 +237,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = 'sumneko_lua',
+  name = 'lua_ls',
   opts = {
     on_attach = on_attach,
     capabilities = capabilities,
