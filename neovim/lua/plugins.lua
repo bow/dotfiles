@@ -32,7 +32,7 @@ local specs = {
   },
   {
     'saadparwaiz1/cmp_luasnip',
-    commit = '18095520391186d634a0045dacaa346291096566',
+    commit = '05a9ab28b53f71d1aece421ef32fee2cb857a843',
   },
   {
     'feline-nvim/feline.nvim',
@@ -101,7 +101,7 @@ local specs = {
   },
   {
     'hrsh7th/nvim-cmp',
-    commit = 'a188be8559d625049010e3b814ad30a2447095bd',
+    commit = '51260c02a8ffded8e16162dcf41a23ec90cfba62',
   },
   {
     'hrsh7th/cmp-buffer',
@@ -113,19 +113,19 @@ local specs = {
   },
   {
     'hrsh7th/cmp-cmdline',
-    commit = '23c51b2a3c00f6abc4e922dbd7c3b9aca6992063',
+    commit = '8ee981b4a91f536f52add291594e89fb6645e451',
   },
   {
     'hrsh7th/cmp-nvim-lsp',
-    commit = '59224771f91b86d1de12570b4070fe4ad7cd1eeb',
+    commit = '44b16d11215dce86f253ce0c30949813c0a90765',
   },
   {
     'hrsh7th/cmp-nvim-lsp-signature-help',
-    commit = 'd2768cb1b83de649d57d967085fe73c5e01f8fd7',
+    commit = '3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1',
   },
   {
     'neovim/nvim-lspconfig',
-    commit = '2b802ab1e94d595ca5cc7c55f9d1fb9b17f9754c',
+    commit = 'b44737605807023d32e6310b87ba69f4dbf10e0e',
     config = function(_) require('plugins.lspconfig') end,
     dependencies = {'mason-lspconfig.nvim'},
   },
