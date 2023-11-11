@@ -5,7 +5,21 @@ local au = api.nvim_create_autocmd
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<A-e>', vim.diagnostic.open_float, opts)
+vim.keymap.set(
+  'n',
+  '<C-e>',
+  function(_)
+    return vim.diagnostic.open_float(
+      nil,
+      {
+        focusable = false,
+        scope = 'cursor',
+        -- close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}
+      }
+    )
+  end,
+  opts
+)
 vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
