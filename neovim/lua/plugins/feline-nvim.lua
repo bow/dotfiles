@@ -78,7 +78,7 @@ local function in_array(needle, haystack)
   return false
 end
 
-local disabled_filetypes = {'alpha', 'Trouble', 'NvimTree'}
+local disabled_filetypes = {'alpha', 'Trouble', 'NvimTree', 'DiffviewFiles', 'DiffviewFilePanel'}
 
 local function ft_disabled()
   return in_array(vim.bo.filetype, disabled_filetypes)
