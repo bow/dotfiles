@@ -100,6 +100,10 @@ local specs = {
     config = function(_) require('plugins.nvim-autopairs') end,
   },
   {
+    'sindrets/diffview.nvim',
+    commit = 'd38c1b5266850f77f75e006bcc26213684e1e141',
+  },
+  {
     'hrsh7th/nvim-cmp',
     commit = '51260c02a8ffded8e16162dcf41a23ec90cfba62',
   },
