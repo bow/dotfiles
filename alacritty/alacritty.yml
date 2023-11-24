@@ -55,22 +55,13 @@ scrolling:
 
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    family: InconsolataGo Nerd Font Mono
-
-    # The `style` can be specified to pick a specific face.
-    style: Regular
-
-  # Point size
-  size: 8.5
-
+    family: Iosevka Term SS03
+    style: Light
+  italic:
+    family: Iosevka Term SS03
+    style: Light Oblique
+  size: 8
 
 # Colors
 colors:
