@@ -87,3 +87,4 @@ sandbox
 .ignore
 
 coc-settings.json
+.todoix.toml
