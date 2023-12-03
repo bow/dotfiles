@@ -16,6 +16,9 @@ test.py
 venv
 .ipynb_checkpoints/
 
+# Rust
+tarpaulin-report.html
+
 # Java
 .settings/
 .project
