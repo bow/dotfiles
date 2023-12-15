@@ -10,6 +10,7 @@ declare -A progs
 progs=(
     [alacritty]="${HOME}/.config/alacritty"
     [bash]="${HOME}"
+    [bat]="${HOME}/.config/bat"
     [conda]="${HOME}"
     [elixir]="${HOME}"
     [gitconfig]="${HOME}"
