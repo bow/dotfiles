@@ -284,22 +284,6 @@ function unpack() {
     esac
 }
 
-function frg {
-    result=$(
-        rg --ignore-case --color=always --line-number --no-heading "$@" \
-        | fzf \
-            --ansi --color 'hl:-1:underline,hl+:-1:underline:reverse' \
-            --delimiter ':' \
-            --preview "bat --color=always {1} --theme='gruvbox-dark' --highlight-line {2}" \
-            --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
-    )
-    file="${result%%:*}"
-    linenumber=$(echo "${result}" | cut -d: -f2)
-    if [ -n "$file" ]; then
-            $EDITOR +"${linenumber}" "$file"
-    fi
-}
-
 # check weather from wego
 function wttr() {
     curl http://wttr.in/"${1:-Copenhagen}"
@@ -323,6 +307,29 @@ except ImportError:
 print(${modname}.__file__)
 EOF
 }
+
+# set bat + rg + fzf helper if all executables exist
+if has_exe bat; then
+    if has_exe rg; then
+        if has_exe fzf; then
+            function frg() {
+                result=$(
+                    rg --ignore-case --color=always --line-number --no-heading "$@" \
+                    | fzf \
+                        --ansi --color 'hl:-1:underline,hl+:-1:underline:reverse' \
+                        --delimiter ':' \
+                        --preview "bat --color=always {1} --theme='gruvbox-dark' --highlight-line {2}" \
+                        --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'
+                )
+                file="${result%%:*}"
+                linenumber=$(echo "${result}" | cut -d: -f2)
+                if [ -n "$file" ]; then
+                        $EDITOR +"${linenumber}" "$file"
+                fi
+            }
+        fi
+    fi
+fi
 
 # set 'open' handlers from shell
 if has_exe handlr; then
