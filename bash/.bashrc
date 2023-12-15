@@ -308,8 +308,14 @@ print(${modname}.__file__)
 EOF
 }
 
-# set bat + rg + fzf helper if all executables exist
+# set bat + rg + fzf helpers if all executables exist
 if has_exe bat; then
+
+    alias bathelp="bat --plain --language=help"
+    function help() {
+        "$@" --help 2>&1 | bat --plain --language=help
+    }
+
     if has_exe rg; then
         if has_exe fzf; then
             function frg() {
