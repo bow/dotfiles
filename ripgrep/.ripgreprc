@@ -18,7 +18,7 @@
 # Exclude files.
 --glob=!{poetry.lock,.dmypy.json,.junit.xml}
 --glob=!{Cargo.lock,tarpaulin-report.html}
---glob=!go.sum
+--glob=!{go.sum,.coverage.out.all}
 --glob=!{.coverage.xml,.coverage.out,coverage.html}
 --glob=!*.min.css
 --glob=!*.db
