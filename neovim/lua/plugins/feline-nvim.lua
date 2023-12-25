@@ -69,6 +69,24 @@ local function provide_vi_mode_mod(component, opts)
   return  ' ' .. short_mode .. ' ', tbl
 end
 
+local function provide_git_diff_added_mod()
+  local wrapped = require('feline.providers.git').git_diff_added
+  local str, _ = wrapped()
+  return str, ' 󰐖 '
+end
+
+local function provide_git_diff_removed_mod()
+  local wrapped = require('feline.providers.git').git_diff_removed
+  local str, _ = wrapped()
+  return str, ' 󰍵 '
+end
+
+local function provide_git_diff_changed_mod()
+  local wrapped = require('feline.providers.git').git_diff_changed
+  local str, _ = wrapped()
+  return str, ' 󱗜 '
+end
+
 local function in_array(needle, haystack)
   for _, item in ipairs(haystack) do
     if needle == item then
@@ -191,15 +209,15 @@ local active_L = {
 
 local active_R = {
   {
-    provider = 'git_diff_added',
+    provider = 'git_diff_added_mod',
     hl = {fg = tc.neutral_green},
   },
   {
-    provider = 'git_diff_removed',
+    provider = 'git_diff_removed_mod',
     hl = {fg = tc.neutral_red},
   },
   {
-    provider = 'git_diff_changed',
+    provider = 'git_diff_changed_mod',
     hl = {fg = tc.neutral_yellow},
   },
   {
@@ -311,6 +329,9 @@ feline.setup {
   custom_providers = {
     cursor_position = provide_cursor_position,
     vi_mode_mod = provide_vi_mode_mod,
+    git_diff_added_mod = provide_git_diff_added_mod,
+    git_diff_removed_mod = provide_git_diff_removed_mod,
+    git_diff_changed_mod = provide_git_diff_changed_mod,
   },
   vi_mode_colors = vi_mode_colors,
 }
