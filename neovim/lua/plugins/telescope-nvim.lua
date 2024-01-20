@@ -19,7 +19,7 @@ require('telescope').setup {
 }
 
 u.nnoremap {'<C-p>', '<cmd>lua require("telescope.builtin").find_files { find_command = { "rg", "--files", "--follow", "--hidden", "--ignore", "--ignore-file", vim.fn.expand("~/.config/git/ignore") } }<cr>'}
-u.nnoremap {'<C-c>', '<cmd>Telescope live_grep<cr>'}
+u.nnoremap {'<C-i>', '<cmd>Telescope live_grep<cr>'}
 u.nnoremap {'<C-f>', '<cmd>Telescope grep_string<cr>'}
 u.nnoremap {'<C-u>', '<cmd>Telescope buffers<cr>'}
 u.nnoremap {'<C-g>', '<cmd>Telescope git_status<cr>'}

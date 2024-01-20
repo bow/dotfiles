@@ -5,6 +5,11 @@
 -- Plugins to load.
 local specs = {
   {
+    'stevearc/aerial.nvim',
+    commit = '8ccc18055ba855affec5c251e615b92595ac2dba',
+    config = function(_) require('plugins.aerial-nvim') end,
+  },
+  {
     'goolord/alpha-nvim',
     commit = '09e5374465810d71c33e9b097214adcdebeee49a',
     dependencies = {
