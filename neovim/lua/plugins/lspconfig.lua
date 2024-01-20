@@ -209,6 +209,25 @@ opt_lspconfig {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          features = "all",
+          buildScripts = {
+            enable = true,
+          },
+        },
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        procMacro = {
+          enable = true
+        },
+      }
+    }
   }
 }
 
