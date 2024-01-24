@@ -2,6 +2,13 @@
 --
 -- nvim/lua/plugins.lua
 
+
+-- Shared dependency versions.
+local commits = {
+  nvim_web_devicons = '140edfcf25093e8b321d13e154cbce89ee868ca0',
+  gitsigns_nvim = '6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2',
+}
+
 -- Plugins to load.
 local specs = {
   {
@@ -15,7 +22,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '986875b7364095d6535e28bd4aac3a9357e91bbe',
+        commit = commits.nvim_web_devicons,
       },
     },
     config = function(_) require('plugins.alpha-nvim') end,
@@ -30,7 +37,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '986875b7364095d6535e28bd4aac3a9357e91bbe',
+        commit = commits.nvim_web_devicons,
       }
     },
     config = function(_) require('plugins.barbar-nvim') end,
@@ -40,16 +47,16 @@ local specs = {
     commit = '05a9ab28b53f71d1aece421ef32fee2cb857a843',
   },
   {
-    'feline-nvim/feline.nvim',
-    commit = 'd48b6f92c6ccdd6654c956f437be49ea160b5b0c',
+    'freddiehaddad/feline.nvim',
+    commit = '6cfbe0608d2552a7d947c6f521670b10379fbe42',
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '986875b7364095d6535e28bd4aac3a9357e91bbe',
+        commit = commits.nvim_web_devicons,
       },
       {
         'lewis6991/gitsigns.nvim',
-        commit = 'bb808fc7376ed7bac0fbe8f47b83d4bf01738167',
+        commit = commits.gitsigns_nvim,
       },
     },
     config = function(_) require('plugins.feline-nvim') end,
@@ -61,7 +68,7 @@ local specs = {
   },
   {
     'lewis6991/gitsigns.nvim',
-    commit = 'bb808fc7376ed7bac0fbe8f47b83d4bf01738167',
+    commit = commits.gitsigns_nvim,
     config = function(_) require('plugins.gitsigns') end,
   },
   {
@@ -149,7 +156,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '986875b7364095d6535e28bd4aac3a9357e91bbe',
+        commit = commits.nvim_web_devicons,
       },
     },
     config = function(_) require('plugins.nvim-tree') end,
@@ -186,7 +193,7 @@ local specs = {
     dependencies = {
       {
         'nvim-tree/nvim-web-devicons',
-        commit = '986875b7364095d6535e28bd4aac3a9357e91bbe',
+        commit = commits.nvim_web_devicons,
       },
     },
     config = function(_) require('plugins.trouble-nvim') end,
