@@ -140,6 +140,16 @@ local specs = {
     commit = '3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1',
   },
   {
+    'mfussenegger/nvim-dap',
+    commit = '9d81c11fd185a131f81841e64941859305f6c42d',
+    config = function(_) require('plugins.dap') end,
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    commit = 'f5b6f3a90aae0284b61fb3565e575267c19a16e6',
+    ft = 'python',
+  },
+  {
     'neovim/nvim-lspconfig',
     commit = 'b44737605807023d32e6310b87ba69f4dbf10e0e',
     config = function(_) require('plugins.lspconfig') end,

@@ -167,4 +167,8 @@ u.set_hls {
   AlphaButton = {fg = tc.bright_yellow},
   AlphaButtonSeparator = {fg = tc.dark4},
   AlphaButtonIcon = {fg = tc.faded_aqua},
+
+  -- DAP highlight groups.
+  DapBreakpointLine = {bg = tc.dark1},
+  DapBreakpointNum = {bg = tc.dark1},
 }
