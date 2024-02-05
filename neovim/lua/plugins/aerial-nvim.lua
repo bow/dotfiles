@@ -9,4 +9,4 @@ require('aerial').setup {
   filter_kind = false,
   autojump = true,
 }
-vim.keymap.set("n", "<C-c>", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<C-o>", "<cmd>AerialToggle!<CR>")

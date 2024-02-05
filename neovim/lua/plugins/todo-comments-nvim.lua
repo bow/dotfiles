@@ -48,4 +48,4 @@ require('todo-comments').setup {
 }
 
 local u = require('utils')
-u.nnoremap {'<C-o>', '<cmd>TodoTelescope<CR>'}
+u.nnoremap {'<C-m>', '<cmd>TodoTelescope<CR>'}

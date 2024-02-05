@@ -48,6 +48,6 @@ vim.cmd [[
 ]]
 -- Insert current timestamp in RFC3399 local format with ms resolution.
 vim.cmd [[
-  nmap <leader>d i<C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR><Esc>
-  imap <leader>d <C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR>
+  nmap <leader>D i<C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR><Esc>
+  imap <leader>D <C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR>
 ]]
