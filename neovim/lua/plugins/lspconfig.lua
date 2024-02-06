@@ -244,6 +244,9 @@ opt_lspconfig {
           autopep8 = {
             enabled = false
           },
+          flake8 = {
+            enabled = true
+          },
           mccabe = {
             enabled = false
           },
@@ -259,6 +262,8 @@ opt_lspconfig {
           pylsp_mypy = {
             enabled = true,
             dmypy = true,
+            report_progress = true,
+            live_mode = true,
           },
           yapf = {
             enabled = false,
