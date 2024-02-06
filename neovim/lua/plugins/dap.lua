@@ -1,4 +1,11 @@
 local u = require('utils')
+local dap = require('dap')
+
+u.nnoremapf {'<C-b>', dap.toggle_breakpoint}
+u.nnoremapf {'<C-c>', dap.continue}
+u.nnoremapf {'<F10>', dap.step_over}
+u.nnoremapf {'<F11>', dap.step_into}
+u.nnoremapf {'<F12>', dap.step_out}
 
 vim.fn.sign_define(
   'DapBreakpoint',
@@ -18,9 +25,3 @@ vim.fn.sign_define(
     numhl = '',
   }
 )
-
-u.nnoremap {'<C-b>', '<cmd>lua require("dap").toggle_breakpoint()<cr>'}
-u.nnoremap {'<C-c>', '<cmd>lua require("dap").continue()<cr>'}
-u.nnoremap {'<F10>', '<cmd>lua require("dap").step_over()<cr>'}
-u.nnoremap {'<F11>', '<cmd>lua require("dap").step_into()<cr>'}
-u.nnoremap {'<F12>', '<cmd>lua require("dap").step_out()<cr>'}
