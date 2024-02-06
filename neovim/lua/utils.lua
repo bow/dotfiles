@@ -1,21 +1,6 @@
 local M = {}
 
 local api = vim.api
-local fn = vim.fn
-
---- Return if an executable exists or not by running the given command.
-function M.has_exe(cmd)
-  local exists, _ = pcall(function() return fn.system(cmd) end)
-  return exists
-end
-
---- Check if an executable exists or not by running the given command.
-function M.check_exe(cmd)
-  local exists = M.has_exe(cmd)
-  if not exists then
-    error(cmd[1] .. ' executable not found')
-  end
-end
 
 --- Set nnoremap mapping with nvim_set_keymap api.
 function M.nnoremap(keymap)
