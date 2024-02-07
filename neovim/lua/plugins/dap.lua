@@ -1,7 +1,8 @@
 local u = require('utils')
 local dap = require('dap')
 
-u.nnoremapf {'<F5>', dap.continue}
+u.nnoremapf {'<C-c>', dap.continue}
+u.nnoremapf {'<F9>', dap.repl.toggle}
 u.nnoremapf {'<F10>', dap.step_over}
 u.nnoremapf {'<F11>', dap.step_into}
 u.nnoremapf {'<F12>', dap.step_out}

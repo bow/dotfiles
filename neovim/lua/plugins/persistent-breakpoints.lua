@@ -7,4 +7,4 @@ pb.setup {
 
 local api = require('persistent-breakpoints.api')
 u.nnoremapf {'<C-b>', api.toggle_breakpoint}
-u.nnoremapf {'<C-c>', api.clear_all_breakpoints}
+u.nnoremapf {'<C-,>', api.clear_all_breakpoints}
