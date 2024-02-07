@@ -25,3 +25,45 @@ vim.fn.sign_define(
     numhl = 'DapStoppedNum',
   }
 )
+
+local python = vim.fn.stdpath('data') .. '/mason/packages/debugpy/venv/bin/python'
+if 1 == vim.fn.filereadable(python) then
+  dap.configurations.python = {
+    {
+      type = 'python',
+      request = 'launch',
+      name = 'Run pytest on current file',
+      module = 'pytest',
+      args = {'${file}'},
+    },
+    {
+      type = 'python',
+      request = 'launch',
+      name = 'Run pytest on current file on named test',
+      module = 'pytest',
+      args = function()
+        local name = vim.fn.input('Test name: ')
+        return {'${file}', '-k', name}
+      end,
+    },
+  }
+
+  local dap_python = require('dap-python')
+  dap_python.setup(
+    python,
+    {
+      include_configs = false,
+      console = 'integratedTerminal',
+      pythonPath = function()
+        if '' ~= vim.env.VIRTUAL_ENV then
+          return vim.env.VIRTUAL_ENV .. '/bin/python'
+        end
+        if vim.fn.executable('pyenv') then
+          return vim.fn.system { 'pyenv', 'which', 'python' }
+        end
+        return '/usr/bin/python'
+      end,
+    }
+  )
+  dap_python.test_runner = 'pytest'
+end
