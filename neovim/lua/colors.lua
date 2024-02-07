@@ -170,5 +170,9 @@ u.set_hls {
 
   -- DAP highlight groups.
   DapBreakpointLine = {bg = tc.dark1},
-  DapBreakpointNum = {bg = tc.dark1},
+  DapBreakpointNum = {bg = tc.faded_orange},
+  DapBreakpointSign = {bg = tc.faded_orange},
+  DapStoppedLine = {bg = tc.dark1},
+  DapStoppedNum = {bg = tc.faded_aqua},
+  DapStoppedSign = {bg = tc.faded_aqua},
 }
