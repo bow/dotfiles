@@ -180,6 +180,11 @@ local specs = {
     config = function(_) require('plugins.nvim-tree') end,
   },
   {
+    'Weissle/persistent-breakpoints.nvim',
+    commit = '01e43512ef8d137f2b9e5c1c74fd35c37e787b59',
+    config = function(_) require('plugins.persistent-breakpoints') end,
+  },
+  {
     'luochen1990/rainbow',
     commit = '54c79a24725af3a15d3aad20f70a56c7abbd46c3',
   },
