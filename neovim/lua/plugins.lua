@@ -7,6 +7,7 @@
 local commits = {
   nvim_web_devicons = '140edfcf25093e8b321d13e154cbce89ee868ca0',
   gitsigns_nvim = '6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2',
+  plenary_nvim = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
 }
 
 -- Plugins to load.
@@ -96,7 +97,7 @@ local specs = {
     dependencies = {
       {
         'nvim-lua/plenary.nvim',
-        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+        commit = commits.plenary_nvim,
       },
     },
     config = function(_) require('plugins.null-ls-nvim') end,
@@ -181,7 +182,7 @@ local specs = {
     dependencies = {
       {
         'nvim-lua/plenary.nvim',
-        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+        commit = commits.plenary_nvim,
       },
     },
     config = function(_) require('plugins.telescope-nvim') end,
@@ -192,7 +193,7 @@ local specs = {
     dependencies = {
       {
         'nvim-lua/plenary.nvim',
-        commit = '96e821e8001c21bc904d3c15aa96a70c11462c5f',
+        commit = commits.plenary_nvim,
       },
     },
     config = function(_) require('plugins.todo-comments-nvim') end,
