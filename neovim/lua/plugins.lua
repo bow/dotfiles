@@ -83,12 +83,12 @@ local specs = {
   },
   {
     'williamboman/mason.nvim',
-    commit = '6600d2af20fc8df1765fbc68283de2a4da17e190',
+    commit = 'c43eeb5614a09dc17c03a7fb49de2e05de203924',
     config = function(_) require('plugins.mason-nvim') end,
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    commit = 'a1e2219ecea273d52b1ce1d527dd3a93cfe5b396',
+    commit = '56e435e09f8729af2d41973e81a0db440f8fe9c9',
     dependencies = {'mason.nvim'},
   },
   {
