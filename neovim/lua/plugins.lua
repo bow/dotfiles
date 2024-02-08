@@ -99,6 +99,11 @@ local specs = {
     dependencies = {'williamboman/mason.nvim'},
   },
   {
+    'folke/neodev.nvim',
+    commit = 'da1562e1e3df0e994ddc52cb4ba22376a5d7f2fc',
+    config = function(_) require('plugins.neodev') end,
+  },
+  {
     'jose-elias-alvarez/null-ls.nvim',
     commit = 'c51978f546a86a653f4a492b86313f4616412cec',
     dependencies = {
@@ -156,6 +161,12 @@ local specs = {
     'mfussenegger/nvim-dap-python',
     commit = 'f5b6f3a90aae0284b61fb3565e575267c19a16e6',
     ft = 'python',
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    commit = '0b4816e5ad5f3219e8e3ec9cce07f61b770c1974',
+    dependencies = {'mfussenegger/nvim-dap'},
+    config = function(_) require('plugins.nvim-dap-ui') end,
   },
   {
     'neovim/nvim-lspconfig',
