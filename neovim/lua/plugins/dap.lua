@@ -1,6 +1,8 @@
 local u = require('utils')
 local dap = require('dap')
 
+u.nnoremapf {'<C-b>', dap.toggle_breakpoint}
+u.nnoremapf {'<C-,>', dap.clear_breakpoints}
 u.nnoremapf {'<C-c>', dap.continue}
 u.nnoremapf {'<F9>', dap.repl.toggle}
 u.nnoremapf {'<F10>', dap.step_over}
