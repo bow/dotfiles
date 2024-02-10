@@ -1,5 +1,12 @@
 local dapui = require('dapui')
+local dap = require('dap')
 local u = require('utils')
 
 dapui.setup()
-u.nnoremapf {'<leader>d', dapui.toggle}
+
+u.nnoremapf {'<leader>du', dapui.toggle}
+
+dap.listeners.before.attach.dapui_config = function() dapui.open() end
+dap.listeners.before.launch.dapui_config = function() dapui.open() end
+dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
