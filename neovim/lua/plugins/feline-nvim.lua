@@ -96,14 +96,38 @@ local function in_array(needle, haystack)
   return false
 end
 
-local disabled_filetypes = {'aerial', 'alpha', 'Trouble', 'NvimTree', 'DiffviewFiles', 'DiffviewFilePanel'}
+local disabled_filetypes = {
+  'DiffviewFiles',
+  'DiffviewFilePanel',
+  'NvimTree',
+  'Trouble',
+  'aerial',
+  'alpha',
+}
 
-local function ft_disabled()
+local dapui_filetypes = {
+  'dap-repl',
+  'dapui_breakpoints',
+  'dapui_console',
+  'dapui_scopes',
+  'dapui_stacks',
+  'dapui_watches',
+}
+
+local function ft_is_dapui()
+  return in_array(vim.bo.filetype, dapui_filetypes)
+end
+
+local function ft_is_disabled()
   return in_array(vim.bo.filetype, disabled_filetypes)
 end
 
 local function ft_enabled()
-  return not ft_disabled()
+  return not ft_is_disabled()
+end
+
+local function ft_enabled_non_dapui()
+  return not ft_is_disabled() and not ft_is_dapui()
 end
 
 local active_L = {
@@ -115,7 +139,7 @@ local active_L = {
         padding = 'center',
       }
     },
-    enabled = ft_enabled,
+    enabled = ft_enabled_non_dapui,
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
@@ -174,7 +198,7 @@ local active_L = {
     icon = '',
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     enabled = function()
-      return ft_enabled() and vim.api.nvim_buf_get_name(0) ~= ''
+      return not ft_is_disabled() and vim.api.nvim_buf_get_name(0) ~= ''
     end,
     left_sep = {
       str = ' ',
@@ -237,7 +261,7 @@ local active_R = {
         case = 'lowercase',
       }
     },
-    enabled = ft_enabled,
+    enabled = ft_enabled_non_dapui,
     hl = {bg = tc.faded_aqua, fg = tc.light1},
     left_sep = {
       {
@@ -260,7 +284,7 @@ local active_R = {
   },
   {
     provider = 'cursor_position',
-    enabled = ft_enabled,
+    enabled = ft_enabled_non_dapui,
     hl = {bg = tc.light3, fg = tc.dark0_hard},
     left_sep = {
       {
