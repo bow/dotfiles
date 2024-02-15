@@ -1,3 +1,6 @@
+# C/C++
+.ccls
+
 # Python
 *.pyc
 *.pyo
