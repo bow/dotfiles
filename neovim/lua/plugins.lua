@@ -191,6 +191,11 @@ local specs = {
     config = function(_) require('plugins.nvim-tree') end,
   },
   {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function(_) require('plugins.treesitter') end,
+  },
+  {
     'Weissle/persistent-breakpoints.nvim',
     commit = '01e43512ef8d137f2b9e5c1c74fd35c37e787b59',
     config = function(_) require('plugins.persistent-breakpoints') end,
