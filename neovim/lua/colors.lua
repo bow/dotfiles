@@ -191,4 +191,20 @@ u.set_hls {
   ['@function.builtin'] = {link = '@function'},
   ['@punctuation'] = {link = '@operator'},
   ['@type.definition'] = {link = '@type'},
+
+  -- Treesitter colors for markup / config files.
+  ['@constant.builtin.yaml'] = {link = 'GruvboxPurple'},
+  ['@property.yaml'] = {link = 'GruvboxBlue'},
+  ['@number.yaml'] = {link = 'GruvboxPurple'},
+  ['@string.yaml'] = {link = 'GruvboxGreen'},
+
+  ['@number.toml'] = {link = '@number.yaml'},
+  ['@property.toml'] = {link = '@property.yaml'},
+  ['@string.toml'] = {link = '@string.yaml'},
+  ['@type.toml'] = {link = 'GruvboxYellow'},
+
+  ['@constant.builtin.json'] = {link = '@constant.builtin.yaml'},
+  ['@number.json'] = {link = '@number.yaml'},
+  ['@property.json'] = {link = '@property.yaml'},
+  ['@string.json'] = {link = '@string.yaml'},
 }
