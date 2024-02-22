@@ -36,6 +36,7 @@ require('nvim-treesitter.configs').setup {
       'python',
       'rust',
       'terraform',
+      'toml',
       'tsv',
       'vim',
       'vimdoc',
