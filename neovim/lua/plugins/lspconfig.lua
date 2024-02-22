@@ -85,6 +85,9 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
 
+  -- Disable semantic tokens.
+  client.server_capabilities.semanticTokensProvider = nil
+
   -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
     local grp_lsphl = augroup('LSPDocumentHighlight', {clear = true})
