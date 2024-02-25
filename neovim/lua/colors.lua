@@ -177,19 +177,20 @@ u.set_hls {
   DapStoppedSign = {bg = tc.faded_aqua},
 
   -- Treesitter colors.
-  ['@function'] = {link = 'GruvboxYellow'},
-  ['@function.builtin'] = {link = 'GruvboxOrange'},
-  ['@function.macro'] = {link = 'GruvboxAqua'},
+  ['@function'] = {link = 'GruvboxAqua'},
+  ['@function.macro'] = {link = 'GruvboxBlue'},
 
   ['@keyword'] = {link = 'GruvboxRed'},
   ['@number'] = {link = 'GruvboxPurple'},
   ['@operator'] = {link = 'GruvboxOrange'},
-  ['@type'] = {link = 'GruvboxBlue'},
-  ['@variable'] = {link = 'GruvboxWhite'},
+  ['@type'] = {link = 'GruvboxYellow'},
+  ['@variable'] = {link = 'GruvboxFg1'},
 
   ['@constant'] = {link = '@number'},
   ['@constant.builtin'] = {link = '@constant'},
   ['@constructor'] = {link = '@function'},
+  ['@function.builtin'] = {link = '@function'},
+  ['@property'] = {link = '@variable'},
   ['@punctuation'] = {link = '@operator'},
   ['@type.definition'] = {link = '@type'},
 
