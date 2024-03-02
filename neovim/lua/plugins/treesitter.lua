@@ -1,3 +1,5 @@
+local u = require('utils')
+
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
       'bash',
@@ -48,3 +50,4 @@ require('nvim-treesitter.configs').setup {
     indent = { enable = false },
   }
 
+u.nnoremap {'<leader>t', '<cmd>Inspect<cr>'}
