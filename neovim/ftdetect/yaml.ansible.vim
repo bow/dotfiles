@@ -1,1 +1,1 @@
-au BufNewFile,BufRead roles/*/*.yml,playbooks/*.yml setl ft=yaml.ansible
+au BufNewFile,BufRead roles/*/*.yml,roles/*/*.yaml,playbooks/*.yml,playbooks/*.yaml setl ft=yaml.ansible
