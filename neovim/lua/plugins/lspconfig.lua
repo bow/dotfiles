@@ -63,6 +63,12 @@ navic.setup {
   safe_output = true
 }
 
+local on_init = function(client, initialization_result)
+  if client.server_capabilities then
+    client.server_capabilities.semanticTokensProvider = false
+  end
+end
+
 local on_attach = function(client, bufnr)
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -84,9 +90,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-
-  -- Disable semantic tokens.
-  client.server_capabilities.semanticTokensProvider = nil
 
   -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
@@ -131,6 +134,8 @@ null_ls.setup {
   capabilities = capabilities,
   flags = lsp_flags,
 
+  on_init = on_init,
+
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     -- Autoformat on save using null-ls.
@@ -170,6 +175,7 @@ end
 opt_lspconfig {
   name = 'ansiblels',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -179,6 +185,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'ccls',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -193,6 +200,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'gopls',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -209,6 +217,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'rust_analyzer',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -237,6 +246,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'pylsp',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -280,6 +290,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'lua_ls',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -306,6 +317,7 @@ opt_lspconfig {
 opt_lspconfig {
   name = 'jdtls',
   opts = {
+    on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
