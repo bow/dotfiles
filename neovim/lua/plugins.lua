@@ -227,6 +227,11 @@ local specs = {
     config = function(_) require('plugins.todo-comments-nvim') end,
   },
   {
+    'akinsho/toggleterm.nvim',
+    commit = '193786e0371e3286d3bc9aa0079da1cd41beaa62',
+    config = function(_) require('plugins.toggleterm-nvim') end,
+  },
+  {
     'folke/trouble.nvim',
     commit = '897542f90050c3230856bc6e45de58b94c700bbf',
     dependencies = {
