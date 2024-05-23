@@ -67,9 +67,6 @@ opt.relativenumber = true
 -- Show mark of wrapped lines.
 opt.showbreak = '↪ '
 
--- Set paste mode toggle key.
-opt.pastetoggle = '<F5>'
-
 -- Add paths for file lookup.
 opt.path:append('src/include')
 opt.path:append('/usr/include')

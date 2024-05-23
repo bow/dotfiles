@@ -52,10 +52,14 @@ u.set_hls {
   SpellRare = {default = true, bg = tc.faded_yellow, fg = '#111111'},
   -- TODO notes.
   Todo = {italic = true, bold = true},
-  -- Vertical split color.
-  VertSplit = {fg = tc.dark0, bg = tc.dark0_hard},
   -- Visual selection color.
   Visual = {bg = 'grey23'},
+  -- WinBar of current window.
+  WinBar = {bg = tc.dark0_hard},
+  -- WinBar of not-current window.
+  WinBarNC = {bg = tc.dark0_hard},
+  -- Vertical split color.
+  WinSeparator = {fg = tc.dark0, bg = tc.dark0_hard},
 
   -- barbar.nvim colors.
   BufferCurrent = {bg = tc.dark0_hard, fg = tc.light4},

@@ -170,14 +170,14 @@ local specs = {
   },
   {
     'neovim/nvim-lspconfig',
-    commit = 'b44737605807023d32e6310b87ba69f4dbf10e0e',
+    commit = '0b8165cf95806bc4bb8f745bb0c92021b2ed4b98',
     config = function(_) require('plugins.lspconfig') end,
     dependencies = {'williamboman/mason-lspconfig.nvim'},
   },
   {
     'SmiteshP/nvim-navic',
-    commit = '15704c607569d6c5cfeab486d3ef9459645a70ce',
-    config = function(_) require('nvim-navic').setup() end,
+    commit = '8649f694d3e76ee10c19255dece6411c29206a54',
+    config = function(_) require('plugins.nvim-navic') end,
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -206,7 +206,7 @@ local specs = {
   },
   {
     'nvim-telescope/telescope.nvim',
-    commit = 'd7f09f58954495d1373f3a400596b2fed71a8d1c',
+    commit = 'd829aa64059001ee7b2c8c8aa9c4e6df0b17d893',
     dependencies = {
       {
         'nvim-lua/plenary.nvim',
