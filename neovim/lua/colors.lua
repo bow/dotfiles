@@ -182,7 +182,8 @@ u.set_hls {
 
   -- Treesitter colors.
   ['@function'] = {link = 'GruvboxAqua'},
-  ['@function.macro'] = {link = 'GruvboxBlue'},
+  ['@function.builtin'] = {link = 'GruvboxBlue'},
+  ['@function.macro'] = {link = 'GruvboxOrange'},
 
   ['@keyword'] = {link = 'GruvboxRed'},
   ['@number'] = {link = 'GruvboxPurple'},
@@ -193,7 +194,6 @@ u.set_hls {
   ['@constant'] = {link = '@number'},
   ['@constant.builtin'] = {link = '@constant'},
   ['@constructor'] = {link = '@function'},
-  ['@function.builtin'] = {link = '@function'},
   ['@property'] = {link = '@variable'},
   ['@punctuation'] = {link = '@operator'},
   ['@type.definition'] = {link = '@type'},
