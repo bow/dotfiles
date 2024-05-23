@@ -51,3 +51,8 @@ vim.cmd [[
   nmap <leader>D i<C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR><Esc>
   imap <leader>D <C-R>=trim(system("date '+%Y-%m-%dT%H:%M:%S.%3N%:z'"))<CR>
 ]]
+-- Insert random SHA256 checksum.
+vim.cmd [[
+  nmap <leader>c i<C-R>=trim(system("cat /dev/urandom \| head -n 512 \| sha256sum \| cut -f1 -d' '"))<CR><Esc>
+  imap <leader>c <C-R>=trim(system("cat /dev/urandom \| head -n 512 \| sha256sum \| cut -f1 -d' '"))<CR>
+]]
