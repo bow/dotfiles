@@ -1,7 +1,8 @@
 # Prompt format.
-# format = "[➜](blue) $all"
+# format = "[➜](#008f69) $all"
+# format = "[➜](#007c5b) $all"
 format = """
-[➡](blue) $username$hostname$sudo \
+[➡](#007c5b) $username$hostname$sudo
 $git_branch$git_commit$git_status\
 $python\
 $rust\
@@ -57,7 +58,7 @@ version_format = "${major}.${minor}"
 
 [hostname]
 format = "[@$hostname]($style)"
-style = "blue"
+style = "#007c5b"
 ssh_only = false
 trim_at = ""
 
@@ -91,7 +92,7 @@ style = "#ff7f50"
 disabled = false
 
 [username]
-style_user = "blue"
+style_user = "#007c5b"
 style_root = "red"
 show_always = true
 format = "[$user]($style)"
