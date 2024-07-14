@@ -22,16 +22,16 @@ success_symbol = "[▶](green)"
 error_symbol = "[▶](red)"
 
 [c]
-format = '[•](dimmed white) [[c](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[c](cyan)[/](white)($version)](purple) '
 
 [directory]
-format = "[•](dimmed white) [$read_only]($read_only_style)[$path]($style) "
+format = "[·](dimmed white) [$read_only]($read_only_style)[$path]($style) "
 style = "yellow"
 truncation_length = 100
 truncate_to_repo = false
 
 [git_branch]
-format = "[•](dimmed white) [$branch]($style) "
+format = "[·](dimmed white) [$branch]($style) "
 always_show_remote = true
 style = "bright-black"
 
@@ -52,7 +52,7 @@ staged = '+${count}'
 modified = "*"
 
 [golang]
-format = '[•](dimmed white) [[go](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[go](cyan)[/](white)($version)](purple) '
 version_format = "${major}.${minor}"
 
 [hostname]
@@ -62,27 +62,27 @@ ssh_only = false
 trim_at = ""
 
 [java]
-format = '[•](dimmed white) [[java](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[java](cyan)[/](white)($version)](purple) '
 version_format = "${raw}"
 
 [kotlin]
-format = '[•](dimmed white) [[kt](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[kt](cyan)[/](white)($version)](purple) '
 version_format = "${raw}"
 
 [lua]
-format = '[•](dimmed white) [[lua](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[lua](cyan)[/](white)($version)](purple) '
 detect_folders = []
 
 [nodejs]
-format = '[•](dimmed white) [[js](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[js](cyan)[/](white)($version)](purple) '
 
 [python]
-format = '[•](dimmed white) [[py](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[py](cyan)[/](white)($version)](purple) '
 pyenv_version_name = true
 detect_extensions = [".py"]
 
 [rust]
-format = '[•](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
 
 [sudo]
 format = '[$symbol]($style)'
