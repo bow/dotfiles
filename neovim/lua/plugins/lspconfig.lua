@@ -129,6 +129,8 @@ null_ls.setup {
     null_ls.builtins.formatting.terraform_fmt.with {
       filetypes = {"terraform", "tf", "hcl"},
     },
+    -- Nix
+    null_ls.builtins.formatting.nixpkgs_fmt,
   },
 
   capabilities = capabilities,
@@ -212,6 +214,16 @@ opt_lspconfig {
       },
     },
   }
+}
+
+opt_lspconfig {
+  name = 'nil_ls',
+  opts = {
+    on_init = on_init,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  },
 }
 
 opt_lspconfig {
