@@ -1,8 +1,6 @@
 # Prompt format.
-# format = "[➜](#008f69) $all"
-# format = "[➜](#007c5b) $all"
 format = """
-[➡](#007c5b) $username$hostname$sudo
+$nix_shell$custom $username$hostname$sudo \
 $git_branch$git_commit$git_status\
 $python\
 $rust\
@@ -24,6 +22,11 @@ error_symbol = "[▶](red)"
 
 [c]
 format = '[·](dimmed white) [[c](cyan)[/](white)($version)](purple) '
+
+[custom.non_nix_mark]
+format = '[($output)](bright-black)'
+command = 'printf "%s" "▬"'
+when = '''test -z "$IN_NIX_SHELL"'''
 
 [directory]
 format = "[·](dimmed white) [$read_only]($read_only_style)[$path]($style) "
@@ -73,6 +76,13 @@ version_format = "${raw}"
 [lua]
 format = '[·](dimmed white) [[lua](cyan)[/](white)($version)](purple) '
 detect_folders = []
+
+[nix_shell]
+disabled = false
+format = '[$state](white)'
+impure_msg = '[✲](bold yellow)'
+pure_msg = '[●](bold bright-blue)'
+unknown_msg = '[?](bold bright-black)'
 
 [nodejs]
 format = '[·](dimmed white) [[js](cyan)[/](white)($version)](purple) '
