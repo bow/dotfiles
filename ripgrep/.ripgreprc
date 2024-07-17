@@ -9,6 +9,7 @@
 
 # Exclude directories.
 --glob=!**/.git/*
+--glob=!**/.direnv/*
 --glob=!**/.cache/*
 --glob=!**/{*.egg-info,.mypy_cache,.pytest_cache,.pyenv,.tox,.vpython-root,_build,htmlcov,}/*
 --glob=!**/{node_modules,.npm,dist}/*

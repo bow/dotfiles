@@ -12,6 +12,7 @@ progs=(
     [bash]="${HOME}"
     [bat]="${HOME}/.config/bat"
     [conda]="${HOME}"
+    [direnv]="${HOME}/.config/direnv"
     [elixir]="${HOME}"
     [gitconfig]="${HOME}"
     [gitignore]="${HOME}/.config/git"

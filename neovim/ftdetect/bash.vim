@@ -1,1 +1,1 @@
-au BufNewFile,BufRead .envrc,.envrc-example setl ft=bash
+au BufNewFile,BufRead .envrc,.envrc-private,.envrc-example setl ft=bash
