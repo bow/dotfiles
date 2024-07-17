@@ -1,5 +1,10 @@
 # Local dev
 .direnv
+.env
+.envrc-private
+.ignore
+.tool-versions
+sandbox
 
 # C/C++
 .ccls
@@ -13,14 +18,15 @@
 .coverage.*
 .eggs
 .dmypy.json
+.ipynb_checkpoints/
 .mypy_cache
 .tox
 .pytest_cache
 .python-version
+.venv
 htmlcov
 test.py
 venv
-.ipynb_checkpoints/
 
 # Rust
 tarpaulin-report.html
@@ -83,17 +89,11 @@ Thumbs.db
 
 # Misc
 .luarc.json
-.tool-versions
 *.log
-.envrc
 .scannerwork
 .~lock.*
 *.sif
 .evans.toml
-sandbox
 .todo
 .bak
-.ignore
-
-coc-settings.json
 .tdst.toml
