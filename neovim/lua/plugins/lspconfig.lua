@@ -37,11 +37,17 @@ vim.diagnostic.config {
   float = {
     border = 'single',
     format = function(diagnostic)
+      local code = "?"
+      if diagnostic.code then
+        code = string.format('%s', diagnostic.code)
+      elseif diagnostic.user_data ~= nil then
+        code = string.format('%s', diagnostic.user_data.lsp.code)
+      end
       return string.format(
         '%s (%s) [%s]',
         diagnostic.message,
         diagnostic.source,
-        diagnostic.code or diagnostic.user_data.lsp.code
+        code
       )
     end,
   },
@@ -130,7 +136,9 @@ null_ls.setup {
       filetypes = {"terraform", "tf", "hcl"},
     },
     -- Nix
-    null_ls.builtins.formatting.nixpkgs_fmt,
+    null_ls.builtins.formatting.nixfmt,
+    null_ls.builtins.code_actions.statix,
+    null_ls.builtins.diagnostics.deadnix,
   },
 
   capabilities = capabilities,
