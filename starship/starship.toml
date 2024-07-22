@@ -1,6 +1,7 @@
 # Prompt format.
 format = """
-$nix_shell$custom $username$hostname$sudo \
+$nix_shell$custom$shlvl \
+$username$hostname$sudo \
 $git_branch$git_commit$git_status\
 $python\
 $rust\
@@ -94,6 +95,11 @@ detect_extensions = [".py"]
 
 [rust]
 format = '[·](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
+
+[shlvl]
+disabled = false
+format = '[/](dimmed white)[($shlvl)](white)'
+threshold = 1
 
 [sudo]
 format = '[$symbol]($style)'
