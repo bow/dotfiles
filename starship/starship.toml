@@ -89,7 +89,7 @@ unknown_msg = '[?](bold bright-black)'
 format = '[·](dimmed white) [[js](cyan)[/](white)($version)](purple) '
 
 [python]
-format = '[·](dimmed white) [[py](cyan)[/](white)($version)](purple) '
+format = '[·](dimmed white) [[py](cyan)[/](white)($virtualenv)](purple) '
 pyenv_version_name = true
 detect_extensions = [".py"]
 
