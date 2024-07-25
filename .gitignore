@@ -1,1 +1,2 @@
 .netrwhist
+direnv/lib/*.local.sh
