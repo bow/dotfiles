@@ -1,7 +1,8 @@
 # Prompt format.
 format = """
-$nix_shell$custom$shlvl \
+$nix_shell$custom \
 $username$hostname$sudo \
+$shlvl\
 $git_branch$git_commit$git_status\
 $python\
 $rust\
@@ -98,7 +99,7 @@ format = '[·](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
 
 [shlvl]
 disabled = false
-format = '[/](dimmed white)[($shlvl)](white)'
+format = '[·](dimmed white) [[lv](cyan)[/](white)($shlvl)](purple) '
 threshold = 1
 
 [sudo]
