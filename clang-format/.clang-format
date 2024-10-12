@@ -1,0 +1,14 @@
+BasedOnStyle: LLVM
+
+AlignAfterOpenBracket: BlockIndent
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+AlwaysBreakBeforeMultilineStrings: true
+BreakBeforeBraces: Attach
+ColumnLimit: 112
+IncludeBlocks: Regroup
+IndentCaseLabels: true
+IndentWidth: 4
+LineEnding: LF
+PointerAlignment: Left
+SortIncludes: true
