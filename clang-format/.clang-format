@@ -1,14 +1,25 @@
 BasedOnStyle: LLVM
 
 AlignAfterOpenBracket: BlockIndent
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Empty
 AlwaysBreakBeforeMultilineStrings: true
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Attach
+# TODO: Enable after clang 20 release.
+# BreakBinaryOperations: OnePerLine
 ColumnLimit: 112
-IncludeBlocks: Regroup
+ExperimentalAutoDetectBinPacking: false
+IncludeCategories:
+  - Regex:    '^<.*\.h'
+    Priority: 1
+  - Regex:    '^".*\.h"'
+    Priority: 2
 IndentCaseLabels: true
 IndentWidth: 4
 LineEnding: LF
 PointerAlignment: Left
-SortIncludes: true
+SortIncludes: CaseSensitive
