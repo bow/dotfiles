@@ -115,6 +115,19 @@ null_ls.setup {
     null_ls.builtins.formatting.gofmt,
     -- Python
     null_ls.builtins.formatting.black,
+    -- Lua
+    null_ls.builtins.formatting.stylua.with {
+      extra_args = {
+        "--indent-type",
+        "Spaces",
+        "--indent-width",
+        "2",
+        "--call-parentheses",
+        "Input",
+        "--quote-style",
+        "ForceDouble",
+      },
+    },
     -- Terraform
     null_ls.builtins.formatting.terraform_fmt.with {
       filetypes = { "terraform", "tf", "hcl" },
