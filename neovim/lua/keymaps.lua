@@ -1,36 +1,36 @@
-local u = require('utils')
+local u = require("utils")
 
 -- Window split controls.
-u.nnoremap {'<C-j>', '<C-w><C-j>'}
-u.nnoremap {'<C-k>', '<C-w><C-k>'}
-u.nnoremap {'<C-l>', '<C-w><C-l>', {unique = false}}
-u.nnoremap {'<C-h>', '<C-w><C-h>'}
-u.nnoremap {'<C-Down>', '<C-w>J'}
-u.nnoremap {'<C-Up>', '<C-w>K'}
-u.nnoremap {'<C-Right>', '<C-w>L'}
-u.nnoremap {'<C-Left>', '<C-w>H'}
+u.nnoremap { "<C-j>", "<C-w><C-j>" }
+u.nnoremap { "<C-k>", "<C-w><C-k>" }
+u.nnoremap { "<C-l>", "<C-w><C-l>", { unique = false } }
+u.nnoremap { "<C-h>", "<C-w><C-h>" }
+u.nnoremap { "<C-Down>", "<C-w>J" }
+u.nnoremap { "<C-Up>", "<C-w>K" }
+u.nnoremap { "<C-Right>", "<C-w>L" }
+u.nnoremap { "<C-Left>", "<C-w>H" }
 
 -- Buffer controls.
-u.nnoremap {'<A-Right>', ':bn<CR>'}
-u.nnoremap {'<A-Left>', ':bp<CR>'}
-u.nnoremap {'<C-d>', ':bd<CR>'}
+u.nnoremap { "<A-Right>", ":bn<CR>" }
+u.nnoremap { "<A-Left>", ":bp<CR>" }
+u.nnoremap { "<C-d>", ":bd<CR>" }
 
 -- Session controls.
-u.nnoremap {'<C-q>', ':q<CR>'}
-u.nnoremap {'<C-s>', ':w<CR>'}
-u.nnoremap {'<C-x>', ':x<CR>'}
+u.nnoremap { "<C-q>", ":q<CR>" }
+u.nnoremap { "<C-s>", ":w<CR>" }
+u.nnoremap { "<C-x>", ":x<CR>" }
 
 -- Command shortcut.
-u.nnoremap {';', ':'}
+u.nnoremap { ";", ":" }
 
 -- Relative number toggle.
-u.nnoremap {'<C-n>', ':set relativenumber!<CR>'}
+u.nnoremap { "<C-n>", ":set relativenumber!<CR>" }
 
 -- Search highlighting toggle.
-u.nnoremap {'<silent>', ',/ :set hlsearch!<CR>'}
+u.nnoremap { "<silent>", ",/ :set hlsearch!<CR>" }
 
 -- Config sourcing.
-u.nnoremap {'<leader>sv', ':source $MYVIMRC<CR>'}
+u.nnoremap { "<leader>sv", ":source $MYVIMRC<CR>" }
 
 -- Dropdown controls.
 vim.cmd [[

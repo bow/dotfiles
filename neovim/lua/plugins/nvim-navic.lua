@@ -4,5 +4,5 @@ navic.setup {
   highlight = false,
   lsp = {
     auto_attach = false,
-  }
+  },
 }

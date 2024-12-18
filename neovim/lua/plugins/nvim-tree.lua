@@ -1,4 +1,4 @@
-require('nvim-tree').setup {
+require("nvim-tree").setup {
   git = {
     enable = true,
     ignore = true,
@@ -11,18 +11,18 @@ require('nvim-tree').setup {
     add_trailing = true,
     group_empty = true,
     special_files = {
-      'Makefile',
-      'README.adoc',
-      'README.md',
-      'README.rst',
-    }
+      "Makefile",
+      "README.adoc",
+      "README.md",
+      "README.rst",
+    },
   },
   view = {
-    width = '20%',
-    side = 'right',
+    width = "20%",
+    side = "right",
   },
-  remove_keymaps = {"<C-t>"},
+  remove_keymaps = { "<C-t>" },
 }
 
-local u = require('utils')
-u.nnoremap {'<C-t>', '<cmd>NvimTreeToggle<CR>'}
+local u = require("utils")
+u.nnoremap { "<C-t>", "<cmd>NvimTreeToggle<CR>" }

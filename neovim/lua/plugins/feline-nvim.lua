@@ -1,5 +1,5 @@
-local tc = require('constants').gruvbox
-local vi_mode_utils = require('feline.providers.vi_mode')
+local tc = require("constants").gruvbox
+local vi_mode_utils = require("feline.providers.vi_mode")
 
 local api = vim.api
 
@@ -9,82 +9,82 @@ local theme = {
 }
 
 local vi_mode_colors = {
-  ['NORMAL'] = tc.light3,
-  ['CONFIRM'] = tc.neutral_green,
-  ['OP'] = tc.bright_green,
-  ['INSERT'] = tc.neutral_yellow,
-  ['COMMAND'] = tc.neutral_yellow,
-  ['VISUAL'] = tc.neutral_purple,
-  ['LINES'] = tc.neutral_purple,
-  ['BLOCK'] = tc.neutral_blue,
-  ['REPLACE'] = tc.faded_red,
-  ['V-REPLACE'] = tc.faded_red,
-  ['ENTER'] = tc.bright_blue,
-  ['MORE'] = tc.bright_blue,
-  ['SELECT'] = tc.neutral_orange,
-  ['SHELL'] = tc.neutral_orange,
-  ['TERM'] = tc.neutral_orange,
-  ['NONE'] = tc.light3,
+  ["NORMAL"] = tc.light3,
+  ["CONFIRM"] = tc.neutral_green,
+  ["OP"] = tc.bright_green,
+  ["INSERT"] = tc.neutral_yellow,
+  ["COMMAND"] = tc.neutral_yellow,
+  ["VISUAL"] = tc.neutral_purple,
+  ["LINES"] = tc.neutral_purple,
+  ["BLOCK"] = tc.neutral_blue,
+  ["REPLACE"] = tc.faded_red,
+  ["V-REPLACE"] = tc.faded_red,
+  ["ENTER"] = tc.bright_blue,
+  ["MORE"] = tc.bright_blue,
+  ["SELECT"] = tc.neutral_orange,
+  ["SHELL"] = tc.neutral_orange,
+  ["TERM"] = tc.neutral_orange,
+  ["NONE"] = tc.light3,
 }
 
 local vi_mode_short = {
-  ['NORMAL'] = 'NORM',
-  ['CONFIRM'] = 'CFRM',
-  ['OP'] = 'OP',
-  ['INSERT'] = 'INS',
-  ['VISUAL'] = 'VIS',
-  ['LINES'] = 'LINE',
-  ['BLOCK'] = 'BLK',
-  ['REPLACE'] = 'REP',
-  ['V-REPLACE'] = 'VREP',
-  ['ENTER'] = 'ENT',
-  ['MORE'] = 'MORE',
-  ['SELECT'] = 'SEL',
-  ['COMMAND'] = 'CMD',
-  ['SHELL'] = 'SH',
-  ['TERM'] = 'TERM',
-  ['NONE'] = 'NONE',
+  ["NORMAL"] = "NORM",
+  ["CONFIRM"] = "CFRM",
+  ["OP"] = "OP",
+  ["INSERT"] = "INS",
+  ["VISUAL"] = "VIS",
+  ["LINES"] = "LINE",
+  ["BLOCK"] = "BLK",
+  ["REPLACE"] = "REP",
+  ["V-REPLACE"] = "VREP",
+  ["ENTER"] = "ENT",
+  ["MORE"] = "MORE",
+  ["SELECT"] = "SEL",
+  ["COMMAND"] = "CMD",
+  ["SHELL"] = "SH",
+  ["TERM"] = "TERM",
+  ["NONE"] = "NONE",
 }
 
 local function provide_cursor_position()
   local cursor_line, cursor_col = unpack(api.nvim_win_get_cursor(0))
   cursor_col = cursor_col + 1
   local total_lines = api.nvim_buf_line_count(0)
-  local lpad = string.rep('·', #tostring(total_lines) - #tostring(cursor_line))
-  local cpad = string.rep('·', #tostring(vim.bo.tw) - #tostring(cursor_col))
-  return lpad .. cursor_line .. '/' .. total_lines .. 'L ' .. cpad .. cursor_col .. 'C'
+  local lpad = string.rep("·", #tostring(total_lines) - #tostring(cursor_line))
+  local cpad = string.rep("·", #tostring(vim.bo.tw) - #tostring(cursor_col))
+  return lpad .. cursor_line .. "/" .. total_lines .. "L " .. cpad .. cursor_col .. "C"
 end
 
 local function provide_vi_mode_mod(component, opts)
-  local wrapped = require('feline.providers.vi_mode').vi_mode
+  local wrapped = require("feline.providers.vi_mode").vi_mode
   local str, tbl = wrapped(component, opts)
-  local mode = string.match(str, '%a+', 1)
+  local mode = string.match(str, "%a+", 1)
   local short_mode = vi_mode_short[mode] or mode
   local mode_len = #short_mode
   if mode_len == 2 then
-    short_mode = ' ' .. short_mode .. ' '
+    short_mode = " " .. short_mode .. " "
   elseif mode_len == 3 then
-    short_mode = short_mode .. ' '
+    short_mode = short_mode .. " "
   end
-  return  ' ' .. short_mode .. ' ', tbl
+  return " " .. short_mode .. " ", tbl
 end
 
 local function provide_git_diff_added_mod()
-  local wrapped = require('feline.providers.git').git_diff_added
+  local wrapped = require("feline.providers.git").git_diff_added
   local str, _ = wrapped()
-  return str, ' 󰐖 '
+  return str, " 󰐖 "
 end
 
 local function provide_git_diff_removed_mod()
-  local wrapped = require('feline.providers.git').git_diff_removed
+  local wrapped = require("feline.providers.git").git_diff_removed
   local str, _ = wrapped()
-  return str, ' 󰍵 '
+  return str, " 󰍵 "
 end
 
 local function provide_git_diff_changed_mod()
-  local wrapped = require('feline.providers.git').git_diff_changed
+  local wrapped = require("feline.providers.git").git_diff_changed
   local str, _ = wrapped()
-  return str, ' 󱗜 '
+  return str, " 󱗜 "
 end
 
 local function in_array(needle, haystack)
@@ -97,21 +97,21 @@ local function in_array(needle, haystack)
 end
 
 local disabled_filetypes = {
-  'DiffviewFiles',
-  'DiffviewFilePanel',
-  'NvimTree',
-  'Trouble',
-  'aerial',
-  'alpha',
+  "DiffviewFiles",
+  "DiffviewFilePanel",
+  "NvimTree",
+  "Trouble",
+  "aerial",
+  "alpha",
 }
 
 local dapui_filetypes = {
-  'dap-repl',
-  'dapui_breakpoints',
-  'dapui_console',
-  'dapui_scopes',
-  'dapui_stacks',
-  'dapui_watches',
+  "dap-repl",
+  "dapui_breakpoints",
+  "dapui_console",
+  "dapui_scopes",
+  "dapui_stacks",
+  "dapui_watches",
 }
 
 local function ft_is_dapui()
@@ -133,11 +133,11 @@ end
 local active_L = {
   {
     provider = {
-      name = 'vi_mode_mod',
+      name = "vi_mode_mod",
       opts = {
         show_mode_name = true,
-        padding = 'center',
-      }
+        padding = "center",
+      },
     },
     enabled = ft_enabled_non_dapui,
     hl = function()
@@ -145,13 +145,13 @@ local active_L = {
         name = vi_mode_utils.get_mode_highlight_name(),
         bg = vi_mode_utils.get_mode_color(),
         fg = tc.dark0_hard,
-        style = 'bold',
+        style = "bold",
       }
     end,
-    icon = '',
+    icon = "",
   },
   {
-    provider = '◊',
+    provider = "◊",
     hl = function()
       return {
         name = vi_mode_utils.get_mode_highlight_name(),
@@ -159,9 +159,11 @@ local active_L = {
         fg = tc.dark0_hard,
       }
     end,
-    enabled = function() return vim.opt.paste:get() end,
+    enabled = function()
+      return vim.opt.paste:get()
+    end,
     left_sep = {
-      str = 'slant_right_thin',
+      str = "slant_right_thin",
       hl = function()
         return {
           fg = tc.dark0_hard,
@@ -171,7 +173,7 @@ local active_L = {
     },
   },
   {
-    provider = '',
+    provider = "",
     hl = function()
       return {
         bg = tc.dark0_hard,
@@ -180,7 +182,7 @@ local active_L = {
     end,
   },
   {
-    provider = '',
+    provider = "",
     hl = {
       bg = tc.faded_aqua,
       fg = tc.dark0_hard,
@@ -188,167 +190,170 @@ local active_L = {
   },
   {
     provider = {
-      name = 'file_info',
+      name = "file_info",
       opts = {
-        type = 'unique',
+        type = "unique",
         colored_icon = false,
-        file_modified_icon = '',
-      }
+        file_modified_icon = "",
+      },
     },
-    icon = '',
-    hl = {bg = tc.faded_aqua, fg = tc.light1},
+    icon = "",
+    hl = { bg = tc.faded_aqua, fg = tc.light1 },
     enabled = function()
-      return not ft_is_disabled() and vim.api.nvim_buf_get_name(0) ~= ''
+      return not ft_is_disabled() and vim.api.nvim_buf_get_name(0) ~= ""
     end,
     left_sep = {
-      str = ' ',
-      hl = {bg = tc.faded_aqua},
+      str = " ",
+      hl = { bg = tc.faded_aqua },
     },
     right_sep = {
-      str = ' ',
-      hl = {bg = tc.faded_aqua},
-    }
+      str = " ",
+      hl = { bg = tc.faded_aqua },
+    },
   },
   {
-    provider = '',
-    hl = {bg = tc.dark1, fg = tc.faded_aqua},
+    provider = "",
+    hl = { bg = tc.dark1, fg = tc.faded_aqua },
   },
   {
-    provider = 'diagnostic_errors',
-    hl = {fg = tc.neutral_red},
+    provider = "diagnostic_errors",
+    hl = { fg = tc.neutral_red },
   },
   {
-    provider = 'diagnostic_warnings',
-    hl = {fg = tc.neutral_yellow},
+    provider = "diagnostic_warnings",
+    hl = { fg = tc.neutral_yellow },
   },
   {
-    provider = 'diagnostic_hints',
-    hl = {fg = tc.neutral_aqua},
+    provider = "diagnostic_hints",
+    hl = { fg = tc.neutral_aqua },
   },
   {
-    provider = 'diagnostic_info',
-    hl = {fg = tc.neutral_blue},
+    provider = "diagnostic_info",
+    hl = { fg = tc.neutral_blue },
   },
 }
 
 local active_R = {
   {
-    provider = 'git_diff_added_mod',
-    hl = {fg = tc.neutral_green},
+    provider = "git_diff_added_mod",
+    hl = { fg = tc.neutral_green },
   },
   {
-    provider = 'git_diff_removed_mod',
-    hl = {fg = tc.neutral_red},
+    provider = "git_diff_removed_mod",
+    hl = { fg = tc.neutral_red },
   },
   {
-    provider = 'git_diff_changed_mod',
-    hl = {fg = tc.neutral_yellow},
+    provider = "git_diff_changed_mod",
+    hl = { fg = tc.neutral_yellow },
   },
   {
-    provider = 'git_branch',
-    hl = {fg = tc.light3},
-    left_sep = '  ',
+    provider = "git_branch",
+    hl = { fg = tc.light3 },
+    left_sep = "  ",
   },
   {
-    provider = '',
-    hl = {bg = tc.dark1, fg = tc.faded_aqua},
-    left_sep = ' ',
+    provider = "",
+    hl = { bg = tc.dark1, fg = tc.faded_aqua },
+    left_sep = " ",
   },
   {
     provider = {
-      name = 'file_type',
+      name = "file_type",
       opts = {
-        case = 'lowercase',
-      }
+        case = "lowercase",
+      },
     },
     enabled = ft_enabled_non_dapui,
-    hl = {bg = tc.faded_aqua, fg = tc.light1},
+    hl = { bg = tc.faded_aqua, fg = tc.light1 },
     left_sep = {
       {
-        str = ' ',
-        hl = {bg = tc.faded_aqua, fg = tc.dark0_soft},
+        str = " ",
+        hl = { bg = tc.faded_aqua, fg = tc.dark0_soft },
       },
     },
     right_sep = {
-      str = ' ',
-      hl = {bg = tc.faded_aqua},
+      str = " ",
+      hl = { bg = tc.faded_aqua },
     },
   },
   {
-    provider = '',
-    hl = {bg = tc.faded_aqua, fg = tc.dark0_hard},
+    provider = "",
+    hl = { bg = tc.faded_aqua, fg = tc.dark0_hard },
   },
   {
-    provider = '',
-    hl = {bg = tc.dark0_hard, fg = tc.light3},
+    provider = "",
+    hl = { bg = tc.dark0_hard, fg = tc.light3 },
   },
   {
-    provider = 'cursor_position',
+    provider = "cursor_position",
     enabled = ft_enabled_non_dapui,
-    hl = {bg = tc.light3, fg = tc.dark0_hard},
+    hl = { bg = tc.light3, fg = tc.dark0_hard },
     left_sep = {
       {
-        str = ' ',
-        hl = {bg = tc.light3, fg = tc.dark0_hard},
+        str = " ",
+        hl = { bg = tc.light3, fg = tc.dark0_hard },
       },
     },
     right_sep = {
       {
-        str = ' ',
-        hl = {bg = tc.light3, fg = tc.dark0_hard},
+        str = " ",
+        hl = { bg = tc.light3, fg = tc.dark0_hard },
       },
-    }
+    },
   },
 }
 
-local inactive_L = {
-}
+local inactive_L = {}
 
 local inactive_R = {
   {
-    provider = '',
-    hl = {bg = tc.dark0, fg = tc.dark0_hard},
+    provider = "",
+    hl = { bg = tc.dark0, fg = tc.dark0_hard },
   },
   {
     provider = {
-      name = 'file_info',
+      name = "file_info",
       opts = {
-        type = 'unique',
+        type = "unique",
         colored_icon = false,
-        file_modified_icon = '',
-      }
+        file_modified_icon = "",
+      },
     },
     enabled = ft_enabled,
-    icon = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark2},
+    icon = "",
+    hl = { bg = tc.dark0_hard, fg = tc.dark2 },
     left_sep = {
-      str = ' ',
-      hl = {bg = tc.dark0_hard}
+      str = " ",
+      hl = { bg = tc.dark0_hard },
     },
     right_sep = {
-      str = ' ',
-      hl = {bg = tc.dark0_hard}
+      str = " ",
+      hl = { bg = tc.dark0_hard },
     },
   },
   {
-    provider = '',
-    hl = {bg = tc.dark0_hard, fg = tc.dark0},
+    provider = "",
+    hl = { bg = tc.dark0_hard, fg = tc.dark0 },
   },
 }
 
-local navic = require('nvim-navic')
+local navic = require("nvim-navic")
 local winbar = {
-  provider = function () return navic.get_location() end,
-  enabled  = function () return navic.is_available() end,
+  provider = function()
+    return navic.get_location()
+  end,
+  enabled = function()
+    return navic.is_available()
+  end,
 }
 
-local feline = require('feline')
+local feline = require("feline")
 
 feline.setup {
   theme = theme,
   components = {
-    active = {active_L, active_R},
-    inactive = {inactive_L, inactive_R},
+    active = { active_L, active_R },
+    inactive = { inactive_L, inactive_R },
   },
   custom_providers = {
     cursor_position = provide_cursor_position,
@@ -362,12 +367,12 @@ feline.setup {
 
 feline.winbar.setup {
   components = {
-    active = {winbar},
+    active = { winbar },
     inactive = {},
   },
   force_inactive = {
     filetypes = {},
-    buftypes  = {},
-    bufnames  = {}
-  }
+    buftypes = {},
+    bufnames = {},
+  },
 }

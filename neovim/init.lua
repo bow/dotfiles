@@ -1,7 +1,6 @@
 -- neovim configuration.
 -- @author Wibowo Arindrarto <contact@arindrarto.dev>
 
-
 -- Clone lazy.nvim if it does not yet exist.
 local function bootstrap_lazy_nvim()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -23,8 +22,8 @@ end
 
 -- Set global settings required in subsequent configs.
 local function set_global_settings()
-  vim.g.python3_host_prog = '/usr/bin/python3'
-  vim.g.mapleader = ','
+  vim.g.python3_host_prog = "/usr/bin/python3"
+  vim.g.mapleader = ","
   vim.opt.termguicolors = true
 end
 
@@ -34,11 +33,11 @@ local function init()
   set_global_settings()
 
   for _, mod in ipairs {
-    'utils',
-    'plugins',
-    'settings',
-    'keymaps',
-    'colors'
+    "utils",
+    "plugins",
+    "settings",
+    "keymaps",
+    "colors",
   } do
     require(mod)
   end
