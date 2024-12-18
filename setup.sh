@@ -28,6 +28,7 @@ progs=(
     [r]="${HOME}"
     [rofi]="${HOME}/.config/rofi"
     [readline]="${HOME}"
+    [redshift]="${HOME}/.config/redshift"
     [ripgrep]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
