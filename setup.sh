@@ -24,6 +24,7 @@ progs=(
     [neovim]="${HOME}/.config/nvim"
     [ocaml]="${HOME}"
     [picom]="${HOME}/.config/picom"
+    [polybar]="${HOME}/.config/polybar"
     [postgresql]="${HOME}"
     [r]="${HOME}"
     [rofi]="${HOME}/.config/rofi"
