@@ -13,6 +13,7 @@ progs=(
     [bat]="${HOME}/.config/bat"
     [clang-format]="${HOME}"
     [conda]="${HOME}"
+    [dig]="${HOME}"
     [direnv]="${HOME}/.config/direnv"
     [elixir]="${HOME}"
     [gitconfig]="${HOME}"
