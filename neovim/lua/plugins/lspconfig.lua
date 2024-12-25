@@ -187,6 +187,16 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
+  name = "bashls",
+  opts = {
+    on_init = on_init,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  },
+}
+
+opt_lspconfig {
   name = "ccls",
   opts = {
     on_init = on_init,
