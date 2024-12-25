@@ -371,6 +371,9 @@ case ":${PATH}:" in
         ;;
 esac
 
+# go config
+export GOPATH=${HOME}/.local/go
+
 # basher config
 case ":${PATH}:" in
     *:"${HOME}/.basher/bin":*)
