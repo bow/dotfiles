@@ -105,18 +105,16 @@ end
 local lsp_flags = { debounce_text_changes = 150 }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local null_ls = require("null-ls")
-null_ls.setup {
+local none_ls = require("null-ls") -- not a typo, none-ls is a drop-in replacement for null-ls.
+none_ls.setup {
   sources = {
-    -- Shell
-    null_ls.builtins.diagnostics.shellcheck,
     -- Go
-    null_ls.builtins.formatting.goimports,
-    null_ls.builtins.formatting.gofmt,
+    none_ls.builtins.formatting.goimports,
+    none_ls.builtins.formatting.gofmt,
     -- Python
-    null_ls.builtins.formatting.black,
+    none_ls.builtins.formatting.black,
     -- Lua
-    null_ls.builtins.formatting.stylua.with {
+    none_ls.builtins.formatting.stylua.with {
       extra_args = {
         "--indent-type",
         "Spaces",
@@ -129,13 +127,13 @@ null_ls.setup {
       },
     },
     -- Terraform
-    null_ls.builtins.formatting.terraform_fmt.with {
+    none_ls.builtins.formatting.terraform_fmt.with {
       filetypes = { "terraform", "tf", "hcl" },
     },
     -- Nix
-    null_ls.builtins.formatting.nixfmt,
-    null_ls.builtins.code_actions.statix,
-    null_ls.builtins.diagnostics.deadnix,
+    none_ls.builtins.formatting.nixfmt,
+    none_ls.builtins.code_actions.statix,
+    none_ls.builtins.diagnostics.deadnix,
   },
 
   capabilities = capabilities,
@@ -145,7 +143,7 @@ null_ls.setup {
 
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
-    -- Autoformat on save using null-ls.
+    -- Autoformat on save using none-ls.
     if client.supports_method("textDocument/formatting") then
       local grp_lspfmt = augroup("LspFormatting", { clear = true })
       aucl { buffer = bufnr, group = grp_lspfmt }
@@ -154,7 +152,7 @@ null_ls.setup {
           vim.lsp.buf.format {
             bufnr = bufnr,
             filter = function(cl)
-              return cl.name == "null-ls"
+              return cl.name == "none-ls"
             end,
           }
         end,

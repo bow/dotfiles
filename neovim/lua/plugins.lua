@@ -123,17 +123,14 @@ local specs = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    commit = "c51978f546a86a653f4a492b86313f4616412cec",
+    "nvimtools/none-ls.nvim",
+    commit = "40dc2e983560acaea29d6312b33fafba37b0c272",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
         commit = commits.plenary_nvim,
       },
     },
-    config = function(_)
-      require("plugins.null-ls-nvim")
-    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
