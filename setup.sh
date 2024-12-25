@@ -41,11 +41,13 @@ progs=(
     [xdg]="${HOME}/.config"
 )
 
-type stow >/dev/null 2>&1 || { echo "GNU Stow not found. Exiting."; exit 1; }
+type stow >/dev/null 2>&1 || {
+    echo "GNU Stow not found. Exiting."
+    exit 1
+}
 
 echo "Adding tools settings ..."
-for pn in "${!progs[@]}"
-do
+for pn in "${!progs[@]}"; do
     loc="${progs[$pn]}"
     mkdir -p "${loc}"
     printf "  - %s at %s: " "${pn}" "${loc}"

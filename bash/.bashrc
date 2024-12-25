@@ -136,27 +136,27 @@ if has_exe rg; then
 fi
 
 # aliases
-alias ls='ls -F --color=auto'           # colorize
-alias less='less -SN'                   # no wraps and include line numbers
-alias grep='grep --color=auto'          # colorize
-alias lname='ls -alF'                   # sort by name
-alias lnames='ls -A'                    # sort by name, short
-alias lsize='ls -lSrh'                  # sort by size
-alias ltime='ls -ltrh'                  # sort by mtime
-alias lext='ls -lXBh'                   # sort by extension
-alias df='df -h -T --total'             # human-readable output
-alias du='du -sh'                       # ditto
-alias mkdir='mkdir -p'                  # create parents by default
-alias cp='cp -iv'                       # interactive + verbose by default
-alias mv='mv -i'                        # interactive by default
-alias rm='rm -i'                        # interactive by default
-alias reload='source ~/.bashrc'         # reload .bashrc
-alias grest='history | grep'            # grep history
-alias chmox='chmod +x'                  # set user-executable bit
-alias unix-ns='date +%s%9N'             # nanoseconds timestamp
+alias ls='ls -F --color=auto'   # colorize
+alias less='less -SN'           # no wraps and include line numbers
+alias grep='grep --color=auto'  # colorize
+alias lname='ls -alF'           # sort by name
+alias lnames='ls -A'            # sort by name, short
+alias lsize='ls -lSrh'          # sort by size
+alias ltime='ls -ltrh'          # sort by mtime
+alias lext='ls -lXBh'           # sort by extension
+alias df='df -h -T --total'     # human-readable output
+alias du='du -sh'               # ditto
+alias mkdir='mkdir -p'          # create parents by default
+alias cp='cp -iv'               # interactive + verbose by default
+alias mv='mv -i'                # interactive by default
+alias rm='rm -i'                # interactive by default
+alias reload='source ~/.bashrc' # reload .bashrc
+alias grest='history | grep'    # grep history
+alias chmox='chmod +x'          # set user-executable bit
+alias unix-ns='date +%s%9N'     # nanoseconds timestamp
 
-alias ccat='pygmentize -g -O style=gruvbox-dark,linenos=1'  # colorized cat
-alias clip='xargs echo -n | xclip -selection c'             # copy to X clipboard, trimming newline
+alias ccat='pygmentize -g -O style=gruvbox-dark,linenos=1' # colorized cat
+alias clip='xargs echo -n | xclip -selection c'            # copy to X clipboard, trimming newline
 
 # Docker aliases
 # Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
@@ -297,7 +297,7 @@ function brw() {
 # get absolute path to python module
 function wpymod() {
     local modname="${1}"
-python <<EOF || false
+    python <<EOF || false
 import sys
 try:
     import ${modname}
@@ -451,7 +451,7 @@ fi
 if [[ "${starship_exists}" -eq 1 ]]; then
     eval "$(starship init bash)"
 fi
-function set_window_title(){
+function set_window_title() {
     # shellcheck disable=SC2116
     echo -ne "\033]0; $(echo "Terminal ${PWD/#$HOME/'~'}") \007"
 }
