@@ -79,23 +79,6 @@ if [[ "${starship_exists}" -eq 0 ]]; then
     # shellcheck source=/dev/null
     test -f "${HOME}/.git-prompt.sh" && . "${HOME}/.git-prompt.sh"
 
-    # load own copy of .kube-ps1.bash if it exists
-    # shellcheck source=/dev/null
-    test -f "${HOME}/.kube-ps1.bash" && . "${HOME}/.kube-ps1.bash"
-
-    # shellcheck disable=SC2034
-    KUBE_PS1_SEPARATOR=""
-    # shellcheck disable=SC2034
-    KUBE_PS1_PREFIX=""
-    # shellcheck disable=SC2034
-    KUBE_PS1_SUFFIX=" "
-    # shellcheck disable=SC2034
-    KUBE_PS1_SYMBOL_COLOR=magenta
-    # shellcheck disable=SC2034
-    KUBE_PS1_CTX_COLOR=magenta
-    # shellcheck disable=SC2034
-    KUBE_PS1_NS_COLOR=magenta
-
     function get_git_stat {
         export GIT_PS1_SHOWSTASHSTATE=true
         export GIT_PS1_SHOWDIRTYSTATE=true
@@ -107,11 +90,7 @@ if [[ "${starship_exists}" -eq 0 ]]; then
     }
 
     function set_prompt {
-        pyenv_name=$(pyenv version-name 2> /dev/null || true)
-        venv_name="" && [ "${pyenv_name}" != "" ] && [ "${pyenv_name}" != "system" ] && venv_name="\[${green}\] ${pyenv_name} \[${nocol}\]"
-        asdf_active=$( (asdf current 2>&1 | grep -vP " system " > /dev/null && echo "ok") || true )
-        asdf_indicator="" && [ "${asdf_active}" != "" ] && asdf_indicator="\[${green}\]  \[${nocol}\]"
-        PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] ${asdf_indicator}${venv_name}\[${grey}\]$(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+        PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] $(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
     }
 
     PROMPT_COMMAND=set_prompt
