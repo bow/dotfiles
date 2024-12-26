@@ -230,36 +230,36 @@ function umountiso() {
 function pack() {
     target=${2%/}
     case $1 in
-    gz)
-        tar czvf "${target}.tar.gz" "${target}" ;;
-    bz)
-        tar cjvf "${target}.tar.bz2" "${target}" ;;
-    xz)
-        tar cJvf "${target}.tar.xz" "${target}" ;;
-    7z)
-        7zr a "${target}.7z" "${target}" ;;
-    rar)
-        rar a "${target}.rar" "${target}" ;;
-    zip)
-        zip -r "${target}.zip" "${target}" ;;
-    *)
-        echo "Usage: pack [gzip|bzip2|xz|7z|rar|zip] [target]" ;;
+        gz)
+            tar czvf "${target}.tar.gz" "${target}" ;;
+        bz)
+            tar cjvf "${target}.tar.bz2" "${target}" ;;
+        xz)
+            tar cJvf "${target}.tar.xz" "${target}" ;;
+        7z)
+            7zr a "${target}.7z" "${target}" ;;
+        rar)
+            rar a "${target}.rar" "${target}" ;;
+        zip)
+            zip -r "${target}.zip" "${target}" ;;
+        *)
+            echo "Usage: pack [gzip|bzip2|xz|7z|rar|zip] [target]" ;;
     esac
 }
 
 # unpack directories
 function unpack() {
     case $1 in
-    *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz)
-        tar xfv "$1" ;;
-    *.7z)
-        7zr x "$1" ;;
-    *.rar)
-        unrar x "$1" ;;
-    *.zip)
-        unzip "$1" ;;
-    *)
-        echo "Usage: unpack [target]" ;;
+        *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz)
+            tar xfv "$1" ;;
+        *.7z)
+            7zr x "$1" ;;
+        *.rar)
+            unrar x "$1" ;;
+        *.zip)
+            unzip "$1" ;;
+        *)
+            echo "Usage: unpack [target]" ;;
     esac
 }
 
