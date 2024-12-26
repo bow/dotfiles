@@ -374,6 +374,15 @@ esac
 # go config
 export GOPATH=${HOME}/.local/go
 
+# cargo config
+case ":${PATH}:" in
+    *:"${HOME}/.cargo/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/.cargo/bin:${PATH}"
+        ;;
+esac
+
 # basher config
 case ":${PATH}:" in
     *:"${HOME}/.basher/bin":*)
@@ -447,3 +456,7 @@ if has_exe terraform; then
     complete -C "${path}" terraform
     complete -C "${path}" tf
 fi
+
+# load own copy of .git-completion.bash if it exists
+# shellcheck source=/dev/null
+[[ -f "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
