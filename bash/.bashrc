@@ -7,7 +7,7 @@
 [ -z "$PS1" ] && return
 
 # helper function to check if executable exists
-function has_exe() { test -n "${1}" && command -v "${1}" 1>/dev/null 2>&1; }
+function has_exe() { [[ -n "${1}" ]] && command -v "${1}" 1>/dev/null 2>&1; }
 
 # check if we have starship and use result to decide how to build prompt
 starship_exists=0
@@ -26,7 +26,7 @@ HISTSIZE=100000
 HISTFILESIZE=200000
 
 # color & ui
-if [ "$TERM" = "linux" ]; then
+if [[ "$TERM" == "linux" ]]; then
     echo -en "\e]P0111111" # black
     echo -en "\e]P8111111" # darkgrey
     echo -en "\e]P1803232" # darkred
@@ -51,9 +51,7 @@ else
 fi
 
 # set .dircolors
-if [ -e /bin/dircolors ]; then
-    eval "$(dircolors -b ~/.dircolors)"
-fi
+[[ -e /bin/dircolors ]] && eval "$(dircolors -b ~/.dircolors)"
 
 # set prompt
 # shellcheck disable=SC2034
@@ -77,7 +75,7 @@ grey='\033[37m'
 if [[ "${starship_exists}" -eq 0 ]]; then
     # load own copy of .git-prompt.sh if it exists
     # shellcheck source=/dev/null
-    test -f "${HOME}/.git-prompt.sh" && . "${HOME}/.git-prompt.sh"
+    [[ -f "${HOME}/.git-prompt.sh" ]] && . "${HOME}/.git-prompt.sh"
 
     function get_git_stat {
         export GIT_PS1_SHOWSTASHSTATE=true
@@ -90,7 +88,7 @@ if [[ "${starship_exists}" -eq 0 ]]; then
     }
 
     function set_prompt {
-        PS1="\n${nocol}\`if [ \$? = 0 ]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] $(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+        PS1="\n${nocol}\`if [[ \$? -eq 0 ]]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] $(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
     }
 
     PROMPT_COMMAND=set_prompt
@@ -204,20 +202,18 @@ function mkpyenv() {
 
 # mount iso images
 function mountiso() {
-    if [ ! "$1" ]; then
+    if [[ ! "$1" ]]; then
         echo "ERROR: missing iso image argument"
         return
     fi
     mountdir="/media/${1%.iso}"
-    if [ ! -d "{mountdir}" ]; then
-        sudo 'mkdir' '-p' "${mountdir}"
-    fi
+    [[ ! -d "{mountdir}" ]] && sudo 'mkdir' '-p' "${mountdir}"
     sudo mount -o loop "$1" "$mountdir"
 }
 
 # unmount iso images
 function umountiso() {
-    if [ -d "$1" ]; then
+    if [[ -d "$1" ]]; then
         sudo umount "$1"
         sudo rmdir "$1"
     else
@@ -308,7 +304,7 @@ if has_exe bat; then
                 )
                 file="${result%%:*}"
                 linenumber=$(echo "${result}" | cut -d: -f2)
-                if [ -n "$file" ]; then
+                if [[ -n "$file" ]]; then
                         $EDITOR +"${linenumber}" "$file"
                 fi
             }
@@ -329,16 +325,12 @@ fi
 case "${OSTYPE}" in
     linux-*)
         dir="${HOME}/.cache/python/pycache"
-        if [ ! -d "${dir}" ]; then
-            mkdir -p "${dir}"
-        fi
+        [[ ! -d "${dir}" ]] && mkdir -p "${dir}"
         export PYTHONPYCACHEPREFIX="${dir}"
         ;;
     darwin*)
         dir="${HOME}/Library/Caches/python/pycache"
-        if [ ! -d "${dir}" ]; then
-            mkdir -p "${dir}"
-        fi
+        [[ ! -d "${dir}" ]] && mkdir -p "${dir}"
         export PYTHONPYCACHEPREFIX="${dir}"
         ;;
     *)
@@ -346,15 +338,11 @@ case "${OSTYPE}" in
 esac
 
 # load private settings if it exists
-if [ -f ~/.bash_private ]; then
-    # shellcheck source=.git-prompt.sh
-    source ~/.bash_private
-fi
+# shellcheck source=.git-prompt.sh
+[[ -f ~/.bash_private ]] && . ~/.bash_private
 
 # autojump config
-if has_exe autojump && test -f /etc/profile.d/autojump.bash; then
-    . /etc/profile.d/autojump.bash
-fi
+has_exe autojump && [[ -f /etc/profile.d/autojump.bash ]] && . /etc/profile.d/autojump.bash
 
 # XDG_* settings
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -396,11 +384,11 @@ if has_exe basher; then
 fi
 
 # asdf config
-if [ -f /opt/asdf-vm/asdf.sh ]; then
+if [[ -f /opt/asdf-vm/asdf.sh ]]; then
     # shellcheck source=/opt/asdf-vm/asdf.sh
     . /opt/asdf-vm/asdf.sh
     # shellcheck source=/dev/null
-    if [ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]; then
+    if [[ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]]; then
         . "$HOME/.asdf/plugins/java/set-java-home.bash"
     fi
 fi
