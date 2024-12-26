@@ -405,7 +405,9 @@ case ":${PATH}:" in
 esac
 if has_exe pyenv; then
     eval "$(pyenv init --path -)"
-    eval "$(pyenv virtualenv-init -)"
+    if command -v pyenv-virtualenv-init 1>/dev/null 2>&1; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
 fi
 
 # nodenv config
