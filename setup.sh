@@ -38,8 +38,9 @@ progs=(
     [tmux]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
-    [zathura]="${HOME}/.config/zathura"
     [xdg]="${HOME}/.config"
+    [yazi]="${HOME}/.config/yazi"
+    [zathura]="${HOME}/.config/zathura"
 )
 
 type stow >/dev/null 2>&1 || {

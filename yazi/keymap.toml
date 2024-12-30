@@ -1,0 +1,8 @@
+[manager]
+prepend_keymap = [
+    { on = "<C-h>", run = "hidden toggle" },
+    { on = "<C-j>", run = "arrow [5]" },
+    { on = "<C-k>", run = "arrow [-5]" },
+    { on = "<C-q>", run = "quit" },
+    { on = "<Enter>", run = "plugin smart-enter" },
+]
