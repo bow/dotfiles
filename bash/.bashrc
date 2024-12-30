@@ -44,8 +44,8 @@ if [[ "$TERM" == "linux" ]]; then
     echo -en "\e]P7d0d0d0" # lightgrey
     echo -en "\e]PFffffff" # white
     clear                  # for background artifacting
-elif has_exe alacritty; then
-    export TERM=alacritty
+elif has_exe ghostty; then
+    export TERM=ghostty
 else
     export TERM=xterm-256color
 fi

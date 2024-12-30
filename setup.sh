@@ -16,6 +16,7 @@ progs=(
     [dig]="${HOME}"
     [direnv]="${HOME}/.config/direnv"
     [elixir]="${HOME}"
+    [ghostty]="${HOME}/.config/ghostty"
     [gitconfig]="${HOME}"
     [gitignore]="${HOME}/.config/git"
     [i3]="${HOME}/.config/i3"

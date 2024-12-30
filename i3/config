@@ -37,7 +37,7 @@ font pango:DroidSansMono Nerd Font 8
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec ghostty
 
 # Open file manager.
 bindsym $mod+backslash exec thunar
