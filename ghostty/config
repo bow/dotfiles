@@ -1,9 +1,11 @@
+copy-on-select = clipboard
 cursor-style = bar
 background-opacity = 0.95
 font-family = Iosevka Term SS03 Light
 font-family-bold = Iosevka Term SS03 Medium
 font-feature = calt
 link-url = true
+resize-overlay = never
 selection-invert-fg-bg = true
 theme = GruvboxDarkHard
 window-decoration = false
