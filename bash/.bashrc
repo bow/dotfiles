@@ -71,8 +71,8 @@ cyan='\033[36m'
 # shellcheck disable=SC2034
 grey='\033[37m'
 
-# define custom PS1 if starship does not exist
-if [[ "${starship_exists}" -eq 0 ]]; then
+# Define custom PS1 if starship does not exist or we are in console.
+if [[ "${starship_exists}" -eq 0 || "${TERM}" == "linux" ]]; then
     # load own copy of .git-prompt.sh if it exists
     # shellcheck source=/dev/null
     [[ -f "${HOME}/.git-prompt.sh" ]] && . "${HOME}/.git-prompt.sh"
@@ -88,7 +88,7 @@ if [[ "${starship_exists}" -eq 0 ]]; then
     }
 
     function set_prompt {
-        PS1="\n${nocol}\`if [[ \$? -eq 0 ]]; then echo ${blue}; else echo ${red}; fi\`\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] $(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n\$ "
+        PS1="\n${nocol}\`if [[ \$? -eq 0 ]]; then echo ${blue}; else echo ${red}; fi\`-\[${nocol}\] \[${blue}\]\u@\h\[${nocol}\] $(get_git_stat)\[${nocol}\]\[${yellow}\]\w\[${nocol}\]\n> "
     }
 
     PROMPT_COMMAND=set_prompt
@@ -429,7 +429,7 @@ if has_exe direnv; then
 fi
 
 # starship config
-if [[ "${starship_exists}" -eq 1 ]]; then
+if [[ "${starship_exists}" -eq 1 && "${TERM}" != "linux" ]]; then
     eval "$(starship init bash)"
 fi
 function set_window_title() {
