@@ -176,6 +176,11 @@ function pcp() {
     target=$(readlink -f "${1:-.}")
     (echo "${target}" | xargs echo -n | xclip -selection c) \
         && echo "${target}"
+
+# cat file and copy it to clipboard
+function pcat() {
+    target=$(readlink -f "${1:-.}")
+    tee >(xargs echo -n | xclip -selection c) < "${target}"
 }
 
 # open an ssh connection and run tmux
