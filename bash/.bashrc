@@ -179,8 +179,21 @@ function pcp() {
 
 # cat file and copy it to clipboard
 function pcat() {
-    target=$(readlink -f "${1:-.}")
-    tee >(xargs echo -n | xclip -selection c) < "${target}"
+    if [ $# -ne 1 ]; then
+        echo "Usage: pcat [FILE]" >&2
+        return 1
+    fi
+    if [[ -f "${1}" ]]; then
+        if [[ $(stat -c%s "${1}") -ge 1048576 ]]; then
+            echo "Error: ${1} exceeds maximum allowed size of 1 MiB"
+            return 1
+        else
+            tee >(xargs echo -n | xclip -selection c) < "${1}"
+        fi
+    else
+        echo "Error: ${1} not found"
+        return 1
+    fi
 }
 
 # open an ssh connection and run tmux
