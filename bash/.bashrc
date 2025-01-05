@@ -174,8 +174,8 @@ function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 # resolve path and copy it to clipboard
 function pcp() {
     target=$(readlink -f "${1:-.}")
-    (echo "${target}" | xargs echo -n | xclip -selection c) \
-        && echo "${target}"
+    echo -n "${target}" | xclip -selection c && echo "${target}"
+}
 
 # cat file and copy it to clipboard
 function pcat() {
