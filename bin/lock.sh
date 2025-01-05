@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env bash
 
 FONT="Titillium"
 COLOR_BG='#1d2021ee'
@@ -12,11 +12,14 @@ COLOR_RING_WRONG="${COLOR_RING_BS}"
 
 WALLPAPER="${HOME}/pics/wallpaper"
 BG=$( (test -f "${WALLPAPER}-lock" && echo "${WALLPAPER}-lock") || echo "${WALLPAPER}" )
+NOFORK=${NOFORK:-1}
 
-playerctl play-pause
+playing="$([[ "$(playerctl status)" == "Playing" ]] && echo 1 || echo 0)"
+
+[[ "${NOFORK}" -eq 1 ]] && [[ "${playing}" -eq 1 ]] && playerctl play-pause
 
 i3lock \
-    --nofork \
+    "$( ([[ "${NOFORK}" -eq 1 ]] && echo "\--nofork") || echo "" )" \
     -i "${BG}" \
     --fill \
     --ignore-empty-password \
@@ -58,4 +61,4 @@ i3lock \
     --greeter-color "${COLOR_FG}" \
     --greeter-size 20 \
     --greeter-font "${FONT}" \
-    && playerctl play-pause
+    && ( ([[ "${NOFORK}" -eq 1 ]] && [[ "${playing}" -eq 1 ]] && playerctl play-pause) || true )
