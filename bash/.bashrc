@@ -450,3 +450,23 @@ fi
 # load own copy of .git-completion.bash if it exists
 # shellcheck source=/dev/null
 [[ -f "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
+
+# set wallpaper file and lock background
+function setwp() {
+    if has_exe magick; then
+        test -z "${1}" && echo "Error: requires a path argument" && return 1
+        img=$(readlink -f "${1}")
+        if magick identify "${img}" 1>/dev/null 2>&1; then
+            wp="${HOME}/pics/wallpaper"
+            lockbg=${wp}-lock
+            ln -sf "${img}" "${wp}"
+            magick "${wp}" -blur 0x8 "${lockbg}"
+        else
+            echo "Error: ${1} is not an image"
+            return 1
+        fi
+    else
+        echo "Error: required 'magick' not found"
+        return 1
+    fi
+}
