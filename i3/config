@@ -176,7 +176,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl -d amdgpu_bl1 s 5%-
 bindsym $mod+Shift+a exec autorandr mobile && i3-msg restart
 bindsym $mod+Shift+s exec autorandr docked-single && i3-msg restart
 bindsym $mod+Shift+d exec autorandr docked-dual && i3-msg restart
-bindsym $mod+Shift+x exec light-locker-command -l
+bindsym $mod+Shift+x exec $HOME/.local/bin/lock.sh
 bindsym $mod+Shift+z exec systemctl suspend
 
 bindsym $mod+Shift+n move workspace to output next
@@ -186,7 +186,6 @@ bindsym $mod+n focus output next
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
 # Run systray apps.
-exec --no-startup-id light-locker --lock-on-lid
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start

@@ -11,6 +11,7 @@ progs=(
     [alacritty]="${HOME}/.config/alacritty"
     [bash]="${HOME}"
     [bat]="${HOME}/.config/bat"
+    [bin]="${HOME}/.local/bin"
     [clang-format]="${HOME}"
     [conda]="${HOME}"
     [dig]="${HOME}"
