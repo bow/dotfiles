@@ -488,3 +488,7 @@ function setwp() {
         return 1
     fi
 }
+
+function sshreset() {
+    gpgconf --kill gpg-agent && eval "$(ssh-agent -s)" && . "${HOME}/.profile"
+}
