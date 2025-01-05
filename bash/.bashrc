@@ -301,6 +301,31 @@ print(${modname}.__file__)
 EOF
 }
 
+# set wallpaper file and lock background
+function setwp() {
+    if has_exe magick; then
+        test -z "${1}" && echo "Error: requires a path argument" && return 1
+        img=$(readlink -f "${1}")
+        if magick identify "${img}" 1>/dev/null 2>&1; then
+            wp="${HOME}/pics/wallpaper"
+            lockbg=${wp}-lock
+            ln -sf "${img}" "${wp}"
+            magick "${wp}" -blur 0x8 "${lockbg}"
+        else
+            echo "Error: ${1} is not an image"
+            return 1
+        fi
+    else
+        echo "Error: required 'magick' not found"
+        return 1
+    fi
+}
+
+# reset GPG and SSH agent.
+function credsreset() {
+    gpgconf --kill gpg-agent && eval "$(ssh-agent -s)" && . "${HOME}/.profile"
+}
+
 # set bat + rg + fzf helpers if all executables exist
 if has_exe bat; then
 
@@ -468,27 +493,3 @@ fi
 # load own copy of .git-completion.bash if it exists
 # shellcheck source=/dev/null
 [[ -f "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
-
-# set wallpaper file and lock background
-function setwp() {
-    if has_exe magick; then
-        test -z "${1}" && echo "Error: requires a path argument" && return 1
-        img=$(readlink -f "${1}")
-        if magick identify "${img}" 1>/dev/null 2>&1; then
-            wp="${HOME}/pics/wallpaper"
-            lockbg=${wp}-lock
-            ln -sf "${img}" "${wp}"
-            magick "${wp}" -blur 0x8 "${lockbg}"
-        else
-            echo "Error: ${1} is not an image"
-            return 1
-        fi
-    else
-        echo "Error: required 'magick' not found"
-        return 1
-    fi
-}
-
-function sshreset() {
-    gpgconf --kill gpg-agent && eval "$(ssh-agent -s)" && . "${HOME}/.profile"
-}

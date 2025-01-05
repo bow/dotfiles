@@ -189,7 +189,6 @@ exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dropbox start
-exec --no-startup-id ~/.config/i3/scripts/gnome-keyring.sh
 
 # Run polybar.
 exec_always --no-startup-id $HOME/.config/i3/polybar.sh
