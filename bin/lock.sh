@@ -55,7 +55,7 @@ i3lock \
     --date-color "${COLOR_FG}" \
     --date-size 30 \
     --date-font "${FONT}" \
-    --greeter-text "$(getent passwd "${USER}" | cut -d ':' -f 5) · $(hostname)" \
+    --greeter-text "$(getent passwd "${USER}" | cut -d ':' -f 5) (${USER}) · $(hostname)" \
     --greeter-pos "15:h-15" \
     --greeter-align 1 \
     --greeter-color "${COLOR_FG}" \
