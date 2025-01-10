@@ -348,6 +348,16 @@ opt_lspconfig {
   },
 }
 
+opt_lspconfig {
+  name = "ruby_lsp",
+  opts = {
+    on_init = on_init,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  },
+}
+
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
