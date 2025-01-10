@@ -453,6 +453,11 @@ if has_exe pyenv; then
     fi
 fi
 
+# rbenv config
+if has_exe rbenv; then
+    eval "$(rbenv init -)"
+fi
+
 # nodenv config
 export NODENV_ROOT="${HOME}/.nodenv"
 case ":${PATH}:" in
