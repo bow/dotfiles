@@ -8,6 +8,7 @@ $python\
 $rust\
 $golang\
 $lua\
+$ruby\
 $kotlin\
 $java\
 $nodejs\
@@ -93,6 +94,9 @@ format = '[·](dimmed white) [[js](cyan)[/](white)($version)](purple) '
 format = '[·](dimmed white) [[py](cyan)[/](white)($virtualenv)](purple) '
 pyenv_version_name = true
 detect_extensions = [".py"]
+
+[ruby]
+format = '[·](dimmed white) [[rb](cyan)[/](white)($version)](purple) '
 
 [rust]
 format = '[·](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
