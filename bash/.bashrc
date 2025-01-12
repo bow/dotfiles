@@ -168,6 +168,9 @@ function dbu() { docker build -t="$1" .; }
 # shellcheck disable=SC2164
 function mkcd() { command mkdir -p "$1" && cd "$1"; }
 
+# cd into the directory in which a file is contained
+function fcd() { cd "$(durname "${1}")" || exit 1; }
+
 # change owner to current user
 function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
 
