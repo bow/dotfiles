@@ -267,12 +267,16 @@ function pack() {
 # unpack directories
 function unpack() {
     case $1 in
-        *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz)
+        *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz | *.tar)
+            tar xfv "$1" ;;
+        *.gem)
             tar xfv "$1" ;;
         *.7z)
             7zr x "$1" ;;
         *.rar)
             unrar x "$1" ;;
+        *.xz)
+            unxz "$1" ;;
         *.zip)
             unzip "$1" ;;
         *)
