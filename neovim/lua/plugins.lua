@@ -49,6 +49,13 @@ local specs = {
     end,
   },
   {
+    "FabijanZulj/blame.nvim",
+    commit = "39bb4cda9e658d053a43919b10ca52c0a4d738e1",
+    config = function(_)
+      require("plugins.blame-nvim")
+    end
+  },
+  {
     "saadparwaiz1/cmp_luasnip",
     commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843",
   },
