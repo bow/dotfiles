@@ -1,7 +1,1 @@
-require("mason-lspconfig").setup {
-  ensure_installed = {
-    "gopls",
-    "rust_analyzer",
-    "pylsp",
-  },
-}
+require("mason-lspconfig").setup()
