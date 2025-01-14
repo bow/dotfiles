@@ -167,7 +167,7 @@ function dbu() { docker build -t="$1" .; }
 function mkcd() { command mkdir -p "$1" && cd "$1"; }
 
 # cd into the directory in which a file is contained
-function fcd() { cd "$(durname "${1}")" || exit 1; }
+function fcd() { cd "$(dirname "${1}")" || exit 1; }
 
 # change owner to current user
 function mkmine() { sudo chown -R "${USER}" "${1:-.}"; }
