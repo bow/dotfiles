@@ -441,6 +441,14 @@ if [[ -f /opt/asdf-vm/asdf.sh ]]; then
     fi
 fi
 
+# uv and uvx config
+if has_exe uv; then
+    eval "$(uv generate-shell-completion bash)"
+fi
+if has_exe uvx; then
+    eval "$(uvx --generate-shell-completion bash)"
+fi
+
 # pyenv config
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="${HOME}/.pyenv"
