@@ -200,3 +200,6 @@ gaps bottom 22
 gaps top 0
 
 hide_edge_borders smart
+for_window [class="firefox"] border pixel 0
+for_window [class="Zathura"] border pixel 0
+for_window [class="ghostty"] border pixel 0
