@@ -282,7 +282,7 @@ opt_lspconfig {
             enabled = false,
           },
           flake8 = {
-            enabled = true,
+            enabled = false,
           },
           mccabe = {
             enabled = false,
@@ -308,6 +308,16 @@ opt_lspconfig {
         },
       },
     },
+  },
+}
+
+opt_lspconfig {
+  name = "ruff",
+  opts = {
+    on_init = on_init,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
   },
 }
 
