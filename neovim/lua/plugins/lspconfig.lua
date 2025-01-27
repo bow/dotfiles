@@ -131,7 +131,6 @@ none_ls.setup {
       filetypes = { "terraform", "tf", "hcl" },
     },
     -- Nix
-    none_ls.builtins.formatting.nixfmt,
     none_ls.builtins.code_actions.statix,
     none_ls.builtins.diagnostics.deadnix,
   },
@@ -235,6 +234,13 @@ opt_lspconfig {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
+    settings = {
+      ["nil"] = {
+        formatting = {
+          command = { "nixfmt" },
+        },
+      },
+    },
   },
 }
 
