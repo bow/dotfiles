@@ -131,7 +131,7 @@ local specs = {
   },
   {
     "nvimtools/none-ls.nvim",
-    commit = "40dc2e983560acaea29d6312b33fafba37b0c272",
+    commit = "ed8f80849ef1ad31c2f74679fafdef7801091247",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
