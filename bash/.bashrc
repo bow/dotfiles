@@ -438,16 +438,6 @@ if has_exe basher; then
     eval "$(basher init -)"
 fi
 
-# asdf config
-if [[ -f /opt/asdf-vm/asdf.sh ]]; then
-    # shellcheck source=/opt/asdf-vm/asdf.sh
-    . /opt/asdf-vm/asdf.sh
-    # shellcheck source=/dev/null
-    if [[ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]]; then
-        . "$HOME/.asdf/plugins/java/set-java-home.bash"
-    fi
-fi
-
 # uv and uvx config
 if has_exe uv; then
     eval "$(uv generate-shell-completion bash)"
@@ -495,6 +485,24 @@ fi
 if has_exe direnv; then
     eval "$(direnv hook bash)"
 fi
+
+# asdf config
+if [[ -f /opt/asdf-vm/asdf.sh ]]; then
+    # shellcheck source=/opt/asdf-vm/asdf.sh
+    . /opt/asdf-vm/asdf.sh
+    # shellcheck source=/dev/null
+    if [[ -f "$HOME/.asdf/plugins/java/set-java-home.bash" ]]; then
+        . "$HOME/.asdf/plugins/java/set-java-home.bash"
+    fi
+fi
+ASDF_DATA_DIR="${HOME}/.asdf"
+case ":${PATH}:" in
+    *:"${ASDF_DATA_DIR}/shims":*)
+        ;;
+    *)
+        export PATH="${ASDF_DATA_DIR}/shims:${PATH}"
+        ;;
+esac
 
 # starship config
 if [[ "${starship_exists}" -eq 1 && "${TERM}" != "linux" ]]; then
