@@ -205,6 +205,15 @@ function sshx() {
 # sudo and then immediately forget cache
 function sudok() { sudo "$@"; sudo -k; }
 
+# make a new play directory and cd into it
+function pl() {
+    local name="${1}"
+    test -n "${name}" || { printf "%s\n" "Error: name must be specified" 1>&2 && return 1; }
+    local desktop_dir="${HOME}/dsk"
+    local prefix=play
+    mkcd "${desktop_dir}/${prefix}-${name}"
+}
+
 # calculator
 function calc() { echo "$*" | bc; }
 
