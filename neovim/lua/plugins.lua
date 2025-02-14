@@ -341,6 +341,11 @@ local specs = {
 
   -- Filetype-specific plugins.
   {
+    "terrastruct/d2-vim",
+    commit = "981c87dccb63df2887cc41b96e84bf550f736c57",
+    ft = "d2",
+  },
+  {
     "liuchengxu/graphviz.vim",
     commit = "704aa42852f200db2594382bdf847a92fdab61fc",
     ft = "dot",
