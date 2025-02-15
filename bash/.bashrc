@@ -149,6 +149,12 @@ alias chmox='chmod +x'
 alias unix-ns='date +%s%9N'
 # copy to X clipboard, trimming newline
 alias clip='xargs echo -n | xclip -selection c'
+# eza
+alias z='eza'
+# eza list view
+alias zl='eza --long --header --binary --git --sort=time --reverse --group-directories-first -g -M -o --no-permissions -aa'
+# eza tree view
+alias zt='eza --long --header --binary --git --sort=time --reverse --group-directories-first -g -M -o --no-permissions --tree'
 
 
 # Docker aliases
