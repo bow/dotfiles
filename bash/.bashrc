@@ -110,28 +110,46 @@ if has_exe rg; then
     export RIPGREP_CONFIG_PATH=${HOME}/.ripgreprc
 fi
 
-# aliases
-alias ls='ls -F --color=auto'   # colorize
-alias less='less -SN'           # no wraps and include line numbers
-alias grep='grep --color=auto'  # colorize
-alias lname='ls -alF'           # sort by name
-alias lnames='ls -A'            # sort by name, short
-alias lsize='ls -lSrh'          # sort by size
-alias ltime='ls -ltrh'          # sort by mtime
-alias lext='ls -lXBh'           # sort by extension
-alias df='df -h -T --total'     # human-readable output
-alias du='du -sh'               # ditto
-alias mkdir='mkdir -p'          # create parents by default
-alias cp='cp -iv'               # interactive + verbose by default
-alias mv='mv -i'                # interactive by default
-alias rm='rm -i'                # interactive by default
-alias reload='source ~/.bashrc' # reload .bashrc
-alias grest='history | grep'    # grep history
-alias chmox='chmod +x'          # set user-executable bit
-alias unix-ns='date +%s%9N'     # nanoseconds timestamp
+# Aliases.
+# colorize
+alias ls='ls -F --color=auto'
+# no wraps and include line numbers
+alias less='less -SN'
+# colorize
+alias grep='grep --color=auto'
+# sort by name
+alias lname='ls -alF'
+# sort by name, short
+alias lnames='ls -A'
+# sort by size
+alias lsize='ls -lSrh'
+# sort by mtime
+alias ltime='ls -ltrh'
+# sort by extension
+alias lext='ls -lXBh'
+# human-readable output
+alias df='df -h -T --total'
+# ditto
+alias du='du -sh'
+# create parents by default
+alias mkdir='mkdir -p'
+# interactive + verbose by default
+alias cp='cp -iv'
+# interactive by default
+alias mv='mv -i'
+# interactive by default
+alias rm='rm -i'
+# reload .bashrc
+alias reload='source ~/.bashrc'
+# grep history
+alias grest='history | grep'
+# set user-executable bit
+alias chmox='chmod +x'
+# nanoseconds timestamp
+alias unix-ns='date +%s%9N'
+# copy to X clipboard, trimming newline
+alias clip='xargs echo -n | xclip -selection c'
 
-alias ccat='pygmentize -g -O style=gruvbox-dark,linenos=1' # colorized cat
-alias clip='xargs echo -n | xclip -selection c'            # copy to X clipboard, trimming newline
 
 # Docker aliases
 # Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
