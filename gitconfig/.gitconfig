@@ -35,6 +35,7 @@
     histh = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%an • %G?]%Creset' --graph --abbrev-commit --
     histf = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%cn • %G?]' --decorate --numstat
     histo = log --format=format:'%C(yellow)%h %Creset• %<(50,trunc)%s %C(cyan)[%cN • %G?] %C(blue)%cr%Creset %Cred%d' --graph -20 --branches --remotes --tags --date-order
+    histb = "!f() { git log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%an • %G?]%Creset' --graph --abbrev-commit ${1:-$(git rev-parse --abbrev-ref HEAD)} --not ${2:-master}; }; f"
     makepatch = log -u
 
     # handy aliases
