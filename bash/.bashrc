@@ -152,9 +152,9 @@ alias clip='xargs echo -n | xclip -selection c'
 # eza
 alias z='eza'
 # eza list view
-alias zl='eza --long --header --binary --git --sort=time --reverse --group-directories-first -g -M -o --no-permissions -aa'
+alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
 # eza tree view
-alias zt='eza --long --header --binary --git --sort=time --reverse --group-directories-first -g -M -o --no-permissions --tree'
+alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
 
 
 # Docker aliases
