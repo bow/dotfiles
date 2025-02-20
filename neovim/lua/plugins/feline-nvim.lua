@@ -130,6 +130,11 @@ local function ft_enabled_non_dapui()
   return not ft_is_disabled() and not ft_is_dapui()
 end
 
+local function found_editorconfig()
+  local ec = vim.b.editorconfig
+  return ec ~= nil and ec.root ~= nil
+end
+
 local active_L = {
   {
     provider = {
@@ -271,10 +276,20 @@ local active_R = {
         hl = { bg = tc.faded_aqua, fg = tc.dark0_soft },
       },
     },
-    right_sep = {
-      str = " ",
-      hl = { bg = tc.faded_aqua },
-    },
+  },
+  {
+    provider = " ",
+    enabled = function()
+      return ft_enabled() and not found_editorconfig()
+    end,
+    hl = { bg = tc.faded_aqua, fg = tc.light1 },
+  },
+  {
+    provider = "* ",
+    enabled = function()
+      return ft_enabled() and found_editorconfig()
+    end,
+    hl = { bg = tc.faded_aqua, fg = tc.light1 },
   },
   {
     provider = "",
