@@ -6,16 +6,42 @@
     safecrlf = warn
     editor = nvim
     excludesFile = ~/.config/git/ignore
+
+[branch]
+    sort = -committerdate
+[commit]
+    verbose = true
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    compactionHeuristic = true
+    mnemonicprefix = true
+    renames = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
 [init]
     defaultBranch = master
 [push]
     default = simple
-[diff]
-    renames = copies
-    mnemonicprefix = true
-    compactionHeuristic = true
+    autoSetupRemote = true
+    followTags = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[rebase]
+    autosquash = true
+    autoStash = true
+    updateRefs = true
+[tag]
+    sort = version:refname
+
 [color]
     ui = auto
+[column]
+    ui = auto
+
 [alias]
     # list all alias
     lsalias = "!git config -l | grep alias | cut -c 7-"
@@ -36,7 +62,7 @@
     histf = log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%cn • %G?]' --decorate --numstat
     histo = log --format=format:'%C(yellow)%h %Creset• %<(50,trunc)%s %C(cyan)[%cN • %G?] %C(blue)%cr%Creset %Cred%d' --graph -20 --branches --remotes --tags --date-order
     histb = "!f() { git log --pretty=format:'%C(yellow)%h %Cblue%cr %Creset• %s%C(red)%d%Creset %C(cyan)[%an • %G?]%Creset' --graph --abbrev-commit ${1:-$(git rev-parse --abbrev-ref HEAD)} --not ${2:-master}; }; f"
-    makepatch = log -u
+    histp = log -u
 
     # handy aliases
     adp = add -p
@@ -70,5 +96,6 @@
     # unassume / assume all
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
     assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+
 [include]
     path = ~/.gitconfig-local
