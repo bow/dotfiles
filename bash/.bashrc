@@ -155,6 +155,8 @@ alias z='eza'
 alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
 # eza tree view
 alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
+# justfile
+alias jst='just'
 
 
 # Docker aliases
