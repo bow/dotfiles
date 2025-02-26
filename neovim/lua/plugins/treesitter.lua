@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup {
     "javascript",
     "jq",
     "json",
+    "just",
     "kotlin",
     "latex",
     "lua",
