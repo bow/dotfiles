@@ -12,9 +12,10 @@
 --glob=!**/.direnv/*
 --glob=!**/.venv/*
 --glob=!**/.cache/*
---glob=!**/{*.egg-info,.mypy_cache,.pytest_cache,.pyenv,.tox,.vpython-root,_build,htmlcov,}/*
+--glob=!**/{*.egg-info,.mypy_cache,.pytest_cache,.ruff_cache,.pyenv,.tox,.vpython-root,_build,htmlcov,}/*
 --glob=!**/{node_modules,.npm,dist}/*
 --glob=!**/target/*
+--glob=!**/vendor/*
 --glob=!**/sandbox/*
 
 # Exclude files.
