@@ -149,12 +149,6 @@ alias chmox='chmod +x'
 alias unix-ns='date +%s%9N'
 # copy to X clipboard, trimming newline
 alias clip='xargs echo -n | xclip -selection c'
-# eza
-alias z='eza'
-# eza list view
-alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
-# eza tree view
-alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
 
 
 # Docker aliases
@@ -560,6 +554,16 @@ if has_exe terraform; then
     path="$(which terraform)"
     complete -C "${path}" terraform
     complete -C "${path}" tf
+fi
+
+# optional eza aliases.
+if has_exe eza; then
+    # eza
+    alias z='eza'
+    # eza list view
+    alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
+    # eza tree view
+    alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
 fi
 
 # load own copy of .git-completion.bash if it exists
