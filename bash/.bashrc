@@ -155,8 +155,6 @@ alias z='eza'
 alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
 # eza tree view
 alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
-# justfile
-alias jst='just'
 
 
 # Docker aliases
@@ -549,6 +547,12 @@ function set_window_title() {
 }
 # shellcheck disable=SC2034
 starship_precmd_user_func="set_window_title"
+
+# optional justfile completion.
+if has_exe just; then
+    alias jst='just'
+    eval "$(just --completions bash)"
+fi
 
 # optional terraform completion.
 if has_exe terraform; then
