@@ -39,8 +39,6 @@
 
 [color]
     ui = auto
-[column]
-    ui = auto
 
 [alias]
     # list all alias
