@@ -4,4 +4,4 @@ require("blame").setup {
 }
 
 local u = require("utils")
-u.nnoremap { "<C-m>", "<cmd>BlameToggle window<CR>" }
+u.nnoremap { "<A-m>", "<cmd>BlameToggle window<CR>" }

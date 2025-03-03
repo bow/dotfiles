@@ -54,7 +54,7 @@ require("gitsigns").setup {
     map("n", "<A-b>", function()
       gs.blame_line { full = true }
     end)
-    map("n", "<A-m>", gs.toggle_current_line_blame)
+    map("n", "<leader>lb", gs.toggle_current_line_blame)
     map("n", "<leader>hd", gs.diffthis)
     map("n", "<leader>hD", function()
       gs.diffthis("~")
