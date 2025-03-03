@@ -371,6 +371,14 @@ local specs = {
     ft = "jsonc",
   },
   {
+    "mistweaverco/kulala.nvim",
+    commit = "bf74da37518f84097a83593214ad835b908eae8c",
+    ft = {"http", "rest"},
+    opts = {
+      global_keymaps = true,
+    },
+  },
+  {
     "ledger/vim-ledger",
     commit = "b3e6f3dfaa922cda7771a4db20d3ae0267e08133",
     ft = "ledger",
