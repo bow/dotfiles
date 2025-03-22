@@ -71,7 +71,7 @@
     difc = diff --cached
     diffc = diff --cached
     punch = push -f
-    unstage = reset -q HEAD --
+    rsh = reset -q HEAD --
     discard = checkout --
     uncommit = reset --mixed HEAD~
     syncr = fetch --all --prune
