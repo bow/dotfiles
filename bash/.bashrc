@@ -563,7 +563,7 @@ if has_exe eza; then
     # eza list view
     alias zl='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions -aa'
     # eza tree view
-    alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree'
+    alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree --level 2'
 fi
 
 # load own copy of .git-completion.bash if it exists
