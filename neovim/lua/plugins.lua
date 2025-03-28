@@ -13,7 +13,7 @@ local commits = {
 local specs = {
   {
     "stevearc/aerial.nvim",
-    commit = "8ccc18055ba855affec5c251e615b92595ac2dba",
+    commit = "9ebc13583cff447f5493a63e99dfca526b3c3088",
     config = function(_)
       require("plugins.aerial-nvim")
     end,
@@ -60,8 +60,8 @@ local specs = {
     commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843",
   },
   {
-    "freddiehaddad/feline.nvim",
-    commit = "6cfbe0608d2552a7d947c6f521670b10379fbe42",
+    "famiu/feline.nvim",
+    commit = "3587f57480b88e8009df7b36dc84e9c7ff8f2c49",
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -131,7 +131,7 @@ local specs = {
   },
   {
     "nvimtools/none-ls.nvim",
-    commit = "ed8f80849ef1ad31c2f74679fafdef7801091247",
+    commit = "a117163db44c256d53c3be8717f3e1a2a28e6299",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
@@ -159,7 +159,7 @@ local specs = {
   },
   {
     "hrsh7th/nvim-cmp",
-    commit = "51260c02a8ffded8e16162dcf41a23ec90cfba62",
+    commit = "1e1900b0769324a9675ef85b38f99cca29e203b3",
   },
   {
     "hrsh7th/cmp-buffer",
