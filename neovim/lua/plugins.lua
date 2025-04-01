@@ -141,7 +141,7 @@ local specs = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6",
+    commit = "005b56001b2cb30bfa61b7986bc50657816ba4ba",
     config = function(_)
       require("plugins.indent-blankline-nvim")
     end,
