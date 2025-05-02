@@ -372,10 +372,13 @@ local specs = {
   },
   {
     "mistweaverco/kulala.nvim",
-    commit = "bf74da37518f84097a83593214ad835b908eae8c",
+    commit = "0aef250460683a78be7f947b68f5b0180bb47aab",
     ft = {"http", "rest"},
     opts = {
       global_keymaps = true,
+      ui = {
+        split_direction = "horizontal",
+      },
     },
   },
   {
