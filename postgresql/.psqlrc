@@ -2,13 +2,14 @@
 
 \set QUIET 1
 
--- Set how NULL values are displayed
--- \pset null '☒'
+-- Configure data and table displays
 \pset null '⬥'
+\pset linestyle unicode
+\pset border 2
 
 -- Customize prompts
-\set PROMPT1 '\n%[%033[36m%] %n@%M:%> %[%033[33m%]%/ %[%033[32m%][%R]\n%[%033[36m%]%#%[%033[0m%]% '
-\set PROMPT2 '%[%033[36m%] ... %[%033[36m%]%R%[%033[0m%] '
+\set PROMPT1 '\n%[%033[36m%]● %033[35m%]%n@%M:%> %033[37m%]via %`hostname -f` %[%033[33m%]%/ %[%033[32m%][%R]\n%[%033[36m%]%#%[%033[0m%]% '
+\set PROMPT2 '%[%033[36m%]%R%[%033[0m%] '
 
 -- Show how long each query takes to execute
 \timing
@@ -18,6 +19,18 @@
 \set VERBOSITY verbose
 \set HISTFILE ~/.psql_history- :DBNAME
 \set HISTCONTROL ignoredups
-\set COMP_KEYWORD_CASE upper
+\set HISTSIZE 2000
+\set COMP_KEYWORD_CASE preserve-upper
 \set ON_ERROR_ROLLBACK interactive
+
+-- Store commands
+
+\set long_running 'SELECT pid, now() - pg_stat_activity.xact_start AS duration, query, state FROM pg_stat_activity WHERE (now() - pg_stat_activity.xact_start) > interval ''5 minutes'' ORDER by 2 DESC;'
+
+\set cache_hit 'SELECT ''index hit rate'' AS name, (sum(idx_blks_hit)) / nullif(sum(idx_blks_hit + idx_blks_read),0) AS ratio FROM pg_statio_user_indexes UNION ALL SELECT ''table hit rate'' AS name, sum(heap_blks_hit) / nullif(sum(heap_blks_hit) + sum(heap_blks_read),0) AS ratio FROM pg_statio_user_tables;'
+
+\set unused_indexes 'SELECT schemaname AS schema, relname AS table, indexrelname AS index, pg_size_pretty(pg_relation_size(i.indexrelid)) AS index_size, idx_scan as index_scans FROM pg_stat_user_indexes ui JOIN pg_index i ON ui.indexrelid = i.indexrelid WHERE NOT indisunique AND idx_scan < 50 AND pg_relation_size(relid) > 5 * 8192 ORDER BY pg_relation_size(i.indexrelid) / nullif(idx_scan, 0) DESC NULLS FIRST, pg_relation_size(i.indexrelid) DESC;'
+
+\set table_sizes 'SELECT n.nspname AS schema, c.relname AS table, pg_size_pretty(pg_table_size(c.oid)) AS size FROM pg_class c LEFT JOIN pg_namespace n ON (n.oid = c.relnamespace) WHERE n.nspname NOT IN (''pg_catalog'', ''information_schema'') AND n.nspname !~ ''^pg_toast'' AND c.relkind=''r'' ORDER BY pg_table_size(c.oid) DESC;'
+
 \unset QUIET
