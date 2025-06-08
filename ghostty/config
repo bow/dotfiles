@@ -1,4 +1,6 @@
 app-notifications = no-clipboard-copy
+clipboard-paste-protection = false
+clipboard-trim-trailing-spaces = true
 copy-on-select = clipboard
 cursor-style = bar
 background-opacity = 0.96
