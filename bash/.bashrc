@@ -425,14 +425,72 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-# .local/bin config
+### > PATH-affecting config -- from least prioritized ###
+
+# basher config
 case ":${PATH}:" in
-    *:"${HOME}/.local/bin":*)
+    *:"${HOME}/.basher/bin":*)
         ;;
     *)
-        export PATH="${HOME}/.local/bin:${PATH}"
+        export PATH="${HOME}/.basher/bin:${PATH}"
         ;;
 esac
+if has_exe basher; then
+    eval "$(basher init -)"
+fi
+
+# nodenv config
+export NODENV_ROOT="${HOME}/.nodenv"
+case ":${PATH}:" in
+    *:"${NODENV_ROOT}/bin":*)
+        ;;
+    *)
+        export PATH="${NODENV_ROOT}/bin:${PATH}"
+        ;;
+esac
+if has_exe nodenv; then
+    eval "$(nodenv init -)"
+fi
+
+# ghcup config
+export GHCUP_INSTALL_BASE_PREFIX=${HOME}
+case ":${PATH}:" in
+    *:"${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin":*)
+        ;;
+    *)
+        export PATH="${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin:${PATH}"
+        ;;
+esac
+
+# rbenv config
+if has_exe rbenv; then
+    eval "$(rbenv init -)"
+fi
+
+# pyenv config
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="${HOME}/.pyenv"
+case ":${PATH}:" in
+    *:"${PYENV_ROOT}/shims":*)
+        ;;
+    *)
+        export PATH="${PYENV_ROOT}/shims:${PATH}"
+        ;;
+esac
+if has_exe pyenv; then
+    eval "$(pyenv init --path -)"
+    if command -v pyenv-virtualenv-init 1>/dev/null 2>&1; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
+fi
+
+# uv and uvx config
+if has_exe uv; then
+    eval "$(uv generate-shell-completion bash)"
+fi
+if has_exe uvx; then
+    eval "$(uvx --generate-shell-completion bash)"
+fi
 
 # go config
 export GOPATH=${HOME}/.local/go
@@ -453,76 +511,6 @@ case ":${PATH}:" in
         ;;
 esac
 
-# basher config
-case ":${PATH}:" in
-    *:"${HOME}/.basher/bin":*)
-        ;;
-    *)
-        export PATH="${HOME}/.basher/bin:${PATH}"
-        ;;
-esac
-if has_exe basher; then
-    eval "$(basher init -)"
-fi
-
-# ghcup config
-export GHCUP_INSTALL_BASE_PREFIX=${HOME}
-case ":${PATH}:" in
-    *:"${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin":*)
-        ;;
-    *)
-        export PATH="${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin:${PATH}"
-        ;;
-esac
-
-# uv and uvx config
-if has_exe uv; then
-    eval "$(uv generate-shell-completion bash)"
-fi
-if has_exe uvx; then
-    eval "$(uvx --generate-shell-completion bash)"
-fi
-
-# pyenv config
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT="${HOME}/.pyenv"
-case ":${PATH}:" in
-    *:"${PYENV_ROOT}/shims":*)
-        ;;
-    *)
-        export PATH="${PYENV_ROOT}/shims:${PATH}"
-        ;;
-esac
-if has_exe pyenv; then
-    eval "$(pyenv init --path -)"
-    if command -v pyenv-virtualenv-init 1>/dev/null 2>&1; then
-        eval "$(pyenv virtualenv-init -)"
-    fi
-fi
-
-# rbenv config
-if has_exe rbenv; then
-    eval "$(rbenv init -)"
-fi
-
-# nodenv config
-export NODENV_ROOT="${HOME}/.nodenv"
-case ":${PATH}:" in
-    *:"${NODENV_ROOT}/bin":*)
-        ;;
-    *)
-        export PATH="${NODENV_ROOT}/bin:${PATH}"
-        ;;
-esac
-if has_exe nodenv; then
-    eval "$(nodenv init -)"
-fi
-
-# direnv config
-if has_exe direnv; then
-    eval "$(direnv hook bash)"
-fi
-
 # asdf config
 if [[ -f /opt/asdf-vm/asdf.sh ]]; then
     # shellcheck source=/opt/asdf-vm/asdf.sh
@@ -540,6 +528,22 @@ case ":${PATH}:" in
         export PATH="${ASDF_DATA_DIR}/shims:${PATH}"
         ;;
 esac
+
+# .local/bin config
+case ":${PATH}:" in
+    *:"${HOME}/.local/bin":*)
+        ;;
+    *)
+        export PATH="${HOME}/.local/bin:${PATH}"
+        ;;
+esac
+
+# direnv config
+if has_exe direnv; then
+    eval "$(direnv hook bash)"
+fi
+
+### < PATH-affecting config done ###
 
 # starship config
 if [[ "${starship_exists}" -eq 1 && "${TERM}" != "linux" ]]; then
