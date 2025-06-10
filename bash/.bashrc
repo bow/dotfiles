@@ -465,6 +465,16 @@ if has_exe basher; then
     eval "$(basher init -)"
 fi
 
+# ghcup config
+export GHCUP_INSTALL_BASE_PREFIX=${HOME}
+case ":${PATH}:" in
+    *:"${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin":*)
+        ;;
+    *)
+        export PATH="${GHCUP_INSTALL_BASE_PREFIX}/.ghcup/bin:${PATH}"
+        ;;
+esac
+
 # uv and uvx config
 if has_exe uv; then
     eval "$(uv generate-shell-completion bash)"
