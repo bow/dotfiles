@@ -19,6 +19,7 @@ require("nvim-treesitter.configs").setup {
     "gomod",
     "gosum",
     "groovy",
+    "haskell",
     "html",
     "http",
     "ini",
