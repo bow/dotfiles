@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 prepend_keymap = [
     { on = "<C-h>", run = "hidden toggle" },
     { on = "<C-j>", run = "arrow [5]" },
