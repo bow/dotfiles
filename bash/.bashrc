@@ -417,7 +417,7 @@ esac
 [[ -f ~/.bash_private ]] && . ~/.bash_private
 
 # autojump config
-has_exe autojump && [[ -f /etc/profile.d/autojump.bash ]] && . /etc/profile.d/autojump.bash
+has_exe autojump && [[ -f /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
 
 # XDG_* settings
 export XDG_CONFIG_HOME="${HOME}/.config"
