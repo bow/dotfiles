@@ -2,11 +2,22 @@ require("bufferline").setup {
   animation = false,
   auto_hide = false,
   closable = true,
-  icons = false,
-
+  icons = {
+    button = "",
+    filetype = {
+      enabled = false
+    },
+    modified = {
+      button = "▪",
+    },
+    separator = {
+      left = "  ",
+    },
+    inactive = {
+      separator = {
+        left = "  ",
+      }
+    },
+  },
   maximum_padding = 0,
-  icon_separator_active = "  ",
-  icon_separator_inactive = "  ",
-  icon_close_tab = "",
-  icon_close_tab_modified = "▪",
 }

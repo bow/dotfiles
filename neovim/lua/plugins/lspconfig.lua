@@ -25,7 +25,26 @@ vim.diagnostic.config {
       return ""
     end,
   },
-  signs = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignErrorHint",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    },
+    texthl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.HINT] = "DiagnosticSignErrorHint",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    },
+  },
   underline = true,
   severity_sort = true,
   float = {
@@ -41,13 +60,6 @@ vim.diagnostic.config {
     end,
   },
 }
-
--- Diagnostic gutter sign.
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-for sev, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. sev
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
 
 local navic = require("nvim-navic")
 navic.setup {

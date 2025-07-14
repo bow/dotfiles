@@ -1,8 +1,5 @@
-require("neodev").setup {
+require("lazydev").setup {
   library = {
-    enabled = true,
-    runtime = true,
-    types = true,
     plugins = {
       "nvim-dap-ui",
       "plenary.nvim",

@@ -4,23 +4,23 @@
 
 -- Shared dependency versions.
 local commits = {
-  nvim_web_devicons = "140edfcf25093e8b321d13e154cbce89ee868ca0",
-  gitsigns_nvim = "6ef8c54fb526bf3a0bc4efb0b2fe8e6d9a7daed2",
-  plenary_nvim = "96e821e8001c21bc904d3c15aa96a70c11462c5f",
+  nvim_web_devicons = "0422a19d9aa3aad2c7e5cca167e5407b13407a9d",
+  gitsigns_nvim = "bbee149e00c404aa9f7a7c248b981cde953b252a",
+  plenary_nvim = "857c5ac632080dba10aae49dba902ce3abf91b35",
 }
 
 -- Plugins to load.
 local specs = {
   {
     "stevearc/aerial.nvim",
-    commit = "9ebc13583cff447f5493a63e99dfca526b3c3088",
+    commit = "5c0df1679bf7c814c924dc6646cc5291daca8363",
     config = function(_)
       require("plugins.aerial-nvim")
     end,
   },
   {
     "goolord/alpha-nvim",
-    commit = "09e5374465810d71c33e9b097214adcdebeee49a",
+    commit = "2b3cbcdd980cae1e022409289245053f62fb50f6",
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -33,11 +33,11 @@ local specs = {
   },
   {
     "pearofducks/ansible-vim",
-    commit = "93798e8c89c441d29d4678da0c0d5e1429eb43b0",
+    commit = "3329367d2e5f90d203c8d340c53fa83c60a1ad41",
   },
   {
     "romgrk/barbar.nvim",
-    commit = "e5f1393350cf842389be289c03885b92ab29ffb3",
+    commit = "3a74402bdf04745a762de83d5c5e88e3e9b0e2e0",
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -50,14 +50,14 @@ local specs = {
   },
   {
     "FabijanZulj/blame.nvim",
-    commit = "39bb4cda9e658d053a43919b10ca52c0a4d738e1",
+    commit = "b87b8c820e4cec06fbbd2f946b7b35c45906ee0c",
     config = function(_)
       require("plugins.blame-nvim")
     end
   },
   {
     "saadparwaiz1/cmp_luasnip",
-    commit = "05a9ab28b53f71d1aece421ef32fee2cb857a843",
+    commit = "98d9cb5c2c38532bd9bdb481067b20fea8f32e90",
   },
   {
     "famiu/feline.nvim",
@@ -78,7 +78,7 @@ local specs = {
   },
   {
     "j-hui/fidget.nvim",
-    commit = "44585a0c0085765195e6961c15529ba6c5a2a13b",
+    commit = "d9ba6b7bfe29b3119a610892af67602641da778e",
     config = function(_)
       require("plugins.fidget-nvim")
     end,
@@ -92,23 +92,23 @@ local specs = {
   },
   {
     "morhetz/gruvbox",
-    commit = "040138616bec342d5ea94d4db296f8ddca17007a",
+    commit = "697c00291db857ca0af00ec154e5bd514a79191f",
     priority = 1000,
   },
   {
     "L3MON4D3/LuaSnip",
-    commit = "563827f00bb4fe43269e3be653deabc0005f1302",
+    commit = "66b5c2707e624dcd2cd3605676c64a2efe47e9d1",
   },
   {
     "williamboman/mason.nvim",
-    commit = "e2f7f9044ec30067bc11800a9e266664b88cda22",
+    commit = "8024d64e1330b86044fed4c8494ef3dcd483a67c",
     config = function(_)
       require("plugins.mason-nvim")
     end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    commit = "8b9363d83b5d779813cdd2819b8308651cec2a09",
+    commit = "4c2cdc69d69fe00c15ae8648f7e954d99e5de3ea",
     config = function(_)
       require("plugins.mason-nvim-dap")
     end,
@@ -116,22 +116,15 @@ local specs = {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    commit = "2daa8921b7afdcfa47419a21ea343c3df6d74fa0",
+    commit = "acb2d97a5c5e3f58156cb387fdf6035c34cd2768",
     config = function(_)
       require("plugins.mason-nvim-lspconfig")
     end,
     dependencies = { "williamboman/mason.nvim" },
   },
   {
-    "folke/neodev.nvim",
-    commit = "da1562e1e3df0e994ddc52cb4ba22376a5d7f2fc",
-    config = function(_)
-      require("plugins.neodev")
-    end,
-  },
-  {
     "nvimtools/none-ls.nvim",
-    commit = "a117163db44c256d53c3be8717f3e1a2a28e6299",
+    commit = "a5954f00ee88bcdf154e931198ec636a26a1077c",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
@@ -148,54 +141,54 @@ local specs = {
   },
   {
     "windwp/nvim-autopairs",
-    commit = "0fd6519d44eac3a6736aafdb3fe9da916c3701d4",
+    commit = "23320e75953ac82e559c610bec5a90d9c6dfa743",
     config = function(_)
       require("plugins.nvim-autopairs")
     end,
   },
   {
     "sindrets/diffview.nvim",
-    commit = "d38c1b5266850f77f75e006bcc26213684e1e141",
+    commit = "4516612fe98ff56ae0415a259ff6361a89419b0a",
   },
   {
     "hrsh7th/nvim-cmp",
-    commit = "1e1900b0769324a9675ef85b38f99cca29e203b3",
+    commit = "b5311ab3ed9c846b585c0c15b7559be131ec4be9",
   },
   {
     "hrsh7th/cmp-buffer",
-    commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+    commit = "b74fab3656eea9de20a9b8116afa3cfc4ec09657",
   },
   {
     "hrsh7th/cmp-path",
-    commit = "91ff86cd9c29299a64f968ebb45846c485725f23",
+    commit = "e52e640b7befd8113b3350f46e8cfcfe98fcf730",
   },
   {
     "hrsh7th/cmp-cmdline",
-    commit = "8ee981b4a91f536f52add291594e89fb6645e451",
+    commit = "d126061b624e0af6c3a556428712dd4d4194ec6d",
   },
   {
     "hrsh7th/cmp-nvim-lsp",
-    commit = "44b16d11215dce86f253ce0c30949813c0a90765",
+    commit = "a8912b88ce488f411177fc8aed358b04dc246d7b",
   },
   {
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    commit = "3d8912ebeb56e5ae08ef0906e3a54de1c66b92f1",
+    commit = "031e6ba70b0ad5eee49fd2120ff7a2e325b17fa7",
   },
   {
     "mfussenegger/nvim-dap",
-    commit = "9d81c11fd185a131f81841e64941859305f6c42d",
+    commit = "cc77338e6e34c79f1c638f51ae4160dc9bfb05de",
     config = function(_)
       require("plugins.dap")
     end,
   },
   {
     "mfussenegger/nvim-dap-python",
-    commit = "f5b6f3a90aae0284b61fb3565e575267c19a16e6",
+    commit = "261ce649d05bc455a29f9636dc03f8cdaa7e0e2c",
     ft = "python",
   },
   {
     "rcarriga/nvim-dap-ui",
-    commit = "0b4816e5ad5f3219e8e3ec9cce07f61b770c1974",
+    commit = "cf91d5e2d07c72903d052f5207511bf7ecdb7122",
     dependencies = { "mfussenegger/nvim-dap" },
     config = function(_)
       require("plugins.nvim-dap-ui")
@@ -203,7 +196,7 @@ local specs = {
   },
   {
     "neovim/nvim-lspconfig",
-    commit = "0b8165cf95806bc4bb8f745bb0c92021b2ed4b98",
+    commit = "8c5efd1269160fc2fdf61e3d7176be5015860a8f",
     config = function(_)
       require("plugins.lspconfig")
     end,
@@ -211,14 +204,18 @@ local specs = {
   },
   {
     "SmiteshP/nvim-navic",
-    commit = "8649f694d3e76ee10c19255dece6411c29206a54",
+    commit = "f887d794a0f4594882814d7780980a949200a238",
     config = function(_)
       require("plugins.nvim-navic")
     end,
   },
   {
+    "nvim-neotest/nvim-nio",
+    commit = "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+  },
+  {
     "nvim-tree/nvim-tree.lua",
-    commit = "d1410cb0896a3aad5d84ddc54284774a627c6d63",
+    commit = "b0b49552c9462900a882fe772993b01d780445fe",
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -238,18 +235,18 @@ local specs = {
   },
   {
     "Weissle/persistent-breakpoints.nvim",
-    commit = "01e43512ef8d137f2b9e5c1c74fd35c37e787b59",
+    commit = "d1656221836207787b8a7969cc2dc72668c4742a",
     config = function(_)
       require("plugins.persistent-breakpoints")
     end,
   },
   {
     "luochen1990/rainbow",
-    commit = "54c79a24725af3a15d3aad20f70a56c7abbd46c3",
+    commit = "76ca1a20aa42edb5c65c19029968aad4625790dc",
   },
   {
     "nvim-telescope/telescope.nvim",
-    commit = "d829aa64059001ee7b2c8c8aa9c4e6df0b17d893",
+    commit = "b4da76be54691e854d3e0e02c36b0245f945c2c7",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
@@ -262,7 +259,7 @@ local specs = {
   },
   {
     "folke/todo-comments.nvim",
-    commit = "1b9df577262b2c4c4ea422161742927f80ffa131",
+    commit = "304a8d204ee787d2544d8bc23cd38d2f929e7cc5",
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
@@ -275,14 +272,14 @@ local specs = {
   },
   {
     "akinsho/toggleterm.nvim",
-    commit = "193786e0371e3286d3bc9aa0079da1cd41beaa62",
+    commit = "9a88eae817ef395952e08650b3283726786fb5fb",
     config = function(_)
       require("plugins.toggleterm-nvim")
     end,
   },
   {
     "folke/trouble.nvim",
-    commit = "897542f90050c3230856bc6e45de58b94c700bbf",
+    commit = "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3",
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -295,34 +292,34 @@ local specs = {
   },
   {
     "ntpeters/vim-better-whitespace",
-    commit = "c5afbe91d29c5e3be81d5125ddcdc276fd1f1322",
+    commit = "de99b55a6fe8c96a69f9376f16b1d5d627a56e81",
     config = function(_)
       require("plugins.vim-better-whitespace")
     end,
   },
   {
     "alvan/vim-closetag",
-    commit = "c0779ef575d5c239162f4ca3506cfb4a95d45a58",
+    commit = "d0a562f8bdb107a50595aefe53b1a690460c3822",
   },
   {
     "tpope/vim-commentary",
-    commit = "627308e30639be3e2d5402808ce18690557e8292",
+    commit = "64a654ef4a20db1727938338310209b6a63f60c9",
   },
   {
     "easymotion/vim-easymotion",
-    commit = "d75d9591e415652b25d9e0a3669355550325263d",
+    commit = "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878",
   },
   {
     "tpope/vim-fugitive",
-    commit = "5a24c2527584e4e61a706ad7ecb3514ac7031307",
+    commit = "d3e2b58dec75fc6012fecc82ce0d33a45ed0560e",
   },
   {
     "farmergreg/vim-lastplace",
-    commit = "48ba343c8c1ca3039224727096aae214f51327d1",
+    commit = "e58cb0df716d3c88605ae49db5c4741db8b48aa9",
   },
   {
     "kburdett/vim-nuuid",
-    commit = "6ae845f9348921f4e436c587da6d2bbf5691c4ed",
+    commit = "6abc11a7943e5777c27b6271f3b6243f426d68fd",
   },
   {
     "kshenoy/vim-signature",
@@ -330,13 +327,13 @@ local specs = {
   },
   {
     "dstein64/vim-startuptime",
-    commit = "5f52ed26e0296a3e1d1453935f417e5808eefab8",
+    commit = "b6f0d93f6b8cf6eee0b4c94450198ba2d6a05ff6",
     lazy = true,
     cmd = { "StartupTime" },
   },
   {
     "tpope/vim-surround",
-    commit = "f51a26d3710629d031806305b6c8727189cd1935",
+    commit = "3d188ed2113431cf8dac77be61b842acb64433d9",
   },
 
   -- Filetype-specific plugins.
@@ -347,7 +344,7 @@ local specs = {
   },
   {
     "liuchengxu/graphviz.vim",
-    commit = "704aa42852f200db2594382bdf847a92fdab61fc",
+    commit = "dbe1de334097891186e09e5616671091d89011d5",
     ft = "dot",
   },
   {
@@ -357,7 +354,7 @@ local specs = {
   },
   {
     "jvirtanen/vim-hcl",
-    commit = "1e1116c17a5774851360ea8077f349e36fc733c1",
+    commit = "7f4ac507aeaf902cd9fddd65bf0df971e43814d3",
     ft = "hcl",
   },
   {
@@ -372,7 +369,7 @@ local specs = {
   },
   {
     "mistweaverco/kulala.nvim",
-    commit = "0aef250460683a78be7f947b68f5b0180bb47aab",
+    commit = "902fc21e8a3fee7ccace37784879327baa6d1ece",
     ft = {"http", "rest"},
     opts = {
       global_keymaps = true,
@@ -385,6 +382,14 @@ local specs = {
     "ledger/vim-ledger",
     commit = "b3e6f3dfaa922cda7771a4db20d3ae0267e08133",
     ft = "ledger",
+  },
+  {
+    "folke/lazydev.nvim",
+    commit = "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c",
+    config = function(_)
+      require("plugins.lazydev")
+    end,
+    ft = "lua",
   },
   {
     "Mxrcon/nextflow-vim",
@@ -416,7 +421,7 @@ local specs = {
   },
   {
     "cespare/vim-toml",
-    commit = "717bd87ef928293e0cc6cfc12ebf2e007cb25311",
+    commit = "1b63257680eeb65677eb1ca5077809a982756d58",
     ft = "toml",
   },
   {

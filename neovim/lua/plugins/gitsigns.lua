@@ -1,12 +1,21 @@
 require("gitsigns").setup {
   signs = {
-    add = { hl = "GitSignsAdd", text = "▊", numhl = "", linehl = "GitSignsAddLn" },
-    change = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeLn" },
-    delete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteLn" },
-    topdelete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteLn" },
-    changedelete = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeLn" },
-    untracked = { hl = "GitSignsUntracked", text = "▊", numhl = "", linehl = "GitSignsUntrackedLn" },
+    add = { hl = "GitSignsAdd", text = "▊", numhl = "", linehl = "GitSignsAddNr" },
+    change = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeNr" },
+    delete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteNr" },
+    topdelete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteNr" },
+    changedelete = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeNr" },
+    untracked = { hl = "GitSignsUntracked", text = "▊", numhl = "", linehl = "GitSignsUntrackedNr" },
   },
+  signs_staged = {
+    add = { hl = "GitSignsAdd", text = "▊", numhl = "", linehl = "GitSignsAddNr" },
+    change = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeNr" },
+    delete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteNr" },
+    topdelete = { hl = "GitSignsDelete", text = "🬋", numhl = "", linehl = "GitSignsDeleteNr" },
+    changedelete = { hl = "GitSignsChange", text = "▊", numhl = "", linehl = "GitSignsChangeNr" },
+    untracked = { hl = "GitSignsUntracked", text = "▊", numhl = "", linehl = "GitSignsUntrackedNr" },
+  },
+  signs_staged_enable = true,
   numhl = true,
   current_line_blame = false,
   current_line_blame_opts = {
