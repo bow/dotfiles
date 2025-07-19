@@ -219,4 +219,10 @@ u.set_hls {
   ["@number.json"] = { link = "@number.yaml" },
   ["@property.json"] = { link = "@property.yaml" },
   ["@string.json"] = { link = "@string.yaml" },
+
+  TroubleNormal = { bg = tc.dark0_hard, fg = tc.light4 },
+  TroubleNormalNC = { bg = tc.dark0_hard, fg = tc.light4 },
+  TroubleDirectory = { bg = tc.dark0_hard, fg = tc.neutral_yellow, italic = true },
+  TroubleFilename = { bg = tc.dark0_hard, fg = tc.dark4, italic = true },
+  TroubleCount = { bg = tc.dark0_hard, fg = tc.dark2, italic = true },
 }
