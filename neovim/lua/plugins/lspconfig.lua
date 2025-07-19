@@ -177,14 +177,10 @@ none_ls.setup {
 require("mason-lspconfig").setup {
   automatic_installation = false,
 }
-local lspconfig = require("lspconfig")
 
 local function opt_lspconfig(args)
-  local ls = lspconfig[args.name]
-  if ls == nil then
-    return nil
-  end
-  return ls.setup(args.opts)
+  vim.lsp.enable(args.name)
+  vim.lsp.config(args.name, args.opts)
 end
 
 opt_lspconfig {
