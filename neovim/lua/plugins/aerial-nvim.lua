@@ -4,9 +4,11 @@ require("aerial").setup {
     vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
   end,
   layout = {
-    resize_to_content = false,
+    resize_to_content = true,
+    default_direction = "prefer_left",
   },
-  filter_kind = false,
   autojump = true,
+  filter_kind = false,
+  highlight_on_hover = true,
 }
 vim.keymap.set("n", "<C-o>", "<cmd>AerialToggle!<CR>")
