@@ -243,7 +243,12 @@ opt_lspconfig {
     settings = {
       ["nil"] = {
         formatting = {
-          command = { "alejandra" },
+          command = { "nixfmt" },
+        },
+        nix = {
+          flake = {
+            autoArchive = false,
+          },
         },
       },
     },
