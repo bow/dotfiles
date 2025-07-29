@@ -284,15 +284,17 @@ function pack() {
             rar a "${target}.rar" "${target}" ;;
         zip)
             zip -r "${target}.zip" "${target}" ;;
+        zst | zstd)
+            tar --zstd -cvf "${target}.tar.zst" "${target}" ;;
         *)
-            echo "Usage: pack [gzip|bzip2|xz|7z|rar|zip] [target]" ;;
+            echo "Usage: pack [gzip|bzip2|xz|7z|rar|zip|zst] [target]" ;;
     esac
 }
 
 # unpack directories
 function unpack() {
     case $1 in
-        *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz | *.tar)
+        *.tar.gz | *.tgz | *.tar.bz2 | *.tbz2 | *.tar.xz | *.txz | *.tar.zst | *.tzst | *.tar.zstd | *.tzstd | *.tar)
             tar xfv "$1" ;;
         *.gem)
             tar xfv "$1" ;;
@@ -304,6 +306,8 @@ function unpack() {
             unxz "$1" ;;
         *.zip)
             unzip "$1" ;;
+        *.zst | *.zstd)
+            zst -d "$1" ;;
         *)
             echo "Usage: unpack [target]" ;;
     esac
