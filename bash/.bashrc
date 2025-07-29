@@ -584,6 +584,9 @@ if has_exe eza; then
     alias zt='eza --long --header --binary --git --sort=name --group-directories-first -g -M -o --no-permissions --tree --level 2'
 fi
 
+export PAGER="less"
+export LESS="-F -X -g -S -w -z-2 -#.1 -M -R -Q"
+
 # load own copy of .git-completion.bash if it exists
 # shellcheck source=/dev/null
 [[ -f "${HOME}/.git-completion.bash" ]] && . "${HOME}/.git-completion.bash"
