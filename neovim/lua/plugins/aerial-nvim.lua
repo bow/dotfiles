@@ -10,5 +10,8 @@ require("aerial").setup {
   autojump = true,
   filter_kind = false,
   highlight_on_hover = true,
+  ignore = {
+    filetypes = { "alpha" },
+  },
 }
 vim.keymap.set("n", "<C-o>", "<cmd>AerialToggle!<CR>")
