@@ -14,6 +14,7 @@ local specs = {
   {
     "stevearc/aerial.nvim",
     commit = "5c0df1679bf7c814c924dc6646cc5291daca8363",
+    keys = { "<C-o>" },
     config = function(_)
       require("plugins.aerial-nvim")
     end,
@@ -51,9 +52,10 @@ local specs = {
   {
     "FabijanZulj/blame.nvim",
     commit = "b87b8c820e4cec06fbbd2f946b7b35c45906ee0c",
+    lazy = true,
     config = function(_)
       require("plugins.blame-nvim")
-    end
+    end,
   },
   {
     "saadparwaiz1/cmp_luasnip",
@@ -102,13 +104,13 @@ local specs = {
   {
     "williamboman/mason.nvim",
     commit = "8024d64e1330b86044fed4c8494ef3dcd483a67c",
-    config = function(_)
-      require("plugins.mason-nvim")
-    end,
+    cmd = { "Mason" },
+    opts = {},
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
     commit = "4c2cdc69d69fe00c15ae8648f7e954d99e5de3ea",
+    lazy = true,
     config = function(_)
       require("plugins.mason-nvim-dap")
     end,
@@ -117,10 +119,15 @@ local specs = {
   {
     "williamboman/mason-lspconfig.nvim",
     commit = "acb2d97a5c5e3f58156cb387fdf6035c34cd2768",
+    dependencies = {
+      { "williamboman/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+    opts = {},
+    cmd = { "Mason" },
     config = function(_)
       require("plugins.mason-nvim-lspconfig")
     end,
-    dependencies = { "williamboman/mason.nvim" },
   },
   {
     "nvimtools/none-ls.nvim",
@@ -200,7 +207,6 @@ local specs = {
     config = function(_)
       require("plugins.lspconfig")
     end,
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
   },
   {
     "SmiteshP/nvim-navic",
@@ -216,6 +222,7 @@ local specs = {
   {
     "nvim-tree/nvim-tree.lua",
     commit = "b0b49552c9462900a882fe772993b01d780445fe",
+    keys = { "<C-t>" },
     dependencies = {
       {
         "nvim-tree/nvim-web-devicons",
@@ -247,6 +254,7 @@ local specs = {
   {
     "nvim-telescope/telescope.nvim",
     commit = "b4da76be54691e854d3e0e02c36b0245f945c2c7",
+    keys = { "<C-p>", "<C-i>", "<C-f>", "<C-u>", "<C-g>" },
     dependencies = {
       {
         "nvim-lua/plenary.nvim",
@@ -273,6 +281,7 @@ local specs = {
   {
     "akinsho/toggleterm.nvim",
     commit = "9a88eae817ef395952e08650b3283726786fb5fb",
+    lazy = true,
     config = function(_)
       require("plugins.toggleterm-nvim")
     end,
@@ -299,18 +308,22 @@ local specs = {
   },
   {
     "alvan/vim-closetag",
+    lazy = true,
     commit = "d0a562f8bdb107a50595aefe53b1a690460c3822",
   },
   {
     "tpope/vim-commentary",
+    lazy = true,
     commit = "64a654ef4a20db1727938338310209b6a63f60c9",
   },
   {
     "easymotion/vim-easymotion",
+    lazy = true,
     commit = "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878",
   },
   {
     "tpope/vim-fugitive",
+    lazy = true,
     commit = "d3e2b58dec75fc6012fecc82ce0d33a45ed0560e",
   },
   {
@@ -319,16 +332,18 @@ local specs = {
   },
   {
     "kburdett/vim-nuuid",
+    lazy = true,
     commit = "6abc11a7943e5777c27b6271f3b6243f426d68fd",
   },
   {
     "kshenoy/vim-signature",
+    lazy = true,
     commit = "6bc3dd1294a22e897f0dcf8dd72b85f350e306bc",
   },
   {
     "dstein64/vim-startuptime",
-    commit = "b6f0d93f6b8cf6eee0b4c94450198ba2d6a05ff6",
     lazy = true,
+    commit = "b6f0d93f6b8cf6eee0b4c94450198ba2d6a05ff6",
     cmd = { "StartupTime" },
   },
   {
@@ -370,7 +385,7 @@ local specs = {
   {
     "mistweaverco/kulala.nvim",
     commit = "902fc21e8a3fee7ccace37784879327baa6d1ece",
-    ft = {"http", "rest"},
+    ft = { "http", "rest" },
     opts = {
       global_keymaps = true,
       ui = {

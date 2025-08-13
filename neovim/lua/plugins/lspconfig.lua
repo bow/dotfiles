@@ -181,10 +181,6 @@ none_ls.setup {
   end,
 }
 
-require("mason-lspconfig").setup {
-  automatic_installation = false,
-}
-
 local function opt_lspconfig(args)
   vim.lsp.enable(args.name)
   vim.lsp.config(args.name, args.opts)
