@@ -9,6 +9,8 @@ u.nnoremap { "<C-Down>", "<C-w>J" }
 u.nnoremap { "<C-Up>", "<C-w>K" }
 u.nnoremap { "<C-Right>", "<C-w>L" }
 u.nnoremap { "<C-Left>", "<C-w>H" }
+u.nnoremap { "<C-/>", ":vsp<CR>" }
+u.nnoremap { "<C-.>", ":sp<CR>" }
 
 -- Buffer controls.
 u.nnoremap { "<A-Right>", ":bn<CR>" }
