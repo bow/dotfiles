@@ -126,6 +126,7 @@ u.set_hls {
   DiagnosticFloatingHint = { fg = tc.bright_aqua },
 
   -- LSP.
+  LspInlayHint = { bg = tc.dark0_soft, fg = tc.faded_yellow },
   LspReferenceRead = { bg = tc.dark2 },
   LspReferenceWrite = { default = true, reverse = true },
   LspReferenceText = { bg = tc.dark2 },

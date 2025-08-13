@@ -97,6 +97,15 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
 
+  vim.keymap.set("n", "<leader>i", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+  end)
+
+  -- Inlay hints.
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  end
+
   -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
     local grp_lsphl = augroup("LSPDocumentHighlight", { clear = true })
