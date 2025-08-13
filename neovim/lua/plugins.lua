@@ -104,8 +104,9 @@ local specs = {
   {
     "williamboman/mason.nvim",
     commit = "8024d64e1330b86044fed4c8494ef3dcd483a67c",
-    cmd = { "Mason" },
-    opts = {},
+    config = function(_)
+      require("plugins.mason-nvim")
+    end,
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
