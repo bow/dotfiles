@@ -239,7 +239,7 @@ function calc() { echo "$*" | bc; }
 function mkpyenv() {
     env_name=$1
     local_pyenv_version=$(cat "$HOME/.pyenv-version" 2> /dev/null)
-    pyenv_version=${2:-${local_pyenv_version:-3.12.0}}
+    pyenv_version=${2:-${local_pyenv_version:-3.13.5}}
     pyenv virtualenv "${pyenv_version}" "${env_name}" \
         && printf "%s\n%s\n" "${env_name}" "${pyenv_version}" \
         > .python-version \
