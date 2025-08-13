@@ -46,6 +46,8 @@ u.set_hls {
   },
   -- Internal neovim errors.
   NvimInternalError = { default = true, bg = tc.neutral_red, fg = tc.dark0_hard, bold = true },
+  -- Extra EOL whitespace.
+  ExtraWhitespace = { bg = tc.faded_orange },
   -- Search results.
   Search = { default = true, ctermbg = "darkgreen", ctermfg = "black", cterm = {} },
   -- Words not recognized by the spellchecker.
