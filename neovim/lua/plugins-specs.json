@@ -29,7 +29,7 @@
     {
       "name": "FabijanZulj/blame.nvim",
       "commit": "b87b8c820e4cec06fbbd2f946b7b35c45906ee0c",
-      "lazy": true,
+      "keys": ["<A-m>"],
       "config": "plugins.blame-nvim"
     },
     {
@@ -197,7 +197,7 @@
     {
       "name": "akinsho/toggleterm.nvim",
       "commit": "9a88eae817ef395952e08650b3283726786fb5fb",
-      "lazy": true,
+      "keys": ["<C-\\>"],
       "config": "plugins.toggleterm-nvim"
     },
     {
