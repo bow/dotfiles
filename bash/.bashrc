@@ -420,8 +420,11 @@ esac
 # shellcheck source=.git-prompt.sh
 [[ -f ~/.bash_private ]] && . ~/.bash_private
 
-# autojump config
-has_exe autojump && [[ -f /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
+# zoxide config
+if has_exe zoxide; then
+    export _ZO_ECHO=1
+    eval "$(zoxide init --cmd j bash)"
+fi
 
 # XDG_* settings
 export XDG_CONFIG_HOME="${HOME}/.config"
