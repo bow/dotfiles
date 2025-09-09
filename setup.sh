@@ -36,6 +36,7 @@ progs=(
     [ripgrep]="${HOME}"
     [sqlite]="${HOME}"
     [starship]="${HOME}/.config"
+    [systemd]="${HOME}/.config/systemd"
     [tmux]="${HOME}"
     [xorg]="${HOME}"
     [xterm]="${HOME}"
