@@ -22,7 +22,6 @@ progs=(
     [gitignore]="${HOME}/.config/git"
     [i3]="${HOME}/.config/i3"
     [ignore]="${HOME}"
-    [lightdm]="${HOME}"
     [ncmpcpp]="${HOME}"
     [neovim]="${HOME}/.config/nvim"
     [ocaml]="${HOME}"
