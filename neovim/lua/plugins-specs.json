@@ -15,10 +15,6 @@
       "config": "plugins.alpha-nvim"
     },
     {
-      "name": "pearofducks/ansible-vim",
-      "commit": "3329367d2e5f90d203c8d340c53fa83c60a1ad41"
-    },
-    {
       "name": "romgrk/barbar.nvim",
       "commit": "3a74402bdf04745a762de83d5c5e88e3e9b0e2e0",
       "dependencies": [
@@ -221,11 +217,6 @@
       "name": "tpope/vim-commentary",
       "lazy": true,
       "commit": "64a654ef4a20db1727938338310209b6a63f60c9"
-    },
-    {
-      "name": "easymotion/vim-easymotion",
-      "lazy": true,
-      "commit": "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878"
     },
     {
       "name": "tpope/vim-fugitive",
