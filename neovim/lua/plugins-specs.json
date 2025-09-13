@@ -37,15 +37,6 @@
       "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90"
     },
     {
-      "name": "famiu/feline.nvim",
-      "commit": "3587f57480b88e8009df7b36dc84e9c7ff8f2c49",
-      "dependencies": [
-          "nvim-tree/nvim-web-devicons",
-          "lewis6991/gitsigns.nvim"
-      ],
-      "config": "plugins.feline-nvim"
-    },
-    {
       "name": "j-hui/fidget.nvim",
       "commit": "d9ba6b7bfe29b3119a610892af67602641da778e",
       "config": "plugins.fidget-nvim"
@@ -59,6 +50,14 @@
       "name": "morhetz/gruvbox",
       "commit": "697c00291db857ca0af00ec154e5bd514a79191f",
       "priority": 1000
+    },
+    {
+      "name": "nvim-lualine/lualine.nvim",
+      "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955",
+      "dependencies": [
+          "nvim-tree/nvim-web-devicons"
+      ],
+      "config": "plugins.lualine-nvim"
     },
     {
       "name": "L3MON4D3/LuaSnip",

@@ -99,6 +99,15 @@ local hls = {
   -- indent-blankline.nvim colors.
   IndentBlanklineChar = { fg = tc.dark2 },
 
+  -- lualine.nvim colors.
+  LuaLineDiffAdded = { fg = tc.neutral_green, bg = tc.dark1 },
+  LuaLineDiffModified = { fg = tc.neutral_yellow, bg = tc.dark1 },
+  LuaLineDiffRemoved = { fg = tc.neutral_red, bg = tc.dark1 },
+  LuaLineDiagnosticError = { fg = tc.neutral_red, bg = tc.dark1 },
+  LuaLineDiagnosticWarn = { fg = tc.neutral_yellow, bg = tc.dark1 },
+  LuaLineDiagnosticInfo = { fg = tc.neutral_aqua, bg = tc.dark1 },
+  LuaLineDiagnosticHint = { fg = tc.neutral_blue, bg = tc.dark1 },
+
   DiagnosticUnderlineError = { bg = tc.neutral_red, fg = tc.dark0_hard, underline = false, bold = true },
   DiagnosticUnderlineWarn = { underline = true, sp = tc.neutral_yellow },
   DiagnosticUnderlineInfo = { underline = true, sp = tc.neutral_aqua },
