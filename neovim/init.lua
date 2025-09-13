@@ -29,11 +29,15 @@ end
 
 -- Initialize config.
 local function init()
+
+  if require("utils").in_nixos() then
+    return
+  end
+
   bootstrap_lazy_nvim()
   set_global_settings()
 
   for _, mod in ipairs {
-    "utils",
     "plugins",
     "settings",
     "keymaps",

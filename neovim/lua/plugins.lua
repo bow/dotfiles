@@ -4,6 +4,11 @@
 
 -- Loads the plugin spec from a JSON file.
 
+-- When in nixos, plugins are handled differently without lazy.nvim
+if require('utils').in_nixos() then
+  return
+end
+
 DEBUG = false
 
 -- diag shows the message using vim.notify, only if the global `DEBUG` value is true.
