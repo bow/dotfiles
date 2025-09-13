@@ -101,28 +101,28 @@ local hls = {
 
   DiagnosticUnderlineError = { bg = tc.neutral_red, fg = tc.dark0_hard, underline = false, bold = true },
   DiagnosticUnderlineWarn = { underline = true, sp = tc.neutral_yellow },
-  DiagnosticUnderlineInfo = { underline = true, sp = tc.neutral_blue },
-  DiagnosticUnderlineHint = { underline = true, sp = tc.neutral_aqua },
+  DiagnosticUnderlineInfo = { underline = true, sp = tc.neutral_aqua },
+  DiagnosticUnderlineHint = { underline = true, sp = tc.neutral_blue },
 
   DiagnosticError = { fg = tc.neutral_red },
   DiagnosticWarn = { fg = tc.neutral_yellow },
-  DiagnosticInfo = { fg = tc.neutral_blue },
-  DiagnosticHint = { fg = tc.neutral_aqua },
+  DiagnosticInfo = { fg = tc.neutral_aqua },
+  DiagnosticHint = { fg = tc.neutral_blue },
 
   DiagnosticSignError = { fg = tc.neutral_red },
   DiagnosticSignWarn = { fg = tc.neutral_yellow },
-  DiagnosticSignInfo = { fg = tc.neutral_blue },
-  DiagnosticSignHint = { fg = tc.neutral_aqua },
+  DiagnosticSignInfo = { fg = tc.neutral_aqua },
+  DiagnosticSignHint = { fg = tc.neutral_blue },
 
   DiagnosticVirtualTextError = { fg = tc.neutral_red },
   DiagnosticVirtualTextWarn = { fg = tc.neutral_yellow },
-  DiagnosticVirtualTextInfo = { fg = tc.neutral_blue },
-  DiagnosticVirtualTextHint = { fg = tc.neutral_aqua },
+  DiagnosticVirtualTextInfo = { fg = tc.neutral_aqua },
+  DiagnosticVirtualTextHint = { fg = tc.neutral_blue },
 
   DiagnosticFloatingError = { fg = tc.bright_red },
   DiagnosticFloatingWarn = { fg = tc.bright_yellow },
-  DiagnosticFloatingInfo = { fg = tc.bright_blue },
-  DiagnosticFloatingHint = { fg = tc.bright_aqua },
+  DiagnosticFloatingInfo = { fg = tc.bright_aqua },
+  DiagnosticFloatingHint = { fg = tc.bright_blue },
 
   -- LSP.
   LspInlayHint = { bg = tc.dark0_soft, fg = tc.faded_yellow },
