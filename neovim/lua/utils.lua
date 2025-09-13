@@ -30,14 +30,6 @@ function M.nnoremapf(keymap)
   return vim.keymap.set("n", keymap[1], keymap[2], ropts)
 end
 
---- Set syntax highlighting.
--- @param hls a table of syntax highlight groups.
-function M.set_hls(hls)
-  for group, spec in pairs(hls) do
-    vim.api.nvim_set_hl(0, group, spec)
-  end
-end
-
 -- Return true if we are running in NixOS.
 function M.in_nixos()
   local uv = vim.loop

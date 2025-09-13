@@ -1,7 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 local tc = require("constants").gruvbox
-local u = require("utils")
 
 opt.background = "dark"
 
@@ -13,7 +12,7 @@ g.gruvbox_contrast_dark = "hard"
 
 vim.cmd [[colorscheme gruvbox]]
 
-u.set_hls {
+local hls = {
   -- Text width column color.
   ColorColumn = { bg = tc.dark0_hard },
   -- Current line.
@@ -229,3 +228,7 @@ u.set_hls {
   TroubleFilename = { bg = tc.dark0_hard, fg = tc.dark4, italic = true },
   TroubleCount = { bg = tc.dark0_hard, fg = tc.dark2, italic = true },
 }
+
+for group, spec in pairs(hls) do
+  vim.api.nvim_set_hl(0, group, spec)
+end
