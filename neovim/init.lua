@@ -39,6 +39,7 @@ local function init()
 
   for _, mod in ipairs {
     "ftdetect",
+    "filetypes",
     "plugins",
     "settings",
     "keymaps",
