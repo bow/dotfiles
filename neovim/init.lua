@@ -38,6 +38,7 @@ local function init()
   set_global_settings()
 
   for _, mod in ipairs {
+    "ftdetect",
     "plugins",
     "settings",
     "keymaps",
