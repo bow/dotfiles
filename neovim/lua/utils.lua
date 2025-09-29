@@ -32,7 +32,7 @@ end
 
 -- Return true if we are running in NixOS.
 function M.in_nixos()
-  local uv = vim.loop
+  local uv = vim.uv or vim.loop
   local stat = uv.fs_stat("/etc/NIXOS")
   if stat then return true end -- marker file exists on NixOS
   return false

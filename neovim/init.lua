@@ -2,15 +2,12 @@
 -- @author Wibowo Arindrarto <contact@arindrarto.dev>
 
 -- Clone lazy.nvim if it does not yet exist.
-local function bootstrap_lazy_nvim(in_nixos)
-  if in_nixos then
-    return
-  end
+local function bootstrap_lazy_nvim()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   local url = "https://github.com/folke/lazy.nvim.git"
   local branch = "stable"
 
-  if not vim.loop.fs_stat(lazypath) then
+  if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.system({
       "git",
       "clone",
@@ -24,8 +21,8 @@ local function bootstrap_lazy_nvim(in_nixos)
 end
 
 -- Set global settings required in subsequent configs.
-local function set_global_settings(in_nixos)
-  if not in_nixos then
+local function set_global_settings()
+  if not require("utils").in_nixos() then
     vim.g.python3_host_prog = "/usr/bin/python3"
   end
   vim.g.mapleader = ","
@@ -35,10 +32,8 @@ end
 -- Initialize config.
 local function init()
 
-  local in_nixos = require("utils").in_nixos()
-
-  bootstrap_lazy_nvim(in_nixos)
-  set_global_settings(in_nixos)
+  bootstrap_lazy_nvim()
+  set_global_settings()
 
   for _, mod in ipairs {
     "ftdetect",
