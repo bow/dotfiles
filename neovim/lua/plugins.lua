@@ -31,15 +31,15 @@ local function make_plugin_entry(spec, shared_deps)
   for _, dep_spec in ipairs(spec.dependencies or {}) do
     local dep = dep_spec
     local t = type(dep_spec)
-    if t == "string" then
+    if t == 'string' then
       if shared_deps[dep_spec] then
-        dep = {dep_spec}
+        dep = { dep_spec }
         dep.commit = shared_deps[dep_spec]
       end
-    elseif t ~= "table" then
+    elseif t ~= 'table' then
       error(("Error: invalid dependency entry for plugin '%s'"):format(spec.name))
     end
-    entry.dependencies[#entry.dependencies+1] = dep
+    entry.dependencies[#entry.dependencies + 1] = dep
   end
 
   if spec.config then
@@ -54,13 +54,13 @@ end
 -- load_plugin_entries loads the JSON specs file into a list of plugin entries for loading by lazy.nvim.
 local function load_plugin_entries(path)
   if not path then
-    local cur_file = debug.getinfo(1, "S").source:sub(2)
-    local cur_dir = cur_file:match("(.*/)")
-    path = cur_dir .. "plugins-specs.json"
+    local cur_file = debug.getinfo(1, 'S').source:sub(2)
+    local cur_dir = cur_file:match('(.*/)')
+    path = cur_dir .. 'plugins-specs.json'
   end
 
   local read_ok, raw = pcall(function()
-    return table.concat(vim.fn.readfile(path), "\n")
+    return table.concat(vim.fn.readfile(path), '\n')
   end)
   if not read_ok then
     error(("Error: failed to load plugin specs file at '%s'"):format(path))
@@ -75,13 +75,13 @@ local function load_plugin_entries(path)
 
   local plugins = {}
   for i, entry in ipairs(specs.plugins) do
-    diag(("Loading plugin %s"):format(entry.name))
+    diag(('Loading plugin %s'):format(entry.name))
     plugins[i] = make_plugin_entry(entry, shared_deps)
-    diag(("Loaded plugin %s"):format(entry.name))
+    diag(('Loaded plugin %s'):format(entry.name))
   end
 
   return plugins
 end
 
 local specs = load_plugin_entries() or {}
-require("lazy").setup(specs)
+require('lazy').setup(specs)

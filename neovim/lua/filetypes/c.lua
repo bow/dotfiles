@@ -4,9 +4,9 @@ return function()
   optl.expandtab = true
   optl.shiftwidth = 4
   optl.tabstop = 4
-  optl.textwidth = require("constants").tw.half_screen
-  optl.commentstring = "// %s"
+  optl.textwidth = require('constants').tw.half_screen
+  optl.commentstring = '// %s'
 
   optl.cindent = true
-  optl.cinoptions = optl.cinoptions .. ",(s,m1,l1,=s"
+  optl.cinoptions = optl.cinoptions .. ',(s,m1,l1,=s'
 end

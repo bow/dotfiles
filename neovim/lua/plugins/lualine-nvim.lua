@@ -1,29 +1,29 @@
 local api = vim.api
-local tc = require("constants").gruvbox
+local tc = require('constants').gruvbox
 
-local empty = require("lualine.component"):extend()
+local empty = require('lualine.component'):extend()
 function empty:draw(default_highlight)
-  self.status = ""
-  self.applied_separator = ""
+  self.status = ''
+  self.applied_separator = ''
   self:apply_highlights(default_highlight)
   self:apply_section_separators()
   return self.status
 end
 
 local sep = {
-  left = "",
-  left_inv = "",
-  left_thin = "",
-  left_thin_2 = "",
-  right = "",
-  right_inv = "",
-  right_thin = "",
-  right_thin_2 = "",
+  left = '',
+  left_inv = '',
+  left_thin = '',
+  left_thin_2 = '',
+  right = '',
+  right_inv = '',
+  right_thin = '',
+  right_thin_2 = '',
 }
 
 local function process_sections(sections)
   -- canonical order of lualine sections
-  local order = { "lualine_a", "lualine_b", "lualine_c", "lualine_x", "lualine_y", "lualine_z" }
+  local order = { 'lualine_a', 'lualine_b', 'lualine_c', 'lualine_x', 'lualine_y', 'lualine_z' }
 
   -- collect only the sections that actually exist in `sections`
   local present = {}
@@ -56,9 +56,9 @@ local function process_sections(sections)
 
   -- apply separator characters to all components
   for name, section in pairs(sections) do
-    local left = name:sub(9, 10) < "x"
+    local left = name:sub(9, 10) < 'x'
     for id, comp in ipairs(section) do
-      if type(comp) ~= "table" then
+      if type(comp) ~= 'table' then
         comp = { comp }
         section[id] = comp
       end
@@ -70,12 +70,12 @@ local function process_sections(sections)
 end
 
 local disabled_filetypes = {
-  "DiffviewFiles",
-  "DiffviewFilePanel",
-  "NvimTree",
-  "Trouble",
-  "aerial",
-  "alpha",
+  'DiffviewFiles',
+  'DiffviewFilePanel',
+  'NvimTree',
+  'Trouble',
+  'aerial',
+  'alpha',
 }
 
 -- in_array returns whether the given needle exists in the given haystack array.
@@ -90,63 +90,63 @@ end
 
 local function ft_enabled_non_dapui()
   return not in_array(vim.bo.filetype, disabled_filetypes)
-      and not in_array(vim.bo.filetype, {
-        "dap-repl",
-        "dapui_breakpoints",
-        "dapui_console",
-        "dapui_scopes",
-        "dapui_stacks",
-        "dapui_watches",
-      })
+    and not in_array(vim.bo.filetype, {
+      'dap-repl',
+      'dapui_breakpoints',
+      'dapui_console',
+      'dapui_scopes',
+      'dapui_stacks',
+      'dapui_watches',
+    })
 end
 
 local function mode_color()
   local mode = vim.fn.mode()
   local bg_colors = {
-    n = tc.light3,          -- normal
-    i = tc.neutral_yellow,  -- insert
-    v = tc.neutral_purple,  -- visual
-    V = tc.neutral_purple,  -- visual-line
-    [""] = tc.neutral_blue, -- visual-block
-    c = tc.neutral_yellow,  -- command
-    R = tc.faded_red,       -- replace
+    n = tc.light3, -- normal
+    i = tc.neutral_yellow, -- insert
+    v = tc.neutral_purple, -- visual
+    V = tc.neutral_purple, -- visual-line
+    [''] = tc.neutral_blue, -- visual-block
+    c = tc.neutral_yellow, -- command
+    R = tc.faded_red, -- replace
   }
   local bg_color = bg_colors[mode] or tc.light3
-  return { fg = tc.dark0_hard, bg = bg_color, gui = "bold" }
+  return { fg = tc.dark0_hard, bg = bg_color, gui = 'bold' }
 end
 
 local vi_mode_short = {
-  ["NORMAL"] = "NORM",
-  ["CONFIRM"] = "CFRM",
-  ["OP"] = "OP",
-  ["INSERT"] = "INS",
-  ["VISUAL"] = "VIS",
-  ["LINES"] = "LINE",
-  ["BLOCK"] = "BLK",
-  ["REPLACE"] = "REP",
-  ["V-REPLACE"] = "VREP",
-  ["ENTER"] = "ENT",
-  ["MORE"] = "MORE",
-  ["SELECT"] = "SEL",
-  ["COMMAND"] = "CMD",
-  ["SHELL"] = "SH",
-  ["TERM"] = "TERM",
-  ["NONE"] = "NONE",
+  ['NORMAL'] = 'NORM',
+  ['CONFIRM'] = 'CFRM',
+  ['OP'] = 'OP',
+  ['INSERT'] = 'INS',
+  ['VISUAL'] = 'VIS',
+  ['LINES'] = 'LINE',
+  ['BLOCK'] = 'BLK',
+  ['REPLACE'] = 'REP',
+  ['V-REPLACE'] = 'VREP',
+  ['ENTER'] = 'ENT',
+  ['MORE'] = 'MORE',
+  ['SELECT'] = 'SEL',
+  ['COMMAND'] = 'CMD',
+  ['SHELL'] = 'SH',
+  ['TERM'] = 'TERM',
+  ['NONE'] = 'NONE',
 }
 
-require("lualine").setup {
+require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = {
       normal = {
         -- left
-        a = { fg = tc.dark0_hard, bg = tc.light3, gui = "bold" },
-        b = { fg = tc.light1, bg = tc.faded_aqua, gui = "bold" },
-        c = { fg = tc.light3, bg = tc.dark1, gui = "bold" },
+        a = { fg = tc.dark0_hard, bg = tc.light3, gui = 'bold' },
+        b = { fg = tc.light1, bg = tc.faded_aqua, gui = 'bold' },
+        c = { fg = tc.light3, bg = tc.dark1, gui = 'bold' },
         -- right
-        x = { fg = tc.light3, bg = tc.dark1, gui = "bold" },
-        y = { fg = tc.light1, bg = tc.faded_aqua, gui = "bold" },
-        z = { fg = tc.dark0_hard, bg = tc.light3, gui = "bold" },
+        x = { fg = tc.light3, bg = tc.dark1, gui = 'bold' },
+        y = { fg = tc.light1, bg = tc.faded_aqua, gui = 'bold' },
+        z = { fg = tc.dark0_hard, bg = tc.light3, gui = 'bold' },
       },
       inactive = {
         -- left
@@ -159,9 +159,9 @@ require("lualine").setup {
         z = { fg = tc.dark2, bg = tc.dark0_hard },
       },
     },
-    component_separators = "",
+    component_separators = '',
     -- set in process_sections function
-    section_separators = "",
+    section_separators = '',
     disabled_filetypes = {
       statusline = disabled_filetypes,
       winbar = {},
@@ -172,16 +172,16 @@ require("lualine").setup {
     globalstatus = false,
     refresh = {
       events = {
-        "WinEnter",
-        "BufEnter",
-        "BufWritePost",
-        "SessionLoadPost",
-        "FileChangedShellPost",
-        "VimResized",
-        "Filetype",
-        "CursorMoved",
-        "CursorMovedI",
-        "ModeChanged",
+        'WinEnter',
+        'BufEnter',
+        'BufWritePost',
+        'SessionLoadPost',
+        'FileChangedShellPost',
+        'VimResized',
+        'Filetype',
+        'CursorMoved',
+        'CursorMovedI',
+        'ModeChanged',
       },
     },
   },
@@ -189,7 +189,7 @@ require("lualine").setup {
     lualine_a = {
       {
         function()
-          local f = require("lualine.components.mode")
+          local f = require('lualine.components.mode')
           local mode = f()
           local short_mode = vi_mode_short[mode] or mode
           return short_mode
@@ -199,7 +199,7 @@ require("lualine").setup {
       },
       {
         function()
-          return sep.right_thin .. "◊"
+          return sep.right_thin .. '◊'
         end,
         cond = function()
           return ft_enabled_non_dapui() and vim.opt.paste:get()
@@ -210,54 +210,54 @@ require("lualine").setup {
     },
     lualine_b = {
       {
-        "filename",
+        'filename',
         path = 0,
         symbols = {
-          modified = "",
-          readonly = "🔒",
-          unnamed = "•",
-          newfile = "[new]",
+          modified = '',
+          readonly = '🔒',
+          unnamed = '•',
+          newfile = '[new]',
         },
       },
     },
     lualine_c = {
       {
-        "diagnostics",
-        sources = { "nvim_lsp" },
+        'diagnostics',
+        sources = { 'nvim_lsp' },
         diagnostics_color = {
-          error = "LuaLineDiagnosticError",
-          warn = "LuaLineDiagnosticWarn",
-          info = "LuaLineDiagnosticInfo",
-          hint = "LuaLineDiagnosticHint",
+          error = 'LuaLineDiagnosticError',
+          warn = 'LuaLineDiagnosticWarn',
+          info = 'LuaLineDiagnosticInfo',
+          hint = 'LuaLineDiagnosticHint',
         },
         symbols = {
-          error = " ",
-          warn = " ",
-          info = " ",
-          hint = " ",
+          error = ' ',
+          warn = ' ',
+          info = ' ',
+          hint = ' ',
         },
       },
     },
     lualine_x = {
       {
-        "diff",
+        'diff',
         colored = true,
         diff_color = {
-          added = "LuaLineDiffAdded",
-          modified = "LuaLineDiffModified",
-          removed = "LuaLineDiffRemoved",
+          added = 'LuaLineDiffAdded',
+          modified = 'LuaLineDiffModified',
+          removed = 'LuaLineDiffRemoved',
         },
         symbols = {
-          added = "󰐖 ",
-          modified = "󱗜 ",
-          removed = "󰍵 ",
+          added = '󰐖 ',
+          modified = '󱗜 ',
+          removed = '󰍵 ',
         },
       },
-      { "branch" },
+      { 'branch' },
     },
     lualine_y = {
       {
-        "filetype",
+        'filetype',
         cond = ft_enabled_non_dapui,
         colored = false,
         icons_enabled = false,
@@ -267,9 +267,9 @@ require("lualine").setup {
         function()
           local ec = vim.b.editorconfig
           if ec ~= nil and ec.root ~= nil then
-            return "· "
+            return '· '
           end
-          return " "
+          return ' '
         end,
         draw_empty = true,
         padding = { left = 0, right = 0 },
@@ -281,9 +281,9 @@ require("lualine").setup {
           local cursor_line, cursor_col = unpack(api.nvim_win_get_cursor(0))
           cursor_col = cursor_col + 1
           local total_lines = api.nvim_buf_line_count(0)
-          local lpad = string.rep("·", #tostring(total_lines) - #tostring(cursor_line))
-          local cpad = string.rep("·", #tostring(vim.bo.tw) - #tostring(cursor_col))
-          return lpad .. cursor_line .. "/" .. total_lines .. "L " .. cpad .. cursor_col .. "C"
+          local lpad = string.rep('·', #tostring(total_lines) - #tostring(cursor_line))
+          local cpad = string.rep('·', #tostring(vim.bo.tw) - #tostring(cursor_col))
+          return lpad .. cursor_line .. '/' .. total_lines .. 'L ' .. cpad .. cursor_col .. 'C'
         end,
       },
     },
@@ -296,13 +296,13 @@ require("lualine").setup {
     lualine_y = {},
     lualine_z = {
       {
-        "filename",
+        'filename',
         path = 0,
         symbols = {
-          modified = "",
-          readonly = "🔒",
-          unnamed = "•",
-          newfile = "[new]",
+          modified = '',
+          readonly = '🔒',
+          unnamed = '•',
+          newfile = '[new]',
         },
         color = {
           bg = tc.dark0_hard,

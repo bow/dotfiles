@@ -1,47 +1,47 @@
-local dapui = require("dapui")
-local dap = require("dap")
-local u = require("utils")
+local dapui = require('dapui')
+local dap = require('dap')
+local u = require('utils')
 
 dapui.setup {
   layouts = {
     {
       elements = {
         {
-          id = "repl",
+          id = 'repl',
           size = 1.0,
         },
       },
-      position = "bottom",
+      position = 'bottom',
       size = 10,
     },
     {
       elements = {
         {
-          id = "stacks",
+          id = 'stacks',
           size = 0.5,
         },
         {
-          id = "breakpoints",
+          id = 'breakpoints',
           size = 0.5,
         },
       },
-      position = "right",
+      position = 'right',
       size = 40,
     },
     {
       elements = {
         {
-          id = "scopes",
+          id = 'scopes',
           size = 1.0,
         },
       },
-      position = "left",
+      position = 'left',
       size = 40,
     },
   },
 }
 
-u.nnoremapf { "<leader>du", dapui.toggle }
+u.nnoremapf { '<leader>du', dapui.toggle }
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()

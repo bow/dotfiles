@@ -1,8 +1,8 @@
-require("toggleterm").setup {
+require('toggleterm').setup {
   size = function(term)
-    if term.direction == "horizontal" then
+    if term.direction == 'horizontal' then
       return 15
-    elseif term.direction == "vertical" then
+    elseif term.direction == 'vertical' then
       return vim.o.columns * 0.4
     end
   end,
@@ -18,7 +18,7 @@ require("toggleterm").setup {
   start_in_insert = true,
   persist_size = true,
   persist_mode = true,
-  direction = "horizontal",
+  direction = 'horizontal',
   close_on_exit = true,
   shell = vim.o.shell,
   auto_scroll = true,

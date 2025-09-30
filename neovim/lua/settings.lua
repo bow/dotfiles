@@ -6,7 +6,7 @@ local augroup = api.nvim_create_augroup
 local au = api.nvim_create_autocmd
 
 -- Set font.
-g.guifont = "Inconsolata for Powerline"
+g.guifont = 'Inconsolata for Powerline'
 
 -- Enable syntax highlighting and ft detection, specific autoindent, and plugin.
 cmd [[
@@ -25,23 +25,23 @@ opt.writebackup = false
 opt.cmdheight = 1
 
 -- Highlight column after 'textwidth' / 'tw'
-opt.colorcolumn = "+1"
+opt.colorcolumn = '+1'
 
 -- Highlight current line of cursor.
 opt.cursorline = true
 
 -- Set character encoding.
-opt.encoding = "utf-8"
+opt.encoding = 'utf-8'
 
 -- Disable local .vimrc.
 opt.exrc = false
 
 -- Set custom fillchars.
-opt.fillchars:append("vert:┃")
-opt.fillchars:append("eob:▸")
+opt.fillchars:append('vert:┃')
+opt.fillchars:append('eob:▸')
 
 -- Disable GUI cursor.
-opt.guicursor = ""
+opt.guicursor = ''
 
 -- Use buffer for unwritten changes.
 opt.hidden = true
@@ -56,7 +56,7 @@ opt.list = true
 opt.listchars = [[tab:→ ,extends:❯,precedes:❮,nbsp:±]]
 
 -- Enable mouse in all modes.
-opt.mouse = "a"
+opt.mouse = 'a'
 
 -- Show current line number.
 opt.number = true
@@ -65,11 +65,11 @@ opt.number = true
 opt.relativenumber = true
 
 -- Show mark of wrapped lines.
-opt.showbreak = "↪ "
+opt.showbreak = '↪ '
 
 -- Add paths for file lookup.
-opt.path:append("src/include")
-opt.path:append("/usr/include")
+opt.path:append('src/include')
+opt.path:append('/usr/include')
 
 -- Restrict commands in non-default .vimrc.
 opt.secure = true
@@ -84,7 +84,7 @@ opt.showcmd = true
 opt.showmode = false
 
 -- Show the sign column.
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 
 -- Set command completion menu.
 opt.wildmenu = true
@@ -133,7 +133,7 @@ opt.textwidth = 0
 -- Disable line wrapping.
 opt.wrap = false
 -- Set indent-based folding
-opt.foldmethod = "indent"
+opt.foldmethod = 'indent'
 -- Set deepest allowed fold level.
 opt.foldnestmax = 10
 -- Open all folds by default.
@@ -142,17 +142,17 @@ opt.foldenable = false
 -- Autocommand groups.
 
 -- Remove Esc delay when exiting from insert mode.
-local grp_fastescape = augroup("FastEscape", { clear = true })
-au("InsertEnter", { group = grp_fastescape, command = "set timeoutlen=0" })
-au("InsertLeave", { group = grp_fastescape, command = "set timeoutlen=500" })
+local grp_fastescape = augroup('FastEscape', { clear = true })
+au('InsertEnter', { group = grp_fastescape, command = 'set timeoutlen=0' })
+au('InsertLeave', { group = grp_fastescape, command = 'set timeoutlen=500' })
 
 -- Toggle relative numbering on buffer enter and leave events.
-local grp_numbertoggle = augroup("NumberToggle", { clear = true })
+local grp_numbertoggle = augroup('NumberToggle', { clear = true })
 au(
-  { "BufEnter", "FocusGained", "InsertLeave", "WinEnter" },
-  { group = grp_numbertoggle, command = "if &nu && mode() != \"i\" | setl rnu | endif" }
+  { 'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter' },
+  { group = grp_numbertoggle, command = 'if &nu && mode() != "i" | setl rnu | endif' }
 )
 au(
-  { "BufLeave", "FocusLost", "InsertEnter", "WinLeave" },
-  { group = grp_numbertoggle, command = "if &nu | setl nornu | endif" }
+  { 'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave' },
+  { group = grp_numbertoggle, command = 'if &nu | setl nornu | endif' }
 )

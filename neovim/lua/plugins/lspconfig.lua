@@ -5,68 +5,68 @@ local au = api.nvim_create_autocmd
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<C-e>", function(_)
+vim.keymap.set('n', '<C-e>', function(_)
   return vim.diagnostic.open_float(nil, {
     focusable = false,
-    scope = "cursor",
+    scope = 'cursor',
     -- close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}
   })
 end, opts)
-vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]e", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<A-q>", vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
 
 -- Diagnostic text.
 vim.diagnostic.config {
   virtual_text = {
     spacing = 1,
-    prefix = "⮜",
+    prefix = '⮜',
     format = function(_)
-      return ""
+      return ''
     end,
   },
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.HINT] = '',
+      [vim.diagnostic.severity.INFO] = '',
     },
     numhl = {
-      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-      [vim.diagnostic.severity.HINT] = "DiagnosticSignErrorHint",
-      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignErrorHint',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
     },
     texthl = {
-      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-      [vim.diagnostic.severity.HINT] = "DiagnosticSignErrorHint",
-      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+      [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+      [vim.diagnostic.severity.HINT] = 'DiagnosticSignErrorHint',
+      [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
     },
   },
   underline = true,
   severity_sort = true,
   float = {
-    border = "single",
+    border = 'single',
     format = function(diagnostic)
-      local code = "?"
+      local code = '?'
       if diagnostic.code then
-        code = string.format("%s", diagnostic.code)
+        code = string.format('%s', diagnostic.code)
       elseif diagnostic.user_data ~= nil then
-        code = string.format("%s", diagnostic.user_data.lsp.code)
+        code = string.format('%s', diagnostic.user_data.lsp.code)
       end
-      return string.format("%s (%s) [%s]", diagnostic.message, diagnostic.source, code)
+      return string.format('%s (%s) [%s]', diagnostic.message, diagnostic.source, code)
     end,
   },
 }
 
-local navic = require("nvim-navic")
+local navic = require('nvim-navic')
 navic.setup {
   highlight = true,
-  separator = " ⟩ ",
+  separator = ' ⟩ ',
   depth_limit = 0,
-  depth_limit_indicator = "…",
+  depth_limit_indicator = '…',
   safe_output = true,
 }
 
@@ -78,26 +78,26 @@ end
 
 local on_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
 
-  vim.keymap.set("n", "<A-=>", vim.lsp.buf.hover, bufopts)
-  vim.keymap.set("n", "=", vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<A-=>', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', '=', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 
-  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("n", "<S-f><S-f>", function()
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<S-f><S-f>', function()
     vim.lsp.buf.format { async = true }
   end, bufopts)
-  vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 
-  vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set("n", "<space>wl", function()
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
 
-  vim.keymap.set("n", "<leader>i", function()
+  vim.keymap.set('n', '<leader>i', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
   end)
 
@@ -108,23 +108,23 @@ local on_attach = function(client, bufnr)
 
   -- Common words highlight.
   if client.server_capabilities.documentHighlightProvider then
-    local grp_lsphl = augroup("LSPDocumentHighlight", { clear = true })
+    local grp_lsphl = augroup('LSPDocumentHighlight', { clear = true })
     aucl { buffer = bufnr, group = grp_lsphl }
-    au("CursorHold", { callback = vim.lsp.buf.document_highlight, buffer = bufnr, group = grp_lsphl })
-    au("CursorMoved", { callback = vim.lsp.buf.clear_references, buffer = bufnr, group = grp_lsphl })
+    au('CursorHold', { callback = vim.lsp.buf.document_highlight, buffer = bufnr, group = grp_lsphl })
+    au('CursorMoved', { callback = vim.lsp.buf.clear_references, buffer = bufnr, group = grp_lsphl })
   end
 
   -- Winbar crumbs.
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
-    vim.o.winbar = "%{%v:lua.require(\"nvim-navic\").get_location()%}"
+    vim.o.winbar = '%{%v:lua.require("nvim-navic").get_location()%}'
   end
 end
 
 local lsp_flags = { debounce_text_changes = 150 }
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local none_ls = require("null-ls") -- not a typo, none-ls is a drop-in replacement for null-ls.
+local none_ls = require('null-ls') -- not a typo, none-ls is a drop-in replacement for null-ls.
 none_ls.setup {
   sources = {
     -- Go
@@ -135,19 +135,19 @@ none_ls.setup {
     -- Lua
     none_ls.builtins.formatting.stylua.with {
       extra_args = {
-        "--indent-type",
-        "Spaces",
-        "--indent-width",
-        "2",
-        "--call-parentheses",
-        "Input",
-        "--quote-style",
-        "ForceDouble",
+        '--indent-type',
+        'Spaces',
+        '--indent-width',
+        '2',
+        '--call-parentheses',
+        'Input',
+        '--quote-style',
+        'AutoPreferSingle',
       },
     },
     -- Terraform
     none_ls.builtins.formatting.terraform_fmt.with {
-      filetypes = { "terraform", "tf", "hcl" },
+      filetypes = { 'terraform', 'tf', 'hcl' },
     },
     -- Nix
     none_ls.builtins.code_actions.statix,
@@ -162,15 +162,15 @@ none_ls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     -- Autoformat on save using none-ls.
-    if client.supports_method("textDocument/formatting") then
-      local grp_lspfmt = augroup("LspFormatting", { clear = true })
+    if client.supports_method('textDocument/formatting') then
+      local grp_lspfmt = augroup('LspFormatting', { clear = true })
       aucl { buffer = bufnr, group = grp_lspfmt }
-      au("BufWritePre", {
+      au('BufWritePre', {
         callback = function()
           vim.lsp.buf.format {
             bufnr = bufnr,
             filter = function(cl)
-              return cl.name == "none-ls"
+              return cl.name == 'none-ls'
             end,
           }
         end,
@@ -187,7 +187,7 @@ local function opt_lspconfig(args)
 end
 
 opt_lspconfig {
-  name = "ansiblels",
+  name = 'ansiblels',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -197,7 +197,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "bashls",
+  name = 'bashls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -207,7 +207,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "ccls",
+  name = 'ccls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -215,14 +215,14 @@ opt_lspconfig {
     flags = lsp_flags,
     init_options = {
       cache = {
-        directory = "/tmp/ccls",
+        directory = '/tmp/ccls',
       },
     },
   },
 }
 
 opt_lspconfig {
-  name = "gopls",
+  name = 'gopls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -231,7 +231,7 @@ opt_lspconfig {
     settings = {
       gopls = {
         env = {
-          GOFLAGS = "-tags=test",
+          GOFLAGS = '-tags=test',
         },
         hints = {
           assignVariableTypes = true,
@@ -248,16 +248,16 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "nil_ls",
+  name = 'nil_ls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
     settings = {
-      ["nil"] = {
+      ['nil'] = {
         formatting = {
-          command = { "nixfmt" },
+          command = { 'nixfmt' },
         },
         nix = {
           flake = {
@@ -270,25 +270,25 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "rust_analyzer",
+  name = 'rust_analyzer',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
     settings = {
-      ["rust-analyzer"] = {
+      ['rust-analyzer'] = {
         cargo = {
-          features = "all",
+          features = 'all',
           buildScripts = {
             enable = true,
           },
         },
         imports = {
           granularity = {
-            group = "module",
+            group = 'module',
           },
-          prefix = "self",
+          prefix = 'self',
         },
         procMacro = {
           enable = true,
@@ -299,7 +299,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "pylsp",
+  name = 'pylsp',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -307,7 +307,7 @@ opt_lspconfig {
     flags = lsp_flags,
     settings = {
       pylsp = {
-        configurationSources = { "flake8" },
+        configurationSources = { 'flake8' },
         plugins = {
           autopep8 = {
             enabled = false,
@@ -343,7 +343,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "ruff",
+  name = 'ruff',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -353,7 +353,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "lua_ls",
+  name = 'lua_ls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -362,13 +362,13 @@ opt_lspconfig {
     settings = {
       Lua = {
         runtime = {
-          version = "LuaJIT",
+          version = 'LuaJIT',
         },
         diagnostics = {
-          globals = { "vim" },
+          globals = { 'vim' },
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          library = vim.api.nvim_get_runtime_file('', true),
           checkThirdParty = false,
         },
         telemetry = {
@@ -380,7 +380,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "jdtls",
+  name = 'jdtls',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -390,7 +390,7 @@ opt_lspconfig {
 }
 
 opt_lspconfig {
-  name = "ruby_lsp",
+  name = 'ruby_lsp',
   opts = {
     on_init = on_init,
     on_attach = on_attach,
@@ -399,10 +399,10 @@ opt_lspconfig {
   },
 }
 
-local luasnip = require("luasnip")
-local cmp = require("cmp")
+local luasnip = require('luasnip')
+local cmp = require('cmp')
 
-local autopairs_loaded, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+local autopairs_loaded, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
 if not autopairs_loaded then
   cmp_autopairs = nil
 end
@@ -414,14 +414,14 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-\\>"] = cmp.mapping.confirm {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-\\>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ["<C-J>"] = cmp.mapping(function(fallback)
+    ['<C-J>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -429,8 +429,8 @@ cmp.setup {
       else
         fallback()
       end
-    end, { "i", "s" }),
-    ["<C-K>"] = cmp.mapping(function(fallback)
+    end, { 'i', 's' }),
+    ['<C-K>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -438,31 +438,31 @@ cmp.setup {
       else
         fallback()
       end
-    end, { "i", "s" }),
+    end, { 'i', 's' }),
   }),
   sources = {
-    { name = "nvim_lsp" },
-    { name = "nvim_lsp_signature_help" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
   },
 }
 
-cmp.setup.cmdline("/", {
+cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "buffer" },
+    { name = 'buffer' },
   },
 })
-cmp.setup.cmdline(":", {
+cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = "path" },
+    { name = 'path' },
   }, {
-    { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } },
+    { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
   }),
 })
 if cmp_autopairs ~= nil then
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end

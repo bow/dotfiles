@@ -3,5 +3,5 @@ return function()
 
   optl.shiftwidth = 4
   optl.tabstop = 4
-  optl.textwidth = require("constants").tw.half_screen
+  optl.textwidth = require('constants').tw.half_screen
 end

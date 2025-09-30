@@ -1,22 +1,22 @@
-require("bufferline").setup {
+require('bufferline').setup {
   animation = false,
   auto_hide = false,
   closable = true,
   icons = {
-    button = "",
+    button = '',
     filetype = {
-      enabled = false
+      enabled = false,
     },
     modified = {
-      button = "▪",
+      button = '▪',
     },
     separator = {
-      left = "  ",
+      left = '  ',
     },
     inactive = {
       separator = {
-        left = "  ",
-      }
+        left = '  ',
+      },
     },
   },
   maximum_padding = 0,

@@ -3,5 +3,5 @@ return function()
 
   optl.shiftwidth = 2
   optl.tabstop = 2
-  optl.commentstring = "{# %s #}"
+  optl.commentstring = '{# %s #}'
 end

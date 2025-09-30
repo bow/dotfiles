@@ -1,14 +1,14 @@
 local g = vim.g
 local opt = vim.opt
-local tc = require("constants").gruvbox
+local tc = require('constants').gruvbox
 
-opt.background = "dark"
+opt.background = 'dark'
 
 g.gruvbox_italic = true
 g.gruvbox_italicize_strings = false
 g.gruvbox_italicize_comments = true
 g.gruvbox_invert_selection = false
-g.gruvbox_contrast_dark = "hard"
+g.gruvbox_contrast_dark = 'hard'
 
 vim.cmd [[colorscheme gruvbox]]
 
@@ -29,18 +29,18 @@ local hls = {
   LineNr = { fg = tc.dark2 },
   -- Matching parenthesis.
   MatchParen = {
-    bg = "NONE",
+    bg = 'NONE',
     fg = tc.bright_blue,
     bold = true,
-    ctermbg = "NONE",
+    ctermbg = 'NONE',
     cterm = { bold = true },
   },
   -- Background highlighting on non-texts ~ disable them.
   NonText = {
-    bg = "NONE",
-    fg = "#545454",
-    ctermbg = "NONE",
-    ctermfg = "grey",
+    bg = 'NONE',
+    fg = '#545454',
+    ctermbg = 'NONE',
+    ctermfg = 'grey',
     cterm = {},
   },
   -- Internal neovim errors.
@@ -48,7 +48,7 @@ local hls = {
   -- Extra EOL whitespace.
   ExtraWhitespace = { bg = tc.faded_orange },
   -- Search results.
-  Search = { default = true, ctermbg = "darkgreen", ctermfg = "black", cterm = {} },
+  Search = { default = true, ctermbg = 'darkgreen', ctermfg = 'black', cterm = {} },
   -- Words not recognized by the spellchecker.
   SpellBad = { reverse = true, cterm = {} },
   -- Status line color.
@@ -56,11 +56,11 @@ local hls = {
   -- Status line color of not-current window.
   StatusLineNC = { bg = tc.dark0 },
   -- Rare words.
-  SpellRare = { default = true, bg = tc.faded_yellow, fg = "#111111" },
+  SpellRare = { default = true, bg = tc.faded_yellow, fg = '#111111' },
   -- TODO notes.
   Todo = { italic = true, bold = true },
   -- Visual selection color.
-  Visual = { bg = "grey23" },
+  Visual = { bg = 'grey23' },
   -- WinBar of current window.
   WinBar = { bg = tc.dark0_hard },
   -- WinBar of not-current window.
@@ -198,38 +198,38 @@ local hls = {
   DapStoppedSign = { bg = tc.faded_aqua },
 
   -- Treesitter colors.
-  ["@function"] = { link = "GruvboxAqua" },
-  ["@function.builtin"] = { link = "GruvboxBlue" },
-  ["@function.macro"] = { link = "GruvboxOrange" },
+  ['@function'] = { link = 'GruvboxAqua' },
+  ['@function.builtin'] = { link = 'GruvboxBlue' },
+  ['@function.macro'] = { link = 'GruvboxOrange' },
 
-  ["@keyword"] = { link = "GruvboxRed" },
-  ["@number"] = { link = "GruvboxPurple" },
-  ["@operator"] = { link = "GruvboxOrange" },
-  ["@type"] = { link = "GruvboxYellow" },
-  ["@variable"] = { link = "GruvboxFg1" },
+  ['@keyword'] = { link = 'GruvboxRed' },
+  ['@number'] = { link = 'GruvboxPurple' },
+  ['@operator'] = { link = 'GruvboxOrange' },
+  ['@type'] = { link = 'GruvboxYellow' },
+  ['@variable'] = { link = 'GruvboxFg1' },
 
-  ["@constant"] = { link = "@number" },
-  ["@constant.builtin"] = { link = "@constant" },
-  ["@constructor"] = { link = "@function" },
-  ["@property"] = { link = "@variable" },
-  ["@punctuation"] = { link = "@operator" },
-  ["@type.definition"] = { link = "@type" },
+  ['@constant'] = { link = '@number' },
+  ['@constant.builtin'] = { link = '@constant' },
+  ['@constructor'] = { link = '@function' },
+  ['@property'] = { link = '@variable' },
+  ['@punctuation'] = { link = '@operator' },
+  ['@type.definition'] = { link = '@type' },
 
   -- Treesitter colors for markup / config files.
-  ["@constant.builtin.yaml"] = { link = "GruvboxPurple" },
-  ["@property.yaml"] = { link = "GruvboxBlue" },
-  ["@number.yaml"] = { link = "GruvboxPurple" },
-  ["@string.yaml"] = { link = "GruvboxGreen" },
+  ['@constant.builtin.yaml'] = { link = 'GruvboxPurple' },
+  ['@property.yaml'] = { link = 'GruvboxBlue' },
+  ['@number.yaml'] = { link = 'GruvboxPurple' },
+  ['@string.yaml'] = { link = 'GruvboxGreen' },
 
-  ["@number.toml"] = { link = "@number.yaml" },
-  ["@property.toml"] = { link = "@property.yaml" },
-  ["@string.toml"] = { link = "@string.yaml" },
-  ["@type.toml"] = { link = "GruvboxYellow" },
+  ['@number.toml'] = { link = '@number.yaml' },
+  ['@property.toml'] = { link = '@property.yaml' },
+  ['@string.toml'] = { link = '@string.yaml' },
+  ['@type.toml'] = { link = 'GruvboxYellow' },
 
-  ["@constant.builtin.json"] = { link = "@constant.builtin.yaml" },
-  ["@number.json"] = { link = "@number.yaml" },
-  ["@property.json"] = { link = "@property.yaml" },
-  ["@string.json"] = { link = "@string.yaml" },
+  ['@constant.builtin.json'] = { link = '@constant.builtin.yaml' },
+  ['@number.json'] = { link = '@number.yaml' },
+  ['@property.json'] = { link = '@property.yaml' },
+  ['@string.json'] = { link = '@string.yaml' },
 
   TroubleNormal = { bg = tc.dark0_hard, fg = tc.light4 },
   TroubleNormalNC = { bg = tc.dark0_hard, fg = tc.light4 },

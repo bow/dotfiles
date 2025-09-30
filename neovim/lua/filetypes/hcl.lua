@@ -1,14 +1,14 @@
 return function()
   local optl = vim.opt_local
-  local tc = require("constants").gruvbox
+  local tc = require('constants').gruvbox
 
-  optl.commentstring = "# %s"
+  optl.commentstring = '# %s'
 
   optl.shiftwidth = 2
   optl.tabstop = 2
 
   optl.cindent = true
-  optl.cinoptions = optl.cinoptions .. ",(s,m1,+0"
+  optl.cinoptions = optl.cinoptions .. ',(s,m1,+0'
 
   local hls = {
     hclBlockname = { fg = tc.bright_red },

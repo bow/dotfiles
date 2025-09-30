@@ -1,8 +1,8 @@
-local u = require("utils")
-local pb = require("persistent-breakpoints")
+local u = require('utils')
+local pb = require('persistent-breakpoints')
 
 pb.setup {
-  load_breakpoints_event = { "BufReadPost" },
+  load_breakpoints_event = { 'BufReadPost' },
 }
 
 -- FIXME: Not always works with current config.
