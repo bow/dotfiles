@@ -1,5 +1,5 @@
 local api = vim.api
-local tc = require('constants').gruvbox
+local tc = require('config.constants').gruvbox
 
 local empty = require('lualine.component'):extend()
 function empty:draw(default_highlight)

@@ -30,7 +30,7 @@ function M.nnoremapf(keymap)
   return vim.keymap.set('n', keymap[1], keymap[2], ropts)
 end
 
--- Return true if we are running in NixOS.
+-- Return whether we are running in NixOS or not.
 function M.in_nixos()
   local uv = vim.uv or vim.loop
   local stat = uv.fs_stat('/etc/NIXOS')
