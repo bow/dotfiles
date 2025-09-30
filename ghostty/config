@@ -10,6 +10,6 @@ font-feature = calt
 link-url = true
 resize-overlay = never
 selection-invert-fg-bg = true
-theme = GruvboxDarkHard
+theme = Gruvbox Dark Hard
 window-decoration = false
 window-padding-x = 3
