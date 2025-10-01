@@ -37,13 +37,16 @@ local function bootstrap_lazy_nvim()
   end
 end
 
-local function bootstrap()
-  bootstrap_lazy_nvim()
-  if not in_nixos() then
-    vim.g.python3_host_prog = '/usr/bin/python3'
-  end
-  vim.g.mapleader = ','
-  vim.opt.termguicolors = true
+bootstrap_lazy_nvim()
+if not in_nixos() then
+  vim.g.python3_host_prog = '/usr/bin/python3'
 end
+vim.g.mapleader = ','
+vim.opt.termguicolors = true
 
-bootstrap()
+require("lazy").setup {
+  spec = {
+    -- import your plugins
+    { import = "plugins" },
+  },
+}
