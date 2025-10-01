@@ -27,7 +27,7 @@ return {
     })
 
     local python = vim.fn.stdpath('data') .. '/mason/packages/debugpy/venv/bin/python'
-    if 1 == vim.fn.filereadable(python) then
+    if 1 == vim.fn.filereadable(python) or u.in_nixos() then
       dap.configurations.python = {
         {
           type = 'python',

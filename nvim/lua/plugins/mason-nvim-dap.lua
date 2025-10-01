@@ -1,3 +1,7 @@
+if require("utils").in_nixos() then
+  return {}
+end
+
 return {
   'jay-babu/mason-nvim-dap.nvim',
   commit = '4c2cdc69d69fe00c15ae8648f7e954d99e5de3ea',
