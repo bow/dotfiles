@@ -12,8 +12,8 @@ vim.keymap.set('n', '<C-e>', function(_)
     -- close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}
   })
 end, opts)
-vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '[e', function() vim.diagnostic.jump { count = 1, float = true } end, opts)
+vim.keymap.set('n', ']e', function() vim.diagnostic.jump { count = -1, float = true } end, opts)
 vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
 
 -- Diagnostic text.
