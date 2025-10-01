@@ -370,6 +370,7 @@ opt_lspconfig {
         workspace = {
           library = vim.api.nvim_get_runtime_file('', true),
           checkThirdParty = false,
+          ignoreDir = { '.git', '.direnv', 'node_modules', 'dist', 'build', 'systemd' },
         },
         telemetry = {
           enable = false,
