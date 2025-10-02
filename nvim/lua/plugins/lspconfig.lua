@@ -17,10 +17,10 @@ return {
       })
     end, keymap_opts)
     vim.keymap.set('n', '[e', function()
-      vim.diagnostic.jump { count = 1, float = true }
+      vim.diagnostic.jump { count = -1, float = true }
     end, keymap_opts)
     vim.keymap.set('n', ']e', function()
-      vim.diagnostic.jump { count = -1, float = true }
+      vim.diagnostic.jump { count = 1, float = true }
     end, keymap_opts)
     vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, keymap_opts)
 
