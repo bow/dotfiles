@@ -7,8 +7,7 @@ return function()
 
   optl.wrap = true
 
-  cmd [[
-unlet b:current_syntax
+  vim.cmd [[
 syntax include @Yaml syntax/yaml.vim
 syntax region yamlFrontmatter start=/\%^---$/ end=/^---$/ keepend contains=@Yaml
   ]]

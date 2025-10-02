@@ -1,6 +1,6 @@
 return function()
 
-  cmd [[
+  vim.cmd [=[
 if exists("b:current_syntax")
   finish
 endif
@@ -41,5 +41,5 @@ hi link loxLineComment Comment
 hi link loxString String
 hi link loxNumber Number
 hi link loxBraces Function
-]]
+]=]
 end

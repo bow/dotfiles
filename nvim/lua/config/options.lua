@@ -1,5 +1,4 @@
 local g = vim.g
-local cmd = vim.cmd
 local opt = vim.opt
 local api = vim.api
 local augroup = api.nvim_create_augroup
@@ -9,7 +8,7 @@ local au = api.nvim_create_autocmd
 g.guifont = 'Inconsolata for Powerline'
 
 -- Enable syntax highlighting and ft detection, specific autoindent, and plugin.
-cmd [[
+vim.cmd [[
   syntax on
   filetype plugin indent on
 ]]
