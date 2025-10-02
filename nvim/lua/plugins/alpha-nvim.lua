@@ -4,7 +4,8 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
-  config = function()
+  main = 'alpha',
+  opts = function(_, opts)
     -- Startify theme modified and taken from
     -- https://github.com/goolord/alpha-nvim/blob/21a0f2520ad3a7c32c0822f943368dc063a569fb/lua/alpha/themes/startify.lua
 
@@ -36,7 +37,7 @@ return {
         sc = ' ' .. sc
       end
 
-      local opts = {
+      local options = {
         position = 'left',
         shortcut = sc .. ' →  ',
         cursor = cursor,
@@ -46,7 +47,7 @@ return {
       }
       if keybind then
         keybind_opts = if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
-        opts.keymap = { 'n', sc_, keybind, { noremap = false, silent = true, nowait = true } }
+        options.keymap = { 'n', sc_, keybind, { noremap = false, silent = true, nowait = true } }
       end
 
       local function on_press()
@@ -58,7 +59,7 @@ return {
         type = 'button',
         val = txt,
         on_press = on_press,
-        opts = opts,
+        opts = options,
       }
     end
 
@@ -145,8 +146,8 @@ return {
     --- @param start number
     --- @param cwd_cond function? optional
     --- @param items_number number? optional number of items to generate, default = 10
-    local function mru(start, cwd_cond, items_number, opts)
-      opts = opts or mru_opts
+    local function mru(start, cwd_cond, items_number, options)
+      options = options or mru_opts
       items_number = if_nil(items_number, 10)
       cwd_cond = if_nil(cwd_cond, function(v)
         return true
@@ -161,10 +162,10 @@ return {
         end
 
         local check = cwd_cond(v)
-        local ignore = (opts.ignore and opts.ignore(v, get_extension(v))) or false
+        local ignore = (options.ignore and options.ignore(v, get_extension(v))) or false
 
         if (filereadable(v) == 1) and check.match and not ignore then
-          tbl[num + 1] = file_button(check.fn, tostring(num + start), check.short_fn, opts.autocd)
+          tbl[num + 1] = file_button(check.fn, tostring(num + start), check.short_fn, options.autocd)
           num = num + 1
         end
       end
@@ -261,24 +262,8 @@ return {
       },
     }
 
-    local startify = {
-      icon = icon,
-      button = button,
-      file_button = file_button,
-      mru = mru,
-      mru_opts = mru_opts,
-      section = section,
-      config = config,
-      -- theme config
-      nvim_web_devicons = nvim_web_devicons,
-      leader = leader,
-      -- deprecated
-      opts = config,
-    }
+    require('utils').nnoremap { '<C-a>', '<cmd>Alpha<CR>' }
 
-    require('alpha').setup(startify.config)
-
-    local u = require('utils')
-    u.nnoremap { '<C-a>', '<cmd>Alpha<CR>' }
+    return config
   end,
 }

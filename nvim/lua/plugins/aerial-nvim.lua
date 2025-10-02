@@ -2,8 +2,10 @@ return {
   'stevearc/aerial.nvim',
   commit = '5c0df1679bf7c814c924dc6646cc5291daca8363',
   keys = { '<C-o>' },
-  config = function()
-    require('aerial').setup {
+  main = 'aerial',
+  opts = function(_, opts)
+    vim.keymap.set('n', '<C-o>', '<cmd>AerialToggle!<CR>')
+    return {
       on_attach = function(bufnr)
         vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
         vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
@@ -19,6 +21,5 @@ return {
         filetypes = { 'alpha' },
       },
     }
-    vim.keymap.set('n', '<C-o>', '<cmd>AerialToggle!<CR>')
   end,
 }

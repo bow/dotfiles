@@ -1,12 +1,9 @@
-if require("utils").in_nixos() then
-  return {}
-end
-
 return {
   'williamboman/mason.nvim',
   commit = '8024d64e1330b86044fed4c8494ef3dcd483a67c',
-  config = function()
-    require('mason').setup {
+  enabled = function() return not require('utils').in_nixos() end,
+  opts = function(_, opts)
+    return {
       ui = {
         icons = {
           package_installed = '●',

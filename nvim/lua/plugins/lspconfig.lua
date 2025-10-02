@@ -1,28 +1,28 @@
 return {
   'neovim/nvim-lspconfig',
   commit = '8c5efd1269160fc2fdf61e3d7176be5015860a8f',
-  config = function()
+  config = function(_, opts)
     local api = vim.api
     local augroup = api.nvim_create_augroup
     local aucl = api.nvim_clear_autocmds
     local au = api.nvim_create_autocmd
 
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    local opts = { noremap = true, silent = true }
+    local keymap_opts = { noremap = true, silent = true }
     vim.keymap.set('n', '<C-e>', function(_)
       return vim.diagnostic.open_float(nil, {
         focusable = false,
         scope = 'cursor',
         -- close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}
       })
-    end, opts)
+    end, keymap_opts)
     vim.keymap.set('n', '[e', function()
       vim.diagnostic.jump { count = 1, float = true }
-    end, opts)
+    end, keymap_opts)
     vim.keymap.set('n', ']e', function()
       vim.diagnostic.jump { count = -1, float = true }
-    end, opts)
-    vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, opts)
+    end, keymap_opts)
+    vim.keymap.set('n', '<A-q>', vim.diagnostic.setloclist, keymap_opts)
 
     -- Diagnostic text.
     vim.diagnostic.config {
@@ -460,26 +460,26 @@ return {
         end, { 'i', 's' }),
       }),
       sources = {
-        { 'nvim_lsp' },
-        { 'nvim_lsp_signature_help' },
-        { 'luasnip' },
-        { 'buffer' },
-        { 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
       },
     }
 
     cmp.setup.cmdline('/', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        { 'buffer' },
+        { name = 'buffer' },
       },
     })
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { 'path' },
+        { name = 'path' },
       }, {
-        { 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
+        { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
       }),
     })
     if cmp_autopairs ~= nil then

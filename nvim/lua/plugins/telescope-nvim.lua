@@ -5,11 +5,11 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  config = function()
+  opts = function(_, opts)
     local u = require('utils')
     local actions = require('telescope.actions')
 
-    require('telescope').setup {
+    local config = {
       defaults = {
         mappings = {
           n = {
@@ -49,5 +49,7 @@ return {
     u.nnoremap { '<C-f>', '<cmd>Telescope grep_string<cr>' }
     u.nnoremap { '<C-u>', '<cmd>Telescope buffers<cr>' }
     u.nnoremap { '<C-g>', '<cmd>Telescope git_status<cr>' }
+
+    return config
   end,
 }

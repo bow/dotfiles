@@ -4,8 +4,10 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  config = function()
-    require('todo-comments').setup {
+  main = 'todo-comments',
+  opts = function(_, opts)
+    require('utils').nnoremap { '<C-y>', '<cmd>TodoTelescope<CR>' }
+    return {
       signs = false,
       keywords = {
         FIXME = { icon = ' ', color = 'error', alt = { 'FIX', 'BUG', 'FIXIT', 'ISSUE' } },
@@ -53,8 +55,5 @@ return {
         pattern = [[\b(KEYWORDS):]], -- ripgrep regex
       },
     }
-
-    local u = require('utils')
-    u.nnoremap { '<C-y>', '<cmd>TodoTelescope<CR>' }
   end,
 }

@@ -1,7 +1,7 @@
 return {
   'mfussenegger/nvim-dap',
   commit = 'cc77338e6e34c79f1c638f51ae4160dc9bfb05de',
-  config = function()
+  config = function(_, opts)
     local u = require('utils')
     local dap = require('dap')
 

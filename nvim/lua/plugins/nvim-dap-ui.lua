@@ -5,7 +5,7 @@ return {
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio',
   },
-  config = function()
+  config = function(_, opts)
     local dapui = require('dapui')
     local dap = require('dap')
     local u = require('utils')

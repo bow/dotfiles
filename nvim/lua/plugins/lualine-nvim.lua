@@ -4,7 +4,8 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
-  config = function()
+  main = 'lualine',
+  opts = function(_, opts)
     local api = vim.api
     local tc = require('config.constants').gruvbox
 
@@ -141,7 +142,7 @@ return {
       ['NONE'] = 'NONE',
     }
 
-    require('lualine').setup {
+    return {
       options = {
         icons_enabled = true,
         theme = {
