@@ -1,6 +1,9 @@
 return {
   'neovim/nvim-lspconfig',
   commit = '8c5efd1269160fc2fdf61e3d7176be5015860a8f',
+  dependencies = {
+    'SmiteshP/nvim-navic',
+  } ,
   config = function(_, opts)
     local api = vim.api
     local augroup = api.nvim_create_augroup
@@ -67,15 +70,6 @@ return {
           return string.format('%s (%s) [%s]', diagnostic.message, diagnostic.source, code)
         end,
       },
-    }
-
-    local navic = require('nvim-navic')
-    navic.setup {
-      highlight = true,
-      separator = ' ⟩ ',
-      depth_limit = 0,
-      depth_limit_indicator = '…',
-      safe_output = true,
     }
 
     local on_init = function(client, initialization_result)
