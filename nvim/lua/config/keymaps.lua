@@ -1,38 +1,49 @@
-local u = require('utils')
+local function nnoremap(keymap)
+  local opts = keymap[3]
+  local ropts = { noremap = true }
+  if opts == nil then
+    ropts.unique = true
+  else
+    for k, v in pairs(opts) do
+      ropts[k] = v
+    end
+  end
+  return vim.api.nvim_set_keymap('n', keymap[1], keymap[2], ropts)
+end
 
 -- Window split controls.
-u.nnoremap { '<C-j>', '<C-w><C-j>' }
-u.nnoremap { '<C-k>', '<C-w><C-k>' }
-u.nnoremap { '<C-l>', '<C-w><C-l>', { unique = false } }
-u.nnoremap { '<C-h>', '<C-w><C-h>' }
-u.nnoremap { '<C-Down>', '<C-w>J' }
-u.nnoremap { '<C-Up>', '<C-w>K' }
-u.nnoremap { '<C-Right>', '<C-w>L' }
-u.nnoremap { '<C-Left>', '<C-w>H' }
-u.nnoremap { '<C-/>', ':vsp<CR>' }
-u.nnoremap { '<C-.>', ':sp<CR>' }
+nnoremap { '<C-j>', '<C-w><C-j>' }
+nnoremap { '<C-k>', '<C-w><C-k>' }
+nnoremap { '<C-l>', '<C-w><C-l>', { unique = false } }
+nnoremap { '<C-h>', '<C-w><C-h>' }
+nnoremap { '<C-Down>', '<C-w>J' }
+nnoremap { '<C-Up>', '<C-w>K' }
+nnoremap { '<C-Right>', '<C-w>L' }
+nnoremap { '<C-Left>', '<C-w>H' }
+nnoremap { '<C-/>', ':vsp<CR>' }
+nnoremap { '<C-.>', ':sp<CR>' }
 
 -- Buffer controls.
-u.nnoremap { '<A-Right>', ':bn<CR>' }
-u.nnoremap { '<A-Left>', ':bp<CR>' }
-u.nnoremap { '<C-d>', ':bd<CR>' }
+nnoremap { '<A-Right>', ':bn<CR>' }
+nnoremap { '<A-Left>', ':bp<CR>' }
+nnoremap { '<C-d>', ':bd<CR>' }
 
 -- Session controls.
-u.nnoremap { '<C-q>', ':q<CR>' }
-u.nnoremap { '<C-s>', ':w<CR>' }
-u.nnoremap { '<C-x>', ':x<CR>' }
+nnoremap { '<C-q>', ':q<CR>' }
+nnoremap { '<C-s>', ':w<CR>' }
+nnoremap { '<C-x>', ':x<CR>' }
 
 -- Command shortcut.
-u.nnoremap { ';', ':' }
+nnoremap { ';', ':' }
 
 -- Relative number toggle.
-u.nnoremap { '<C-n>', ':set relativenumber!<CR>' }
+nnoremap { '<C-n>', ':set relativenumber!<CR>' }
 
 -- Search highlighting toggle.
-u.nnoremap { '<silent>', ',/ :set hlsearch!<CR>' }
+nnoremap { '<silent>', ',/ :set hlsearch!<CR>' }
 
 -- Config sourcing.
-u.nnoremap { '<leader>sv', ':source $MYVIMRC<CR>' }
+nnoremap { '<leader>sv', ':source $MYVIMRC<CR>' }
 
 -- Dropdown controls.
 vim.cmd [[

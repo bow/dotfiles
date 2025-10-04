@@ -1,17 +1,18 @@
 return {
   'mfussenegger/nvim-dap',
   commit = 'cc77338e6e34c79f1c638f51ae4160dc9bfb05de',
+  keys = {
+    { '<C-b>', function() require('dap').toggle_breakpoint() end },
+    { '<C-,>', function() require('dap').clear_breakpoints() end },
+    { '<C-c>', function() require('dap').continue() end },
+    { '<F9>', function() require('dap').repl.toggle() end },
+    { '<F10>', function() require('dap').step_over() end },
+    { '<F11>', function() require('dap').step_into() end },
+    { '<F12>', function() require('dap').step_out() end },
+  },
   config = function(_, opts)
     local u = require('utils')
     local dap = require('dap')
-
-    u.nnoremapf { '<C-b>', dap.toggle_breakpoint }
-    u.nnoremapf { '<C-,>', dap.clear_breakpoints }
-    u.nnoremapf { '<C-c>', dap.continue }
-    u.nnoremapf { '<F9>', dap.repl.toggle }
-    u.nnoremapf { '<F10>', dap.step_over }
-    u.nnoremapf { '<F11>', dap.step_into }
-    u.nnoremapf { '<F12>', dap.step_out }
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '⏹',

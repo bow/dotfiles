@@ -4,32 +4,30 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
+  keys = {
+    { '<A-e>', '<cmd>Trouble diagnostics toggle<CR>' },
+    { 'gr',    '<cmd>Trouble lsp_references toggle<CR>' },
+    { 'gi',    '<cmd>Trouble lsp_implementations toggle<CR>' },
+  },
   main = 'trouble',
-  opts = function(_, opts)
-    local u = require('utils')
-    u.nnoremap { '<A-e>', '<cmd>Trouble diagnostics toggle<CR>' }
-    u.nnoremap { 'gr', '<cmd>Trouble lsp_references toggle<CR>' }
-    u.nnoremap { 'gi', '<cmd>Trouble lsp_implementations toggle<CR>' }
-
-    return {
-      auto_jump = false,
-      focus = true,
-      open_no_results = false,
-      modes = {
-        preview_float = {
-          mode = 'diagnostics',
-          preview = {
-            type = 'float',
-            relative = 'editor',
-            border = 'rounded',
-            title = 'Preview',
-            title_pos = 'center',
-            position = { 0, -2 },
-            size = { width = 0.3, height = 0.3 },
-            zindex = 200,
-          },
+  opts = {
+    auto_jump = false,
+    focus = true,
+    open_no_results = false,
+    modes = {
+      preview_float = {
+        mode = 'diagnostics',
+        preview = {
+          type = 'float',
+          relative = 'editor',
+          border = 'rounded',
+          title = 'Preview',
+          title_pos = 'center',
+          position = { 0, -2 },
+          size = { width = 0.3, height = 0.3 },
+          zindex = 200,
         },
       },
-    }
-  end,
+    },
+  },
 }

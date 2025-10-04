@@ -8,7 +8,7 @@ return {
     local au = api.nvim_create_autocmd
 
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    local keymap_opts = { noremap = true, silent = true }
+    local keymap_opts = { noremap = true, silent = true, unique = true }
     vim.keymap.set('n', '<C-e>', function(_)
       return vim.diagnostic.open_float(nil, {
         focusable = false,
@@ -124,7 +124,7 @@ return {
 
       -- Winbar crumbs.
       if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
+        require('nvim-navic').attach(client, bufnr)
         vim.o.winbar = '%{%v:lua.require("nvim-navic").get_location()%}'
       end
     end

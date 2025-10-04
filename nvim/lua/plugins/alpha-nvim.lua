@@ -6,6 +6,7 @@ return {
   },
   main = 'alpha',
   opts = function(_, opts)
+
     -- Startify theme modified and taken from
     -- https://github.com/goolord/alpha-nvim/blob/21a0f2520ad3a7c32c0822f943368dc063a569fb/lua/alpha/themes/startify.lua
 
@@ -237,7 +238,7 @@ return {
       },
     }
 
-    local config = {
+    return {
       layout = {
         header,
         { type = 'padding', val = 1 },
@@ -261,9 +262,8 @@ return {
         end,
       },
     }
-
-    require('utils').nnoremap { '<C-a>', '<cmd>Alpha<CR>' }
-
-    return config
   end,
+  init = function()
+    vim.api.nvim_set_keymap('n', '<C-a>', '<cmd>Alpha<CR>', { unique = true })
+  end
 }
