@@ -3,7 +3,7 @@ return {
   commit = '8c5efd1269160fc2fdf61e3d7176be5015860a8f',
   dependencies = {
     'SmiteshP/nvim-navic',
-  } ,
+  },
   config = function(_, opts)
     local api = vim.api
     local augroup = api.nvim_create_augroup
@@ -411,73 +411,5 @@ return {
         flags = lsp_flags,
       },
     }
-
-    local luasnip = require('luasnip')
-    local cmp = require('cmp')
-
-    local autopairs_loaded, cmp_autopairs = pcall(require, 'nvim-autopairs.completion.cmp')
-    if not autopairs_loaded then
-      cmp_autopairs = nil
-    end
-
-    cmp.setup {
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-\\>'] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
-        ['<C-J>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-        ['<C-K>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-      }),
-      sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lsp_signature_help' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'path' },
-      },
-    }
-
-    cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' },
-      },
-    })
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        { name = 'path' },
-      }, {
-        { name = 'cmdline', option = { ignore_cmds = { 'Man', '!' } } },
-      }),
-    })
-    if cmp_autopairs ~= nil then
-      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-    end
   end,
 }
