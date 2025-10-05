@@ -8,7 +8,7 @@ local function nnoremap(keymap)
       ropts[k] = v
     end
   end
-  return vim.api.nvim_set_keymap('n', keymap[1], keymap[2], ropts)
+  return vim.keymap.set('n', keymap[1], keymap[2], ropts)
 end
 
 -- Window split controls.
