@@ -8,7 +8,7 @@ return function()
   optl.tabstop = 2
 
   optl.cindent = true
-  optl.cinoptions = optl.cinoptions .. ',(s,m1,+0'
+  optl.cinoptions = ',(s,m1,+0'
 
   local hls = {
     hclBlockname = { fg = tc.bright_red },

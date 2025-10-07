@@ -8,5 +8,5 @@ return function()
   optl.commentstring = '// %s'
 
   optl.cindent = true
-  optl.cinoptions = optl.cinoptions .. ',(s,m1,l1,=s'
+  optl.cinoptions = ',(s,m1,l1,=s'
 end
