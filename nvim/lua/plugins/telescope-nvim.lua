@@ -11,38 +11,41 @@ return {
     { '<C-u>', '<cmd>Telescope buffers<CR>' },
     { '<C-g>', '<cmd>Telescope git_status<CR>' },
   },
-  opts = {
-    defaults = {
-      mappings = {
-        n = {
-          ['<esc>'] = require('telescope.actions').close,
-          ['<C-Up>'] = require('telescope.actions').preview_scrolling_up,
-          ['<C-Down>'] = require('telescope.actions').preview_scrolling_down,
-        },
-        i = {
-          ['<esc>'] = require('telescope.actions').close,
-          ['<C-Up>'] = require('telescope.actions').preview_scrolling_up,
-          ['<C-Down>'] = require('telescope.actions').preview_scrolling_down,
+  opts = function(_, opts)
+    local actions = require('telescope.actions')
+    return {
+      defaults = {
+        mappings = {
+          n = {
+            ['<esc>'] = actions.close,
+            ['<C-Up>'] = actions.preview_scrolling_up,
+            ['<C-Down>'] = actions.preview_scrolling_down,
+          },
+          i = {
+            ['<esc>'] = actions.close,
+            ['<C-Up>'] = actions.preview_scrolling_up,
+            ['<C-Down>'] = actions.preview_scrolling_down,
+          },
         },
       },
-    },
-    pickers = {
-      find_files = {
-        find_command = function()
-          if 1 == vim.fn.executable 'rg' then
-            return {
-              'rg',
-              '--files',
-              '--follow',
-              '--hidden',
-              '--ignore',
-              '--ignore-file',
-              vim.fn.expand('~/.config/git/ignore'),
-            }
-          end
-          return nil
-        end,
+      pickers = {
+        find_files = {
+          find_command = function()
+            if 1 == vim.fn.executable 'rg' then
+              return {
+                'rg',
+                '--files',
+                '--follow',
+                '--hidden',
+                '--ignore',
+                '--ignore-file',
+                vim.fn.expand('~/.config/git/ignore'),
+              }
+            end
+            return nil
+          end,
+        },
       },
-    },
-  },
+    }
+  end,
 }
