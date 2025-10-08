@@ -76,12 +76,14 @@ if [[ "${starship_exists}" -eq 0 || "${TERM}" == "linux" ]]; then
     [[ -f "${HOME}/.git-prompt.sh" ]] && . "${HOME}/.git-prompt.sh"
 
     function get_git_stat {
-        export GIT_PS1_SHOWSTASHSTATE=true
-        export GIT_PS1_SHOWDIRTYSTATE=true
-        export GIT_PS1_SHOWUNTRACKEDFILES=true
-        export GIT_PS1_SHOWUPSTREAM="verbose"
-        nick=$(__git_ps1 "(  %s) ")
-        [[ -n "$nick" ]] && echo "$nick"
+        if has_exe __git_ps1; then
+            export GIT_PS1_SHOWSTASHSTATE=true
+            export GIT_PS1_SHOWDIRTYSTATE=true
+            export GIT_PS1_SHOWUNTRACKEDFILES=true
+            export GIT_PS1_SHOWUPSTREAM="verbose"
+            nick=$(__git_ps1 "(  %s) ")
+            [[ -n "$nick" ]] && echo "$nick"
+        fi
         return 0
     }
 
