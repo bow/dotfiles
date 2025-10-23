@@ -49,8 +49,8 @@ return {
         },
       }
 
-      local dap_python = require('dap-python')
-      if dap_python ~= nil then
+      local has_dap_python, dap_python = pcall(require, 'dap-python')
+      if has_dap_python then
         dap_python.setup(python, {
           include_configs = false,
           console = 'integratedTerminal',
