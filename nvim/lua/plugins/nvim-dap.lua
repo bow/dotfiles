@@ -50,20 +50,22 @@ return {
       }
 
       local dap_python = require('dap-python')
-      dap_python.setup(python, {
-        include_configs = false,
-        console = 'integratedTerminal',
-        pythonPath = function()
-          if '' ~= vim.env.VIRTUAL_ENV then
-            return vim.env.VIRTUAL_ENV .. '/bin/python'
-          end
-          if vim.fn.executable('pyenv') then
-            return vim.fn.system { 'pyenv', 'which', 'python' }
-          end
-          return '/usr/bin/python'
-        end,
-      })
-      dap_python.test_runner = 'pytest'
+      if dap_python ~= nil then
+        dap_python.setup(python, {
+          include_configs = false,
+          console = 'integratedTerminal',
+          pythonPath = function()
+            if '' ~= vim.env.VIRTUAL_ENV then
+              return vim.env.VIRTUAL_ENV .. '/bin/python'
+            end
+            if vim.fn.executable('pyenv') then
+              return vim.fn.system { 'pyenv', 'which', 'python' }
+            end
+            return '/usr/bin/python'
+          end,
+        })
+        dap_python.test_runner = 'pytest'
+      end
     end
   end,
 }
