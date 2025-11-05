@@ -1,5 +1,7 @@
 #!/bin/sh
 
+SCRIPT_PATH="$(readlink -f "$0")"
+
 battery_print() {
     path_ac="/sys/class/power_supply/AC"
     path_battery_0="/sys/class/power_supply/BAT0"
@@ -64,7 +66,7 @@ battery_print() {
 
 case "$1" in
     --update)
-        pid=$(pgrep -xf "/bin/sh /home/bow/.config/polybar/polybar-scripts/polybar-scripts/battery-combined-udev/battery-combined-udev.sh")
+        pid=$(pgrep -xf "/bin/sh ${SCRIPT_PATH}")
 
         if [ "$pid" != "" ]; then
             kill -10 "$pid"
