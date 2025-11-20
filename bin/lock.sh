@@ -21,7 +21,7 @@ playing="$([[ "$(playerctl status)" == "Playing" ]] && echo 1 || echo 0)"
 i3lock \
     "$( ([[ "${NOFORK}" -eq 1 ]] && echo "\--nofork") || echo "" )" \
     -i "${BG}" \
-    --fill \
+    --scale \
     --ignore-empty-password \
     --show-failed-attempts \
     --verif-text "" \
