@@ -22,35 +22,57 @@ calc_battery_percent() {
         total_full=$(echo "$total_full + $full" | bc)
     done
 
-    echo "$total_energy / $total_full" | bc -l | awk '{printf("%.0f\n", $1 * 100)}'
+    total_full_int="$(printf "%.0f" "$total_full")"
+
+    if [ "$total_full_int" -gt 0 ]; then
+        echo "$total_energy / $total_full" | bc -l | awk '{printf("%.0f\n", $1 * 100)}'
+    fi
 }
 
 # Prints the power status for display in polybar.
 print_power_status() {
-    battery_percent=$(calc_battery_percent)
-    if [ "$(get_ac_status)" -eq 1 ]; then
-        icon=""
+      battery_percent=$(calc_battery_percent)
 
-        if [ "$battery_percent" -ge 99 ]; then
-            echo "%{F#504945}$icon"
-        else
-            echo "%{F#504945}$icon %{F#e8e8d3}$battery_percent%"
-        fi
-    else
-        if [ "$battery_percent" -ge 85 ]; then
-            icon=" "
-        elif [ "$battery_percent" -ge 60 ]; then
-            icon=" "
-        elif [ "$battery_percent" -ge 40 ]; then
-            icon=" "
-        elif [ "$battery_percent" -ge 15 ]; then
-            icon=" "
-        else
-            icon=" "
-        fi
+      # System does not have battery.
+      if [ -z "$battery_percent" ]; then
+          icon=""
+          echo "%{F#504945}$icon"
 
-        echo "%{F#504945}$icon %{F#e8e8d3}$battery_percent%"
-    fi
+      # System has battery and it is plugged in.
+      elif [ "$(get_ac_status)" -eq 1 ]; then
+
+          # Battery is (close to) full.
+          if [ "$battery_percent" -ge 99 ] || [ -z "$battery_percent" ] ; then
+              icon=""
+              echo "%{F#504945}$icon"
+
+          # Battery is charging.
+          else
+              icon=""
+              echo "%{F#504945}$icon %{F#e8e8d3}$battery_percent%"
+          fi
+
+      # System has battery and it is not plugged in.
+      elif [ "$battery_percent" -ge 0 ]; then
+          if [ "$battery_percent" -ge 85 ]; then
+              icon=" "
+          elif [ "$battery_percent" -ge 60 ]; then
+              icon=" "
+          elif [ "$battery_percent" -ge 40 ]; then
+              icon=" "
+          elif [ "$battery_percent" -ge 15 ]; then
+              icon=" "
+          else
+              icon=" "
+          fi
+
+          echo "%{F#504945}$icon %{F#e8e8d3}$battery_percent%"
+
+      # Error state.
+      else
+          icon=""
+          echo "%{F#bd2c40}$icon"
+      fi
 }
 
 case "$1" in
