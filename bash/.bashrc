@@ -51,29 +51,29 @@ fi
 # set .dircolors
 [[ -e /bin/dircolors ]] && eval "$(dircolors -b ~/.dircolors)"
 
-# set prompt
-# shellcheck disable=SC2034
-nocol='\033[0m'
-# shellcheck disable=SC2034
-red='\033[31m'
-# shellcheck disable=SC2034
-green='\033[32m'
-# shellcheck disable=SC2034
-yellow='\033[33m'
-# shellcheck disable=SC2034
-blue='\033[34m'
-# shellcheck disable=SC2034
-purple='\033[35m'
-# shellcheck disable=SC2034
-cyan='\033[36m'
-# shellcheck disable=SC2034
-grey='\033[37m'
-
 # Define custom PS1 if starship does not exist or we are in console.
 if [[ "${starship_exists}" -eq 0 || "${TERM}" == "linux" ]]; then
     # load own copy of .git-prompt.sh if it exists
     # shellcheck source=/dev/null
     [[ -f "${HOME}/.git-prompt.sh" ]] && . "${HOME}/.git-prompt.sh"
+
+    # set prompt
+    # shellcheck disable=SC2034
+    nocol='\033[0m'
+    # shellcheck disable=SC2034
+    red='\033[31m'
+    # shellcheck disable=SC2034
+    green='\033[32m'
+    # shellcheck disable=SC2034
+    yellow='\033[33m'
+    # shellcheck disable=SC2034
+    blue='\033[34m'
+    # shellcheck disable=SC2034
+    purple='\033[35m'
+    # shellcheck disable=SC2034
+    cyan='\033[36m'
+    # shellcheck disable=SC2034
+    grey='\033[37m'
 
     function get_git_stat {
         if has_exe __git_ps1; then
@@ -127,8 +127,6 @@ alias lnames='ls -A'
 alias lsize='ls -lSrh'
 # sort by mtime
 alias ltime='ls -ltrh'
-# sort by extension
-alias lext='ls -lXBh'
 # human-readable output
 alias df='df -h -T --total'
 # ditto
@@ -147,11 +145,8 @@ alias reload='source ~/.bashrc'
 alias grest='history | grep'
 # set user-executable bit
 alias chmox='chmod +x'
-# nanoseconds timestamp
-alias unix-ns='date +%s%9N'
 # copy to X clipboard, trimming newline
 alias clip='xargs echo -n | xclip -selection c'
-
 
 # Docker aliases
 # Modified from: https://github.com/tcnksm/docker-alias/blob/master/zshrc
@@ -221,9 +216,6 @@ function pcat() {
 function sshx() {
     ssh "${1}" -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'
 }
-
-# sudo and then immediately forget cache
-function sudok() { sudo "$@"; sudo -k; }
 
 # make a new play directory and cd into it
 function pl() {
@@ -367,7 +359,6 @@ function credsreset() {
 # set bat + rg + fzf helpers if all executables exist
 if has_exe bat; then
 
-    alias bathelp="bat --plain --language=help"
     function help() {
         "$@" --help 2>&1 | bat --plain --language=help
     }
@@ -419,8 +410,7 @@ case "${OSTYPE}" in
 esac
 
 # load private settings if it exists
-# shellcheck source=.git-prompt.sh
-[[ -f ~/.bash_private ]] && . ~/.bash_private
+[[ -f ~/.bash_private ]] && . "${HOME}/.bash_private"
 
 # zoxide config
 if has_exe zoxide; then
