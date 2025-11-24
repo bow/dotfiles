@@ -179,7 +179,7 @@ function dbu() { docker build -t="$1" .; }
 
 # show the absolute path of a command executable
 # shellcheck disable=SC2164
-function wr() { readlink -f "$(which "${1}")"; }
+function wx() { readlink -f "$(which "${1}")"; }
 
 # create dir and cd into it
 # shellcheck disable=SC2164
