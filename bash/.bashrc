@@ -177,6 +177,10 @@ function dsh() { docker exec -it "$(docker ps -aqf 'name=$1')" "${2:-sh}"; }
 # dockerfile build, e.g., $dbu tcnksm/test
 function dbu() { docker build -t="$1" .; }
 
+# show the absolute path of a command executable
+# shellcheck disable=SC2164
+function rlw() { readlink -f "$(which "${1}")"; }
+
 # create dir and cd into it
 # shellcheck disable=SC2164
 function mkcd() { command mkdir -p "$1" && cd "$1"; }
