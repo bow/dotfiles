@@ -101,8 +101,10 @@ format = '[·](dimmed white) [[rs](cyan)[/](white)($version)](purple) '
 
 [shlvl]
 disabled = false
-format = '[·](dimmed white) [[lv](cyan)[/](white)($shlvl)](purple) '
-threshold = 3
+format = '[·](dimmed white)[$symbol](dimmed white)'
+repeat = true
+symbol = '/'
+repeat_offset = 2
 
 [sudo]
 format = '[$symbol]($style)'
