@@ -153,7 +153,7 @@ return {
         },
         -- Nix
         none_ls.builtins.code_actions.statix,
-        none_ls.builtins.diagnostics.deadnix,
+        none_ls.builtins.diagnostics.statix,
       },
 
       capabilities = capabilities,
