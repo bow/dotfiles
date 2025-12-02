@@ -10,10 +10,12 @@ return {
     },
     notification = {
       window = {
-        winblend = 50,
+        winblend = 0,
         zindex = nil,
-        border = 'none',
+        border = 'rounded',
         relative = 'win',
+        normal_hl = 'FidgetBase',
+        border_hl = 'FidgetBase',
       },
     },
   },

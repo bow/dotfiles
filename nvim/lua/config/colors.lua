@@ -173,6 +173,7 @@ local hls = {
   -- fidget.nvim
   FidgetTask = { bold = false, italic = true, fg = tc.dark3 },
   FidgetTitle = { bold = false, italic = true, fg = tc.faded_yellow },
+  FidgetBase = { bg = tc.dark0_hard },
 
   -- todo-comments.nvim
   Todo1 = { fg = tc.neutral_red },
