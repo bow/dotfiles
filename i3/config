@@ -194,9 +194,9 @@ exec --no-startup-id dropbox start
 exec_always --no-startup-id $HOME/.config/i3/polybar.sh
 
 # Gaps and borders.
-gaps inner 2
-gaps outer 23
-gaps bottom 22
+gaps inner 4
+gaps outer 20
+gaps bottom 20
 gaps top 0
 
 hide_edge_borders smart
