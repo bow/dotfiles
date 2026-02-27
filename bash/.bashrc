@@ -584,7 +584,7 @@ if has_exe eza; then
 fi
 
 export PAGER="less"
-export LESS="-F -X -g -S -w -z-2 -#.1 -M -R"
+export LESS="-F -X -g -S -w -#.1 -M -R"
 
 # load own copy of .git-completion.bash if it exists
 # shellcheck source=/dev/null
