@@ -1,6 +1,5 @@
 return {
   'hrsh7th/nvim-cmp',
-  commit = 'a1d504892f2bc56c2e79b65c6faded2fd21f3eca',
   dependencies = {
     'L3MON4D3/LuaSnip',
   },

@@ -1,6 +1,5 @@
 return {
   'folke/trouble.nvim',
-  commit = '85bedb7eb7fa331a2ccbecb9202d8abba64d37b3',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },

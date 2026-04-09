@@ -1,6 +1,5 @@
 return {
   'lewis6991/gitsigns.nvim',
-  commit = 'bbee149e00c404aa9f7a7c248b981cde953b252a',
   main = 'gitsigns',
   opts = {
     signs = {

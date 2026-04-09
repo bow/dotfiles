@@ -1,6 +1,5 @@
 return {
   'stevearc/aerial.nvim',
-  commit = '5c0df1679bf7c814c924dc6646cc5291daca8363',
   keys = {
     { '<C-o>', '<cmd>AerialToggle!<CR>' },
   },

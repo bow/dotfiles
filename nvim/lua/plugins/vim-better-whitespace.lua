@@ -1,6 +1,5 @@
 return {
   'ntpeters/vim-better-whitespace',
-  commit = 'de99b55a6fe8c96a69f9376f16b1d5d627a56e81',
   init = function()
     local g = vim.g
 

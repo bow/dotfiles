@@ -1,6 +1,5 @@
 return {
   'akinsho/toggleterm.nvim',
-  commit = '9a88eae817ef395952e08650b3283726786fb5fb',
   keys = { '<C-\\>' },
   main = 'toggleterm',
   opts = {

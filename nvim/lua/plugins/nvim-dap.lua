@@ -1,6 +1,5 @@
 return {
   'mfussenegger/nvim-dap',
-  commit = 'cc77338e6e34c79f1c638f51ae4160dc9bfb05de',
   keys = {
     { '<C-b>', function() require('dap').toggle_breakpoint() end },
     { '<C-,>', function() require('dap').clear_breakpoints() end },
