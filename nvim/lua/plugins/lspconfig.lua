@@ -164,7 +164,7 @@ return {
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
         -- Autoformat on save using none-ls.
-        if client.supports_method('textDocument/formatting') then
+        if client:supports_method('textDocument/formatting') then
           local grp_lspfmt = augroup('LspFormatting', { clear = true })
           aucl { buffer = bufnr, group = grp_lspfmt }
           au('BufWritePre', {
