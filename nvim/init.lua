@@ -8,6 +8,3 @@ require 'config.keymaps'
 require 'config.colors'
 
 local load_ok, _ = pcall(require, 'config.local')
-if load_ok then
-  vim.api.nvim_echo({ { 'Loaded local config', 'WarningMsg' } }, true, {})
-end
